@@ -26,6 +26,7 @@ Read this after every deck (Stage 6) and whenever a rule changes. Claude **propo
 4. Add a test brief for every new archetype or important rule, so the test set grows with the system.
 5. Add a line to `logs/changelog.md` and bump the version (minor change → 0.x+1; restructure → x+1.0).
 6. Set the lesson's status to `applied`.
+7. Sync the folder to GitHub (`maintenance/github-sync.md`).
 
 ## Review every ~5 decks (or monthly)
 
