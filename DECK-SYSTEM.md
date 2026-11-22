@@ -42,7 +42,7 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 | Stage 1, and before every batch | `Style/style-rules.md` (Section 1 says reference vs house default). When matching a reference, read its card in `Style/refs/` before every batch | Use the "shared rules" in `Style/style-findings.md`. Anything marked *proposed* or *open* there: use it, but say so |
 | Stage 3: choosing archetypes | Sections 4–5 of this file, then `catalogue/<message-type>.md` for each type used | Use Sections 4–5 only, and mark the slide "no spec yet" in the plan |
 | Stage 4: building a slide | `master/README.md` (layouts, colour slots), `Generators/patterns.js` (one function per pattern), `Style/pattern-catalogue.md` for the pattern's story and scaling rule. To reuse a template drawing: `Objects/README.md` + `Generators/objstore.py` | Build by hand in the house style on the master, and note it in the usage log |
-| Stage 3–4: any photo, logo, headshot or icon | `Objects/README.md` (sources and image rules) | n/a |
+| Stage 3–4: any photo, logo, headshot or icon | `Objects/images.md` (sources, licences and image rules) | n/a |
 | Stage 4: chart slides | The `dataviz` skill for chart craft (labels, axes, marks). Colours and fonts always come from the active style, never from the skill's palette | Section 5 + style rules only |
 | Finding a reference slide | Search `Style/slide-index.md`. Don't read the whole file | n/a |
 | Stage 5: checking | `scripts/check.py`, then Section 7 | Run the automatic checks by inspection and say which ones were skipped |

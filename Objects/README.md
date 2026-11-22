@@ -1,6 +1,6 @@
 # Objects: how they're stored, and what can be done with them
 
-There are two kinds of object. Both are fully editable.
+There are two kinds of object. Both are fully editable. (Photos, logos, headshots and icons: see `Objects/images.md`.)
 
 | Kind | Where | Best for |
 |---|---|---|
