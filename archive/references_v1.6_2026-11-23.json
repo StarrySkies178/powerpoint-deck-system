@@ -1,0 +1,181 @@
+{
+ "_about": "Every reference the system has learned. scripts/audit_reference.py checks each one has the full treatment. Add a row whenever a reference is ingested.",
+ "references": [
+  {
+   "key": "atk",
+   "name": "AT-Kearney-charts",
+   "template": "AT-Kearney-charts.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "bain",
+   "name": "Bain-concept-diagrams",
+   "template": "Bain-concept-diagrams.pptx",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "bcg",
+   "name": "BCG-writing-clear-slides",
+   "template": "BCG-writing-clear-slides.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "bp",
+   "name": "BearingPoint-diagrams",
+   "template": "BearingPoint-diagrams.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "del",
+   "name": "Deloitte-timesaver",
+   "template": "Deloitte-timesaver.pptx",
+   "study": [
+    "Style/refs/template-libraries.md",
+    "Style/refs/deloitte-timesaver.md"
+   ]
+  },
+  {
+   "key": "ey",
+   "name": "EY-graphics",
+   "template": "EY-graphics.pptx",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ],
+   "vector_checked": "2026-11-23: its 2 embedded objects are hidden think-cell tags, no charts; no graphic pictures"
+  },
+  {
+   "key": "map",
+   "name": "Maps-world-US-China",
+   "template": "Maps-world-US-China.pptx",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ],
+   "parts_checked": "split run 2026-11-23: every slide is a single map, nothing to split",
+   "vector_checked": "2026-11-23: no pictures or embedded charts"
+  },
+  {
+   "key": "mck",
+   "name": "McKinsey-frequently-used",
+   "template": "McKinsey-frequently-used.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "mono",
+   "name": "Concept-graphics-mono",
+   "template": "Concept-graphics-mono.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ],
+   "vector_checked": "2026-11-23: no pictures or embedded charts"
+  },
+  {
+   "key": "qpt",
+   "name": "Quick-Presentation-Toolkit",
+   "template": "Quick-Presentation-Toolkit.pptx",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "rb",
+   "name": "Roland-Berger-modules",
+   "template": "Roland-Berger-modules.ppt",
+   "study": [
+    "Style/refs/template-libraries.md"
+   ]
+  },
+  {
+   "key": "case-truenorth-pola",
+   "name": "Case-2016-TrueNorth-Pola-China-growth",
+   "template": "Case-2016-TrueNorth-Pola-China-growth.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-harvester-lg",
+   "name": "Case-2016-Harvester-LG-HH-expansion",
+   "template": "Case-2016-Harvester-LG-HH-expansion.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-jaguar-amorepacific",
+   "name": "Case-2016-Jaguar-Amorepacific-China",
+   "template": "Case-2016-Jaguar-Amorepacific-China.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-synergy-kose",
+   "name": "Case-2016-Synergy-KOSE-expansion",
+   "template": "Case-2016-Synergy-KOSE-expansion.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-littleboat-gree",
+   "name": "Case-2017-LittleBoat-GREE-digital",
+   "template": "Case-2017-LittleBoat-GREE-digital.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-neptune-appliance",
+   "name": "Case-2017-OnTheNeptune-appliance-digital",
+   "template": "Case-2017-OnTheNeptune-appliance-digital.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-polaris-gree",
+   "name": "Case-2017-Polaris-GREE-digital",
+   "template": "Case-2017-Polaris-GREE-digital.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ],
+   "vector_checked": "2026-11-23: its graphic pictures were logos only (never kept)"
+  },
+  {
+   "key": "case-sssr-gree",
+   "name": "Case-2017-SSSR-GREE-online",
+   "template": "Case-2017-SSSR-GREE-online.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ]
+  },
+  {
+   "key": "case-sparkle-shiseido",
+   "name": "Case-2016-Sparkle-Shiseido-China-rebuilt",
+   "template": "Case-2016-Sparkle-Shiseido-China-rebuilt.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ],
+   "rebuilt_from": "pdf"
+  },
+  {
+   "key": "case-olddriver-lg",
+   "name": "Case-2016-OldDriver-LG-HH-SUM37-rebuilt",
+   "template": "Case-2016-OldDriver-LG-HH-SUM37-rebuilt.pptx",
+   "study": [
+    "Style/refs/case-competitions.md"
+   ],
+   "rebuilt_from": "pdf"
+  }
+ ]
+}

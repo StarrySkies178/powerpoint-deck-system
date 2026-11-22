@@ -1,6 +1,6 @@
 # Master template: house-master-16x9.potx
 
-16:9 (13.33 × 7.5 in), built from `Style/style-rules.md` by `Generators/build_master.js`. The colours are approved. Type sizes and the grid are still *proposed* until the user reviews them.
+16:9 (13.33 × 7.5 in), built from `Style/style-rules.md` by `Generators/build_master.js`. The colours are approved. Type sizes and the grid are in use; they change like any other rule (archive, apply, report).
 
 ## Colours are theme slots, so everything recolours
 

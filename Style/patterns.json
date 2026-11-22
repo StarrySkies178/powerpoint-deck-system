@@ -1,5 +1,5 @@
 {
- "version": 1,
+ "version": "1+cases-2026-11-23",
  "engines": {
   "row": "Items on one horizontal row. w = (W - label_w - (n-1)*gap) / n. Chevrons overlap by point depth (0.25*h). Text under each item; max words per item shrinks with w (≈ w_in*12 words at 14pt). n above max -> wrap to 2 rows or group.",
   "column": "Items stacked vertically. h = (H - (n-1)*gap) / n; label column 25-30% width. n above max -> two columns.",
@@ -33,12 +33,12 @@
    "title_example": "We should enter the SE Asia market in 2026 through a JV",
    "engine": "tree",
    "keywords": "executive summary|hypothesis tree|storyline|report title",
-   "variants": "",
+   "variants": "lettered conclusions (A/B/C); decision framework (stages x dimensions -> answer -> goal); story diagram (findings -> target -> strategies -> next steps); pyramid diagram",
    "source_slides": {
     "Deloitte-timesaver": "40-41"
    },
    "source_count": 2,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js letteredSummary / decisionFramework / storyDiagram / pyramidSummary"
   },
   {
    "id": "issue-tree",
@@ -57,7 +57,7 @@
    "title_example": "Margin decline is driven by price, not volume",
    "engine": "tree",
    "keywords": "logic tree|issue tree|decision tree|root cause|tree|decisions|top down|mapping|comment text|left to right",
-   "variants": "",
+   "variants": "issue as a question -> goal -> strategy, 3 aligned columns",
    "source_slides": {
     "Quick-Presentation-Toolkit": "320-325,407-412",
     "Roland-Berger-modules": "14-15,35-36,266,345,350,352,366",
@@ -69,7 +69,7 @@
     "AT-Kearney-charts": "4"
    },
    "source_count": 36,
-   "generator": "issueTree"
+   "generator": "issueTree; Generators/patterns_story.js issueGoalStrategy"
   },
   {
    "id": "driver-tree",
@@ -1168,7 +1168,7 @@
    "title_example": "",
    "engine": "chart",
    "keywords": "bubble|growth spread|sector chart|partnering|prioritization sample|research",
-   "variants": "",
+   "variants": "positioning map: two axes, bubble = revenue, client in the main colour, shaded target zone",
    "source_slides": {
     "AT-Kearney-charts": "31,33-37,106-112",
     "BearingPoint-diagrams": "134,142,153,155,160",
@@ -1179,7 +1179,7 @@
     "Quick-Presentation-Toolkit": "117"
    },
    "source_count": 24,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js positioningMap"
   },
   {
    "id": "pros-cons",
@@ -1287,7 +1287,7 @@
    "title_example": "Option B scores best on four of five criteria",
    "engine": "grid",
    "keywords": "scoring|harvey|moons|stars|traffic light|heat map|table with arrows|evaluation|assessment|rating|benchmark|capability",
-   "variants": "",
+   "variants": "options x criteria with a verdict column (tick/cross, up/down); client-vs-peers diagnosis with the client column dashed",
    "source_slides": {
     "Quick-Presentation-Toolkit": "213-215,217,222-223",
     "Deloitte-timesaver": "165-169",
@@ -1317,7 +1317,7 @@
    "title_example": "",
    "engine": "grid",
    "keywords": "table|columns and tables|data table|text table",
-   "variants": "",
+   "variants": "status quo | current practice | best demonstrated practice (named peers)",
    "source_slides": {
     "Roland-Berger-modules": "101-103,229-234,426",
     "McKinsey-frequently-used": "160-164",
@@ -1751,7 +1751,7 @@
    "title_example": "Sales grew 11% a year since 2019",
    "engine": "chart",
    "keywords": "column",
-   "variants": "",
+   "variants": "paired columns with +x% growth callouts; history vs forecast with CAGR callouts",
    "source_slides": {
     "AT-Kearney-charts": "56,62-63,65-70,124-125,129-136",
     "Deloitte-timesaver": "60-64,87-88",
@@ -1761,7 +1761,7 @@
     "BCG-writing-clear-slides": "24"
    },
    "source_count": 42,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js growthPairs / growthBars"
   },
   {
    "id": "line-chart",
@@ -1837,7 +1837,7 @@
    "title_example": "Online share doubled to 34% in three years",
    "engine": "chart",
    "keywords": "stacked|100%|parfait|sub-divided",
-   "variants": "",
+   "variants": "stacked columns + two-period CAGR table, chosen row circled",
    "source_slides": {
     "AT-Kearney-charts": "21-22,24-25,54-55,57-61,64,71-74,98-99,101,123,126-128,137,139-140,233",
     "Deloitte-timesaver": "52-53,57-59,65-67,72",
@@ -1847,7 +1847,7 @@
     "Quick-Presentation-Toolkit": "104"
    },
    "source_count": 46,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js stackedCagr"
   },
   {
    "id": "waterfall",
@@ -2057,13 +2057,13 @@
    "title_example": "",
    "engine": "row",
    "keywords": "numbered elements|big numbers|kpi|infographic|world map fy|reach",
-   "variants": "",
+   "variants": "donut KPIs (survey %, drivers)",
    "source_slides": {
     "Deloitte-timesaver": "118,233-239,256",
     "EY-graphics": "229"
    },
    "source_count": 10,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js donutKpis"
   },
   {
    "id": "curve",
@@ -2148,6 +2148,84 @@
    },
    "source_count": 35,
    "generator": "not yet — build on its engine when first needed"
+  },
+  {
+   "id": "persona-cards",
+   "category": "A. Argument & storyline",
+   "name": "Persona cards",
+   "story": "Who the customers are: 2-5 named groups, each with a face, facts and reasons to buy.",
+   "use_when": "Targeting, segmentation, product or channel choices that differ by customer group.",
+   "avoid_when": "One undifferentiated customer; data-only segment sizing (use a chart).",
+   "parts": "photo or initials -> name bar -> rows (age, income, needs, buys because, brand option)",
+   "count": [
+    2,
+    5
+   ],
+   "scaling": "columns share width; rows share height; label column 1.3in",
+   "emphasis": "target persona in the main colour",
+   "title_example": "Four customer groups, each with its own reason to buy",
+   "engine": "grid",
+   "keywords": "persona|customer profile|segment|target customer|consumer group|who buys",
+   "variants": "speech-bubble personas (one quote each); persona rows (product <-> photo <-> age <-> income <-> pain point)",
+   "source_slides": {
+    "case-jaguar-amorepacific": "6",
+    "case-harvester-lg": "9",
+    "case-neptune-appliance": "10",
+    "case-truenorth-pola": "9"
+   },
+   "source_count": 4,
+   "generator": "Generators/patterns_story.js personaCards"
+  },
+  {
+   "id": "customer-journey",
+   "category": "B. Sequence & process",
+   "name": "Customer journey",
+   "story": "How customers move from need to purchase and sharing, and where each group or channel matters.",
+   "use_when": "Channel strategy, marketing, CRM, omni-channel; showing where to act along the path to purchase.",
+   "avoid_when": "A simple process with no customer view (use chevron-process).",
+   "parts": "4-6 stage chevrons -> lanes (personas, channels or 'journey / client / strategy') with dots and short actions per stage",
+   "count": [
+    4,
+    6
+   ],
+   "scaling": "stage width = (W - label column)/n; lanes share height",
+   "emphasis": "one stage highlighted; key cells in the accent colour",
+   "title_example": "Each customer group decides at a different moment of the journey",
+   "engine": "grid",
+   "keywords": "customer journey|consumer journey|path to purchase|touch point|awareness|purchase|after-sales|o2o|omni-channel",
+   "variants": "central funnel with online actions left and offline right; stage x short/long term synthesis",
+   "source_slides": {
+    "case-jaguar-amorepacific": "12",
+    "case-littleboat-gree": "14",
+    "case-polaris-gree": "15",
+    "case-sparkle-shiseido": "15"
+   },
+   "source_count": 4,
+   "generator": "Generators/patterns_story.js customerJourney"
+  },
+  {
+   "id": "evidence-panels",
+   "category": "A. Argument & storyline",
+   "name": "Evidence panels with insights",
+   "story": "A conclusion proved by 2-3 numbered findings, each with its own exhibit, plus the so-what.",
+   "use_when": "Analysis slides in any deck: market, customer, competitor, diagnosis.",
+   "avoid_when": "A single exhibit that needs the whole slide.",
+   "parts": "title -> 2-3 panels (number chip + sub-headline sentence + chart/table/bullets) -> insights column -> fixed so-what box",
+   "count": [
+    1,
+    3
+   ],
+   "scaling": "2 panels side by side; 3 = 2 on top + 1 wide; insight column ~30%",
+   "emphasis": "one highlight per chart; so-what box in the same place on every slide",
+   "title_example": "Skin care is the largest segment, and premium grows fastest",
+   "engine": "grid",
+   "keywords": "panels|sub-headline|insights|key insights|comment|implication|recommendation|so what",
+   "variants": "chart -> chevron -> takeaway box (chartTakeaway)",
+   "source_slides": {
+    "all 10 case decks": "most content slides"
+   },
+   "source_count": 120,
+   "generator": "Generators/patterns_story.js evidencePanels"
   }
  ]
 }

@@ -4,7 +4,7 @@ Read this when building out the system, not during a deck task. Update the statu
 
 ## Build order and status
 
-- [~] **1. House style**: style source, colours (Deloitte-based) and font (Arial) approved 2026-11-22. Chinese font Microsoft YaHei approved. Type sizes and grid are proposed (confirm with the master).
+- [~] **1. House style**: style source, colours (Deloitte-based) and font (Arial) approved 2026-11-22. Chinese font Microsoft YaHei approved. Type sizes and grid in use (change dynamically: archive, apply, report) (was: confirm with the master).
 - [~] **2. Master template**: built 2026-11-22 (`master/house-master-16x9.potx`, 14 layouts, theme-linked colours, YaHei as East Asian font). Awaiting user review; type sizes and grid still proposed.
 - [ ] **3. Catalogue entries** for the 18 starter archetypes (1/18 drafted: waterfall in `catalogue/bridge.md`). Use the reference libraries for structure.
 - [x] **4. Tie-breakers**: now in `DECK-SYSTEM.md` Section 5.

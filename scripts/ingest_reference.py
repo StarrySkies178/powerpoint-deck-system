@@ -10,7 +10,7 @@ What it does, in order:
      Saved as Templates/<name>-rebuilt.pptx (the original is kept beside it) with a side-by-side
      review sheet and a similarity score per page in review/<key>/.
   1. Converts .ppt/.potx to .pptx if needed (LibreOffice) and copies the original into Templates/.
-  2. Object store: saves every slide's drawing as editable vector objects with theme-role colours
+  2. Object store: saves every slide (and each slide's separate diagrams as parts, Generators/components.py)'s drawing as editable vector objects with theme-role colours
      (Objects/store/<key>.jsonl.gz, media into media.zip) and rebuilds Objects/store/index.json.
   3. Slide index: appends every slide's title to Style/slide-index.md.
   4. Pattern map: classifies each slide against Style/patterns.json (keywords on title + text) and
@@ -137,21 +137,40 @@ def main():
     idx_path = os.path.join(store, "index.json"); idx = json.load(open(idx_path))
     idx = [o for o in idx if o["deck"] != key]
     for o in objs: idx.append({**{x: o[x] for x in ("id", "deck", "slide", "pattern", "title", "note", "n_shapes", "text", "roles_used", "complete", "bbox", "src_slide", "slots")}, "charts": len(o["charts"])})
+    # single diagrams: split each slide into its separate diagrams (parts), so they can be reused on their own
+    import components as CP
+    for prt in CP.split_deck(store, key):
+        idx.append({k: prt.get(k) for k in ("id", "deck", "slide", "title", "n_shapes", "text", "roles_used", "complete", "bbox", "src_slide", "part_of", "part", "kind")}
+                   | {"pattern": prt["kind"], "note": f"part {prt['part']} of slide {prt['slide']} (auto-split; check by eye)", "slots": 0, "charts": 0})
     json.dump(idx, open(idx_path, "w"), ensure_ascii=False)
     with open(os.path.join(ROOT, "Style", "slide-index.md"), "a", encoding="utf-8") as f:
         f.write(f"\n## {name}  ({tname})\n\n" + "\n".join(f"- {i}: {t or '(graphic, no title)'}" for i, t, _ in T) + "\n")
     with open(os.path.join(ROOT, "Style", "slide-map.csv"), "a", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         for i, t, _ in T: w.writerow([os.path.splitext(tname)[0], i, meta[i]["pattern"], t, "auto (review by eye)"])
+    # pictures and embedded charts -> editable shapes (always)
+    try:
+        import vectorize as VZ
+        ids = {o["slide"]: o["id"] for o in objs}
+        vec = VZ.route_a(src if not os.path.isdir(src) else pptx, pptx, key, ids) if not rebuilt else []
+        vec += VZ.route_b(VZ.graphic_pictures(store, key, os.path.join(store, "media.zip")), key)
+        VZ.save(store, key, vec); idx = json.load(open(idx_path))
+    except Exception as e:   # missing tools (LibreOffice, Tesseract, scikit-learn): the audit will fail check 10 until this is run
+        vec = []; print("vectorize did not run:", e)
+    # registry for the audit gate (scripts/audit_reference.py fails until the study file is written)
+    reg_p = os.path.join(ROOT, "Style", "refs", "references.json"); reg = json.load(open(reg_p, encoding="utf-8"))
+    if not any(r["key"] == key for r in reg["references"]):
+        reg["references"].append({"key": key, "name": os.path.splitext(tname)[0], "template": tname, "study": [f"Style/refs/{key}.md"], **({"rebuilt_from": "pdf/images"} if rebuilt else {})})
+        json.dump(reg, open(reg_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     # 5 review sheets
     sheets = contact_sheets(pptx, os.path.join(ROOT, "review", key))
     # 6 summary
     unc = [i for i, *_ in T if meta[i]["pattern"] == "unclassified"]
     print(json.dumps(dict(key=key, slides=len(T), objects=len(objs), media=sum(len(o["media"]) for o in objs),
-                          unclassified=len(unc), unclassified_slides=unc[:60], review_sheets=sheets,
+                          unclassified=len(unc), vectorised=len(vec), unclassified_slides=unc[:60], review_sheets=sheets,
                           rebuilt_from_pdf_or_images=(dict(file=tname, similarity=rebuilt["similarity"], sheet=rebuilt["review_sheet"],
                                                           low_pages=[i + 1 for i, v in enumerate(rebuilt["similarity"]) if v is not None and v < 0.8]) if rebuilt else None),
-                          next="Follow maintenance/new-reference.md from step 2 (look at every sheet)"), indent=1))
+                          next=f"Follow maintenance/new-reference.md from step 2; finish with: python3 scripts/audit_reference.py {key} (must be ALL PASS)"), indent=1))
 
 if __name__ == "__main__":
     main()

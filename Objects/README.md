@@ -5,7 +5,7 @@ There are two kinds of object. Both are fully editable. (Photos, logos, headshot
 | Kind | Where | Best for |
 |---|---|---|
 | **Generated** | `Generators/patterns.js` (drawn from rules for any count, 31 patterns) and `objects-library.pptx` (visual index) | Standard patterns, and any change of count the template object can't take safely |
-| **Template objects** | `Objects/store/` (2,412 objects from all template slides), handled by `Generators/objstore.py` | Reusing a specific drawing: concept graphics, metaphors, maps, icons, frameworks, native charts |
+| **Template objects** | `Objects/store/` (2,610 objects from all template and reference slides (incl. 10 case-competition decks)), handled by `Generators/objstore.py` | Reusing a specific drawing: concept graphics, metaphors, maps, icons, frameworks, native charts |
 
 ## How template objects are saved
 
@@ -51,3 +51,11 @@ Result across all 1,367 repeating template objects: **238 change count in place*
 - New objects made by combining or extending can be saved back to the store as `<deck>-new-<name>`.
 - New references are added with `scripts/ingest_reference.py` (see `maintenance/new-reference.md`). They get the same cleaning, slots, charts and colour roles automatically.
 - PDFs, screenshots and scans are first turned into editable slides by `Generators/rebuild_slides.py` (vector PDF import; OCR + traced shapes for images), so their objects go into the store too. Rebuilt objects are approximations: text and simple shapes are reliable; complex drawings (maps, detailed icons) may need a generator or a cleaner source.
+
+## Single diagrams (parts)
+
+Slides are also split into their separate diagrams by `Generators/components.py` (whitespace cuts, then checked by eye). Parts have ids like `case-jaguar-amorepacific-012p1`, with `part_of` and `kind` in `index.json`, and every operation (place, recolour, set_texts, extend, combine) works on them. Done so far for the 10 case-competition decks (142 parts). Picture charts are never reused as charts: `Style/refs/case-competitions-chart-rebuild-map.csv` maps each to a native builder.
+
+## Pictures and embedded charts → shapes
+
+Every reference's pictures and embedded charts are turned into editable shapes by `Generators/vectorize.py` (run automatically by `ingest_reference.py`). Embedded charts (think-cell / MS Graph / Excel) come from the vector render, so they are exact; they get ids `<slide id>c<n>`. Graphic pictures are traced (OCR text + colour regions); ids `<slide id>v<n>`. Photos stay pictures. Every operation works on them: place, resize, recolour, swap_geom, transform (flip/rotate), ungroup/explode, combine, set_texts. A vectorised chart's numbers are shapes, not chart data: to change the data, redraw it with a builder (`chartIn`, `stackedCagr`, `waterfall`…).

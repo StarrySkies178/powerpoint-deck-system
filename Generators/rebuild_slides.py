@@ -275,6 +275,73 @@ def merge_text_lines(prs):
                     b._element.getparent().remove(b._element); used.add(id(b)); cur = b
     return prs
 
+def restore_missing_text(prs, pdf):
+    """LibreOffice drops text in fonts it can't map (e.g. CJK 'Adobe Heiti'); put any PDF text line missing from the slide back as a text box."""
+    import pdfplumber, re
+    norm = lambda t: re.sub(r"\s+", "", t)
+    added = 0
+    with pdfplumber.open(pdf) as d:
+        for page, slide in zip(d.pages, prs.slides):
+            have = norm("".join(sh.text_frame.text for sh in slide.shapes if sh.has_text_frame))
+            k = prs.slide_width / float(page.width)
+            try: lines = page.extract_text_lines(return_chars=True)
+            except Exception: continue
+            # split each PDF line at column gaps; a segment the import lost (not found as a whole) is put back
+            groups = []
+            for Ln in lines:
+                cs = [c for c in Ln["chars"] if c.get("upright", True)]
+                seg = []
+                for c in cs:
+                    if seg and c["x0"] - seg[-1]["x1"] > 1.5 * c["size"]: groups.append(seg); seg = []
+                    seg.append(c)
+                if seg: groups.append(seg)
+            def seg_words(seg):
+                out, cur = [], None
+                for c in seg:
+                    if cur and c["x0"] - cur["x1"] > 0.15 * c["size"]: out.append(cur); cur = None
+                    if c["text"].strip() == "": 
+                        if cur: out.append(cur); cur = None
+                        continue
+                    if cur: cur["text"] += c["text"]; cur["x1"] = c["x1"]
+                    else: cur = dict(text=c["text"], x0=c["x0"], x1=c["x1"], top=c["top"], size=c["size"], fontname=c["fontname"], non_stroking_color=c.get("non_stroking_color"))
+                if cur: out.append(cur)
+                return out
+            groups = [seg_words(g) for g in groups]
+            def lost(g):
+                if norm("".join(w["text"] for w in g)) in have: return False
+                ws = [norm(w["text"]) for w in g if norm(w["text"])]
+                pairs = [a + b for a, b in zip(ws, ws[1:])] or ws  # word pairs: specific enough to tell "wrapped differently" from "lost"
+                return sum(p in have for p in pairs) / len(pairs) < 0.7
+            boxes = [(sh.left, sh.top, sh.left + sh.width, sh.top + sh.height) for sh in slide.shapes
+                     if sh.has_text_frame and sh.text_frame.text.strip() and sh.width is not None]
+            def covered(g):  # a text box already sits where this text is: it was imported (maybe spelled differently)
+                x0, x1 = g[0]["x0"] * k, g[-1]["x1"] * k; y0 = min(w["top"] for w in g) * k; y1 = y0 + max(w["size"] for w in g) * k
+                area = max(1, (x1 - x0) * (y1 - y0))
+                for bx0, by0, bx1, by1 in boxes:
+                    ix = max(0, min(x1, bx1) - max(x0, bx0)); iy = max(0, min(y1, by1) - max(y0, by0))
+                    if ix * iy / area > 0.4: return True
+                return False
+            groups = [g for g in groups if g and lost(g) and not covered(g)]
+            for g in groups:
+                t = " ".join(w["text"] for w in g)
+                if len(norm(t)) < 2: continue
+                L = dict(x0=g[0]["x0"], x1=g[-1]["x1"], top=min(w["top"] for w in g)); chars = [dict(size=w["size"], fontname=w["fontname"], non_stroking_color=w.get("non_stroking_color")) for w in g]
+                size = float(np.median([c["size"] for c in chars]))
+                col = chars[0].get("non_stroking_color")
+                rgb = (40, 40, 40)
+                if isinstance(col, (list, tuple)):
+                    if len(col) == 3: rgb = tuple(int(255 * v) for v in col)
+                    elif len(col) == 1: rgb = (int(255 * col[0]),) * 3
+                    elif len(col) == 4: c_, m_, y_, k_ = col; rgb = tuple(int(255 * (1 - v) * (1 - k_)) for v in (c_, m_, y_))
+                tb = slide.shapes.add_textbox(Emu(int(L["x0"] * k)), Emu(int(L["top"] * k - size * k * 0.15)), Emu(int((L["x1"] - L["x0"]) * k * 1.08 + size * k)), Emu(int(size * k * 1.3)))
+                tf = tb.text_frame; tf.word_wrap = False
+                for m in ("margin_left", "margin_right", "margin_top", "margin_bottom"): setattr(tf, m, 0)
+                r = tf.paragraphs[0].add_run(); r.text = t; r.font.size = Pt(max(6, round(size * k / 12700 * 2) / 2))
+                r.font.color.rgb = _hex(rgb); r.font.name = "Arial"; r.font.bold = "Bold" in chars[0]["fontname"]
+                rPr = r._r.get_or_add_rPr(); ea = etree.SubElement(rPr, "{http://schemas.openxmlformats.org/drawingml/2006/main}ea"); ea.set("typeface", "Microsoft YaHei")
+                have += norm(t); added += 1
+    return added
+
 def rebuild_pdf(pdf, out, lang):
     work = tempfile.mkdtemp()
     kinds = pdf_pages_kind(pdf)
@@ -283,6 +350,7 @@ def rebuild_pdf(pdf, out, lang):
         got = glob.glob(os.path.join(work, "*.pptx"))
         if not got: raise SystemExit("PDF import failed")
         prs = merge_text_lines(Presentation(got[0]))
+        restore_missing_text(prs, pdf)
     else:
         prs = Presentation()
         import pdfplumber

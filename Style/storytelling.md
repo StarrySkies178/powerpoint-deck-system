@@ -135,3 +135,17 @@ This is the strongest rule across all 11 decks:
 7. Does the data have a source?
 8. Is the format and colour consistent?
 9. No typos.
+
+## 8. Storyline rules from the case-competition study (all presentations) [Style/refs/case-competitions.md]
+
+1. **Answer first.** Open with a one-page executive summary in one of four forms: lettered conclusions (A/B/C, letters reused in section titles), decision framework (stages → what we analysed → answer → goal bar), story diagram (findings → target → strategies → next steps) or pyramid (governing thought → key lines → supports). Generators: `letteredSummary`, `decisionFramework`, `storyDiagram`, `pyramidSummary`.
+2. **Title chain test.** Read the titles alone before building: they must read as one argument. Use connectives where a slide follows from the one before: *therefore, hence, meanwhile, furthermore, then, in the long term*.
+3. **Evidence → decision.** Close every block of evidence with a decision slide ("Therefore, we…") that shows the choice as a table or matrix.
+4. **Problem before solution.** In a recommendation, put one problem slide before each strategy pillar.
+5. **Role tags in long decks** (> 12 slides): "Analysis n:", "Strategy n:", "S-term:", "L-term:", the value-chain stage, or the exec-summary letter (A, B, C1…).
+6. **Fixed so-what.** The so-what of an analysis slide sits in the same place on every slide (bottom-right box `soWhat()` or the takeaway bar).
+7. **Panels.** At most 3 numbered panels per slide; each sub-headline is a sentence; together they prove the title (`evidencePanels`, `subhead`).
+8. **Value bridge.** A deck with financials shows a waterfall from today's value to the target, by initiative (`waterfall`).
+9. **Recurring characters.** Name customer personas and key competitors once and reuse them, with the same name, picture and colour, on every later slide.
+10. **Message → figure.** Choose the exhibit from the message using the table in `Style/refs/case-competitions.md` §5, and make the point with one highlight (circle, box or accent colour), never with a second colour scheme.
+11. **Several figures per slide.** An analysis slide usually carries 2–4 exhibits that together prove its title (78% of the case-deck content slides do). Pick the layout from `Style/refs/case-competitions.md` §4b (HALF2, GRID4I, BAND2, T2B1/T1B2, GRID4, EXI, L2R1, COL3, FLOW, CHAIN, EXB) and build it with `composeSlide()`. Rules: every panel numbered with a sentence sub-headline; Z reading order with the conclusion (insights / so-what) in the last cell; same palette, categories and highlight across panels, all pointing to the same answer; connectors only when one panel follows from another; at most 4 panels, otherwise a table or the appendix; gutters, not boxes.

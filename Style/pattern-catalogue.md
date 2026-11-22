@@ -847,3 +847,54 @@
 - **Scaling:** row or staircase
 - **Emphasis:** first item in accent
 - **Sources (35 slides):** Deloitte-timesaver 216,218-220,222-232,242-252; EY-graphics 152-157,172; Roland-Berger-modules 267; AT-Kearney-charts 174
+
+## H. Added from the case-competition study (2026-11-23)
+
+### `persona-cards` — Persona cards
+- **Story:** Who the customers are: 2-5 named groups, each with a face, facts and reasons to buy.
+- **Use when:** Targeting, segmentation, product or channel choices that differ by customer group.
+- **Avoid when:** One undifferentiated customer; data-only segment sizing (use a chart).
+- **Parts:** photo or initials -> name bar -> rows (age, income, needs, buys because, brand option)
+- **Count:** 2–5 · **Engine:** grid
+- **Generator:** Generators/patterns_story.js personaCards
+- **Scaling:** columns share width; rows share height; label column 1.3in
+- **Emphasis:** target persona in the main colour
+- **Variants:** speech-bubble personas (one quote each); persona rows (product <-> photo <-> age <-> income <-> pain point)
+- **Example title:** "Four customer groups, each with its own reason to buy"
+- **Sources:** case-jaguar-amorepacific 6, case-harvester-lg 9, case-neptune-appliance 10, case-truenorth-pola 9
+
+### `customer-journey` — Customer journey
+- **Story:** How customers move from need to purchase and sharing, and where each group or channel matters.
+- **Use when:** Channel strategy, marketing, CRM, omni-channel; showing where to act along the path to purchase.
+- **Avoid when:** A simple process with no customer view (use chevron-process).
+- **Parts:** 4-6 stage chevrons -> lanes (personas, channels or 'journey / client / strategy') with dots and short actions per stage
+- **Count:** 4–6 · **Engine:** grid
+- **Generator:** Generators/patterns_story.js customerJourney
+- **Scaling:** stage width = (W - label column)/n; lanes share height
+- **Emphasis:** one stage highlighted; key cells in the accent colour
+- **Variants:** central funnel with online actions left and offline right; stage x short/long term synthesis
+- **Example title:** "Each customer group decides at a different moment of the journey"
+- **Sources:** case-jaguar-amorepacific 12, case-littleboat-gree 14, case-polaris-gree 15, case-sparkle-shiseido 15
+
+### `evidence-panels` — Evidence panels with insights
+- **Story:** A conclusion proved by 2-3 numbered findings, each with its own exhibit, plus the so-what.
+- **Use when:** Analysis slides in any deck: market, customer, competitor, diagnosis.
+- **Avoid when:** A single exhibit that needs the whole slide.
+- **Parts:** title -> 2-3 panels (number chip + sub-headline sentence + chart/table/bullets) -> insights column -> fixed so-what box
+- **Count:** 1–3 · **Engine:** grid
+- **Generator:** Generators/patterns_story.js evidencePanels
+- **Scaling:** 2 panels side by side; 3 = 2 on top + 1 wide; insight column ~30%
+- **Emphasis:** one highlight per chart; so-what box in the same place on every slide
+- **Variants:** chart -> chevron -> takeaway box (chartTakeaway)
+- **Example title:** "Skin care is the largest segment, and premium grows fastest"
+- **Sources:** all 10 case decks most content slides
+
+**New variants of existing patterns** (also in patterns.json):
+- `exec-summary-tree`: lettered conclusions (A/B/C); decision framework (stages x dimensions -> answer -> goal); story diagram (findings -> target -> strategies -> next steps); pyramid diagram (Generators/patterns_story.js letteredSummary / decisionFramework / storyDiagram / pyramidSummary)
+- `scoring-table`: options x criteria with a verdict column (tick/cross, up/down); client-vs-peers diagnosis with the client column dashed
+- `table`: status quo | current practice | best demonstrated practice (named peers)
+- `bubble-portfolio`: positioning map: two axes, bubble = revenue, client in the main colour, shaded target zone (Generators/patterns_story.js positioningMap)
+- `issue-tree`: issue as a question -> goal -> strategy, 3 aligned columns (Generators/patterns_story.js issueGoalStrategy)
+- `stacked-chart`: stacked columns + two-period CAGR table, chosen row circled (Generators/patterns_story.js stackedCagr)
+- `column-chart`: paired columns with +x% growth callouts; history vs forecast with CAGR callouts (Generators/patterns_story.js growthPairs / growthBars)
+- `kpi-numbers`: donut KPIs (survey %, drivers) (Generators/patterns_story.js donutKpis)

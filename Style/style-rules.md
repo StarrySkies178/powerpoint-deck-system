@@ -1,6 +1,6 @@
 # House style rules
 
-Do not change this file without the user's explicit approval.
+Claude may change this file when it learns something better (from a reference, a correction or a deck review): archive the old version in `archive/`, apply the change, re-render the master and test briefs, log it in `logs/changelog.md`, and tell the user what changed so they can undo it. (User decision 2026-11-23: the system should be dynamic, not wait for approval.)
 
 **Status:** style source and colours approved 2026-11-22. Chinese font (Microsoft YaHei) approved 2026-11-22. Type sizes and grid are proposed until the master template has been built and reviewed.
 
