@@ -6,12 +6,33 @@ More than one chat changes this folder at the same time (on 2026-11-23 three Cla
 
 **What to work on:** the shared plan is `maintenance/roadmap.md`. The user approved it on 2026-11-24. When you take one of its steps, name the phase and step in your sign-in.
 
-> **FREEZE in force since v2.23 (2026-11-24), until the user signs off Phase 1 of the roadmap.**
-> Do not change `Generators/`, `Style/` (except `Style/refs/`), `catalogue/`, `master/` or `DECK-SYSTEM.md`. The benchmark is being turned into a measuring instrument, and it cannot measure builders that keep moving.
-> - Still allowed: building decks, learning and storing references (`Templates/`, `Objects/store/`, `review/`, `Style/refs/`), the logs, and work on `bench/` that a roadmap step asks for.
-> - A lesson or rule change you would normally apply straight away: log it as usual in `logs/lessons-log.md`, then add one row to `logs/proposals.md` instead of applying it. It is applied when the freeze lifts. For the length of the freeze this replaces "apply straight away" in `maintenance/learning-loop.md` and in the skill.
-> - The only exception: a fix that a Phase 1 measuring step itself needs. Say so in your sign-in and in the changelog row.
-> - Only the user lifts the freeze. A chat that thinks a change cannot wait asks the user.
+> **FREEZE in force since v2.23 (2026-11-24), until Phase 1 of the roadmap passes its test.** (Made specific in v2.27.)
+>
+> **The principle:** until the benchmark is a trustworthy measure, nothing may change that decides how a slide is *chosen, drawn or checked*. Adding reference *data* and building decks goes on as usual.
+>
+> | Path | During the freeze |
+> |---|---|
+> | `DECK-SYSTEM.md`, `Style/style-rules.md`, `Style/storytelling.md`, `Style/style-findings.md`, `Style/patterns.json`, `Style/pattern-catalogue.md`, `catalogue/`, `master/` | **No change.** |
+> | `Generators/` deck builders: `house.js`, `patterns*.js`, `components.py`, `objstore.py`, `fill_objects.py`, `part_patterns.py`, `build_*.js`, `icons.json` | **No change.** A bug found here goes to `logs/proposals.md`. |
+> | `scripts/deck_lint.py`, `deck_measure.py`, `composition.py`, `layout_*.py`, `bench/scripts/bench_score.py` and the pass bar in `bench/README.md` | **No change** (they decide what passes). |
+> | `Style/slide-map.csv`, `Style/slide-index.md`, `Generators/ocr_autofix.json` | **Append only:** new rows or entries for a reference being learned. Never edit or remove an existing row. |
+> | `Templates/`, `Objects/store/`, `Objects/Visual/`, `Objects/maps/`, `review/`, `Style/refs/` (study files, profiles, `references.json`) | **Allowed.** This is how a reference is learned and stored. |
+> | Reference tools: `Generators/rebuild_slides.py`, `ocr_review.py`, `vectorize.py`, `scripts/ingest_reference.py`, `audit_reference.py`, `study_reference.py`, `make_style_profile.py`, `measure_type_scale.py` | **Bug fixes only**, when a reference cannot be learned without them. Say so in the changelog row. |
+> | `bench/` other than the scorer and the pass bar | **Allowed when a roadmap step asks for it.** |
+> | `logs/`, `samples/`, deck output folders, `design-system/`, `maintenance/` files of your own lane, `scripts/work.py`, `scripts/bigfiles.py` | **Allowed.** |
+>
+> **What replaces the usual steps while the freeze is on:**
+> - *A lesson or rule you would apply straight away* (`maintenance/learning-loop.md`, the skill): write it in `logs/lessons-log.md` as usual, add one row to `logs/proposals.md`, do not apply it.
+> - *A new story pattern found in a reference* (`maintenance/new-reference.md`, "New patterns"): describe it in the reference's study file in `Style/refs/` and add one row to `logs/proposals.md`. No entry in `Style/patterns.json` or `pattern-catalogue.md`, no generator.
+> - *A deck needs a layout no builder draws:* draw it in that deck's own build script. Do not add it to `Generators/`. Log a proposal.
+> - *A slide flagged NEW:* same, a proposal, no catalogue entry and no generator.
+> - *The reference audit:* a reference may be reported as learned when `scripts/audit_reference.py` passes for it. The audit needs nothing from the frozen files beyond new rows in `Style/slide-map.csv`.
+>
+> **The only exception:** a fix that a Phase 1 measuring step itself needs. Say so in your sign-in and in the changelog row.
+>
+> **If you are not sure whether something is allowed, do not stop to ask the user,** who may be away. Take the safe route (the reference's own files in `Style/refs/`, or a row in `logs/proposals.md`), carry on with the rest of the job, and say in your reply what you left for later.
+>
+> **Who lifts it:** the freeze ends when Phase 1's pass test in `maintenance/roadmap.md` is met. No chat lifts it early.
 
 Read this before you change **any** file in the folder: rules, scripts, generators, style, the object store, the logs. Building a deck without changing the system needs no sign-in until Stage 6 (the logs).
 
