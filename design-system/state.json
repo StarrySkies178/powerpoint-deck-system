@@ -1,11 +1,11 @@
 {
- "checked_at": "2026-11-23T16:26",
- "folder_version_checked": "2.16",
+ "checked_at": "2026-11-23T16:42",
+ "folder_version_checked": "2.18",
  "needs_publish": false,
  "new_generators": [],
- "published_hash": "510094c2261c4ed59cd7244dc4d94af7275c56d34b36b0e330936e362f28a3b1",
+ "published_hash": "91597860c3ca1108057603dd19c0aa769edf46fb62ff1202c338f1092262284d",
  "published_files": {
-  "README.md": "76a915562baaaf3469361478e81a9f2e983a820971a788102c81e50bd729e878",
+  "README.md": "afebd2e68b1db942b916e9cbcf57a48689fd04d74f51076c463051402f09c142",
   "assets/Maps/README.md": "e07cf06ba439cea72a013dbdb681aa3a2f3cb5f844508c4171e8dbc234d039e9",
   "assets/Photos/README.md": "9461879d00e56c53b6f962cfb2fc985f2024978b464eef171c31c4622ed20751",
   "assets/Real output/README.md": "b716744e3040ffa6fcff7fc7bc351e82ad6b455a9af2df8fcc2546e608bd3523",
@@ -89,12 +89,12 @@
   "components/bundle.css": "6316297499d44116a3158b3ce666efddc77fc3806b7d7f059f81bccd145faf30",
   "components/bundle.js": "f465393cb7db80219f87c5b203bafe7b045f073aafba64de9afb22e1679dee0b",
   "components/index.d.ts": "b7ec5db4c538279e6076202038d6e8b8c15e052884bf95fa5a1d7df0a6dc6fc5",
-  "design-system.json": "1a3be5b5d3b37227d27fd2bb623b45457fdfb4b02cd409506bea1ab16638588a",
+  "design-system.json": "dec7835d213247c16dd27735dffc6f7128684a0f049aef1e77b3a01ce73ec642",
   "slides-kit/deck.css": "0b46b115c06429608e52c67057724dbf8f4a2bd4d6b8544de05b87a01ab1871f",
-  "slides-kit/patterns.md": "72a77404cfacfd6d02eebd90606d81d1537af8d90e9ecd4b216d150276480f27",
+  "slides-kit/patterns.md": "9f0215236ebb426b944507293da2814bc678d0a25b1164e63bbed657f2429adf",
   "tokens.json": "bf03c1c5f338fa1b01cd9fb91b742a44752a15d2e7dc031a0a1c1786b8299179"
  },
- "published_version": "1795451197-ff85",
- "published_at": "2026-11-23T16:26",
- "folder_version": "2.16"
+ "published_version": "1795452168-71de",
+ "published_at": "2026-11-23T16:42",
+ "folder_version": "2.18"
 }

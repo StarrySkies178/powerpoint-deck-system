@@ -111,6 +111,7 @@ Also check the **slide rules** from `Style/storytelling.md` §8:
 
 Then check the **rhythm rules**:
 - The same archetype never appears twice in a row.
+- **The same form at most twice in a deck, and never on neighbouring slides** (scoring table with Harvey balls, waterfall, process chevrons, map, matrix, hub …). Keep it on the slide where it decides something and give the others a different form from the message → figure table: a comparison of markets is a positioning map, a shortlist is a table of facts with a verdict row, the choice between options is the one scoring table. The reference decks use a scoring table once or twice in 16 to 33 slides (`Style/refs/case-competitions.md` §5 lists them). `scripts/deck_lint.py` checks this on the built deck (`repeat`), from the form names the generators write.
 - No more than 3 text-heavy slides in a row.
 - The deck mixes light and dark, data and visual, dense and spacious slides.
 - Decks over 12 slides get a section divider every 4–8 slides.
@@ -189,7 +190,7 @@ Each archetype has a spec in `catalogue/`, in the format set out in `catalogue/R
 - No text hidden under a shape drawn on top of it, and no text nearly the same colour as the fill behind it
 - No content slide with a large empty block, and the median content slide fills at least 85% of its body (references: 93–98%)
 - Body text per slide within the word limit
-- The same archetype never twice in a row
+- The same archetype never twice in a row; the same signature form at most twice in a deck and never on neighbouring slides (`repeat`)
 - Every content slide has an action title (a full sentence, not a 1–2 word label)
 
 **Visual (on rendered images)**

@@ -34,6 +34,9 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
                    cause. Fix by adding the missing proof (a second exhibit, the numbers behind the claim, the so-what),
                    never by enlarging what is there or adding decoration.
   DECK W empty     the median content slide fills under 85% of its body
+  DECK W repeat    the same signature form (scoring table, waterfall, process, map …) on neighbouring slides, or on more
+                   than 2 slides of a deck (1 in 10 for long decks). Read from the "form:<builder>" names the generators
+                   give their first object, so only decks built with the folder's generators are checked
 
 Exit code 1 when any error is found. This does not replace looking at the rendered slides.
 """
@@ -296,7 +299,8 @@ def lint_slide(prs, slide, n, st):
         if units > (320 if summary else 260): Wn.append(f"wordy: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (the references carry 140-211; over 260 is a document page: split the slide or move detail to the appendix)")
         elif fill_stats and not summary and units < 90: Wn.append(f"thin: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (the references carry 140-211 on an analysis slide: give each exhibit its unit line and 2-4 bullets that read it)")
     return dict(slide=n, layout=layout, title=(title["text"].strip().replace("\n", " ")[:70] if title else ""), errors=E, warnings=Wn,
-                fill=(round(fill_stats[0], 2), round(fill_stats[1], 2)) if fill_stats else None)
+                fill=(round(fill_stats[0], 2), round(fill_stats[1], 2)) if fill_stats else None,
+                forms=sorted({(sh.name or "").split()[0][5:] for sh, _ in items if (sh.name or "").startswith("form:")}))
 
 def lint(path, profile=None):
     st = profile_style(profile) if profile else house_style()
@@ -307,6 +311,18 @@ def lint(path, profile=None):
     fills = sorted(s["fill"][0] for s in out if s.get("fill")); deck_warnings = []
     if len(fills) >= 4 and fills[len(fills) // 2] < 0.85:
         deck_warnings.append(f"empty: the median content slide fills {fills[len(fills) // 2]:.0%} of its body (reference decks: 93-98%). Most slides need more proof on the page: 2-4 exhibits per analysis slide (Style/storytelling.md §8 rule 11)")
+    # the same form too often: the generators name the first object of each signature form "form:<builder>" (Generators
+    # tagForms). The references use a scoring table once or twice in a deck of 16-33 slides and vary the form from slide to
+    # slide; the v0.5 sample had three Harvey-ball tables within four slides (the user, 2026-11-24: "you do this too many times").
+    by_form = collections.defaultdict(list)
+    for r in out:
+        for f in r.get("forms") or []:
+            if f not in ("letteredSummary", "agendaTracker", "photoCover", "photoAgenda"): by_form[f].append(r["slide"])
+    limit = max(2, len(fills) // 10)
+    for f, where in sorted(by_form.items()):
+        runs = [f"{a} and {b}" for a, b in zip(where, where[1:]) if b - a == 1]
+        if runs: deck_warnings.append(f"repeat: {f} on neighbouring slides {', '.join(runs)}. Give one of them another form from the message → figure table (Style/refs/case-competitions.md §5)")
+        elif len(where) > limit: deck_warnings.append(f"repeat: {f} on {len(where)} slides ({', '.join(map(str, where))}); at most {limit} in a deck of this length. Keep it where it decides something and change the others")
     return dict(deck=os.path.basename(path), style=st["name"], deck_errors=deck_errors, deck_warnings=deck_warnings, slides=out, median_fill=fills[len(fills) // 2] if fills else None,
                 errors=len(deck_errors) + sum(len(s["errors"]) for s in out), warnings=len(deck_warnings) + sum(len(s["warnings"]) for s in out))
 

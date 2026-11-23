@@ -210,8 +210,8 @@
  },
  "lastChange": {
   "by": "Mike N",
-  "at": "2026-11-23T16:32:00Z",
+  "at": "2026-11-23T16:43:00Z",
   "via": "Claude chat",
-  "note": "v2.6 (folder 2.16): the reference decks' density. Slides kit: breadcrumb over the title and no subtitle line, a unit line and a reading on every exhibit, icons, Harvey balls, native tables, photo cover and agenda; takeaway and so-what without accent bars. README: about 120 to 200 body words on an analysis slide instead of 40"
+  "note": "v2.7 (folder 2.18): Slides kit rule: one Harvey-ball grid per deck (for the decision between options), no signature form more than twice in a deck or on neighbouring slides"
  }
 }

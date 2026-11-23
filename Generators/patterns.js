@@ -721,6 +721,20 @@ function puzzleGrid(slide, spec, box = BODY) {
     txt(slide, it.label, x + 0.1, y, s - 0.2, s, { max: 14, min: 8, bold: true, color: C.white, align: "center", valign: "middle" }); });
 }
 
+
+// ---- form tags: the first object each signature builder draws is named "form:<builder> …", so scripts/deck_lint.py can
+// count how often a deck uses the same form (rule since v2.18: at most twice in a deck, never on neighbouring slides;
+// the references use a scoring table once or twice in 16-33 slides, the v0.5 sample had three within four slides).
+function tagForms(mod, names) {
+  for (const n of names) { const f = mod[n]; if (typeof f !== "function") continue;
+    mod[n] = function (...a) { const sl = a.find((x) => x && Array.isArray(x._slideObjects)), n0 = sl ? sl._slideObjects.length : 0;
+      const r = f.apply(this, a);
+      if (sl) { const o = sl._slideObjects.slice(n0).find((x) => x && x.options && (x._type === "text" || x._type === "shape" || typeof x.options.objectName === "string" || x.options.objectName === undefined));
+        if (o && o.options && !String(o.options.objectName || "").startsWith("form:")) o.options.objectName = "form:" + n + " " + (o.options.objectName || ""); }
+      return r; }; }
+}
 module.exports = { icon, ICONS, treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
   chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
   pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };
+module.exports.tagForms = tagForms;
+tagForms(module.exports, ["treeDown", "gantt", "orgChart", "targetOnion", "phaseMatrix", "iconList", "puzzleGrid", "kpiRow", "scoringTable", "waterfall", "hubSpoke", "beforeAfter", "chevronProcess", "labelledRows", "barRanking", "matrix", "cycle", "funnel", "pyramid", "venn", "timeline", "swot"]);

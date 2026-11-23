@@ -96,3 +96,19 @@ The user: "yes to all, follow references, make sure you do everything." Sample r
 
 Not verified: the Slides deck was checked by rendering its files locally (no overflow, nothing under 24 px), not in
 the live Slides page; the PowerPoint sample was rendered with LibreOffice, not opened in PowerPoint.
+
+## Found by the user after v2.16 (2026-11-24): the same form too many times
+
+The user sent a crop of the Harvey-ball scoring table: "you think you do this too many times?" Yes. Sample v0.5 had
+it on slides 7, 9 and 10 (three of four neighbouring slides); the Slides test deck had ball grids on four of twelve
+content slides. The reference study lists a scoring table once or twice per deck of 16 to 33 slides (E-Cluster 7,
+InnoVision 11 and 13, Polaris 13, Vaccine 17; Pola 12 and 15; Old Driver 9 and 11). I missed it in the audit because
+I counted forms across the deck (charts against tables) and never how often one form came back. My status note above
+also said "4 Harvey-ball scoring tables": the PowerPoint sample had 3; the 4 was the Slides deck.
+
+Fixed in v2.18: `samples/sample-deck-v0.6.pptx` keeps one scoring table (slide 9, the choice between options);
+slide 7 is a positioning map (attractiveness against ability to win, bubble = market size), slide 10 a native table
+of the shortlist's facts with a verdict row; slide 12 went back to two bands so that slides 11 and 12 no longer share
+one layout. Rule added (`DECK-SYSTEM.md` rhythm rules, `Style/storytelling.md` §8 rule 19) and checked by the lint
+(`repeat`: a form on neighbouring slides or on more than two slides). Not checked by the lint: decks not built with
+the folder's generators, and the Slides route (no checker for HTML decks; the kit states the rule).

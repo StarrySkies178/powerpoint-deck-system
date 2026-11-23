@@ -1,4 +1,4 @@
-# Benchmark results: v2.16 reference density: readings, icons, breadcrumb, photo cover (2026-11-24 00:23)
+# Benchmark results: v2.18 form tags, repeat check, positioningMap bubble size (2026-11-24 00:40)
 
 **9 / 20 pass** (bar: all standards, layout ≥ 0.6, visual ≥ 0.5)
 
@@ -18,7 +18,7 @@
 | C04-two-charts-ecluster | fail | 11/11 | 0.30 | 0.26 |  |
 | C05-timeline-ecluster | fail | 7/10 | 0.00 | 0.00 | body text size (ref median 14.0 / min 14.0 pt; got 10.0 / 9.5 pt); body margins (ref L 0.84 R 1.10; got L 0.27 R 0.26 in); colours (off-palette #9CCCE4) |
 | C06-exec-summary-mindcraft | fail | 5/10 | 0.28 | 0.15 | title bold (ref True, got False); title colour (ref #FFFFFF, got #000000 (ΔE 100)); body text size (ref median 14.0 / min 14.0 pt; got 18.0 / 18.0 pt); body margins (ref L 0.39 R 5.05; got L 0.37 R 2.82 in); colours (off-palette #FCCCCC) |
-| C07-scenario-lines-mindcraft | fail | 10/11 | 0.17 | 0.27 | source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in) |
+| C07-scenario-lines-mindcraft | fail | 10/11 | 0.17 | 0.26 | source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in) |
 | C08-risk-matrix-mindcraft | fail | 10/11 | 0.29 | 0.25 | body margins (ref L 0.29 R 0.55; got L 0.38 R 0.28 in) |
 | C09-sensitivity-truenorth | fail | 8/10 | 0.24 | 0.39 | body text size (ref median 18.0 / min 18.0 pt; got 14.0 / 11.0 pt); body margins (ref L 0.48 R 0.87; got L 0.60 R 0.62 in) |
 | C10-strategy-table-truenorth | fail | 9/11 | 0.00 | 0.07 | body text size (ref median 12.0 / min 12.0 pt; got 9.0 / 9.0 pt); colours (off-palette #3C3C3C) |

@@ -1,4 +1,4 @@
-// Sample deck v0.5 — illustrative brief: "Should we enter SE Asia?" for a board audience.
+// Sample deck v0.6 — illustrative brief: "Should we enter SE Asia?" for a board audience.
 // Built from the reference decks after the self-audit of 2026-11-23 (review/self-audit-2026-11-23.md):
 // photo cover and agenda; a section breadcrumb over every title; full two-line action titles, no subtitle line;
 // every exhibit with its unit line and 2-3 bullets of reading in a grey box; annotated charts (CAGR callouts, growth
@@ -70,11 +70,10 @@ P.composeSlide(pres, S(1, "Vietnam and Indonesia are both attractive and winnabl
     map: { geo: "world", focus: ["Vietnam", "Indonesia", "Thailand", "Philippines", "Malaysia", "Singapore", "Cambodia", "Laos", "Myanmar"], highlight: ["Vietnam", "Indonesia"], labels: false, legend: false,
       markers: [{ lon: 105.8, lat: 21.0, label: "Vietnam, +12% a year", hi: true }, { lon: 106.8, lat: -6.2, label: "Indonesia, +11%", hi: true }, { lon: 100.5, lat: 13.7, label: "Thailand, +6%" }, { lon: 121.0, lat: 14.6, label: "Philippines, +8%" }, { lon: 101.7, lat: 3.1, label: "Malaysia, +5%" }] },
     reading: ["**Vietnam**: 100 m people, modern trade share doubling by 2030", "**Indonesia**: largest market, but 17,000 islands raise cold-chain cost by a third", "Thailand and Malaysia are **mature**: premium share is high, growth is half"] },
-  { icon: "list-check", headline: "They lead on four of five criteria", unit: "Score 0 to 4 per criterion; our assessment",
-    draw: (s, b) => P.scoringTable(s, { columns: [{ name: "Vietnam", own: true }, { name: "Indonesia" }, { name: "Thailand" }, { name: "Philippines" }, { name: "Malaysia" }],
-      rows: [{ label: "Market growth", group: "Attractive", scores: [4, 4, 2, 3, 2] }, { label: "Premium share", group: "Attractive", scores: [3, 3, 4, 2, 3] }, { label: "Trade openness", group: "Attractive", scores: [4, 2, 3, 2, 3] },
-        { label: "Partner availability", group: "Winnable", scores: [4, 3, 2, 2, 2] }, { label: "Fit with our range", group: "Winnable", scores: [4, 3, 3, 2, 2] }] }, b),
-    reading: ["Vietnam scores **19 of 20**; Indonesia 15; no other market above 14", "Vietnam wins on **trade openness and partners**, the two criteria we cannot change", "Thailand is the **second wave** once the model is proven"] }] });
+  { icon: "target", headline: "Only they sit where the market is attractive and we can win", unit: "Attractiveness and our ability to win, index 0 to 1; bubble = premium chilled market 2030F",
+    draw: (s, b) => P.positioningMap(s, { x: { label: "Our ability to win", low: "Low", high: "High" }, y: { label: "Market attractiveness", low: "Low", high: "High" }, highlight: "Vietnam",
+      zone: { x0: 0.6, x1: 1, y0: 0.6, y1: 1, label: "Enter first" }, points: [{ label: "Indonesia", x: 0.66, y: 0.7, size: 8.7 }, { label: "Thailand", x: 0.48, y: 0.5, size: 5.9 }, { label: "Philippines", x: 0.28, y: 0.62, size: 3.2 }, { label: "Malaysia", x: 0.4, y: 0.24, size: 2.3 }, { label: "Vietnam", x: 0.85, y: 0.86, size: 7 }] }, b),
+    reading: ["Attractiveness: growth, premium share, trade openness; ability to win: partners and fit with our range", "**Vietnam** leads on ability to win: open trade and three qualified partners", "Thailand is the **second wave** once the model is proven"] }] });
 
 // 8 B3 — EXI with icon points
 P.composeSlide(pres, S(1, "In Vietnam, premium chilled is where unmet demand meets our strengths: imports already serve two thirds"), { layout: "EXI", panels: [
@@ -105,11 +104,11 @@ P.composeSlide(pres, S(2, "The partner must bring five capabilities we cannot bu
   { icon: "target", headline: "Five capabilities define the ideal partner", unit: "Partner criteria and the threshold for each",
     draw: (s, b) => G.hubSpoke(s, { centre: "Ideal partner", highlight: 0, items: [{ label: "Reach", text: "≥ 30k outlets" }, { label: "Cold chain", text: "5 cities" }, { label: "Licences", text: "import, distribution" }, { label: "Brand fit", text: "no rival range" }, { label: "Governance", text: "accepts 51/49" }] }, b),
     reading: ["**Reach and cold chain** are the two we cannot build in time", "Governance at 51/49 keeps brand and recipe decisions with us"] },
-  { icon: "users", headline: "Three of eleven distributors pass every screen", unit: "Shortlist after the first screen; score 0 to 4",
-    draw: (s, b) => P.scoringTable(s, { columns: [{ name: "Partner A", own: true }, { name: "Partner B" }, { name: "Partner C" }, { name: "Partner D" }],
-      rows: [{ label: "Reach", scores: [4, 3, 3, 4] }, { label: "Cold chain", scores: [4, 3, 3, 1] }, { label: "Licences", scores: [4, 4, 3, 4] }, { label: "Brand fit", scores: [4, 3, 4, 1] }, { label: "Governance", scores: [4, 4, 3, 2] }],
-      verdict: ["First choice", "Fallback", "Fallback", "Fails 2"] }, b),
-    reading: ["**Partner A**: 42k outlets, chilled depots in six cities, no rival brand", "Partner D has the widest reach but fails on cold chain and brand fit"] }] });
+  { icon: "users", headline: "Three of eleven distributors pass every screen", unit: "The shortlist after the first screen, with the facts behind each threshold",
+    draw: (s, b) => G.dataTable(s, { header: ["", "Partner A", "Partner B", "Partner C"], colW: [0.28, 0.24, 0.24, 0.24], alignRight: false, maxRowH: 0.52, fontSize: 11, rows: [
+      ["Outlets reached", "42k", "33k", "31k"], ["Cities with chilled depots", "6", "5", "5"], ["Licences", "Import, distribution", "Import, distribution", "Distribution; import by Q2"],
+      ["Rival premium range", "None", "One ambient brand", "None"], ["Stake accepted", "49%", "49%", "49%, asks a board veto"], ["Our view", "First choice", "Fallback", "Fallback"]], highlightRow: 5 }, b),
+    reading: ["**Partner A** clears every threshold with room to spare and carries no rival brand", "Eight of the eleven failed on **cold chain** or on a competing premium range", "B and C stay in the talks until A signs the term sheet"] }] });
 
 // 11 C3 — T1B2
 P.composeSlide(pres, S(2, "The joint venture turns an export business into a local one: lead time falls from six weeks to one"), { layout: "T1B2", panels: [
@@ -123,16 +122,14 @@ P.composeSlide(pres, S(2, "The joint venture turns an export business into a loc
   insights: ["Lead time **6 weeks → 1 week**: four more weeks on the shelf", "Outlets **2k → 40k** without our own sales force", "**9 margin points** come back from freight and duties", "We keep **brand and recipe control** at 51%"],
   soWhat: "The JV fixes what export cannot: freshness and reach" });
 
-// 12 D1 — T1B2
-P.composeSlide(pres, S(3, "Five phases lead to first revenue in month 14, and two stage-gates release the US$ 25 m in tranches"), { layout: "T1B2", panels: [
-  { icon: "route", headline: "Partner selection is on the critical path",
+// 12 D1 — BAND2
+P.composeSlide(pres, S(3, "Five phases lead to first revenue in month 14, and two stage-gates release the US$ 25 m in tranches"), { layout: "BAND2", panels: [
+  { icon: "route", headline: "Partner selection is on the critical path: each month of delay moves first revenue by a month",
     draw: (sl, b) => G.chevronProcess(sl, { highlight: 1, items: [{ label: "Select", text: "Confirm Vietnam; deep-dive Indonesia" }, { label: "Partner", text: "Shortlist 3, sign term sheet" }, { label: "Set up", text: "Form JV, hire GM, adapt range" }, { label: "Pilot", text: "Hanoi and Ho Chi Minh City" }, { label: "Scale", text: "National roll-out on pilot results" }],
       result: { label: "Month 14", text: "First revenue; break-even by month 30" } }, b) },
-  { icon: "cash", headline: "Only US$ 9 m is committed before the pilot gate", unit: "Cumulative capital committed by phase, US$ m",
+  { icon: "cash", headline: "Only US$ 9 m is committed before the pilot gate decides on the rest", unit: "Cumulative capital committed by phase, US$ m",
     chart: col("Cumulative capital committed, US$ m", ["Select", "Partner", "Set up (gate 1)", "Pilot (gate 2)", "Scale"], [1, 3, 9, 14, 25], 2),
-    readingSide: "right", readingShare: 0.42, reading: ["**Gate 1** after partner selection: term sheet signed, cold chain audited", "**Gate 2** after the pilot: sell-through and waste on plan in both cities", "**US$ 16 m** of the 25 is released only after a gate"] }],
-  insights: ["**Partner selection** sets the pace: each month of delay moves first revenue by a month", "Set-up and pilot can **overlap by two months** if the co-packer is certified early", "National roll-out starts only when **both pilot cities** are on plan"],
-  soWhat: "Start partner talks in Q1 2027 to hold month 14" });
+    readingSide: "right", readingShare: 0.45, reading: ["**Gate 1** after partner selection: term sheet signed, cold chain audited", "**Gate 2** after the pilot: sell-through and waste on plan in both cities", "**US$ 16 m** of the 25 is released only after a gate", "Set-up and pilot can **overlap by two months** if the co-packer is certified early"] }] });
 
 // 13 D2 — HALF2
 P.composeSlide(pres, S(3, "The joint venture adds US$ 95 m of revenue by 2030 and pays back in year four on US$ 25 m of capital"), { layout: "T2B1", panels: [

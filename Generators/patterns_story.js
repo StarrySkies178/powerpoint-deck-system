@@ -56,11 +56,13 @@ function readingBox(slide, bullets, box, o = {}) {
   const items = [].concat(bullets), inner = { x: box.x + 0.12, y: box.y + 0.07, w: box.w - 0.24, h: box.h - 0.14 };
   const plain = items.map((t) => String(t).replace(/\*\*/g, "")).join(" "), size = o.size || fitSize(plain, inner.w - 0.25, inner.h * 0.8, o.bold ? 12 : 11, 10);   // 11 pt on every panel, so the readings look alike across a slide
   const lines = items.map((t) => Math.max(1, Math.ceil(String(t).replace(/\*\*/g, "").length * size * 0.52 / ((inner.w - 0.2) * 72)))), tot = lines.reduce((a, c) => a + c, 0);
-  let y = inner.y; const lh = Math.min(size * 1.28 / 72, inner.h / tot);
+  const lh = Math.min(size * 1.28 / 72, inner.h / tot), free = Math.max(0, inner.h - tot * lh), gap = Math.min(0.1, free / items.length);
+  let y = inner.y + (free - gap * (items.length - 1)) / 2;                 // even gaps, the block centred in the box
+  const bul = items.length > 1 || o.bullet;
   items.forEach((t, i) => { const h = lines[i] * lh;
-    if (items.length > 1 || o.bullet) slide.addShape("rect", { x: inner.x, y: y + size / 72 * 0.42, w: 0.06, h: 0.06, fill: { color: C.navy }, line: { type: "none" } });
-    slide.addText(o.bold ? [{ text: String(t).replace(/\*\*/g, ""), options: { bold: true, color: C.navy } }] : keyRuns(t), { x: inner.x + (items.length > 1 || o.bullet ? 0.15 : 0), y, w: inner.w - (items.length > 1 || o.bullet ? 0.15 : 0), h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: items.length > 1 ? "top" : "middle", margin: 0, isTextBox: true });
-    y += h + Math.max(0, (inner.h - tot * lh) / Math.max(1, items.length)) * 0.5; });
+    if (bul) slide.addShape("rect", { x: inner.x, y: y + size / 72 * 0.42, w: 0.06, h: 0.06, fill: { color: C.navy }, line: { type: "none" } });
+    slide.addText(o.bold ? [{ text: String(t).replace(/\*\*/g, ""), options: { bold: true, color: C.navy } }] : keyRuns(t), { x: inner.x + (bul ? 0.15 : 0), y, w: inner.w - (bul ? 0.15 : 0), h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: bul ? "top" : "middle", margin: 0, isTextBox: true });
+    y += h + gap; });
 }
 const readingHeight = (bullets, w, size = 11) => { const items = [].concat(bullets); return 0.2 + items.reduce((a, t) => a + Math.max(1, Math.ceil(String(t).replace(/\*\*/g, "").length * size * 0.56 / ((w - 0.44) * 72))), 0) * size * 1.3 / 72; };
 // icon columns in a grey box: icon + bold label + one or two lines (reference form: E-Cluster 1 panel 3, TNT 13)
@@ -216,10 +218,11 @@ function positioningMap(slide, spec, box = BODY) {
   txt(slide, spec.y.high || "High", box.x + 0.35, ay, 0.6, 0.26, { fontSize: 10, color: C.g5 });
   const maxS = Math.max(...spec.points.map((p) => p.size || 1));
   spec.points.forEach((p) => {
-    const d = 0.25 + 0.75 * Math.sqrt((p.size || 1) / maxS), hi = p.label === spec.highlight;
+    const d = Math.min(1, Math.min(aw, ah) * 0.22) * (0.25 + 0.75 * Math.sqrt((p.size || 1) / maxS)), hi = p.label === spec.highlight;   // bubbles follow the plot's size (a half-height panel got full-size bubbles that covered the labels)
     const cx = ax + p.x * aw, cy = ay + (1 - p.y) * ah;
     slide.addShape("ellipse", { x: cx - d / 2, y: cy - d / 2, w: d, h: d, fill: { color: hi ? C.navy : C.g3, transparency: hi ? 0 : 15 }, line: { color: C.white, width: 0.75 } });
-    txt(slide, p.label, cx + d / 2 + 0.03, cy - 0.15, 1.8, 0.3, { fontSize: 10, bold: hi, color: hi ? C.navy : C.text });
+    const lw = Math.min(1.8, String(p.label).length * 10 * 0.62 / 72 + 0.12), left = cx + d / 2 + 0.03 + lw > box.x + box.w;   // a label that would leave the box goes to the bubble's left
+    txt(slide, p.label, left ? cx - d / 2 - 0.03 - lw : cx + d / 2 + 0.03, cy - 0.15, lw, 0.3, { fontSize: 10, bold: hi, color: hi ? C.navy : C.text, align: left ? "right" : "left" });
   });
 }
 
@@ -823,3 +826,4 @@ function valueTree(slide, spec, box = BODY) {
   });
 }
 Object.assign(module.exports, { harvey, vlabel, riskMatrix, gantt, scoringTable, initiativeMatrix, explodedBar, heatGrid, agendaTracker, valueTree });
+G.tagForms(module.exports, ["scoringTable", "riskMatrix", "positioningMap", "valueTree", "personaCards", "heatGrid", "initiativeMatrix", "decisionFramework", "stackedCagr", "growthPairs", "growthBars", "donutKpis", "letteredSummary", "storyDiagram", "pyramidSummary", "agendaTracker", "iconPoints", "explodedBar", "chartTakeaway", "keyQuestions", "photoCover", "photoAgenda"]);

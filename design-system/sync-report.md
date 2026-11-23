@@ -1,6 +1,6 @@
 # Design system sync report
 
-Folder version 2.16; checked 2026-11-23 16:26.
+Folder version 2.18; checked 2026-11-23 16:42.
 
 ## House look → tokens
 
@@ -12,5 +12,5 @@ Folder version 2.16; checked 2026-11-23 16:26.
 
 ## Pattern coverage
 
-- Generators: 93; mapped to a component or Slides recipe: 52; PowerPoint-only (known gaps): 13.
+- Generators: 94; mapped to a component or Slides recipe: 52; PowerPoint-only (known gaps): 13.
 - PowerPoint-only: `buildingExplode`, `converge`, `decisionFramework`, `explodedBar`, `floorPlan`, `forcesIn`, `geoZoom`, `puzzleGrid`, `regionMultiples`, `siteCallouts`, `storyDiagram`, `targetOnion`, `valueTree`

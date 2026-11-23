@@ -27,3 +27,4 @@
 | 2026-11-23 21:23 | v2.7: source line kept on the slide, venn label contrast (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |
 | 2026-11-23 21:56 | v2.10: letteredSummary kpis column (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |
 | 2026-11-24 00:23 | v2.16 reference density: readings, icons, breadcrumb, photo cover (20 cases) | 9/20 | 196/212 | 0.44 | 0.49 |
+| 2026-11-24 00:40 | v2.18 form tags, repeat check, positioningMap bubble size (20 cases) | 9/20 | 196/212 | 0.44 | 0.49 |
