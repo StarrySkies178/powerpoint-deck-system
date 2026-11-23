@@ -1,6 +1,6 @@
 # Design system sync report
 
-Folder version 2.18; checked 2026-11-23 16:42.
+Folder version 2.19; checked 2026-11-23 16:46.
 
 ## House look → tokens
 

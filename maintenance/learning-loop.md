@@ -4,6 +4,8 @@ Read this after every deck (Stage 6) and whenever a rule changes. Claude **appli
 
 ---
 
+**Other chats work in this folder too.** Before changing any file here, the logs included, sign in as `maintenance/working-together.md` says (`python3 scripts/work.py start ...`), and sign out with `done` when you finish. *Why: without it chats take the same version number and overwrite each other's edits.*
+
 ## After every deck (always)
 
 1. Append one line to `logs/usage-log.md`.
@@ -25,14 +27,16 @@ Read this after every deck (Stage 6) and whenever a rule changes. Claude **appli
 3. Run `maintenance/test-briefs.md`. If any brief now fails, don't apply the change. Report the conflict instead.
    If `Generators/`, the master, `Objects/store` or a style profile changed, also run the reproduction benchmark: `python3 bench/scripts/bench_run.py --label "<what changed>"` (see `bench/README.md`). The pass count and the standards count must not drop. Never loosen the pass bar to make it pass.
 4. Add a test brief for every new archetype or important rule, so the test set grows with the system.
-5. Add a line to `logs/changelog.md` and bump the version (minor change → 0.x+1; restructure → x+1.0).
+5. Take your version number from the script, `python3 scripts/work.py version <id>` (minor change; add `--major` for a restructure), and add the changelog row with `python3 scripts/work.py log <id> "<what changed>" "<why>" "<files touched>"`. Never work out the next number or add the row by hand: another chat may be doing the same at that moment.
 6. Set the lesson's status to `applied`.
 7. Sync the folder to GitHub (`maintenance/github-sync.md`).
 8. Keep the Claude design system in step, after **every** applied change: run `python3 scripts/sync_design_system.py`. It rewrites the design system's tokens and Slides kit from `Generators/house.js`, checks that every generator is in `design-system/pattern-map.json`, and prints what to do:
    - `IN SYNC`: nothing to do.
    - `PUBLISH NEEDED`: publish the listed files as `design-system/PUBLISH.md` says, then run it again with `--mark-published <version>`.
+   - Publishing is a shared job: run `python3 scripts/work.py add <id> DESIGN-SYSTEM` before you publish and `drop <id> DESIGN-SYSTEM` after, so two chats never publish at once. If the list holds files you did not change, another chat's work is waiting there: publish only your own and say so.
    - `NEW GENERATORS`: add each to `pattern-map.json` (its component, its Slides recipe, or neither = PowerPoint only). If the pattern is used often, write its Slides recipe in `design-system/project/slides-kit/patterns.md`.
    The folder stays the source of truth; the design system is never edited by hand in Claude.
+9. Sign out: `python3 scripts/work.py done <id>`.
 
 ## Review every ~5 decks (or monthly)
 

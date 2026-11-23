@@ -40,6 +40,7 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 | When | Read | If it doesn't exist yet |
 |---|---|---|
 | Start of every deck task | This file | n/a |
+| **Before changing any file in this folder** (logs, rules, scripts, generators, style, object store), in every chat | `maintenance/working-together.md`: other chats work here at the same time, so sign in with `scripts/work.py` first | Change nothing shared, and tell the user |
 | **The user gives a new reference** (deck, template, library, PDF, screenshot), now or in any future chat | `maintenance/new-reference.md`. Do it **before** using the reference: ingest, look at every slide, map patterns, save objects and single diagrams, measure formatting, inventory charts, apply lessons to every deck; finish with `scripts/audit_reference.py` (must be ALL PASS) | n/a: this step is never skipped |
 | Stage 1, and before every batch | `Style/style-rules.md` (Section 1 says reference vs house default). When matching a reference, read its card in `Style/refs/` before every batch | Use the "shared rules" in `Style/style-findings.md`. Anything marked *proposed* or *open* there: use it, but say so |
 | Stage 2–3 of **every** deck: storyline and choosing figures | `Style/storytelling.md` (§8 = case-study rules), then `Style/refs/case-competitions.md` §2 (exec-summary forms), §5 (message → figure), §6b (formatting), and `Style/refs/case-competitions-2019-2020.md` §2 and §5 (more forms and figures) | Section 4 of this file |
@@ -53,7 +54,7 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 | Stage 6: after the deck | `maintenance/learning-loop.md` | n/a |
 | Changing rules, setup, studying the libraries | `maintenance/*` | n/a |
 
-Don't open `maintenance/` files during a normal build. They are for changing the system, not using it. The one exception is `maintenance/new-reference.md`, which runs whenever a new reference arrives.
+Don't open `maintenance/` files during a normal build. They are for changing the system, not using it. The exceptions are `maintenance/new-reference.md`, which runs whenever a new reference arrives, and `maintenance/working-together.md`, which is read before anything in the folder is changed.
 
 ---
 

@@ -8,18 +8,23 @@ The folder on the Mac is the source of truth. `github.com/StarrySkies178/powerpo
 - Weekly safety net: a scheduled task runs this file to catch hand edits (e.g. logos dropped into `Objects/`).
 
 ## How (Claude)
+0. Sign in for the sync on the Mac: `python3 scripts/work.py start "<your chat>" "GitHub sync" GITHUB`, or `add <id> GITHUB` if you are already signed in (`maintenance/working-together.md`). `CONFLICT` means another chat is syncing right now: wait for it to finish, then sync.
 1. Attach the repo: `add_repo(owner="StarrySkies178", repo="powerpoint-deck-system", access="push")`, then clone it as the tool says (`git clone --depth 1 ...`).
 2. List the folder on the Mac (skip `.DS_Store` and `~$*` lock files), and stage every file with `device_stage_files` (max 50 paths per call). They land in `/mnt/user-data/uploads/Powerpoint/`.
 3. Mirror into the clone, so deletions and renames sync too: delete everything in the clone except `.git/`, `.gitignore` and `README.md`, then copy the staged folder in.
 3a. Put the big files in as parts (see **Big files** below). Do this on every sync, before `git add`.
+3b. Build on the newest GitHub state: `git fetch --depth=20 origin main && git reset -q --mixed origin/main`. The files in the clone stay as you mirrored them; only the starting point moves, so a push by another chat a minute ago is kept and not overwritten.
+3c. Leave other chats' unfinished work out: for every path that `python3 scripts/work.py others <id>` prints on the Mac, put GitHub's current version back in the clone (`git checkout HEAD -- <path>`; a file that is not on GitHub yet: take it out of the clone). The chat that holds those files pushes them itself.
 4. `git add -A`. If `git status` shows nothing, stop: the repo is already in sync.
 5. Commit message = the newest version line in `logs/changelog.md`, e.g. `v1.1: <what changed>`. Use `sync: <date> hand edits` if the changelog hasn't changed.
-6. Push with `git -c push.negotiate=true push origin main`. Never force-push.
+6. Push with `git -c push.negotiate=true push origin main`. Never force-push. If the push is refused because another chat pushed in the meantime, repeat 3b, 3c, 4 and 5, then push again.
 7. Report in one line: version and number of files changed.
+8. Release the sync: `python3 scripts/work.py drop <id> GITHUB` (or `done <id>` if that was your last step).
 
 ## Rules
 - Keep the repo **private**: `Templates/` holds third-party decks.
 - Never commit secrets (tokens, `.env`, credentials).
+- `logs/active-work/` and `logs/active-work.md` (the sign-in sheet) stay on the Mac: they are in `.gitignore`.
 - GitHub rejects files over 100 MB. Never leave such a file out: it goes into the repo as parts (see **Big files**). *Why: a file left out is missing on the phone and on other PCs, where the repo is the only copy.*
 
 ## Big files (over 90 MB)

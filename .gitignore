@@ -13,6 +13,10 @@ _to_delete/
 # the contact line get_photo.py sends to Wikimedia (the user's own address: never in the repo)
 Objects/photo-contact.txt
 
+# the sign-in sheet of scripts/work.py stays on the Mac
+logs/active-work/
+logs/active-work.md
+
 # >>> big files kept as parts (written by scripts/bigfiles.py, do not edit)
 /Objects/store/media.zip
 /archive/media_pre-v2.15_2026-11-23.zip
