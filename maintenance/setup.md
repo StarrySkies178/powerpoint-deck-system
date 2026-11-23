@@ -11,7 +11,7 @@ Read this when building out the system, not during a deck task. Update the statu
 - [~] **5. Code templates**: JS generators in `Generators/patterns.js` (24 patterns incl. 12 of the 18 starters: column, horizontal bar, waterfall, 2×2, Harvey-ball table, chevron, timeline, issue tree, KPI row, split comparison, big statement, section divider). Missing: line, 100% stacked, scatter, icon grid, image+text (layout only), map.
 - [ ] **6. Checker**: `scripts/check.py` (checks listed in `DECK-SYSTEM.md` Section 7).
 - [ ] **7. Test briefs**: run all of them (`maintenance/test-briefs.md`) and fix any failures.
-- [~] **8. Sample deck**: `samples/sample-deck-v0.3.pptx` (15 slides, illustrative brief), rebuilt 2026-11-23 the way the reference decks are built: lettered summary with numbers, 2–4 exhibits on every analysis slide (median body fill 91%; v0.1 and v0.2, one figure per slide at 70%, kept beside it as the 'before'); awaiting feedback.
+- [~] **8. Sample deck**: `samples/sample-deck-v0.4.pptx` (15 slides, illustrative brief; v0.3 had KPI tiles on the summary that no reference uses), rebuilt 2026-11-23 the way the reference decks are built: lettered summary with numbers, 2–4 exhibits on every analysis slide (median body fill 91%; v0.1 and v0.2, one figure per slide at 70%, kept beside it as the 'before'); awaiting feedback.
 
 Library study runs alongside this list: see `maintenance/library-study.md`.
 

@@ -293,18 +293,24 @@ function issueGoalStrategy(slide, spec, box = BODY) {
 // ---------- executive summary forms ----------
 function letteredSummary(slide, spec, box = BODY) {
   // spec.items:[{letter?, conclusion, points:[..]}], spec.highlight — A/B/C conclusions reused later in section titles
-  // spec.kpis:{title, items:[{value, label, note, hi}]} — the numbers behind the answer in a column on the right, so the
-  // summary fills the page as the reference summaries do (text alone leaves the right third empty)
-  if (spec.kpis && spec.kpis.items && spec.kpis.items.length) {
-    const K = spec.kpis, kw = Math.min(3.9, box.w * 0.31), kx = box.x + box.w - kw, k = K.items.length, top = K.title ? 0.42 : 0, kg = 0.14, kh = (box.h - top - (k - 1) * kg) / k;
-    if (K.title) { txt(slide, K.title, kx, box.y, kw, 0.34, { fontSize: 12, bold: true, color: C.navy, valign: "middle", margin: 0 }); slide.addShape("line", { x: kx, y: box.y + 0.36, w: kw, h: 0, line: { color: C.navy, width: 1 } }); }
-    K.items.forEach((it, i) => {
-      const y = box.y + top + i * (kh + kg), vw = kw * 0.46;
-      slide.addShape("rect", { x: kx, y, w: kw, h: kh, fill: { color: it.hi ? C.hiBand : C.g1 }, line: { type: "none" } });
-      slide.addShape("rect", { x: kx, y, w: 0.07, h: kh, fill: { color: it.hi ? C.accent : C.navy }, line: { type: "none" } });
-      txt(slide, it.value, kx + 0.2, y, vw - 0.2, kh, { fontSize: fitSize(String(it.value), vw - 0.25, Math.min(kh, 0.8), 30, 16), bold: true, color: C.navy, valign: "middle", margin: 0 });
-      txt(slide, it.note ? [{ text: it.label, options: { bold: true, breakLine: true } }, { text: it.note, options: { color: C.g5 } }] : it.label, kx + vw + 0.05, y + 0.05, kw - vw - 0.15, kh - 0.1, { max: 12, min: 9, valign: "middle", margin: 0, bold: !it.note });
+  // spec.projection:{title, items:[{label, value}], risks:{title, items:[..]}} — a narrow column on the right, as in the
+  // reference summary that carries numbers (Case-2020-Baincraft slide 2, "Projection" + "Risks"): a header bar, then each
+  // figure as a small label with the big number under it in the main colour, then the risks as bullets, all in one thin
+  // dotted frame. No tiles, no side bars: those are not in any reference. (spec.kpis is the old name and still works.)
+  const PJ = spec.projection || spec.kpis;
+  if (PJ && PJ.items && PJ.items.length) {
+    const kw = Math.min(3.1, box.w * 0.25), kx = box.x + box.w - kw, hb = 0.36, R = PJ.risks && PJ.risks.items && PJ.risks.items.length ? PJ.risks : null;
+    const rh = R ? hb + 0.12 + R.items.length * 0.27 + 0.1 : 0, fh = box.h - hb - rh, k = PJ.items.length, ih = fh / k;
+    slide.addShape("rect", { x: kx, y: box.y, w: kw, h: box.h, fill: { type: "none" }, line: { color: C.navy, width: 0.75, dashType: "sysDot" } });
+    const bar = (t, y) => { slide.addShape("rect", { x: kx, y, w: kw, h: hb, fill: { color: C.navy }, line: { type: "none" } }); txt(slide, t, kx, y, kw, hb, { fontSize: 12, bold: true, color: C.white, onDark: true, align: "center", valign: "middle", margin: 0 }); };
+    bar(PJ.title || "Projection", box.y);
+    PJ.items.forEach((it, i) => {
+      const y = box.y + hb + i * ih, lh = Math.min(0.3, ih * 0.4);
+      txt(slide, it.label, kx + 0.12, y + Math.max(0.04, ih * 0.1), kw - 0.24, lh, { fontSize: 11, color: C.text, valign: "bottom", margin: 0 });
+      txt(slide, it.value, kx + 0.12, y + Math.max(0.04, ih * 0.1) + lh, kw - 0.24, ih - lh - Math.max(0.08, ih * 0.2), { fontSize: fitSize(String(it.value), kw - 0.3, 0.5, 24, 16), bold: true, color: C.navy, align: "center", valign: "middle", margin: 0 });
     });
+    if (R) { const y = box.y + box.h - rh; bar(R.title || "Risks", y);
+      txt(slide, R.items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < R.items.length - 1 } })), kx + 0.12, y + hb + 0.08, kw - 0.24, rh - hb - 0.12, { fontSize: 11, color: C.text, valign: "top", margin: 0 }); }
     box = { ...box, w: box.w - kw - 0.35 };
   }
   const n = spec.items.length, gap = 0.18, h = (box.h - (n - 1) * gap) / n;

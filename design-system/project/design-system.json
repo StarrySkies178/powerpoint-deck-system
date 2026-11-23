@@ -210,8 +210,8 @@
   },
   "lastChange": {
     "by": "Mike N",
-    "at": "2026-11-23T15:30:00Z",
+    "at": "2026-11-23T16:00:00Z",
     "via": "Claude chat",
-    "note": "v2.4 (folder 2.10): Slides kit fills the page. Compose classes for 2-4 exhibits per slide, heat grid, lettered summary with a numbers column; 'Fill the page' rule and layout table in slides-kit/patterns.md"
+    "note": "v2.5 (folder 2.12): summary numbers as a plain Projection column (.hs-proj), as in the reference deck; KPI tiles removed; rule: only forms the references use"
   }
 }

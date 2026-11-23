@@ -149,7 +149,7 @@
   "letteredSummary": {
    "component": "ExecSummary",
    "slides": "compose",
-   "note": "lettered summary: .hs-let rows + .hs-kc numbers column (spec.kpis in PowerPoint)"
+   "note": "lettered summary: .hs-let rows + optional .hs-proj column (spec.projection in PowerPoint; reference: Case-2020-Baincraft slide 2)"
   },
   "issueGoalStrategy": {
    "component": "ExecSummary",

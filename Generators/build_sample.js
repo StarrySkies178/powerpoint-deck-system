@@ -18,7 +18,8 @@ const bar = (name, labels, values, hi, format) => ({ type: "bar", labels, series
 
 // 2 Executive summary: lettered conclusions; the letters come back in every title
 P.letteredSummary(S("Executive summary: enter SE Asia via a JV, starting in Vietnam", "Four conclusions; each letter is a section of this deck", { source: null }), { highlight: 3,
-  kpis: { title: "The numbers behind the answer", items: [{ value: "−3 pts", label: "Home EBIT margin", note: "FY23 to FY25" }, { value: "+14%", label: "Premium chilled growth", note: "a year, SE Asia" }, { value: "40k", label: "Outlets through the partner", note: "2k today" }, { value: "US$ 25 m", label: "Capital asked", note: "US$ 9 m before the pilot gate", hi: true }, { value: "Month 30", label: "Break-even", note: "first revenue in month 14" }] }, items: [
+  projection: { title: "Projection", items: [{ label: "2030 revenue from the JV", value: "US$ 95 m" }, { label: "Capital asked", value: "US$ 25 m" }, { label: "Break-even", value: "Month 30" }],
+    risks: { title: "Risks", items: ["Partner talks stall", "Cold chain fails in pilot", "Rival copies the range"] } }, items: [
   { conclusion: "The home market can no longer carry our growth", points: ["EBIT margin fell 3 points in two years, mostly from price", "Four structural pressures persist; cost cuts close a third of the gap"] },
   { conclusion: "SE Asia is the growth pool, and Vietnam is where we can win", points: ["Snacks grow 9% a year to US$ 38 bn; premium chilled 14%", "Vietnam and Indonesia lead on attractiveness and our ability to win"] },
   { conclusion: "A joint venture is the fastest and safest way in", points: ["It beats building alone or acquiring on four of five criteria", "A partner gives 40k outlets and local co-packing from day one"] },

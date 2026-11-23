@@ -1,11 +1,11 @@
 {
- "checked_at": "2026-11-23T15:21",
- "folder_version_checked": "2.10",
+ "checked_at": "2026-11-23T15:54",
+ "folder_version_checked": "2.12",
  "needs_publish": false,
  "new_generators": [],
- "published_hash": "e9c5b3cec7b56b184da523785743aa8dbe347a990b62b729ce190ff3b1bfbe9b",
+ "published_hash": "38f8b55aab5a74a766ba8cb9bd8851cc91c72b2de80e74e7fe6c92214a51581f",
  "published_files": {
-  "README.md": "ec6374872fc4121ac01109daa05c4d41f3be9f12c00e6360c8a753281b0a142b",
+  "README.md": "7508e2198fac4d60b416765f34dc941974358f08a7d8fcaa7ea5531f12a09140",
   "assets/Maps/README.md": "e07cf06ba439cea72a013dbdb681aa3a2f3cb5f844508c4171e8dbc234d039e9",
   "assets/Photos/README.md": "9461879d00e56c53b6f962cfb2fc985f2024978b464eef171c31c4622ed20751",
   "assets/Real output/README.md": "b716744e3040ffa6fcff7fc7bc351e82ad6b455a9af2df8fcc2546e608bd3523",
@@ -89,12 +89,12 @@
   "components/bundle.css": "6316297499d44116a3158b3ce666efddc77fc3806b7d7f059f81bccd145faf30",
   "components/bundle.js": "f465393cb7db80219f87c5b203bafe7b045f073aafba64de9afb22e1679dee0b",
   "components/index.d.ts": "b7ec5db4c538279e6076202038d6e8b8c15e052884bf95fa5a1d7df0a6dc6fc5",
-  "design-system.json": "3c7ed9a9e428bf077df62cb11742ca08dbfe63caf7978d12f2462fad81c4e12e",
-  "slides-kit/deck.css": "7087b61b2cd37eb88adb636e4de183ec59b6622a50ec6d32a70cff88b4c7887e",
-  "slides-kit/patterns.md": "c144129666dc681dffc7f40214fcb84db4ad4e84cf3c0a0083424904af8fd57a",
+  "design-system.json": "f869b9bd37145ac83f2f8dccb246b4d9a545de61cff1d9a30d1b8cfcc078f8ab",
+  "slides-kit/deck.css": "91b7fbb38b15ac0b8b5073bf5007963fda8aeccc47c30ad7451bae00f7c08209",
+  "slides-kit/patterns.md": "69db7db422baae22f5435e03bc3afd10f84e2d1dcc8a05771f16f9de8dda6556",
   "tokens.json": "bf03c1c5f338fa1b01cd9fb91b742a44752a15d2e7dc031a0a1c1786b8299179"
  },
- "published_version": "1795447298-91a3",
- "published_at": "2026-11-23T15:21",
- "folder_version": "2.10"
+ "published_version": "1795449240-f9ee",
+ "published_at": "2026-11-23T15:54",
+ "folder_version": "2.12"
 }
