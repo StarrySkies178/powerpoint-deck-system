@@ -29,7 +29,7 @@ If a Slides deck needs something from the right-hand "No" column, say so and bui
 3. Follow `slides-kit/patterns.md`: copy `deck.css` whole, build each slide from its recipe.
 4. Check with the kit's list, then Stage 5 §7 for the story. Log the deck (Stage 6) with output = "Slides".
 
-Tested 2026-11-23: the folder's sample story (SE Asia entry, 9 slides) built on this route with the design system installed: https://claude.ai/artifact/6A9Gqe1de8jF6vhJFADuSm. No overflow, nothing under 24 px, 4 to 117 elements per slide.
+Tested 2026-11-23: the folder's sample story (SE Asia entry) built on this route with the design system installed: https://claude.ai/artifact/6A9Gqe1de8jF6vhJFADuSm. First build: 9 slides, one figure each, half the page empty (the user rejected it). Rebuilt with the kit's compose classes: 13 slides, 2–4 exhibits on every analysis slide, lettered summary with a numbers column; no overflow, nothing under 24 px, at most 126 elements per slide.
 
 ## How the two stay one system
 

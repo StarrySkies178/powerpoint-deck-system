@@ -12,7 +12,7 @@ Consulting-grade 16:9 slides: one message per slide, an action title that states
 | A deck inside Claude (Slides: a link to share, edit and present; exports to .pptx or PDF) | This design system | `project/slides-kit/deck.css` + `project/slides-kit/patterns.md` |
 | A one-page visual inside Claude (Design: poster, one-pager, mock slide) | This design system | The React components below |
 
-**In step with folder version 2.8** (kept in step automatically by the folder's `scripts/sync_design_system.py`; the folder wins if they ever differ).
+**In step with folder version 2.10** (kept in step automatically by the folder's `scripts/sync_design_system.py`; the folder wins if they ever differ).
 
 ## Consuming this system
 

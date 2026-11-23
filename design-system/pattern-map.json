@@ -57,7 +57,8 @@
   "explodedBar": {},
   "heatGrid": {
    "component": "Heatmap",
-   "slides": "table"
+   "slides": "compose",
+   "note": "heat grid: .hs-heat"
   },
   "matrix": {
    "component": "Matrix",
@@ -67,12 +68,13 @@
    "component": "Scatter"
   },
   "riskMatrix": {
-   "slides": "matrix",
-   "note": "3x3 grid + table"
+   "slides": "compose",
+   "note": "risk table as a heat grid (.hs-heat): likelihood, impact, mitigation; the dot matrix is PowerPoint only"
   },
   "scoringTable": {
    "component": "HarveyBallTable",
-   "slides": "table"
+   "slides": "compose",
+   "note": "heat grid: .hs-heat (scores as numbers, best = main colour); .hs-grid for dots"
   },
   "dataTable": {
    "slides": "table"
@@ -146,7 +148,8 @@
   },
   "letteredSummary": {
    "component": "ExecSummary",
-   "slides": "exec"
+   "slides": "compose",
+   "note": "lettered summary: .hs-let rows + .hs-kc numbers column (spec.kpis in PowerPoint)"
   },
   "issueGoalStrategy": {
    "component": "ExecSummary",
@@ -169,7 +172,7 @@
   },
   "composeSlide": {
    "slides": "compose",
-   "note": "multi-panel slide with numbered sub-headlines"
+   "note": "the default for analysis slides: 2-4 panels (.hs-row.fill + .hs-p), layouts HALF2, GRID4I, T2B1, T1B2, EXI, L2R1, BAND2"
   },
   "mapRegions": {
    "component": "ChinaMap",

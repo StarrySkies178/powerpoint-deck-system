@@ -293,6 +293,20 @@ function issueGoalStrategy(slide, spec, box = BODY) {
 // ---------- executive summary forms ----------
 function letteredSummary(slide, spec, box = BODY) {
   // spec.items:[{letter?, conclusion, points:[..]}], spec.highlight — A/B/C conclusions reused later in section titles
+  // spec.kpis:{title, items:[{value, label, note, hi}]} — the numbers behind the answer in a column on the right, so the
+  // summary fills the page as the reference summaries do (text alone leaves the right third empty)
+  if (spec.kpis && spec.kpis.items && spec.kpis.items.length) {
+    const K = spec.kpis, kw = Math.min(3.9, box.w * 0.31), kx = box.x + box.w - kw, k = K.items.length, top = K.title ? 0.42 : 0, kg = 0.14, kh = (box.h - top - (k - 1) * kg) / k;
+    if (K.title) { txt(slide, K.title, kx, box.y, kw, 0.34, { fontSize: 12, bold: true, color: C.navy, valign: "middle", margin: 0 }); slide.addShape("line", { x: kx, y: box.y + 0.36, w: kw, h: 0, line: { color: C.navy, width: 1 } }); }
+    K.items.forEach((it, i) => {
+      const y = box.y + top + i * (kh + kg), vw = kw * 0.46;
+      slide.addShape("rect", { x: kx, y, w: kw, h: kh, fill: { color: it.hi ? C.hiBand : C.g1 }, line: { type: "none" } });
+      slide.addShape("rect", { x: kx, y, w: 0.07, h: kh, fill: { color: it.hi ? C.accent : C.navy }, line: { type: "none" } });
+      txt(slide, it.value, kx + 0.2, y, vw - 0.2, kh, { fontSize: fitSize(String(it.value), vw - 0.25, Math.min(kh, 0.8), 30, 16), bold: true, color: C.navy, valign: "middle", margin: 0 });
+      txt(slide, it.note ? [{ text: it.label, options: { bold: true, breakLine: true } }, { text: it.note, options: { color: C.g5 } }] : it.label, kx + vw + 0.05, y + 0.05, kw - vw - 0.15, kh - 0.1, { max: 12, min: 9, valign: "middle", margin: 0, bold: !it.note });
+    });
+    box = { ...box, w: box.w - kw - 0.35 };
+  }
   const n = spec.items.length, gap = 0.18, h = (box.h - (n - 1) * gap) / n;
   spec.items.forEach((it, i) => {
     const y = box.y + i * (h + gap), L = it.letter || String.fromCharCode(65 + i);

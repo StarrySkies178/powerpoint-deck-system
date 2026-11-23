@@ -210,8 +210,8 @@
   },
   "lastChange": {
     "by": "Mike N",
-    "at": "2026-11-23T13:36:00Z",
+    "at": "2026-11-23T15:30:00Z",
     "via": "Claude chat",
-    "note": "Folder 2.8: version stamp only (photo search and fetch at full resolution added in the folder; no change to tokens, components or the Slides kit)"
+    "note": "v2.4 (folder 2.10): Slides kit fills the page. Compose classes for 2-4 exhibits per slide, heat grid, lettered summary with a numbers column; 'Fill the page' rule and layout table in slides-kit/patterns.md"
   }
 }

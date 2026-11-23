@@ -90,6 +90,7 @@ Don't open `maintenance/` files during a normal build. They are for changing the
 - *Data shape* means the number of items, periods and dimensions, and whether the parts sum to a whole.
 - *Variant* means orientation, light or dark, number of items, and which side the image goes on.
 - Below the table, add an **assets needed** list: every photo, logo and headshot, each marked "in Objects/" or "missing, please supply".
+- **Fill the page (hard rule, checked by `scripts/deck_lint.py`):** every analysis slide carries **2–4 exhibits** that together prove its title, in a §4b layout built with `composeSlide()`; a single exhibit is the exception (at most one content slide in four) and still gets its reading. The reference decks' median content slide fills 93–98% of its body; a deck whose median is under 85%, or a slide with a large empty block, is not finished. Fill with proof (the numbers behind the claim, the comparison, the driver, the consequence), never by enlarging a figure or adding decoration. The executive summary carries its numbers (`letteredSummary` with `kpis`). Model: `Generators/build_sample.js` → `samples/sample-deck-v0.3.pptx`.
 - **Photo check:** for the cover, each section divider and every slide about a place, a site, a product or an industry, decide whether one photo would make the point land faster. If so, run `python3 scripts/get_photo.py search "<words>"` (free-licensed, full resolution, nothing downloaded yet), look at the candidates and put the best one in the assets list with its size and licence. Approving the plan approves those downloads (`Objects/images.md`).
 
 Also check the **slide rules** from `Style/storytelling.md` §8:
@@ -177,6 +178,7 @@ Each archetype has a spec in `catalogue/`, in the format set out in `catalogue/R
 - Only fonts, sizes and colours from the active style (the user's reference, or the house default)
 - No text overflowing its box, and nothing outside the margins
 - No text hidden under a shape drawn on top of it, and no text nearly the same colour as the fill behind it
+- No content slide with a large empty block, and the median content slide fills at least 85% of its body (references: 93–98%)
 - Body text per slide within the word limit
 - The same archetype never twice in a row
 - Every content slide has an action title (a full sentence, not a 1–2 word label)
@@ -213,7 +215,7 @@ Powerpoint/
 ├── DECK-SYSTEM.md        ← this file (always read)
 ├── Style/                ← style-rules.md (house style), refs/ (style cards of studied references), style-findings.md, slide-index.md
 ├── catalogue/            ← README.md (spec format + status), one file per message type, examples/
-├── Generators/           ← house.js (master + theme-link), patterns.js (pattern functions, any n), patterns_story.js (exec-summary forms, evidence panels, personas, journey, story charts), patterns_place.js (maps, zoom chains, sites, buildings, floor plans), objstore.py, components.py (slides → single diagrams), rebuild_slides.py (PDF/image → editable slides), vectorize.py (pictures + embedded charts → shapes), build_*.js
+├── Generators/           ← house.js (master + theme-link), patterns.js (pattern functions, any n), patterns_story.js (exec-summary forms, evidence panels, personas, journey, story charts), patterns_place.js (maps, zoom chains, sites, buildings, floor plans), objstore.py, components.py (slides → single diagrams), rebuild_slides.py (PDF/image → editable slides), ocr_review.py (line-by-line OCR check of rebuilt image pages), vectorize.py (pictures + embedded charts → shapes), build_*.js
 ├── design-system/        ← source of the Claude design system "Powerpoint House Style" (project/ = the published files, pattern-map.json, PUBLISH.md); kept in step by scripts/sync_design_system.py
 ├── bench/                ← reproduction benchmark: 20 reference slides rebuilt from prompts and scored (README, results-log)
 ├── scripts/              ← deck_lint.py (quality gate for every deck); get_photo.py (finds and fetches free-licensed photos at full resolution, logs the credit); sync_design_system.py (design system follows the folder); make_style_profile.py (a reference's measured look for the generators); layout_skeleton.py (panel boxes of a reference slide); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look)

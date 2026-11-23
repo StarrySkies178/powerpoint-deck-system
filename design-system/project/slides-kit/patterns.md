@@ -8,11 +8,33 @@ Use with `project/slides-kit/deck.css`. Both files belong to the design system *
 2. **Copy `deck.css` whole** into the deck's `project/deck.css`. It declares every token, the slide frame and all the classes below. Add deck-specific rules after it; never change the token block.
 3. **Fonts:** Arial (a basic face) with Microsoft YaHei / PingFang SC for Chinese. Nothing to upload, no `faces` entry.
 
+## Fill the page: several exhibits per slide (the rule that matters most)
+
+Measured on the user's reference decks: **78% of content slides carry 2–4 exhibits**, and the median slide fills **93–98%** of its body. One chart alone in a sea of white is not their style, and a deck built that way is wrong even if every slide passes the other checks.
+
+- **Every analysis slide is a `compose` slide:** 2–4 panels, each with a numbered sentence sub-headline, read in Z order, the conclusion (Insights + so-what, or a takeaway under the panel) in the last position. All panels prove the one title.
+- **A single exhibit is the exception** (at most one content slide in four): a full-width table, roadmap or framework that needs the room. It still gets its reading (takeaway bar or insight column).
+- **Fill with proof, never with size or decoration.** If a slide looks empty, it is missing evidence: the numbers behind the claim, the comparison, the driver, the consequence. Add that. Don't enlarge the chart, add white-space padding or stock pictures.
+- **Executive summary:** lettered conclusions on the left, "the numbers behind the answer" (4–5 KPI tiles) on the right; the letters come back at the start of every later title (A1, A2, B1…).
+- Panels are separated by gutters, not boxes; same palette, same highlight colour for the same thing in every panel; one `key` per panel.
+
+Layouts (from the folder's `Style/refs/case-competitions.md` §4b), all built from `.hs-row.fill` and `.hs-p`:
+
+| Layout | Build | Use |
+|---|---|---|
+| HALF2 | one `.hs-row.fill` with two `.hs-p`, a `.hs-ptake` under each | two facts that together prove the title |
+| GRID4I | two `.hs-row.fill`; the last cell is the insights panel | market and customer analysis |
+| T2B1 | row of two `.hs-p`, then a row with one wide `.hs-p` | two drivers, then the combined effect |
+| T1B2 | row with one wide `.hs-p`, then exhibit + insights | one big picture, then its detail and reading |
+| EXI | `.hs-p.w2` holding two stacked panels + an insights panel on the right | evidence left, conclusion right |
+| L2R1 | left `.hs-p` holding two stacked panels + one tall panel on the right | a tall table explained by two small charts |
+| BAND2 | two rows, each one full-width panel (the second may end in an insights panel) | a process on top, its numbers below |
+
 ## Rules that differ from a PowerPoint deck
 
 - Canvas 1920 × 1080; 1 in = 144 px, 1 pt = 2 px. Title 48 px, body 28 px, labels 24 px.
 - **Nothing under 24 px** (Slides' floor): labels, sources and page numbers that are 9–11 pt in PowerPoint are 24 px here. Use fewer words, not smaller type.
-- Margins are the house 58 px, not Slides' default 128 px: consulting slides are dense. Everything flows inside `.hs-body`; only the source line and the page number are pinned.
+- Margins are the house 58 px, not Slides' default 128 px: consulting slides are dense (see "Fill the page"). Everything flows inside `.hs-body`; only the source line and the page number are pinned.
 - Charts are **boxes, not pictures**: every bar is a `<div>` with a height in px, every label a `<p>`, so people can edit them. Scale: tallest bar 440 px in a 560 px chart; bar px = value ÷ max × 440. Line and pie charts: one `<svg>` (no `<text>`), labels as `<p>` after it.
 - Colour roles are the same: grey does the work, `key` marks the one point (green edge or fill; green text only as `.hs-key`, which is the dark text-safe green). At most one or two `key` uses per slide.
 - Tables cannot hold shapes or fills per cell: for scores use `.hs-grid` (rows of boxes); for plain numbers use `table.hs-table`.
@@ -238,17 +260,37 @@ Plain data table: `<table class="hs-table"><tr class="th"><th>…</th></tr><tr><
 <p class="hs-label hs-muted">Left to right: ability to win. Bottom to top: market attractiveness.</p>
 ```
 
-### compose (several exhibits on one slide)
-
-Two to four panels in `.hs-row` / `.hs-col`, each opening with a numbered sub-headline that states the panel's point, read in Z order with the conclusion last:
+### compose (several exhibits on one slide): the default for analysis slides
 
 ```html
-<div class="hs-row hs-grow">
-<div class="hs-col"><div class="hs-subhead"><div class="hs-chip"><p>1</p></div><h3>The panel's point as a sentence</h3></div> …exhibit… </div>
-<div class="hs-col"><div class="hs-subhead"><div class="hs-chip"><p>2</p></div><h3>…</h3></div> …exhibit… </div>
+<div class="hs-row fill">
+<div class="hs-p">
+  <div class="hs-subhead"><div class="hs-chip"><p>1</p></div><p>The panel's point as a sentence</p></div>
+  <div class="hs-x bottom"> …columns: .hs-bars + .hs-cats… </div>
+</div>
+<div class="hs-p">
+  <div class="hs-subhead"><div class="hs-chip"><p>2</p></div><p>…</p></div>
+  <div class="hs-x"> …ranking: .hs-hbars, or a heat grid: .hs-heat… </div>
+  <div class="hs-ptake"><p>What this panel means, in one line</p></div>
+</div>
+</div>
+<div class="hs-row fill">
+<div class="hs-p"> …third exhibit… </div>
+<div class="hs-p">
+  <div class="hs-ins"><p class="t">Insights</p><ul><li>One finding with its <b>key words</b> in bold</li><li>…</li></ul></div>
+  <div class="hs-grow"></div>
+  <div class="hs-sowhat"><p>So what: the recommendation this slide leads to</p></div>
+</div>
 </div>
 ```
 
+- `.hs-p` = one panel (sub-headline, exhibit, optional takeaway). `.hs-p.w2` is twice as wide; `.hs-p.side` is a 520 px insight column. A `.hs-p` can hold two stacked `.hs-p` (give the outer one `style="gap:24px"`).
+- `.hs-x` is the exhibit's room: it centres its content; `.hs-x.bottom` sits columns on the baseline.
+- **Bar heights in panels:** two rows of panels: tallest bar 200 px; one row of panels: 400 px. Waterfall spacer = level before the step ÷ max × that height.
+- `.hs-hbars` and `.hs-heat` stretch over the panel's height by themselves. Set a ranking's label width with `style="width:…px"` on `.c` when labels are long.
+- **Heat grid** (scores, risks, shortlists): `.hs-heat` > `.r` > `.c0` (row label) + `.c` cells with the score as text; `.c.s4` best (main colour), `.c.s3` good (tint), plain = weak; `.r.th` header row; `.c.own` marks the chosen column. One box per cell keeps the slide light (a 5 × 5 grid of dots is 100+ elements; this is 30).
+- **Lettered summary:** `.hs-let` (`.k` letter box, `.t` with `<h3>` conclusion + `<p>` points; `.hs-let.key` for the decision) in a `.hs-p.w2`, and `.hs-kc` KPI tiles (`.num`, `.lab`) in the `.hs-p` beside it.
+
 ## Before handing over
 
-Every slide: title is a sentence and fits two lines; nothing runs past the body (bottom edge 960 px); no text under 24 px; one `key` at most twice; a source line on every slide with numbers. Then check the same list as the PowerPoint route (`DECK-SYSTEM.md` §7) for the storyline.
+**Fill first:** every analysis slide has 2–4 panels and no large empty block; at most one content slide in four carries a single exhibit; the summary has its numbers column. Then, every slide: title is a sentence and fits two lines; nothing runs past the body (bottom edge 960 px); no text under 24 px; one `key` at most twice; a source line on every slide with numbers. Then check the same list as the PowerPoint route (`DECK-SYSTEM.md` §7) for the storyline.

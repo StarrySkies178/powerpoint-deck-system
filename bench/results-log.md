@@ -25,3 +25,4 @@
 | 2026-11-23 20:44 | v2.6 final: sibling layouts, deck panel headers, table rules, deck chart text (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |
 | 2026-11-23 12:45 | v2.6 check on the user's machine (C04, C09) (2 cases) | 0/2 | 19/21 | 0.30 | 0.33 |
 | 2026-11-23 21:23 | v2.7: source line kept on the slide, venn label contrast (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |
+| 2026-11-23 21:56 | v2.10: letteredSummary kpis column (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |

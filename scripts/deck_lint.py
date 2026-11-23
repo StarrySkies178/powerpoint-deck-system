@@ -23,7 +23,14 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
   W covered        part of a text sits under a shape drawn on top of it
   W low-res image  a picture with under 150 pixels per inch at the size it is shown (it will look soft on a large screen)
   W contrast       words under 12 pt on a fill with less than 3 : 1 contrast (white on the accent green or on light grey is the usual case)
-  W wordy          body text over twice the default limit (~40 words / ~80 Chinese characters)
+  W wordy          body text over twice the default limit (~40 words / ~80 Chinese characters); an executive summary gets 200 words
+  W empty          a content slide that leaves a large part of its body unused: under 70% of the body carries content,
+                   or one empty block takes over 18% of it. Measured on 11 reference case decks (197 content slides,
+                   2026-11-23): the median slide fills 93-98% of its body and its largest empty block is 1-4%; they
+                   fill the page with 2-4 exhibits that prove the title. A lone figure in a sea of white is the usual
+                   cause. Fix by adding the missing proof (a second exhibit, the numbers behind the claim, the so-what),
+                   never by enlarging what is there or adding decoration.
+  DECK W empty     the median content slide fills under 85% of its body
 
 Exit code 1 when any error is found. This does not replace looking at the rendered slides.
 """
@@ -104,9 +111,56 @@ def _inside(kind, pts, box, px, py):
         return c
     return True
 
+def body_fill(items, ctx, W, H, top, margin):
+    """(share of the body that carries content, share taken by the largest empty block, that block in inches).
+    Content = text where it actually sits, charts, tables, pictures and drawn shapes; a big painted panel counts only
+    through what is inside it. Cells of 0.1 in; content is grown by 0.2 in so normal gaps are not counted as empty."""
+    x0, x1, y0, y1 = margin[0], W - margin[1], top, 0.925 * H
+    nx, ny = int(round((x1 - x0) / 0.1)), int(round((y1 - y0) / 0.1))
+    if nx < 10 or ny < 10: return None
+    g = [[0] * nx for _ in range(ny)]; area = (x1 - x0) * (y1 - y0)
+    def mark(ax, ay, aw, ah, grow=0.2):
+        for j in range(max(0, int((ay - grow - y0) / 0.1)), min(ny, int((ay + ah + grow - y0) / 0.1) + 1)):
+            row = g[j]
+            for i in range(max(0, int((ax - grow - x0) / 0.1)), min(nx, int((ax + aw + grow - x0) / 0.1) + 1)): row[i] = 1
+    for sh, (x, y, w, h) in items:
+        if (w > 0.95 * W and h > 0.95 * H) or y + h <= y0 or y >= y1: continue
+        has_text = getattr(sh, "has_text_frame", False) and sh.has_text_frame and sh.text_frame.text.strip()
+        kind = _geom(sh)[0] if sh.shape_type != 13 and not getattr(sh, "has_chart", False) and not getattr(sh, "has_table", False) else "obj"
+        if kind == "line":
+            if w < 0.05 or h < 0.05: mark(x, y, w, h, 0.05)        # rules and axes; slanted leader lines are left out
+            continue
+        painted = kind != "obj" and (fill_hex(ctx, sh) or line_hex(ctx, sh))
+        if has_text:
+            il, it, ir, ib = insets(sh); tw = 0; th_ = 0
+            for p in sh.text_frame.paragraphs:
+                rr = [r for r in p.runs if r.text.strip()]
+                if not rr: continue
+                q = run_props(ctx, sh, p, rr[0]); wid = _font(q[2], q[1], q[0]).getlength("".join(r.text for r in p.runs)) / 4 / 72
+                lines = max(1, int(wid / max(0.1, w - il - ir)) + 1); tw = max(tw, min(wid, w - il - ir)); th_ += lines * q[0] * 1.2 / 72
+            th_ = min(th_, h); al = str(sh.text_frame.paragraphs[0].alignment or ""); an = str(inherited_anchor(ctx, sh) or "").lower()
+            ex = x + il + ((w - il - ir - tw) / 2 if "CENTER" in al else (w - il - ir - tw if "RIGHT" in al else 0))
+            ey = y + (h - th_) / 2 if "ctr" in an else (y + h - ib - th_ if an.startswith("b") else y + it)
+            mark(ex, ey, tw, th_)
+            if painted and (kind != "rect" or w * h <= 0.12 * area): mark(x, y, w, h)
+        elif kind != "rect" or not painted or w * h <= 0.12 * area: mark(x, y, w, h)
+        # else: a large painted panel with nothing in it is background, not content
+    filled = sum(map(sum, g)) / (nx * ny)
+    best = (0, 0, 0, 0, 0); hist = [0] * nx                                        # largest empty rectangle (histogram stack)
+    for j in range(ny):
+        hist = [0 if g[j][i] else hist[i] + 1 for i in range(nx)]; stack = []
+        for i in range(nx + 1):
+            cur = hist[i] if i < nx else 0; start = i
+            while stack and stack[-1][1] >= cur:
+                s0, hh = stack.pop(); a = hh * (i - s0)
+                if a > best[0]: best = (a, s0, j - hh + 1, i - s0, hh)
+                start = s0
+            stack.append((start, cur))
+    return filled, best[0] / (nx * ny), (x0 + best[1] * 0.1, y0 + best[2] * 0.1, best[3] * 0.1, best[4] * 0.1)
+
 def lint_slide(prs, slide, n, st):
     ctx = Ctx(prs, slide); W, H = prs.slide_width / EMU, prs.slide_height / EMU
-    E, Wn = [], []
+    E, Wn = [], []; fill_stats = None
     items = list(walk(slide.shapes)); texts = []; accent_fills = 0; has_chart = False; off_pal = collections.Counter(); fonts_bad = collections.Counter()
     painted = []   # (z, kind, points, box, fill as seen (None for a picture), opacity) of every filled shape
     for z, (sh, (x, y, w, h)) in enumerate(items):
@@ -210,11 +264,22 @@ def lint_slide(prs, slide, n, st):
             words = len(re.findall(r"[A-Za-z0-9%$€£¥]+", title["text"])) + len(CJK.findall(title["text"])) // 2
             if words < 4: Wn.append(f"topic title: “{title['text'].strip()[:50]}” is not a sentence that states the point")
         if has_chart and not any(SRC.match(t["text"]) for t in texts): Wn.append("no source: chart without a source line")
+        if title:
+            sub = [t for t in texts if t is not title and title["y"] + title["h"] - 0.05 <= t["y"] < title["y"] + title["h"] + 0.25 and t["size"] < title["size"] and t["h"] < 0.6 and abs(t["x"] - title["x"]) < 0.2]
+            top_ = max([title["y"] + title["h"]] + [t["y"] + t["h"] for t in sub[:1]]) + 0.05
+            bf = body_fill(items, ctx, W, H, top_, st["margin"])
+            if bf and (bf[0] < 0.70 or bf[1] > 0.18):
+                ex, ey, ew, eh = bf[2]
+                Wn.append(f"empty: {bf[0]:.0%} of the body carries content; the largest empty block is {ew:.1f} x {eh:.1f} in ({bf[1]:.0%} of the body) at x {ex:.1f}, y {ey:.1f}. Add the missing proof (second exhibit, numbers, so-what)")
+            fill_stats = bf
+
         # body text = sentences (boxes of 6+ words), not labels; the default limit is ~40 words / ~80 Chinese characters (DECK-SYSTEM §8)
         body = [t["text"] for t in texts if t is not title and not SRC.match(t["text"])]
         words = sum(n for n in (len(re.findall(r"[A-Za-z0-9%$€£¥'’-]+", b)) for b in body) if n >= 6); cjk = sum(len(CJK.findall(b)) for b in body)
-        if words > 80 or cjk > 160: Wn.append(f"wordy: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (default limit ~40 / ~80; split the slide or cut)")
-    return dict(slide=n, layout=layout, title=(title["text"].strip().replace("\n", " ")[:70] if title else ""), errors=E, warnings=Wn)
+        summary = bool(title and re.match(r"\s*(executive\s+)?summary|\s*(执行)?摘要|\s*概要", title["text"], re.I))   # a summary page is text by nature: double the room
+        if words > (200 if summary else 80) or cjk > (400 if summary else 160): Wn.append(f"wordy: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (default limit ~40 / ~80; split the slide or cut)")
+    return dict(slide=n, layout=layout, title=(title["text"].strip().replace("\n", " ")[:70] if title else ""), errors=E, warnings=Wn,
+                fill=(round(fill_stats[0], 2), round(fill_stats[1], 2)) if fill_stats else None)
 
 def lint(path, profile=None):
     st = profile_style(profile) if profile else house_style()
@@ -222,8 +287,11 @@ def lint(path, profile=None):
     out = []; deck_errors = []
     if abs(W - st["W"]) > 0.05 or abs(H - st["H"]) > 0.05: deck_errors.append(f"slide size {W:.2f} × {H:.2f} in, style is {st['W']:.2f} × {st['H']:.2f} in")
     for i, s in enumerate(prs.slides, 1): out.append(lint_slide(prs, s, i, st))
-    return dict(deck=os.path.basename(path), style=st["name"], deck_errors=deck_errors, slides=out,
-                errors=len(deck_errors) + sum(len(s["errors"]) for s in out), warnings=sum(len(s["warnings"]) for s in out))
+    fills = sorted(s["fill"][0] for s in out if s.get("fill")); deck_warnings = []
+    if len(fills) >= 4 and fills[len(fills) // 2] < 0.85:
+        deck_warnings.append(f"empty: the median content slide fills {fills[len(fills) // 2]:.0%} of its body (reference decks: 93-98%). Most slides need more proof on the page: 2-4 exhibits per analysis slide (Style/storytelling.md §8 rule 11)")
+    return dict(deck=os.path.basename(path), style=st["name"], deck_errors=deck_errors, deck_warnings=deck_warnings, slides=out, median_fill=fills[len(fills) // 2] if fills else None,
+                errors=len(deck_errors) + sum(len(s["errors"]) for s in out), warnings=len(deck_warnings) + sum(len(s["warnings"]) for s in out))
 
 if __name__ == "__main__":
     a = sys.argv[1:]; prof = None; as_json = "--json" in a
@@ -234,6 +302,7 @@ if __name__ == "__main__":
     else:
         print(f"deck_lint: {r['deck']} against {r['style']} style: {r['errors']} error(s), {r['warnings']} warning(s) on {len(r['slides'])} slides")
         for e in r["deck_errors"]: print("  DECK  E", e)
+        for w in r["deck_warnings"]: print("  DECK  W", w)
         for s in r["slides"]:
             for e in s["errors"]: print(f"  {s['slide']:>3}  E {e}")
             for w in s["warnings"]: print(f"  {s['slide']:>3}  W {w}")

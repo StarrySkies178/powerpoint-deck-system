@@ -152,3 +152,59 @@ section.hs-dark h1 span { color: var(--accent); }
 .hs-grid .c0 { width: 360px; font-size: var(--t-label); }
 .hs-grid .c { flex: 1; display: flex; flex-direction: row; gap: 8px; align-items: center; }
 .hs-grid .c p { font-size: var(--t-label); }
+
+/* ---- compose: several exhibits on one slide. THE DEFAULT for analysis slides (reference decks: 78% of content
+   slides carry 2-4 exhibits; the median slide fills 93-98% of its body). Build the body from .hs-row.fill and .hs-p. ---- */
+.hs-row.fill { flex: 1; gap: 44px; min-height: 0; }
+.hs-p { flex: 1; display: flex; flex-direction: column; gap: 12px; min-width: 0; min-height: 0; }      /* one panel: sub-headline + exhibit (+ takeaway) */
+.hs-p.w2 { flex: 2; }
+.hs-p.side { flex: none; width: 520px; }                                                                 /* insight column (EXI) */
+.hs-p .hs-subhead { gap: 12px; padding-bottom: 8px; }
+.hs-p .hs-subhead p { font-size: var(--t-label); font-weight: 700; }
+.hs-p .hs-chip { width: 36px; height: 36px; }
+.hs-x { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }          /* the exhibit's room inside a panel */
+.hs-x.bottom { justify-content: flex-end; }
+.hs-p .hs-bars { gap: 22px; }
+.hs-p .hs-cats { gap: 22px; }
+.hs-p .hs-hbars { flex: 1; gap: 8px; justify-content: space-evenly; max-height: 420px; }      /* rows spread over the panel's height */
+.hs-p .hs-hbar .c { width: 250px; }
+.hs-p .hs-hbar .b { height: 38px; }
+.hs-p .hs-hbar .v { width: 150px; white-space: nowrap; }
+.hs-ptake { border: 2px solid var(--main); border-left: 10px solid var(--accent); padding: 12px 18px; }    /* takeaway under a panel */
+.hs-ptake p { font-size: var(--t-label); font-weight: 700; color: var(--main); }
+.hs-ins { display: flex; flex-direction: column; gap: 10px; }                                             /* the conclusion cell: always last */
+.hs-ins .t { font-size: var(--t-label); font-weight: 700; color: var(--main); border-bottom: 2px solid var(--main); padding-bottom: 8px; }
+.hs-ins ul { padding-left: 30px; display: flex; flex-direction: column; gap: 8px; }
+.hs-ins li { font-size: var(--t-label); }
+.hs-sowhat { background: var(--secondary-tint); border-left: 10px solid var(--main); padding: 16px 20px; }
+.hs-sowhat p { font-size: var(--t-label); font-weight: 700; color: var(--main); }
+/* heat grid: a score per cell, darkest = best (one box per cell, so it stays editable and light) */
+.hs-heat { flex: 1; display: flex; flex-direction: column; gap: 6px; max-height: 470px; }
+.hs-heat .r { flex: 1; display: flex; flex-direction: row; gap: 6px; align-items: stretch; max-height: 76px; }
+.hs-heat .r.th { flex: none; }
+.hs-heat .c0 { width: 250px; font-size: var(--t-label); display: flex; align-items: center; }
+.hs-heat .c { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6px 4px; background: var(--panel); }
+.hs-heat .c p { font-size: var(--t-label); text-align: center; }
+.hs-heat .r.th .c { background: var(--paper); }
+.hs-heat .r.th .c p { font-weight: 700; color: var(--main); }
+.hs-heat .c.s4 { background: var(--main); }
+.hs-heat .c.s4 p { color: var(--paper); font-weight: 700; }
+.hs-heat .c.s3 { background: var(--main-tint); }
+.hs-heat .c.own { border-bottom: 6px solid var(--accent); }
+/* lettered executive summary + the numbers behind the answer */
+.hs-let { display: flex; flex-direction: row; gap: 20px; }
+.hs-let .k { width: 56px; height: 56px; background: var(--main); display: flex; align-items: center; justify-content: center; }
+.hs-let .k p { color: var(--paper); font-weight: 700; }
+.hs-let.key .k { background: var(--accent); }
+.hs-let.key .k p { color: var(--ink); }
+.hs-let .t { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.hs-let .t h3 { color: var(--main); }
+.hs-let .t p { font-size: var(--t-label); }
+.hs-kc { flex: 1; display: flex; flex-direction: row; align-items: center; gap: 20px; background: var(--panel); border-left: 10px solid var(--main); padding: 0 20px; }
+.hs-kc.key { background: var(--secondary-tint); border-left: 10px solid var(--accent); }
+.hs-kc .num { width: 210px; font-size: 44px; font-weight: 700; color: var(--main); line-height: 1; }
+.hs-kc .lab { flex: 1; font-size: var(--t-label); }
+.hs-p .hs-pairs { flex: 1; justify-content: space-evenly; }
+.hs-p .hs-pair { flex: 1; align-items: stretch; max-height: 96px; }
+.hs-p .hs-pair .from, .hs-p .hs-pair .to { display: flex; align-items: center; }
+.hs-p .hs-pair .hs-arrow { align-self: center; }
