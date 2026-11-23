@@ -2,13 +2,20 @@
 
 Usage (from the Powerpoint folder):
   python3 scripts/ingest_reference.py <file.pptx|.ppt|.potx|.pdf|image|folder-of-images> <key> ["Readable name"]
+          [--fixes review/<key>/ocr-corrections.json] [--replace]
+
+  --fixes    PDFs and images only: rebuild again with the reviewed OCR corrections (maintenance/new-reference.md
+             step 1b); the OCR is read from review/<key>/ocr-cache, so the lines are the ones that were reviewed.
+  --replace  the key exists already (a re-run after the OCR review): its store objects, index rows, slide-map rows and
+             slide-index section are replaced; the old store file is moved to archive/.
 
 What it does, in order:
   0. PDFs, screenshots and scans are first TURNED INTO EDITABLE SLIDES (Generators/rebuild_slides.py):
      vector PDF pages -> LibreOffice PDF import (real shapes + text); image/scanned pages -> OCR text
      (English + Chinese) + colour regions traced into rectangles/ovals/freeforms, photos kept as pictures.
      Saved as Templates/<name>-rebuilt.pptx (the original is kept beside it) with a side-by-side
-     review sheet and a similarity score per page in review/<key>/.
+     review sheet and a similarity score per page in review/<key>/. The OCR lines and the page pixels are kept
+     (review/<key>/rebuild-info.json, pages/, ocr-cache/) for the line-by-line OCR review (Generators/ocr_review.py).
   1. Converts .ppt/.potx to .pptx if needed (LibreOffice) and copies the original into Templates/.
   2. Object store: saves every slide (and each slide's separate diagrams as parts, Generators/components.py)'s drawing as editable vector objects with theme-role colours
      (Objects/store/<key>.jsonl.gz, media into media.zip) and rebuilds Objects/store/index.json.
@@ -92,12 +99,35 @@ def contact_sheets(pptx, outdir, cols=8, rows=6, tw=260):
         o = os.path.join(outdir, f"sheet-{b // per + 1:02d}.jpg"); S.save(o, quality=70); outs.append(o)
     return outs
 
+def remove_key(key, name):
+    """--replace: take an existing key out of the store, the slide map and the slide index (old store file to archive/)."""
+    import datetime
+    store = os.path.join(ROOT, "Objects", "store"); d = datetime.date.today().isoformat()
+    os.makedirs(os.path.join(ROOT, "archive"), exist_ok=True)
+    shutil.move(os.path.join(store, f"{key}.jsonl.gz"), os.path.join(ROOT, "archive", f"{key}_replaced_{d}.jsonl.gz"))
+    idx_path = os.path.join(store, "index.json"); idx = json.load(open(idx_path))
+    json.dump([o for o in idx if o["deck"] != key], open(idx_path, "w"), ensure_ascii=False)
+    base = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-")
+    sm = os.path.join(ROOT, "Style", "slide-map.csv")
+    if os.path.exists(sm):
+        rows = list(csv.reader(open(sm, encoding="utf-8-sig")))
+        with open(sm, "w", newline="", encoding="utf-8-sig") as f: csv.writer(f).writerows([r for r in rows if not (r and r[0] in (base, base + "-rebuilt"))])
+    si = os.path.join(ROOT, "Style", "slide-index.md")
+    if os.path.exists(si):
+        t = open(si, encoding="utf-8").read(); t = re.sub(r"\n## " + re.escape(name) + r"  \([^)]*\)\n\n(?:- .*\n)*", "\n", t)
+        open(si, "w", encoding="utf-8").write(t)
+
 def main():
-    if len(sys.argv) < 3: print(__doc__); sys.exit(1)
-    src, key = sys.argv[1], re.sub(r"[^a-z0-9]+", "-", sys.argv[2].lower()).strip("-")
-    name = sys.argv[3] if len(sys.argv) > 3 else os.path.splitext(os.path.basename(src))[0]
+    argv = list(sys.argv[1:]); fixes_p = None; replace = "--replace" in argv
+    if replace: argv.remove("--replace")
+    if "--fixes" in argv: i = argv.index("--fixes"); fixes_p = argv[i + 1]; del argv[i:i + 2]
+    if len(argv) < 2: print(__doc__); sys.exit(1)
+    src, key = argv[0], re.sub(r"[^a-z0-9]+", "-", argv[1].lower()).strip("-")
+    name = argv[2] if len(argv) > 2 else os.path.splitext(os.path.basename(src))[0]
     store = os.path.join(ROOT, "Objects", "store")
-    if os.path.exists(os.path.join(store, f"{key}.jsonl.gz")): raise SystemExit(f"key '{key}' already exists: choose another")
+    if os.path.exists(os.path.join(store, f"{key}.jsonl.gz")):
+        if not replace: raise SystemExit(f"key '{key}' already exists: choose another (or --replace after an OCR review)")
+        remove_key(key, name)
     work = tempfile.mkdtemp()
     tdir = os.path.join(ROOT, "Templates"); os.makedirs(tdir, exist_ok=True)
     base = re.sub(r"[^A-Za-z0-9]+", "-", name).strip("-")
@@ -109,8 +139,12 @@ def main():
         orig = os.path.join(tdir, base + ("-source" if os.path.isdir(src) else "-original" + ext))
         if not os.path.exists(orig): (shutil.copytree if os.path.isdir(src) else shutil.copy)(src, orig)
         rdir = os.path.join(ROOT, "review", key); os.makedirs(rdir, exist_ok=True)
-        tmp_out = os.path.join(work, base + "-rebuilt.pptx")
-        rebuilt = RB.rebuild(src, tmp_out)
+        tmp_out = os.path.join(work, base + "-rebuilt.pptx"); info_p = os.path.join(rdir, "rebuild-info.json")
+        fixes = RB.load_fixes(fixes_p, info_p) if fixes_p else None
+        if fixes_p: shutil.copy(info_p, os.path.join(rdir, "rebuild-info-before-review.json"))
+        rebuilt = RB.rebuild(src, tmp_out, fixes=fixes, pages_dir=os.path.join(rdir, "pages") if not os.path.isdir(src) else None,
+                             ocr_cache=os.path.join(rdir, "ocr-cache"))
+        json.dump(rebuilt, open(info_p, "w"), default=str)
         tname = base + "-rebuilt.pptx"; shutil.copy(tmp_out, os.path.join(tdir, tname))
         shutil.move(rebuilt["review_sheet"], os.path.join(rdir, "rebuild-review.jpg")); rebuilt["review_sheet"] = os.path.join(rdir, "rebuild-review.jpg")
         pptx = os.path.join(tdir, tname)
@@ -160,7 +194,9 @@ def main():
     # registry for the audit gate (scripts/audit_reference.py fails until the study file is written)
     reg_p = os.path.join(ROOT, "Style", "refs", "references.json"); reg = json.load(open(reg_p, encoding="utf-8"))
     if not any(r["key"] == key for r in reg["references"]):
-        reg["references"].append({"key": key, "name": os.path.splitext(tname)[0], "template": tname, "study": [f"Style/refs/{key}.md"], **({"rebuilt_from": "pdf/images"} if rebuilt else {})})
+        raster = bool(rebuilt) and (os.path.isdir(src) or ext != ".pdf" or any(isinstance(st, dict) and st.get("kind", "raster") == "raster" for st in rebuilt["info"]))
+        reg["references"].append({"key": key, "name": os.path.splitext(tname)[0], "template": tname, "study": [f"Style/refs/{key}.md"],
+                                  **({"rebuilt_from": "pdf/images" if raster else "pdf"} if rebuilt else {})})
         json.dump(reg, open(reg_p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     # 5 review sheets
     sheets = contact_sheets(pptx, os.path.join(ROOT, "review", key))
@@ -170,7 +206,8 @@ def main():
                           unclassified=len(unc), vectorised=len(vec), unclassified_slides=unc[:60], review_sheets=sheets,
                           rebuilt_from_pdf_or_images=(dict(file=tname, similarity=rebuilt["similarity"], sheet=rebuilt["review_sheet"],
                                                           low_pages=[i + 1 for i, v in enumerate(rebuilt["similarity"]) if v is not None and v < 0.8]) if rebuilt else None),
-                          next=f"Follow maintenance/new-reference.md from step 2; finish with: python3 scripts/audit_reference.py {key} (must be ALL PASS)"), indent=1))
+                          next=(f"Image pages were rebuilt by OCR: do the OCR review first (maintenance/new-reference.md step 1b), then re-run with --fixes review/{key}/ocr-corrections.json --replace. " if rebuilt and any(isinstance(st, dict) and st.get("kind", "raster") == "raster" for st in rebuilt["info"]) else "")
+                               + f"Follow maintenance/new-reference.md from step 2; finish with: python3 scripts/audit_reference.py {key} (must be ALL PASS)"), indent=1))
 
 if __name__ == "__main__":
     main()

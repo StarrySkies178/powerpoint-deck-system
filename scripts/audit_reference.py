@@ -16,6 +16,7 @@ Checks per reference (all must PASS):
   11 composition how slides combine several figures (layouts, reading order) is studied
   10 shapes     pictures and embedded charts were turned into editable shapes (vectorize.py)
   8 rebuild      (PDF / image sources) the rebuilt deck and its review sheet exist
+  12 OCR review  (image pages) every number line was checked against the page by eye and the deck rebuilt with the corrections
 And once for the whole system:
   9 all decks    lessons are wired into every deck: storytelling.md has the study rules, DECK-SYSTEM §2 points every deck to them
 Exit code 1 if anything fails. Never report "learned"/"done" while this fails; report exactly what is missing.
@@ -50,6 +51,9 @@ def audit(ref, idx, smap):
     ok("10 shapes", (vec or ref.get("vector_checked")) and not vun, f"{len(vun)} vectorised objects not reviewed by eye" if vun else "pictures / embedded charts not turned into shapes (run Generators/vectorize.py, or record vector_checked with the reason)")
     if ref.get("rebuilt_from"):
         ok("8 rebuild", os.path.exists(J("review", k, "rebuild-review.jpg")) or os.path.exists(J("Templates", ref["template"])), "rebuilt deck / review sheet missing")
+    if "image" in (ref.get("rebuilt_from") or ""):
+        ok("12 OCR review", ref.get("ocr_reviewed") and os.path.exists(J("review", k, "ocr-corrections.json")),
+           "image pages not OCR-reviewed: Generators/ocr_review.py sheets / missing, review/<key>/ocr-corrections.json, rebuild with --fixes, record ocr_reviewed (maintenance/new-reference.md step 1b)")
     return res
 
 def main():

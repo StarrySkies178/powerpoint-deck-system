@@ -51,7 +51,7 @@ Result across all 1,367 repeating template objects: **238 change count in place*
 - After placing or changing any object, render the slide and check it.
 - New objects made by combining or extending can be saved back to the store as `<deck>-new-<name>`.
 - New references are added with `scripts/ingest_reference.py` (see `maintenance/new-reference.md`). They get the same cleaning, slots, charts and colour roles automatically.
-- PDFs, screenshots and scans are first turned into editable slides by `Generators/rebuild_slides.py` (vector PDF import; OCR + traced shapes for images), so their objects go into the store too. Rebuilt objects are approximations: text and simple shapes are reliable; complex drawings (maps, detailed icons) may need a generator or a cleaner source.
+- PDFs, screenshots and scans are first turned into editable slides by `Generators/rebuild_slides.py` (vector PDF import; OCR + traced shapes for images), so their objects go into the store too. Image pages are checked line by line against the page by eye (`Generators/ocr_review.py`) and rebuilt with the corrections before their objects are used, so their numbers can be trusted; drawings, icons, maps and charts are traced finely into shapes, and only real photos stay pictures. Isometric drawings and textured scans come out as many small shapes: fine to recolour and move, but redraw with a generator (`patterns_place.js` buildingExplode, maps) when they need changing.
 
 ## Single diagrams (parts)
 

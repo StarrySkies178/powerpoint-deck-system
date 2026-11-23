@@ -233,7 +233,8 @@
    ],
    "rebuilt_from": "pdf/images",
    "vector_checked": "one text page (the case prompt); the only picture is an organiser logo (checked by eye 2026-11-23)",
-   "parts_checked": "one text page with no diagrams: the two candidate parts were text and a logo (checked by eye 2026-11-23)"
+   "parts_checked": "one text page with no diagrams: both candidate parts were text and a logo (checked by eye again in v2.9)",
+   "ocr_reviewed": "2026-11-23: 5 number lines + 2 suspect lines checked against the page crops; 2 fixed (by eye, review/case20-gym-brief/ocr-corrections.json)"
   },
   {
    "key": "case20-vaccine",
@@ -243,7 +244,8 @@
    "study": [
     "Style/refs/case-competitions-2019-2020.md"
    ],
-   "rebuilt_from": "pdf/images"
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-23: 211 number lines + 59 suspect lines + 9 missed-number candidates checked; 83 lines fixed or removed, 6 numbers added (by eye, review/case20-vaccine/ocr-corrections.json)"
   },
   {
    "key": "case20-tnt",
@@ -253,7 +255,8 @@
    "study": [
     "Style/refs/case-competitions-2019-2020.md"
    ],
-   "rebuilt_from": "pdf/images"
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-23: 190 number lines + 91 suspect lines + 14 missed-number candidates checked; 98 lines fixed or removed, 10 numbers added (by eye, review/case20-tnt/ocr-corrections.json)"
   },
   {
    "key": "case20-baincraft",
@@ -263,7 +266,8 @@
    "study": [
     "Style/refs/case-competitions-2019-2020.md"
    ],
-   "rebuilt_from": "pdf/images"
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-23: 1,071 number lines + 141 suspect lines + 67 missed-number candidates checked; 238 lines fixed or removed, 48 numbers added (by eye, review/case20-baincraft/ocr-corrections.json)"
   },
   {
    "key": "case20-doubleclick",
@@ -273,7 +277,8 @@
    "study": [
     "Style/refs/case-competitions-2019-2020.md"
    ],
-   "rebuilt_from": "pdf/images"
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-23: 1,281 number lines + 133 suspect lines + 54 missed-number candidates checked; 160 lines fixed or removed, 51 numbers added (by eye, review/case20-doubleclick/ocr-corrections.json)"
   }
  ]
 }
