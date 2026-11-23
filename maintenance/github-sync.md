@@ -25,7 +25,7 @@ The folder on the Mac is the source of truth. `github.com/StarrySkies178/powerpo
 - Keep the repo **private**: `Templates/` holds third-party decks.
 - Never commit secrets (tokens, `.env`, credentials).
 - `logs/active-work/` and `logs/active-work.md` (the sign-in sheet) stay on the Mac: they are in `.gitignore`.
-- GitHub rejects files over 100 MB. Never leave such a file out: it goes into the repo as parts (see **Big files**). *Why: a file left out is missing on the phone and on other PCs, where the repo is the only copy.*
+- GitHub blocks files over 100 MiB (about 105 MB) and warns from 50 MiB. Never leave a big file out: it goes into the repo as parts (see **Big files**). *Why: a file left out is missing on the phone and on other PCs, where the repo is the only copy.*
 
 ## Big files (over 90 MB)
 
@@ -51,7 +51,7 @@ This is what the `deck-system` skill does when the Mac can't be reached.
 - **Write a manifest first:** `find . -type f ! -name '.DS_Store' ! -name '~$*' ! -path './logs/sync-manifest.tsv' -printf '%P\t%s\n' | sort > logs/sync-manifest.tsv`, stage it, and use it as the checklist: every path must exist in the staged copy with the same size before committing.
 - **Stage only what changed** since the last sync (newer mtime, or missing/different size in the staged copy); copies made with `cp -p` keep old dates, so always finish with the size check.
 - **One staging call at a time, each ≤ ~35 MB and ≤ 45 files.** Several calls at once time out.
-- **Over 100 MB:** solved with parts, see **Big files** above. Until v2.12 `Objects/store/media.zip` was simply left out of the repo, so the object store's pictures were missing there. Run `find . -size +90M` in the clone before every push: apart from the whole files listed in `.gitignore`, it must find nothing.
+- **Big files:** solved with parts, see **Big files** above. Until v2.12 `Objects/store/media.zip` was simply left out of the repo, so the object store's pictures were missing there. (At 101.8 MB it was still under GitHub's 100 MiB block and would have been accepted; it passed the block only when it grew to 131 MB. The script splits from 90 MB to leave a margin.) Run `find . -size +90M` in the clone before every push: apart from the whole files listed in `.gitignore`, it must find nothing.
 - **Staging is slow some evenings:** on 2026-11-23 a 131 MB file and a 30 MB piece both timed out, and so did one call with three files adding up to 13 MB; single 9 MB files went through every time. One file per call, and nothing over ~10 MB when a call has just timed out.
 - **`_to_delete/`** holds files waiting for the user to delete (sessions can't delete in the folder). It is never synced.
 - **Many small files:** zip them on the Mac into `_to_delete/`, stage the zip, unzip into the clone. One call instead of ten.

@@ -1,11 +1,11 @@
 {
- "checked_at": "2026-11-23T16:46",
- "folder_version_checked": "2.19",
+ "checked_at": "2026-11-23T17:01",
+ "folder_version_checked": "2.20",
  "needs_publish": false,
  "new_generators": [],
- "published_hash": "064a5d9e6834911ff86851575268feda9104d73464e7c81c5cc0e97f3e839c1d",
+ "published_hash": "3f63e46ce20032f0a8029192de763140d1c60540093872f0b8ac3988055a6122",
  "published_files": {
-  "README.md": "6806112e5c10d0480a1f25a9b37aa086f5f7b7ba418ff075fcf42d258e373b57",
+  "README.md": "77bdc33a5bf105e4bcb73147b51ee96071b3d518b6058971127eb031a39cc1ce",
   "assets/Maps/README.md": "e07cf06ba439cea72a013dbdb681aa3a2f3cb5f844508c4171e8dbc234d039e9",
   "assets/Photos/README.md": "9461879d00e56c53b6f962cfb2fc985f2024978b464eef171c31c4622ed20751",
   "assets/Real output/README.md": "b716744e3040ffa6fcff7fc7bc351e82ad6b455a9af2df8fcc2546e608bd3523",
@@ -89,12 +89,12 @@
   "components/bundle.css": "6316297499d44116a3158b3ce666efddc77fc3806b7d7f059f81bccd145faf30",
   "components/bundle.js": "f465393cb7db80219f87c5b203bafe7b045f073aafba64de9afb22e1679dee0b",
   "components/index.d.ts": "b7ec5db4c538279e6076202038d6e8b8c15e052884bf95fa5a1d7df0a6dc6fc5",
-  "design-system.json": "a789a36b0f7cf23253980d07d99a56e81aca7178bc3c761d37a1e7ef04412b59",
+  "design-system.json": "274ad221329331ceea543d71555695003e0d0f06d83118f3bd4aa66f0ba91b0c",
   "slides-kit/deck.css": "0b46b115c06429608e52c67057724dbf8f4a2bd4d6b8544de05b87a01ab1871f",
   "slides-kit/patterns.md": "9f0215236ebb426b944507293da2814bc678d0a25b1164e63bbed657f2429adf",
   "tokens.json": "bf03c1c5f338fa1b01cd9fb91b742a44752a15d2e7dc031a0a1c1786b8299179"
  },
- "published_version": "1795452385-deee",
- "published_at": "2026-11-23T16:46",
- "folder_version": "2.19"
+ "published_version": "1795453289-11cc",
+ "published_at": "2026-11-23T17:01",
+ "folder_version": "2.20"
 }

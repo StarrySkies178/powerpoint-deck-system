@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Big files for the GitHub mirror: split on the Mac, place in the clone, join after a clone.
 
-Why: GitHub rejects files over 100 MB, and staging from the Mac times out on big files
-(on 2026-11-23 a 30 MB piece timed out twice while 9 MB pieces went through every time).
+Why: GitHub blocks files over 100 MiB (about 105 MB), and staging from the Mac times out on big
+files (on 2026-11-23 a 131 MB file and a 30 MiB piece each timed out once, and so did one call
+with three files adding up to 13 MB; single 9 MB pieces went through every time).
 Any file over 90 MB (today Objects/store/media.zip and its archive copies) is therefore
 kept in the repo as 8 MiB parts next to where the file belongs:
     Objects/store/media.zip.part00, .part01, ...

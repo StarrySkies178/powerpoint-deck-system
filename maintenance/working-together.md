@@ -2,7 +2,7 @@
 
 More than one chat changes this folder at the same time (on 2026-11-23 three Claude chats did, and Hermes can too). Chats cannot see each other's conversations. The only thing they share is this folder, so the folder carries the sign-in sheet. `scripts/work.py` keeps it.
 
-*Why: without a sheet, version numbers collided at least three times (1.1 was logged twice; 2.11 and 2.15 were each taken by a second chat mid-work), two chats edited `maintenance/github-sync.md` in the same half hour, and 280 files went unsynced to GitHub for hours because each chat pushed only around the other's work.*
+*Why: without a sheet, version numbers collided at least four times (0.6 and 1.1 were each logged twice; 2.11 and 2.15 were each taken by a second chat mid-work), two chats edited `maintenance/github-sync.md` in the same half hour, and 280 files of v2.9 were missing from GitHub for hours while later versions were pushed. (Why those files were not pushed at the time is not recorded; with a claim on `GITHUB` and one chat syncing the whole folder at a time, a gap like that shows up at the next sync.)*
 
 Read this before you change **any** file in the folder: rules, scripts, generators, style, the object store, the logs. Building a deck without changing the system needs no sign-in until Stage 6 (the logs).
 
