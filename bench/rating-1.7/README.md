@@ -19,4 +19,5 @@
 |---|---|
 | `001.png` … `060.png` | The slides to rate |
 | `ratings.csv` | Mike's answers: `file, pass_or_fail, reason` |
+| `rate.html` | The easy way to rate (added v2.37): open it in a browser on the Mac. One slide at a time, Pass or Fail, one line of reason. Ratings stay in that browser; when done, "Copy all ratings as text" and paste into the chat. It shows nothing about where a slide came from and does not read `key.json` |
 | `key.json` | Source of each file (deck, slide, repeat of which file). **Not for the rater** |
