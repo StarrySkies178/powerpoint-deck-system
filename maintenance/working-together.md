@@ -4,6 +4,8 @@ More than one chat changes this folder at the same time (on 2026-11-23 three Cla
 
 *Why: without a sheet, version numbers collided at least four times (0.6 and 1.1 were each logged twice; 2.11 and 2.15 were each taken by a second chat mid-work), two chats edited `maintenance/github-sync.md` in the same half hour, and 280 files of v2.9 were missing from GitHub for hours while later versions were pushed. (Why those files were not pushed at the time is not recorded; with a claim on `GITHUB` and one chat syncing the whole folder at a time, a gap like that shows up at the next sync.)*
 
+**What to work on:** the shared plan is `maintenance/roadmap.md`. It is a proposal until the user approves it; when you take one of its steps, name the phase and step in your sign-in.
+
 Read this before you change **any** file in the folder: rules, scripts, generators, style, the object store, the logs. Building a deck without changing the system needs no sign-in until Stage 6 (the logs).
 
 ## The rules
