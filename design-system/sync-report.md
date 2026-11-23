@@ -1,6 +1,6 @@
 # Design system sync report
 
-Folder version 2.21; checked 2026-11-23 17:21.
+Folder version 2.22; checked 2026-11-23 17:29.
 
 ## House look → tokens
 
@@ -8,7 +8,7 @@ Folder version 2.21; checked 2026-11-23 17:21.
 
 ## To publish
 
-- Nothing: the live design system matches `design-system/project/`.
+- `README.md`
 
 ## Pattern coverage
 
