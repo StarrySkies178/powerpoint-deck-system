@@ -207,6 +207,339 @@
 "w": 39,
 "h": 18,
 "conf": 96.0
+},
+"w5-1": {
+"page": 4,
+"text": "females from Tier-1&1.5",
+"x": 1517,
+"y": 340,
+"w": 307,
+"h": 22,
+"conf": 92.0
+},
+"w5-2": {
+"page": 4,
+"text": "young",
+"x": 1426,
+"y": 345,
+"w": 83,
+"h": 23,
+"conf": 96.0
+},
+"w5-3": {
+"page": 4,
+"text": "are",
+"x": 1379,
+"y": 346,
+"w": 39,
+"h": 16,
+"conf": 96.0
+},
+"w5-4": {
+"page": 4,
+"text": "cities",
+"x": 1299,
+"y": 374,
+"w": 61,
+"h": 21,
+"conf": 96.0
+},
+"w8-8": {
+"page": 7,
+"text": "Online Strategy",
+"x": 658,
+"y": 264,
+"w": 234,
+"h": 31,
+"conf": 96.0
+},
+"w8-9": {
+"page": 7,
+"text": "Store",
+"x": 704,
+"y": 305,
+"w": 80,
+"h": 95,
+"conf": 86.0
+},
+"w8-10": {
+"page": 7,
+"text": "CRM Strategy",
+"x": 670,
+"y": 467,
+"w": 208,
+"h": 32,
+"conf": 96.0
+},
+"w10-11": {
+"page": 9,
+"text": "Store",
+"x": 1693,
+"y": 668,
+"w": 73,
+"h": 58,
+"conf": 93.0
+},
+"w10-12": {
+"page": 9,
+"text": "Individual",
+"x": 1537,
+"y": 685,
+"w": 144,
+"h": 24,
+"conf": 86.0
+},
+"w13-15": {
+"page": 12,
+"text": "Data Collection",
+"x": 92,
+"y": 231,
+"w": 230,
+"h": 26,
+"conf": 92.0
+},
+"w13-16": {
+"page": 12,
+"text": "Health improvement report",
+"x": 1391,
+"y": 366,
+"w": 328,
+"h": 27,
+"conf": 96.0
+},
+"w13-17": {
+"page": 12,
+"text": "Basic data: height, weight, etc.",
+"x": 168,
+"y": 374,
+"w": 373,
+"h": 27,
+"conf": 96.0
+},
+"w13-18": {
+"page": 12,
+"text": "Basic health data tracking",
+"x": 808,
+"y": 390,
+"w": 330,
+"h": 27,
+"conf": 95.0
+},
+"w13-19": {
+"page": 12,
+"text": "Following schedule based",
+"x": 1391,
+"y": 406,
+"w": 318,
+"h": 28,
+"conf": 95.0
+},
+"w13-20": {
+"page": 12,
+"text": "Training target:",
+"x": 167,
+"y": 420,
+"w": 183,
+"h": 27,
+"conf": 96.0
+},
+"w13-21": {
+"page": 12,
+"text": "fat loss, etc.",
+"x": 360,
+"y": 420,
+"w": 147,
+"h": 24,
+"conf": 94.0
+},
+"w13-22": {
+"page": 12,
+"text": "Training goal achieving",
+"x": 806,
+"y": 430,
+"w": 284,
+"h": 27,
+"conf": 95.0
+},
+"w13-23": {
+"page": 12,
+"text": "training goal",
+"x": 1389,
+"y": 434,
+"w": 151,
+"h": 27,
+"conf": 96.0
+},
+"w13-24": {
+"page": 12,
+"text": "Continuous training data: sports data",
+"x": 168,
+"y": 464,
+"w": 451,
+"h": 28,
+"conf": 96.0
+},
+"w13-25": {
+"page": 12,
+"text": "bracelet every",
+"x": 353,
+"y": 498,
+"w": 181,
+"h": 28,
+"conf": 96.0
+},
+"w13-26": {
+"page": 12,
+"text": "through smart",
+"x": 167,
+"y": 499,
+"w": 177,
+"h": 27,
+"conf": 96.0
+},
+"w13-27": {
+"page": 12,
+"text": "time",
+"x": 542,
+"y": 499,
+"w": 52,
+"h": 21,
+"conf": 96.0
+},
+"w13-28": {
+"page": 12,
+"text": "Each course",
+"x": 168,
+"y": 618,
+"w": 151,
+"h": 21,
+"conf": 96.0
+},
+"w13-29": {
+"page": 12,
+"text": "data including city,",
+"x": 330,
+"y": 618,
+"w": 223,
+"h": 27,
+"conf": 94.0
+},
+"w13-30": {
+"page": 12,
+"text": "Each store’s consumption report",
+"x": 777,
+"y": 645,
+"w": 420,
+"h": 27,
+"conf": 86.0
+},
+"w13-31": {
+"page": 12,
+"text": "location, course",
+"x": 168,
+"y": 651,
+"w": 193,
+"h": 24,
+"conf": 95.0
+},
+"w13-32": {
+"page": 12,
+"text": "coach,",
+"x": 489,
+"y": 651,
+"w": 80,
+"h": 24,
+"conf": 96.0
+},
+"w13-33": {
+"page": 12,
+"text": "category,",
+"x": 369,
+"y": 652,
+"w": 110,
+"h": 26,
+"conf": 95.0
+},
+"w13-34": {
+"page": 12,
+"text": "price, etc.",
+"x": 168,
+"y": 684,
+"w": 117,
+"h": 27,
+"conf": 96.0
+},
+"w13-35": {
+"page": 12,
+"text": "Super",
+"x": 776,
+"y": 685,
+"w": 74,
+"h": 27,
+"conf": 96.0
+},
+"w13-36": {
+"page": 12,
+"text": "trends",
+"x": 1115,
+"y": 685,
+"w": 84,
+"h": 21,
+"conf": 96.0
+},
+"w13-37": {
+"page": 12,
+"text": "customer",
+"x": 982,
+"y": 686,
+"w": 125,
+"h": 20,
+"conf": 96.0
+},
+"w14-40": {
+"page": 13,
+"text": "Other",
+"x": 1005,
+"y": 397,
+"w": 68,
+"h": 22,
+"conf": 96.0
+},
+"w14-41": {
+"page": 13,
+"text": "Gyms",
+"x": 1004,
+"y": 430,
+"w": 71,
+"h": 28,
+"conf": 96.0
+},
+"w17-44": {
+"page": 16,
+"text": "Baseline Revenue Growth Breakdown",
+"x": 1024,
+"y": 230,
+"w": 469,
+"h": 22,
+"conf": 95.0
+},
+"w17-45": {
+"page": 16,
+"text": "(RMB",
+"x": 1025,
+"y": 263,
+"w": 69,
+"h": 26,
+"conf": 96.0
+},
+"w17-46": {
+"page": 16,
+"text": "CRM",
+"x": 1525,
+"y": 533,
+"w": 52,
+"h": 19,
+"conf": 96.0
 }
 }
 }

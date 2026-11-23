@@ -5,7 +5,8 @@ Required for every reference whose pages were rebuilt from images (maintenance/n
   python3 Generators/ocr_review.py sheets <rebuild-info.json> <page images dir> <out dir>              # every line with a number
   python3 Generators/ocr_review.py sheets <rebuild-info.json> <page images dir> <out dir> --suspect    # lines without numbers that look misread
   python3 Generators/ocr_review.py missing <rebuild-info.json> <page images dir> <missing.json>       # numbers on the page that OCR missed
-  python3 Generators/ocr_review.py missing-sheets <missing.json> <page images dir> <out dir>           # each candidate in context
+  python3 Generators/ocr_review.py missing-words <rebuild-info.json> <page images dir> <words.json>   # words OCR missed (light text on colour)
+  python3 Generators/ocr_review.py missing-sheets <missing.json> <page images dir> <out dir> [--dense] # each candidate in context
   python3 Generators/ocr_review.py apply <rebuilt.pptx> <rebuild-info.json> <corrections.json> <out.pptx> [page images dir]
 
 For a reference ingested with scripts/ingest_reference.py the inputs are review/<key>/rebuild-info.json and
@@ -29,7 +30,8 @@ def pages(src):
     return sorted(p for p in glob.glob(os.path.join(src, "*")) if p.lower().endswith(IMG_EXT))
 
 def suspect(L):
-    """A line without digits that OCR may have invented from an icon, a logo or faint text."""
+    """A line without digits that OCR may have invented from an icon, a logo or faint text (or that was auto-fixed)."""
+    if L.get("autofix"): return True
     t = L["text"]; al = [c for c in t if c.isalnum()]
     cjk = sum(1 for c in t if ord(c) > 0x2E80)
     return (L.get("conf", 100) < 80 or len(al) <= 3 or len(al) < 0.7 * len(t.replace(" ", "")) or 0 < cjk < len(t) / 2
@@ -42,7 +44,7 @@ def items(info, digits_only=True, mode=None):
         for b in pg.get("ocr", []):
             for li, L in enumerate(b["lines"]):
                 has_d = bool(re.search(r"\d", L["text"]))
-                if mode == "digits" and not has_d: continue
+                if mode == "digits" and not has_d and not L.get("autofix"): continue
                 if mode == "suspect" and (has_d or not suspect(L)): continue
                 yield f"p{pi + 1}-b{b['block']}-l{li}", pi, L
 
@@ -54,7 +56,7 @@ def sheets(jpath, src, out, all_lines=False, per=60, mode=None):
         im = Image.open(imgs[pi]).convert("RGB"); pad = max(3, L["h"] // 3)
         c = im.crop((max(0, L["x"] - pad), max(0, L["y"] - pad), min(im.width, L["x"] + L["w"] + pad), min(im.height, L["y"] + L["h"] + pad)))
         k = 38 / max(1, c.height); c = c.resize((max(1, min(560, int(c.width * k))), 38))
-        rows.append((iid, c, L["text"]))
+        rows.append((iid, c, L["text"] + (f"   [auto: {L['autofix'][0]} → {L['autofix'][1]}]" if L.get("autofix") else "")))
     import textwrap
     f_t = ImageFont.truetype(FONT, 17); W = 2400; colw = W // 2; rh = 48; n = 0
     for s in range(0, len(rows), per):
@@ -91,10 +93,34 @@ def missing(jpath, src, outp):
     json.dump(found, open(outp, "w"), indent=0); print(len(found), "possible missed numbers")
     return found
 
-def missing_sheets(mpath, src, out, per=24):
-    """Each candidate shown in context (red box) so a person can accept or reject it."""
+def missing_words(jpath, src, outp):
+    """Words (letters) that no OCR line covers: light text on colour (white on pink, grey on grey) is often missed.
+    Read on the saturation channel and on a contrast-stretched grey image, both polarities; words of 3+ letters."""
+    import pytesseract, cv2
+    info = json.load(open(jpath))["info"]; imgs = pages(src); found = {}
+    for pi, pg in enumerate(info):
+        boxes = [(L["x"], L["y"], L["w"], L["h"]) for b in pg.get("ocr", []) for L in b["lines"]]
+        rgb = np.array(Image.open(imgs[pi]).convert("RGB")); k = 2.0
+        sat = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)[:, :, 1]
+        gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY); gray = cv2.createCLAHE(3.0, (8, 8)).apply(gray)
+        for base in (sat, gray):
+            b2 = cv2.resize(base, (int(base.shape[1] * k), int(base.shape[0] * k)), interpolation=cv2.INTER_CUBIC)
+            for img in (b2, 255 - b2):
+                d = pytesseract.image_to_data(Image.fromarray(img), lang="eng", output_type=pytesseract.Output.DICT, config="--psm 11")
+                for i, t in enumerate(d["text"]):
+                    t = t.strip()
+                    if len(re.sub(r"[^A-Za-z]", "", t)) < 3 or float(d["conf"][i]) < 75: continue
+                    x, y, w, h = [int(d[q][i] / k) for q in ("left", "top", "width", "height")]
+                    if h < 6 or any(x < bx + bw and bx < x + w and y < by + bh and by < y + h for bx, by, bw, bh in boxes): continue
+                    boxes.append((x, y, w, h)); found[f"w{pi + 1}-{len(found)}"] = dict(page=pi, text=t, x=x, y=y, w=w, h=h, conf=float(d["conf"][i]))
+    json.dump(found, open(outp, "w"), indent=0); print(len(found), "possible missed words")
+    return found
+
+def missing_sheets(mpath, src, out, per=24, dense=False):
+    """Each candidate shown in context (red box) so a person can accept or reject it. dense: 40 smaller cells per sheet."""
     found = json.load(open(mpath)); imgs = pages(src); os.makedirs(out, exist_ok=True)
-    f = ImageFont.truetype(FONT, 18); W, cw, ch = 2400, 600, 190; cols = W // cw; n = 0; items_ = list(found.items())
+    f = ImageFont.truetype(FONT, 17); W, cw, ch = (2400, 480, 130) if dense else (2400, 600, 190); per = 40 if dense else per
+    cols = W // cw; n = 0; items_ = list(found.items())
     for s in range(0, len(items_), per):
         chunk = items_[s:s + per]; rows = (len(chunk) + cols - 1) // cols
         S = Image.new("RGB", (W, rows * (ch + 34)), "white"); d = ImageDraw.Draw(S)
@@ -195,6 +221,7 @@ if __name__ == "__main__":
     if not a: print(__doc__); sys.exit(1)
     if a[0] == "sheets": sheets(a[1], a[2], a[3], "--all" in a, mode="suspect" if "--suspect" in a else None)
     elif a[0] == "missing": missing(a[1], a[2], a[3])
-    elif a[0] == "missing-sheets": missing_sheets(a[1], a[2], a[3])
+    elif a[0] == "missing-words": missing_words(a[1], a[2], a[3])
+    elif a[0] == "missing-sheets": missing_sheets(a[1], a[2], a[3], dense="--dense" in a)
     elif a[0] == "apply": apply(a[1], a[2], a[3], a[4], a[5] if len(a) > 5 else None)
     else: print(__doc__)

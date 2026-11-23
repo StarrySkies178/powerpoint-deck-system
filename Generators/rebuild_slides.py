@@ -188,8 +188,51 @@ def _fill_text(img, mask, rects=None):
         text = far & (1 - keep)
         # strokes plus their anti-aliased edge (else the edge stays behind as a ghost outline that gets traced)
         fill = (cv2.dilate(text, np.ones((5, 5), np.uint8)) > 0) & (comp > 0) & (keep == 0)
+        # faint halo left round the strokes (anti-aliasing, JPEG ringing) would be traced as ghost lines: flatten it too
+        fill |= (np.linalg.norm(sub.astype(np.float32) - im_, axis=2) < 32) & (comp > 0) & (keep == 0)
         o = out[Y0:Y1, X0:X1]; o[fill] = im_.astype(img.dtype)
     return out
+
+AUTOFIX = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ocr_autofix.json")
+
+def _autofix(blocks):
+    """Fixes for misreads seen again and again in reviewed rebuilds (Generators/ocr_autofix.json). Each change is recorded in
+    L["autofix"] and shown on the OCR review sheets; reviewed corrections are applied afterwards and win."""
+    if not os.path.exists(AUTOFIX): return blocks
+    R = json.load(open(AUTOFIX, encoding="utf-8"))
+    cjk = lambda ch: 0x2E80 <= ord(ch) <= 0x9FFF or 0x3000 <= ord(ch) <= 0x303F or 0xFF00 <= ord(ch) <= 0xFFEF
+    allt = "".join(L["text"] for B in blocks for L in B["lines"])
+    lat = sum(ch.isascii() and ch.isalnum() for ch in allt) / max(1, sum(ch.isalnum() or cjk(ch) for ch in allt))
+    C = R.get("cjk_on_latin_page", {}); latin = lat >= R.get("latin_page_min", 0.85)
+    for B in blocks:
+        keep = []
+        for L in B["lines"]:
+            t0 = L["text"]; tt = t0.replace(" ", "")
+            if latin and tt and all(cjk(ch) or ch in "-*.,·" for ch in tt) and sum(cjk(ch) for ch in tt) <= 3:
+                if tt in C.get("map_whole_line", {}):
+                    nt = C["map_whole_line"][tt]; L["text"] = nt; L["words"] = [dict(L["words"][0], t=nt)] if L["words"] else L["words"]
+                    L["autofix"] = [t0, nt]; keep.append(L); continue
+                if C.get("drop_short_lines"): continue                         # an icon or rule read as Chinese: stays a graphic
+            changed = False
+            line_latin = sum(ch.isascii() and ch.isalnum() for ch in tt) >= 0.5 * max(1, sum(ch.isalnum() or cjk(ch) for ch in tt))
+            if not line_latin: keep.append(L); continue                     # a Chinese line: leave it to the review
+            for i, w_ in enumerate(L["words"]):
+                t = w_["t"]; n_ = R.get("words", {}).get(t, t)
+                for rx, rp, _why in R.get("word_regex", []): n_ = re.sub(rx, rp, n_)
+                if latin: n_ = C.get("map_token", {}).get(n_, n_)
+                if i == 0 and n_ in R.get("line_start", {}):
+                    nxt = L["words"][1]["t"] if len(L["words"]) > 1 else ""
+                    if not re.match(r"^[\d.,]+%?$", nxt): n_ = R["line_start"][n_]            # a bullet
+                    elif len(L["words"]) == 2: n_ = R.get("line_start_before_number", {}).get(n_, n_)   # "= 2.3": a formula
+                    else: n_ = ""                                                        # a mark before a labelled number: drop it
+                if n_ != t: w_["t"] = n_; changed = True
+            if changed:
+                L["words"] = [w_ for w_ in L["words"] if w_["t"]]
+                if not L["words"]: continue
+                L["text"] = " ".join(w_["t"] for w_ in L["words"]); L["autofix"] = [t0, L["text"]]
+            keep.append(L)
+        B["lines"] = keep
+    return [B for B in blocks if B["lines"]]
 
 def _apply_fixes(blocks, fix, scale):
     """Reviewed OCR corrections: fix = {"edit": [[x, y, w, h, text], ...], "add": [[x, y, w, h, text], ...]} in original
@@ -231,6 +274,9 @@ def _apply_fixes(blocks, fix, scale):
         B["w"] = max(L["x"] + L["w"] for L in B["lines"]) - B["x"]; B["h"] = max(L["y"] + L["h"] for L in B["lines"]) - B["y"]
     for a in fix.get("add", []):
         x, y, w, h = [int(round(v * scale)) for v in a[:4]]
+        # already read by this OCR run (the review compared against the lines kept last time): don't type it twice
+        if any(max(0, min(L["x"] + L["w"], x + w) - max(L["x"], x)) * max(0, min(L["y"] + L["h"], y + h) - max(L["y"], y)) > 0.4 * max(1, w * h)
+               for B in blocks for L in B["lines"]): continue
         L = dict(x=x, y=y, w=max(1, w), h=max(1, h), text=a[4], words=[dict(t=a[4], c=99.0, x=x, y=y, w=max(1, w), h=max(1, h))])
         blocks.append(dict(x=L["x"], y=L["y"], w=L["w"], h=L["h"], lines=[L], fixed=True))
     return blocks
@@ -371,7 +417,7 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
     scale = 1600 / max(W, H) if max(W, H) > 1600 else 1.0
     img = cv2.resize(img_rgb, (int(W * scale), int(H * scale)), interpolation=cv2.INTER_AREA) if scale != 1 else img_rgb.copy()
     h, w = img.shape[:2]; sx, sy = slide_w / w, slide_h / h
-    blocks = _apply_fixes(_ocr_cached(img, lang), fix, scale)
+    blocks = _apply_fixes(_autofix(_ocr_cached(img, lang)), fix, scale)
     # 0. isolated big single characters are pins, arrows and icons read as letters: drop them before erasing text
     _allh = [L["h"] for B in blocks for L in B["lines"]]; _medh = float(np.median(_allh)) if _allh else 0
     def _core(B): return [ch for ch in " ".join(L["text"] for L in B["lines"]) if ch.isalnum() or ord(ch) > 0x2E80]
@@ -420,7 +466,8 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
             for j in range(1, nn):
                 if ss[j][4] > 0.003 * w * h and ss[j][4] > 0.6 * ss[j][2] * ss[j][3]: panel |= ll == j
             if panel.any():
-                cents = np.vstack([cents, minor[None, :]]); cents[bg] = major; lab_idx = lab_idx.copy(); lab_idx[panel] = len(cents) - 1
+                pc = np.median(clean[panel].reshape(-1, 3), axis=0)          # the panel's own colour, not a cluster average
+                cents = np.vstack([cents, pc[None, :]]); cents[bg] = major; lab_idx = lab_idx.copy(); lab_idx[panel] = len(cents) - 1
     # 3. picture regions: where flat colours don't describe the image (photos, gradients, detailed icons)
     errm = cv2.GaussianBlur(err.astype(np.float32), (0, 0), 6)
     pic = (errm > 22).astype(np.uint8)
@@ -632,7 +679,20 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
             t = L["text"]; cjk_ = sum(1 for ch in t if ord(ch) > 0x2E80) > len(t) / 2
             f = 0.88 if cjk_ else 0.93 if any(ch in "gjpqyQ,;()[]{}|/" for ch in t) else 0.74
             return L["h"] / f
-        lh = float(np.median([em(L) for L in B["lines"]]))
+        def em_px(L):
+            # the box can be taller than the text (an ellipse or badge round a number, a second row merged in):
+            # measure the glyphs themselves (80th percentile of glyph heights ≈ cap / ascender height ≈ 0.72 em) and use it when smaller
+            e = em(L); t = L["text"]
+            if sum(1 for ch in t if ord(ch) > 0x2E80) > len(t) / 3 or L["h"] < 12: return e
+            p_ = img[L["y"]:L["y"] + L["h"], L["x"]:L["x"] + L["w"]].astype(np.float32)
+            if not p_.size: return e
+            ink = (np.linalg.norm(p_ - np.array(col, np.float32), axis=2) < np.linalg.norm(p_ - np.array(_bgc, np.float32), axis=2)).astype(np.uint8)
+            n_, _l, st_, _c = cv2.connectedComponentsWithStats(ink, 8)
+            gh = [st_[j][3] for j in range(1, n_) if 0.25 * L["h"] < st_[j][3] < 0.92 * L["h"] and st_[j][2] < 1.6 * st_[j][3] and st_[j][4] >= 4]
+            if len(gh) < max(2, len(t.replace(" ", "")) // 3): return e
+            g = float(np.percentile(gh, 80)) / 0.72
+            return g if g < 0.8 * e else e
+        lh = float(np.median([em_px(L) for L in B["lines"]]))
         size_pt = max(6, round(lh * sy / 12700 * 2) / 2)
         # width check: a line box made tall by an icon/number chip next to the words gives an oversized font; Arial averages ≈0.5 em per char
         wcap = max((L["w"] * sx / 12700) / max(len(L["text"]), 1) / 0.47 for L in B["lines"])
@@ -671,7 +731,7 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
                 r.font.bold = ml[1] if ml else bold                   # bold per line where the line could be matched
                 rPr = r._r.get_or_add_rPr(); ea = etree.SubElement(rPr, "{http://schemas.openxmlformats.org/drawingml/2006/main}ea"); ea.set("typeface", "Microsoft YaHei")
         ocr_meta.append(dict(block=bi, name=f"ocr b{bi}", lines=[dict(text=L["text"], x=int(L["x"] / scale), y=int(L["y"] / scale), w=int(L["w"] / scale), h=int(L["h"] / scale),
-                              conf=round(float(np.mean([w_["c"] for w_ in L["words"]])), 1), reread=[w_.get("t_ocr") for w_ in L["words"] if w_.get("t_ocr")]) for L in B["lines"]]))
+                              conf=round(float(np.mean([w_["c"] for w_ in L["words"]])), 1), reread=[w_.get("t_ocr") for w_ in L["words"] if w_.get("t_ocr")], **({"autofix": L["autofix"]} if L.get("autofix") else {})) for L in B["lines"]]))
     return dict(shapes=len(shapes), pictures=len(pics), traced_regions=len(detail), traced_shapes=sum(len(d[3]) for d in detail), text_blocks=len(blocks), ocr=ocr_meta)
 
 def _rounded(cnt, w, h):
