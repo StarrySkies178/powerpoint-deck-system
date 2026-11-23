@@ -1,0 +1,22 @@
+[
+ {"id":"D01-data-table","deck":"Deloitte-timesaver","slide":6,"kind":"table"},
+ {"id":"D02-numbered-columns","deck":"Deloitte-timesaver","slide":11,"kind":"text"},
+ {"id":"D03-chevrons-text","deck":"Deloitte-timesaver","slide":14,"kind":"process"},
+ {"id":"D04-issue-tree","deck":"Deloitte-timesaver","slide":38,"kind":"framework"},
+ {"id":"D05-org-chart","deck":"Deloitte-timesaver","slide":47,"kind":"framework"},
+ {"id":"D06-paired-columns","deck":"Deloitte-timesaver","slide":62,"kind":"chart"},
+ {"id":"D07-waterfall","deck":"Deloitte-timesaver","slide":83,"kind":"chart"},
+ {"id":"D08-text-and-chart","deck":"Deloitte-timesaver","slide":59,"kind":"chart+text"},
+ {"id":"C01-exec-summary-polaris","deck":"Case-2019-Polaris","slide":2,"kind":"exec-summary"},
+ {"id":"C02-gantt-risks-polaris","deck":"Case-2019-Polaris","slide":16,"kind":"plan"},
+ {"id":"C03-assumptions-table-polaris","deck":"Case-2019-Polaris","slide":22,"kind":"table"},
+ {"id":"C04-two-charts-ecluster","deck":"Case-2019-E-Cluster","slide":4,"kind":"chart+text"},
+ {"id":"C05-timeline-ecluster","deck":"Case-2019-E-Cluster","slide":17,"kind":"plan"},
+ {"id":"C06-exec-summary-mindcraft","deck":"Case-2019-Mindcraft","slide":3,"kind":"exec-summary"},
+ {"id":"C07-scenario-lines-mindcraft","deck":"Case-2019-Mindcraft","slide":14,"kind":"chart+text"},
+ {"id":"C08-risk-matrix-mindcraft","deck":"Case-2019-Mindcraft","slide":15,"kind":"framework"},
+ {"id":"C09-sensitivity-truenorth","deck":"Case-2016-TrueNorth-Pola-China-growth","slide":22,"kind":"chart"},
+ {"id":"C10-strategy-table-truenorth","deck":"Case-2016-TrueNorth-Pola-China-growth","slide":8,"kind":"table"},
+ {"id":"Z01-columns-chinese","deck":"Deloitte-timesaver","slide":62,"kind":"chart","translated":true},
+ {"id":"Z02-chevrons-chinese","deck":"Deloitte-timesaver","slide":14,"kind":"process","translated":true}
+]

@@ -1,0 +1,14 @@
+[12.9,7.3] 2
+[0.4,0.1] Executive Summary: Pandora’s growth strategy in Mainland China jewelry market by / store expansion, sales per store improvement and omni-channel strategy
+[0.4,7.2] Source: Polaris Analysis
+[0.4,2.0]  /  /  / Analysis / Dimensions
+[0.4,4.9]  / Implications
+[3.5,1.3] Market
+[2.3,2.0] Market Overview / Industry Trends / Key Drivers / Customer Analysis / Competitive Analysis
+[6.8,1.3] Strategy Design
+[6.1,2.0] Offline Strategy / Store Expansion / Sales Per Store Improvement / Online Strategy / Enter new platforms / Optimize operations / Omni-channel Strategy
+[10.6,1.3] Implementation
+[10.0,2.0] Implementation Timeline / Risk & Mitigation / Financial Forecast
+[2.3,5.2] Pandora should follow market  trends and customer needs to  find growth opportunities
+[6.1,5.3] Based on position of “a warm jewelry brand”, Pandora should  implement strategies to regain healthy growth in Mainland China
+[4.1,6.6] Achieve healthy revenue growth in Mainland China jewelry market

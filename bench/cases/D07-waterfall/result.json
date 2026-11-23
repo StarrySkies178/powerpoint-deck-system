@@ -1,0 +1,123 @@
+{
+ "id": "D07-waterfall",
+ "passed": true,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [10.0, 7.5] in, got [10.0, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.51 top 0.46; got left 0.50 top 0.51 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 30.0 pt, got 30.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref False, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #81BC00, got #81BC00 (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Arial, got Arial"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 10.0 / min 10.0 pt; got 10.0 / 10.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial'], got ['Arial']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.42 R 0.42; got L 0.40 R 0.42 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  },
+  {
+   "check": "source line",
+   "ok": true,
+   "detail": "ref 8.0 pt at 6.72 in; got 8.0 pt at 6.72 in"
+  }
+ ],
+ "layout": 0.86,
+ "visual": 0.91,
+ "n_std": 11,
+ "n_std_ok": 11,
+ "candidate": {
+  "size_in": [
+   10.0,
+   7.5
+  ],
+  "title": {
+   "text": "WaterfallColumns",
+   "left_in": 0.5,
+   "top_in": 0.508,
+   "box": [
+    0.5,
+    0.37,
+    9.17,
+    1.06
+   ],
+   "above": 0,
+   "pt": 30.0,
+   "bold": false,
+   "font": "Arial",
+   "colour": "81BC00"
+  },
+  "body": {
+   "median_pt": 10.0,
+   "min_pt": 10.0
+  },
+  "margins": {
+   "left_in": 0.4,
+   "right_in": 0.42
+  },
+  "fonts": {
+   "latin": [
+    "Arial"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "source": {
+   "pt": 8.0,
+   "top_in": 6.72
+  },
+  "theme_colours": [
+   "00A1DE",
+   "313131",
+   "575757",
+   "72C7E7",
+   "81BC00",
+   "8C8C8C",
+   "B4B4B4",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "B4B4B4",
+   "0C9CE4",
+   "E4E4E4",
+   "CCCCCC",
+   "9C9C9C"
+  ]
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "id": "C08-risk-matrix-mindcraft",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.39 top 0.38; got left 0.39 top 0.38 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 26.0 pt, got 26.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref False, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #000000, got #000000 (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Verdana, got Verdana"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 14.0 / min 12.0 pt; got 13.5 / 11.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial', 'Verdana'], got ['Verdana']"
+  },
+  {
+   "check": "body margins",
+   "ok": false,
+   "detail": "ref L 0.29 R 0.55; got L 0.38 R 0.28 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  },
+  {
+   "check": "source line",
+   "ok": true,
+   "detail": "ref 10.0 pt at 7.24 in; got 10.0 pt at 7.24 in"
+  }
+ ],
+ "layout": 0.29,
+ "visual": 0.25,
+ "n_std": 11,
+ "n_std_ok": 10,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Four important potential risks are identified and preparation & mitigation solutions are provided for discussion",
+   "left_in": 0.39,
+   "top_in": 0.375,
+   "box": [
+    0.39,
+    0.233,
+    12.31,
+    0.927
+   ],
+   "above": 0,
+   "pt": 26.0,
+   "bold": false,
+   "font": "Verdana",
+   "colour": "000000"
+  },
+  "body": {
+   "median_pt": 13.5,
+   "min_pt": 11.0
+  },
+  "margins": {
+   "left_in": 0.38,
+   "right_in": 0.28
+  },
+  "fonts": {
+   "latin": [
+    "Verdana"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "source": {
+   "pt": 10.0,
+   "top_in": 7.24
+  },
+  "theme_colours": [
+   "000000",
+   "006292",
+   "00A1DE",
+   "44536A",
+   "5C5C5C",
+   "72C7E7",
+   "808080",
+   "A6A6A6",
+   "C00000",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "CCCCCC",
+   "9C9C9C",
+   "B4B4B4",
+   "E4E4E4",
+   "848484",
+   "FCCCCC",
+   "6C6C6C"
+  ]
+ }
+}

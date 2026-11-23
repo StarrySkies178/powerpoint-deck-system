@@ -1,0 +1,10 @@
+[0.4,0.3] Column charts  Stacked bar chart and text 
+[0.4,7.0] Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)
+[8.7,7.0] 59
+[chart COLUMN_STACKED (52)] categories=['2009.0', '2010.0', '2011.0', '2012.0']
+   series Label 1: [4.3, 2.5, 3.5, 4.5]
+   series Label 2: [2.4, 4.4, 1.8, 2.8]
+   series Label 3: [2.0, 2.0, 3.0, 5.0]
+[5.4,1.6] Chart title runs here
+[0.4,2.0] This is a level one bullet this is dummy text it is not here to be read / This is a level one bullet this is dummy text it is not here to be read / This is a level one bullet this is dummy text it is not here to be read / This is a level two bullet / This is a level two bullet / This is a level two bullet / 
+[0.4,6.7] Quote source descriptor: This is dummy text / 

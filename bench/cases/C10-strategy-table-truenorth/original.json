@@ -1,0 +1,75 @@
+{
+ "size_in": [
+  10.0,
+  7.5
+ ],
+ "title": {
+  "text": "The five-year strategies could effectively fix issues and facilitate stronggrowthforPola on anone-to-onebasisCurrentsitu",
+  "left_in": 0.355,
+  "top_in": 0.486,
+  "box": [
+   0.355,
+   0.423,
+   9.269,
+   1.337
+  ],
+  "above": 0.335,
+  "pt": 26.0,
+  "bold": false,
+  "font": "Calibri",
+  "colour": "FFFFFF"
+ },
+ "body": {
+  "median_pt": 12.0,
+  "min_pt": 12.0
+ },
+ "margins": {
+  "left_in": 0.097,
+  "right_in": 0.163
+ },
+ "fonts": {
+  "latin": [
+   "Calibri",
+   "Tahoma"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "source": {
+  "pt": 10.0,
+  "top_in": 7.244
+ },
+ "theme_colours": [
+  "000000",
+  "0000FF",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "6C6C6C",
+  "848484",
+  "9C9C9C",
+  "B4B4B4",
+  "CC0C0C",
+  "CC240C",
+  "CC2424",
+  "CCCCCC",
+  "E43C3C",
+  "E46C54",
+  "E46C6C",
+  "E48484",
+  "E49C9C",
+  "E4E4E4",
+  "FCCCCC",
+  "FCE4E4",
+  "FCFCFC"
+ ]
+}

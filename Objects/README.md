@@ -25,6 +25,7 @@ There are two kinds of object. Both are fully editable. (Photos, logos, headshot
 | Fill text | `slots(obj)` / `set_texts(obj, [...])` | In reading order. A list item can be several paragraphs |
 | Chart data | `set_chart_data(obj, categories, [(name, values), …])` | Updates the chart **and** its workbook, so "Edit Data" in PowerPoint matches |
 | Recolour | `recolour(obj, {"accent1": "accent3"})` / `recolour_elements(obj, [i], "accent3")` | Whole object, or one part (a cell, an arrow, a province) |
+| Original colours | `place(..., colours="original")` / `original_colours(obj)` | Puts back the colours the object had on its source slide (each object keeps `role_src`: slot → original colour). Use when the user names that exact slide; otherwise objects follow the deck theme. Older objects were back-filled by `Generators/backfill_role_src.py` |
 | Change the count | `extend(obj, n)` | See the rules below |
 | Table rows / columns | `table_size(obj, rows=, cols=)` | Native tables |
 | Transmute | `swap_geom(obj, "roundRect")` | Any PowerPoint preset; position, colour and text stay |

@@ -265,6 +265,9 @@ def extract(deck_path, deck_key, store_dir, slide_meta=None):
                 if hx: c.tag = A + "srgbClr"; c.set("val", hx); use[hx] = use.get(hx, 0) + 1
             chart_trees[k] = ct
         rm = role_map(sorted(use.items(), key=lambda kv: -kv[1]))
+        role_src = {}                                   # slot -> the original colour it stands for (most used first)
+        for hx, _n in sorted(use.items(), key=lambda kv: -kv[1]):
+            if rm.get(hx) and rm[hx] not in role_src: role_src[rm[hx]] = hx
         for k, ct in chart_trees.items():
             for c in list(ct.iter(A + "srgbClr")):
                 role = rm.get(c.get("val").upper())
@@ -286,7 +289,7 @@ def extract(deck_path, deck_key, store_dir, slide_meta=None):
                    title=meta.get("title", ""), note=meta.get("note", ""), bbox=[X0, Y0, X1 - X0, Y1 - Y0], src_slide=[SW, SH],
                    n_shapes=len(frag), text=" | ".join(filter(None, (_text(el)[:40] for el in frag)))[:200],
                    roles_used=sorted(set(rm.values())), media=sorted(set(v for v in media.values() if not v.startswith("CHART:"))), complete=ok,
-                   slots=slots, charts=chart_parts,
+                   slots=slots, charts=chart_parts, role_src=role_src,
                    xml=etree.tostring(frag, encoding="unicode"))
         out.append(obj)
     with gzip.open(os.path.join(store_dir, f"{deck_key}.jsonl.gz"), "wt", encoding="utf-8") as f:
@@ -317,6 +320,21 @@ def _store(obj, frag):
     return obj
 
 # ------------------------------------------------------------------ OPERATIONS
+def original_colours(obj):
+    """Put back the colours the object had in its source slide (needs role_src, saved since 2026-11-23).
+    Use when the user names that exact reference slide; otherwise objects follow the deck theme."""
+    src = obj.get("role_src")
+    if not src: return obj
+    obj = copy.deepcopy(obj)
+    def fix(tree):
+        for c in list(tree.iter(A + "schemeClr")):
+            hx = src.get(c.get("val"))
+            if hx: c.tag = A + "srgbClr"; c.set("val", hx)
+    f = _frag(obj); fix(f)
+    for k, part in obj.get("charts", {}).items():
+        ct = etree.fromstring(part["xml"].encode("utf-8")); fix(ct); part["xml"] = etree.tostring(ct, encoding="unicode")
+    return _store(obj, f)
+
 def recolour(obj, mapping):
     """mapping: {'accent1': 'accent3', ...} role->role, or role->'#RRGGBB' for a fixed colour."""
     obj = copy.deepcopy(obj); f = _frag(obj)
@@ -1040,7 +1058,7 @@ def _move_labels_out(frag, bbox, k, warnings):
             sf = etree.Element(A + "solidFill"); etree.SubElement(sf, A + "schemeClr", val="tx1"); rpr.insert(0, sf)
     return left
 
-def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="center", scale_text=True, out_path=None, texts=None, move_labels=True):
+def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="center", scale_text=True, out_path=None, texts=None, move_labels=True, colours="theme"):
     """Insert obj into slide `slide_no` (1-based) of a .pptx, fitted into box_in=(x,y,w,h) inches.
     Vector scaling via a group; text sizes scaled with it (min 8 pt); media copied and linked."""
     X, Y, W, H = obj["bbox"]
@@ -1050,6 +1068,7 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
     ax = bx + (bw - tw) / 2 if align == "center" else bx
     ay = by + (bh - th) / 2
     if texts is not None: obj = set_texts(obj, texts)
+    if colours == "original": obj = original_colours(obj)
     frag = _frag(obj)
     k = s if keep_aspect else min(bw / W, bh / H)
     warnings = []

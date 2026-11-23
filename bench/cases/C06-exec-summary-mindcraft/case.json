@@ -1,0 +1,40 @@
+{
+ "id": "C06-exec-summary-mindcraft",
+ "deck": "Case-2019-Mindcraft",
+ "slide": 3,
+ "kind": "exec-summary",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.461,
+  "visual": 0.217,
+  "others": [
+   12,
+   23,
+   22,
+   9,
+   16,
+   24,
+   20,
+   25
+  ],
+  "deck_colours": [
+   "3C3C3C",
+   "3C546C",
+   "545454",
+   "54546C",
+   "6C5454",
+   "6C6C6C",
+   "848484",
+   "9C9C9C",
+   "9CB49C",
+   "9CB4B4",
+   "B49C9C",
+   "B4B4B4",
+   "CCCCCC",
+   "CCCCE4",
+   "E48484",
+   "E4E4E4"
+  ]
+ },
+ "skip_checks": []
+}

@@ -1,0 +1,56 @@
+{
+ "size_in": [
+  10.0,
+  7.5
+ ],
+ "title": {
+  "text": "Text boxesTwo columns of numbered points for each point",
+  "left_in": 0.505,
+  "top_in": 0.373,
+  "box": [
+   0.405,
+   0.323,
+   9.173,
+   0.513
+  ],
+  "above": 0,
+  "pt": 30.0,
+  "bold": false,
+  "font": "Arial",
+  "colour": "81BC00"
+ },
+ "body": {
+  "median_pt": 11.0,
+  "min_pt": 11.0
+ },
+ "margins": {
+  "left_in": 0.424,
+  "right_in": 0.434
+ },
+ "fonts": {
+  "latin": [
+   "Arial"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "theme_colours": [
+  "000000",
+  "002776",
+  "00A1DE",
+  "313131",
+  "3C8A2E",
+  "72C7E7",
+  "81BC00",
+  "BDD203",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "0C9CE4",
+  "E4E4E4",
+  "B4B4B4",
+  "CCCCCC",
+  "9C9C9C",
+  "3CB4E4"
+ ]
+}

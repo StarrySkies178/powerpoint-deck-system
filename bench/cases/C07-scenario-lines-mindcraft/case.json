@@ -1,0 +1,40 @@
+{
+ "id": "C07-scenario-lines-mindcraft",
+ "deck": "Case-2019-Mindcraft",
+ "slide": 14,
+ "kind": "chart+text",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.504,
+  "visual": 0.657,
+  "others": [
+   5,
+   24,
+   27,
+   29,
+   25,
+   21,
+   9,
+   10
+  ],
+  "deck_colours": [
+   "0C0C0C",
+   "3C3C3C",
+   "545454",
+   "6C5454",
+   "6C6C6C",
+   "6CB43C",
+   "848484",
+   "9C9C9C",
+   "9CB49C",
+   "B49C9C",
+   "B4B4B4",
+   "CC0C0C",
+   "CCCCCC",
+   "E48484",
+   "E4CCCC",
+   "E4E4E4"
+  ]
+ },
+ "skip_checks": []
+}

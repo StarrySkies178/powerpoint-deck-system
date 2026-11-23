@@ -1,0 +1,54 @@
+{
+ "size_in": [
+  10.0,
+  7.5
+ ],
+ "title": {
+  "text": "Logic trees  Vertical",
+  "left_in": 0.505,
+  "top_in": 0.373,
+  "box": [
+   0.405,
+   0.323,
+   9.173,
+   0.513
+  ],
+  "above": 0,
+  "pt": 30.0,
+  "bold": false,
+  "font": "Arial",
+  "colour": "81BC00"
+ },
+ "body": {
+  "median_pt": 14.0,
+  "min_pt": 14.0
+ },
+ "margins": {
+  "left_in": 0.531,
+  "right_in": 0.531
+ },
+ "fonts": {
+  "latin": [
+   "Arial"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "theme_colours": [
+  "000000",
+  "002776",
+  "00A1DE",
+  "313131",
+  "3C8A2E",
+  "72C7E7",
+  "81BC00",
+  "BDD203",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "CCE4CC",
+  "E4E4E4",
+  "CCCCCC",
+  "CCE4E4"
+ ]
+}

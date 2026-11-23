@@ -1,0 +1,120 @@
+{
+ "source": "Case-2019-Mindcraft.pptx",
+ "size": [
+  13.333,
+  7.5
+ ],
+ "fonts": {
+  "latin": "Verdana",
+  "body": "Verdana",
+  "ea": null
+ },
+ "title": {
+  "text_top": 0.72,
+  "text_bottom": 1.16,
+  "align_to": "bottom",
+  "x": 0.39,
+  "y": 0.71,
+  "w": 12.31,
+  "h": 0.46,
+  "ins_t": 0.01,
+  "ins_b": 0.0,
+  "pt": 26.0,
+  "lines": 1,
+  "bold": false,
+  "colour": "000000",
+  "anchor": "t",
+  "sub": null,
+  "band": null,
+  "rule": {
+   "colour": "C00000",
+   "x": 0.0,
+   "y": 1.22,
+   "w": 13.33
+  }
+ },
+ "crumb": {
+  "x": 0.36,
+  "y": 0.05,
+  "pt": 14.0,
+  "bold": true,
+  "colours": [
+   "A6A6A6",
+   "C00000"
+  ]
+ },
+ "body": {
+  "pt": 14.0,
+  "label_pt": 12.0,
+  "text": "000000"
+ },
+ "margins": {
+  "left": 0.37,
+  "right": 0.28,
+  "body_top": 1.39
+ },
+ "source_line": {
+  "x": 0.39,
+  "y": 7.24,
+  "pt": 10.0,
+  "colour": "000000"
+ },
+ "page": {
+  "right": 12.95,
+  "y": 7.22,
+  "h": 0.23,
+  "pt": 12.0,
+  "colour": "000000"
+ },
+ "footer": null,
+ "roles": {
+  "main": "C00000",
+  "secondary": "006292",
+  "accent": "C00000",
+  "text": "000000",
+  "grey1": "44536A",
+  "grey2": "5C5C5C",
+  "grey3": "808080",
+  "grey4": "A6A6A6",
+  "panel": "F1F1F1",
+  "tint": "F1F1F1"
+ },
+ "colours_ranked": [
+  "C00000",
+  "006292"
+ ],
+ "neutrals_ranked": [
+  "F1F1F1",
+  "A6A6A6",
+  "D5D5D5",
+  "5C5C5C",
+  "808080",
+  "44536A"
+ ],
+ "chart": {
+  "value_axis": false,
+  "gridlines": false,
+  "pt": null
+ },
+ "table": {
+  "header_fill": "808080",
+  "header_text": "000000",
+  "body_fill": "7E7E7E",
+  "pt": 14.0
+ },
+ "theme": [
+  "000000",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "5C5C5C",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "variants": {}
+}

@@ -1,0 +1,40 @@
+{
+ "id": "C03-assumptions-table-polaris",
+ "deck": "Case-2019-Polaris",
+ "slide": 22,
+ "kind": "table",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.463,
+  "visual": 0.604,
+  "others": [
+   6,
+   9,
+   2,
+   16,
+   4,
+   13,
+   3,
+   15
+  ],
+  "deck_colours": [
+   "545454",
+   "6C6C6C",
+   "848484",
+   "9C9C9C",
+   "B40C0C",
+   "B4B4B4",
+   "CC0C0C",
+   "CCCCCC",
+   "E45454",
+   "E48484",
+   "E4E4E4",
+   "FCB4B4",
+   "FCCCCC",
+   "FCE4E4",
+   "FCFCE4",
+   "FCFCFC"
+  ]
+ },
+ "skip_checks": []
+}

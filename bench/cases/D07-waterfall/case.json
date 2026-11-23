@@ -1,0 +1,43 @@
+{
+ "id": "D07-waterfall",
+ "deck": "Deloitte-timesaver",
+ "slide": 83,
+ "kind": "chart",
+ "palette": "slide",
+ "floor": {
+  "layout": 0.313,
+  "visual": 0.553,
+  "others": [
+   259,
+   240,
+   47,
+   67,
+   198,
+   19,
+   27,
+   113
+  ],
+  "deck_colours": [
+   "0C246C",
+   "0C9CE4",
+   "3C3C3C",
+   "3C8424",
+   "3CB4E4",
+   "545454",
+   "6C6C6C",
+   "6CCCE4",
+   "848484",
+   "84B40C",
+   "84CCE4",
+   "9C9C9C",
+   "9CE4FC",
+   "B4B4B4",
+   "B4CC0C",
+   "B4E4FC",
+   "CCCCCC",
+   "CCE4FC",
+   "E4E4E4"
+  ]
+ },
+ "skip_checks": []
+}

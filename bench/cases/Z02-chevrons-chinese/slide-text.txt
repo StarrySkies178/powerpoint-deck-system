@@ -1,0 +1,11 @@
+[0.4,0.3] Text boxes   Chevrons with text boxes
+[0.4,7.0] Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)
+[8.7,7.0] 14
+[0.4,1.9] Text, Arial  14-pt bold
+[2.7,1.9] Text
+[4.9,1.9] Text
+[7.2,1.9] Text
+[0.4,2.7] This is dummy text it is not here to be read / This is dummy text it is not here to be read / This is dummy text it is not here to be read / 
+[2.7,2.7] This is dummy text it is not here to be read / This is dummy text it is not here to be read / This is dummy text it is not here to be read / 
+[4.9,2.7] This is dummy text it is not here to be read / This is dummy text it is not here to be read / This is dummy text it is not here to be read / 
+[7.2,2.7] This is dummy text it is not here to be read / This is dummy text it is not here to be read / This is dummy text it is not here to be read / 

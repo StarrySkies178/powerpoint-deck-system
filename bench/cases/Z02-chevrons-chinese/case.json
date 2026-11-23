@@ -1,0 +1,47 @@
+{
+ "id": "Z02-chevrons-chinese",
+ "deck": "Deloitte-timesaver",
+ "slide": 14,
+ "kind": "process",
+ "translated": true,
+ "palette": "slide",
+ "floor": {
+  "layout": 0.365,
+  "visual": 0.574,
+  "others": [
+   59,
+   131,
+   143,
+   135,
+   154,
+   42,
+   235,
+   160
+  ],
+  "deck_colours": [
+   "0C9CE4",
+   "24B4E4",
+   "3CB4E4",
+   "545454",
+   "54B4E4",
+   "6C6C6C",
+   "6CCCE4",
+   "6CCCFC",
+   "848484",
+   "84CCE4",
+   "84CCFC",
+   "9C9C9C",
+   "9CE4FC",
+   "B4B4B4",
+   "B4CC0C",
+   "B4E4FC",
+   "CCCCCC",
+   "CCE4FC",
+   "E40C24",
+   "E42424",
+   "E4243C",
+   "E4E4E4"
+  ]
+ },
+ "skip_checks": []
+}

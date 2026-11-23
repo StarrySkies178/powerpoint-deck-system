@@ -1,0 +1,122 @@
+{
+ "id": "Z02-chevrons-chinese",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [10.0, 7.5] in, got [10.0, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.51 top 0.52; got left 0.50 top 0.44 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 30.0 pt, got 30.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref False, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #81BC00, got #81BC00 (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Arial, got Arial"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 11.0 / min 11.0 pt; got 11.0 / 11.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial'], got ['Arial']"
+  },
+  {
+   "check": "Chinese font",
+   "ok": true,
+   "detail": "want ['Microsoft YaHei'], got ['Microsoft YaHei']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.43 R 0.43; got L 0.41 R 0.43 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  }
+ ],
+ "layout": 0.29,
+ "visual": null,
+ "n_std": 11,
+ "n_std_ok": 11,
+ "candidate": {
+  "size_in": [
+   10.0,
+   7.5
+  ],
+  "title": {
+   "text": "文本框带文本框的箭头流程",
+   "left_in": 0.5,
+   "top_in": 0.438,
+   "box": [
+    0.5,
+    0.37,
+    9.17,
+    1.06
+   ],
+   "above": 0,
+   "pt": 30.0,
+   "bold": false,
+   "font": "Arial",
+   "colour": "81BC00"
+  },
+  "body": {
+   "median_pt": 11.0,
+   "min_pt": 11.0
+  },
+  "margins": {
+   "left_in": 0.41,
+   "right_in": 0.434
+  },
+  "fonts": {
+   "latin": [
+    "Arial"
+   ],
+   "ea": [
+    "Microsoft YaHei"
+   ],
+   "cjk": true
+  },
+  "theme_colours": [
+   "00A1DE",
+   "313131",
+   "575757",
+   "72C7E7",
+   "81BC00",
+   "8C8C8C",
+   "B4B4B4",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "B4B4B4",
+   "E4E4E4",
+   "CCCCCC",
+   "0C9CE4",
+   "9C9C9C",
+   "848484"
+  ]
+ }
+}

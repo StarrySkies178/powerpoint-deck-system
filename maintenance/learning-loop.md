@@ -23,6 +23,7 @@ Read this after every deck (Stage 6) and whenever a rule changes. Claude **appli
 1. Copy the file being changed to `archive/<file>_<YYYY-MM-DD>.md` so it can be rolled back.
 2. Put the rule in the file where it will be read (a catalogue entry, `DECK-SYSTEM.md` Section 5, or `Style/style-rules.md`), not just in the log. Every rule states its *why*.
 3. Run `maintenance/test-briefs.md`. If any brief now fails, don't apply the change. Report the conflict instead.
+   If `Generators/`, the master, `Objects/store` or a style profile changed, also run the reproduction benchmark: `python3 bench/scripts/bench_run.py --label "<what changed>"` (see `bench/README.md`). The pass count and the standards count must not drop. Never loosen the pass bar to make it pass.
 4. Add a test brief for every new archetype or important rule, so the test set grows with the system.
 5. Add a line to `logs/changelog.md` and bump the version (minor change → 0.x+1; restructure → x+1.0).
 6. Set the lesson's status to `applied`.

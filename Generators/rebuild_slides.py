@@ -49,15 +49,20 @@ def _ocr(img_rgb, lang):
     # third pass: dark ink only (labels sitting on grey/patterned shapes, e.g. map regions)
     g0 = np.array(Image.fromarray(img_rgb).convert("L")); k3 = 3.0 if H < 1100 else 1.5
     ink = Image.fromarray(np.where(g0 < 120, 0, 255).astype(np.uint8)).resize((int(g0.shape[1] * k3), int(g0.shape[0] * k3)), Image.NEAREST)
-    for img, sc in ((base, up), (ImageOps.invert(base), up), (ink, k3)):
+    # fourth pass: light text on colour (white labels on red/navy bars, % in shaded cells) — light pixels much brighter than their surroundings
+    gf = g0.astype(np.float32); lm = cv2.blur(gf, (41, 41))
+    lt = ((gf > lm + 40) & (lm < 190)).astype(np.uint8)
+    light = Image.fromarray(np.where(lt > 0, 0, 255).astype(np.uint8)).resize((int(g0.shape[1] * up), int(g0.shape[0] * up)), Image.LANCZOS)
+    for img, sc, psm in ((base, up, 3), (ImageOps.invert(base), up, 3), (ink, k3, 3), (light, up, 11), (base, up, 11)):
         up = sc
-        d = pytesseract.image_to_data(img, lang=lang, config="--psm 3", output_type=pytesseract.Output.DICT)
+        d = pytesseract.image_to_data(img, lang=lang, config=f"--psm {psm}", output_type=pytesseract.Output.DICT)
         for i in range(len(d["text"])):
             t = d["text"][i].strip()
             try: conf = float(d["conf"][i])
             except ValueError: conf = -1
             cjk = any(ord(ch) > 0x2E80 for ch in t)
-            if t and conf >= (40 if cjk else 55) and d["height"][i] >= 6 * up and any(ch.isalnum() or ord(ch) > 0x2E80 for ch in t):
+            short = not cjk and len(t) <= 2 and not t.isdigit()          # 1-2 letter tokens are mostly icons misread as text
+            if t and conf >= (40 if cjk else 80 if short else 55) and d["height"][i] >= 6 * up and any(ch.isalnum() or ord(ch) > 0x2E80 for ch in t):
                 cand.append(dict(t=t, c=conf, x=int(d["left"][i] / up), y=int(d["top"][i] / up), w=int(d["width"][i] / up), h=int(d["height"][i] / up)))
     def iou(a, b):
         ix = max(0, min(a["x"] + a["w"], b["x"] + b["w"]) - max(a["x"], b["x"])); iy = max(0, min(a["y"] + a["h"], b["y"] + b["h"]) - max(a["y"], b["y"]))
@@ -116,6 +121,36 @@ def _text_colour(img, b):
     fg = patch[d >= max(np.percentile(d, 85), 0.5 * d.max(), 1)]
     return tuple(np.median(fg, axis=0).astype(int)) if len(fg) else (40, 40, 40), tuple(bg.astype(int))
 
+_FONTS = {}
+def _font_match(img, L, col, bgc):
+    """Which of sans/serif × regular/bold best matches a text line: render the OCR text in each and compare with the page pixels."""
+    from PIL import ImageFont, ImageDraw
+    t = L["text"]
+    if len(t) < 4 or any(ord(ch) > 0x2E80 for ch in t): return None
+    x, y, w, h = L["x"], L["y"], L["w"], L["h"]
+    p = img[max(0, y - 1):y + h + 1, max(0, x - 1):x + w + 1].astype(int)
+    if p.size == 0 or h < 7: return None
+    m = (np.linalg.norm(p - np.array(col), axis=2) < np.linalg.norm(p - np.array(bgc), axis=2)).astype(np.float32)
+    if m.mean() < 0.03: return None
+    best = None
+    for fam in ("sans", "serif"):
+        for bold in (False, True):
+            key = (fam, bold)
+            if key not in _FONTS:
+                f = "/usr/share/fonts/truetype/liberation/Liberation%s-%s.ttf" % ("Sans" if fam == "sans" else "Serif", "Bold" if bold else "Regular")
+                _FONTS[key] = ImageFont.truetype(f, 64)
+            fnt = _FONTS[key]; bb = fnt.getbbox(t)
+            if bb[2] - bb[0] < 2 or bb[3] - bb[1] < 2: return None
+            im = Image.new("L", (bb[2] - bb[0] + 4, bb[3] - bb[1] + 4), 0)
+            ImageDraw.Draw(im).text((2 - bb[0], 2 - bb[1]), t, font=fnt, fill=255)
+            r = np.array(im.resize((m.shape[1], m.shape[0]), Image.LANCZOS)).astype(np.float32) / 255
+            a, b = m - m.mean(), r - r.mean()
+            sc = float((a * b).sum() / (np.sqrt((a * a).sum() * (b * b).sum()) + 1e-6))
+            # stroke weight: ink share of the box vs the rendering
+            sc -= 0.6 * abs(m.mean() - r.mean())
+            if best is None or sc > best[2]: best = (fam, bold, sc)
+    return best
+
 def _palette(img, mask, k_max=14):
     from sklearn.cluster import MiniBatchKMeans
     px = img[mask].reshape(-1, 3).astype(np.float32)
@@ -146,8 +181,8 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
     cents = _palette(clean, np.ones((h, w), bool))
     dist = np.stack([np.linalg.norm(clean.astype(float) - c, axis=2) for c in cents])
     lab_idx = np.argmin(dist, axis=0); err = np.min(dist, axis=0)
-    border = np.concatenate([lab_idx[0], lab_idx[-1], lab_idx[:, 0], lab_idx[:, -1]])
-    bg = np.bincount(border, minlength=len(cents)).argmax()
+    # background = the most common colour on the page (the outer pixel rows are often a scan frame or shadow line)
+    bg = np.bincount(lab_idx.ravel(), minlength=len(cents)).argmax()
     # 3. picture regions: where flat colours don't describe the image (photos, gradients, detailed icons)
     errm = cv2.GaussianBlur(err.astype(np.float32), (0, 0), 6)
     pic = (errm > 22).astype(np.uint8)
@@ -174,10 +209,80 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         for i, cnt in enumerate(cnts):
             if hier[0][i][3] != -1: continue                      # holes handled with their parent
             a = cv2.contourArea(cnt)
-            if a < min_area: continue
+            if a < min_area:
+                pe = cv2.arcLength(cnt, True)
+                if not (a >= 0.000016 * w * h and pe > 0 and 4 * math.pi * a / pe ** 2 > 0.6): continue   # keep bullets / dots / small marks
             holes = [cnts[j] for j in range(len(cnts)) if hier[0][j][3] == i and cv2.contourArea(cnts[j]) > min_area / 2]
             shapes.append((a, c, cnt, holes))
     shapes.sort(key=lambda s: -s[0])                              # big first = behind
+    # 4b. check the trace: redraw it and compare with the text-free page; where flat shapes lose the picture
+    #     (photos, isometric drawings, detailed icons, textured maps) keep the original pixels as a picture instead
+    recon = np.empty_like(clean); recon[:] = np.array(bgc, dtype=clean.dtype)
+    for a, c, cnt, holes in shapes:
+        cv2.drawContours(recon, [cnt], -1, tuple(int(v) for v in c), -1)
+        for hc in holes: cv2.drawContours(recon, [hc], -1, tuple(int(v) for v in bgc), -1)
+    diff = np.abs(recon.astype(np.float32) - clean.astype(np.float32)).mean(axis=2)
+    diff[picmask > 0] = 0
+    dm = cv2.GaussianBlur(diff, (0, 0), 7)
+    # line art (isometric drawings, outline icons, map borders): edges present on the page but missing from the trace
+    eo = cv2.Canny(cv2.cvtColor(clean, cv2.COLOR_RGB2GRAY), 40, 120) > 0
+    er = cv2.dilate(cv2.Canny(cv2.cvtColor(recon, cv2.COLOR_RGB2GRAY), 40, 120), np.ones((5, 5), np.uint8)) > 0
+    miss = (eo & ~er).astype(np.uint8); miss[picmask > 0] = 0; miss[tmask > 0] = 0
+    # straight horizontal/vertical runs are box outlines and rules, not drawings: they don't make a region a picture
+    hv = cv2.morphologyEx(miss, cv2.MORPH_OPEN, np.ones((1, 25), np.uint8)) | cv2.morphologyEx(miss, cv2.MORPH_OPEN, np.ones((25, 1), np.uint8))
+    miss = (miss & ~cv2.dilate(hv, np.ones((3, 3), np.uint8))).astype(np.float32)
+    md = cv2.GaussianBlur(miss, (0, 0), 9)
+    photo = cv2.morphologyEx((dm > 16).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((21, 21), np.uint8))
+    bad = cv2.morphologyEx(((dm > 16) | (md > 0.03)).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
+    if os.environ.get("RB_DEBUG"):
+        cv2.imwrite(os.environ["RB_DEBUG"] + "-recon.png", cv2.cvtColor(recon, cv2.COLOR_RGB2BGR)); cv2.imwrite(os.environ["RB_DEBUG"] + "-bad.png", bad * 255)
+        cv2.imwrite(os.environ["RB_DEBUG"] + "-clean.png", cv2.cvtColor(clean, cv2.COLOR_RGB2BGR))
+    n2, _, st2, _ = cv2.connectedComponentsWithStats(bad)
+    boxes = [list(st2[i][:4]) for i in range(1, n2) if st2[i][4] > 0.0015 * w * h and st2[i][2] > 25 and st2[i][3] > 25]
+    # no merging of boxes: each lost region stands alone; thin or very elongated ones are rules, dashes and borders
+    boxes = [b_ for b_ in boxes if min(b_[2], b_[3]) >= 30 and max(b_[2], b_[3]) / max(1, min(b_[2], b_[3])) <= 6]
+    nonbg = cv2.morphologyEx((lab_idx != bg).astype(np.uint8), cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+    nonbg = cv2.morphologyEx(nonbg, cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))   # cut thin frame lines that join blocks
+    nb, _, stb, _ = cv2.connectedComponentsWithStats(nonbg)
+    for x, y, ww, hh in boxes:
+        is_photo = photo[y:y + hh, x:x + ww].mean() > 0.15
+        if ww * hh > 0.35 * w * h and not is_photo: continue          # line work never turns most of a slide into one picture
+        if tmask[y:y + hh, x:x + ww].mean() / 255 > 0.35: continue    # mostly text: keep it as text and shapes
+        if is_photo:                                                  # grow a photo to the solid non-background block it sits in
+            for k_ in range(1, nb):
+                bx, by, bw, bh, ba = stb[k_]
+                if ba < 0.6 * bw * bh or bw * bh > 0.6 * w * h: continue  # frames and whole-page blocks: no
+                ix = max(0, min(x + ww, bx + bw) - max(x, bx)); iy = max(0, min(y + hh, by + bh) - max(y, by))
+                if ix * iy > 0.3 * ww * hh and bw * bh > ww * hh:
+                    x, y, ww, hh = min(x, bx), min(y, by), max(x + ww, bx + bw) - min(x, bx), max(y + hh, by + bh) - min(y, by)
+        x0, y0 = max(0, x - 4), max(0, y - 4); pics.append((x0, y0, min(w, x + ww + 4) - x0, min(h, y + hh + 4) - y0))
+    def _within(a, b): return a[0] >= b[0] and a[1] >= b[1] and a[0] + a[2] <= b[0] + b[2] and a[1] + a[3] <= b[1] + b[3]
+    pics = [p_ for i_, p_ in enumerate(pics) if not any(j_ != i_ and _within(p_, q_) and (p_ != q_ or j_ < i_) for j_, q_ in enumerate(pics))]
+    def inside(cnt):                                                # traced shapes hidden under a picture are dropped
+        x, y, ww, hh = cv2.boundingRect(cnt)
+        for px, py, pw, ph in pics:
+            ix = max(0, min(x + ww, px + pw) - max(x, px)); iy = max(0, min(y + hh, py + ph) - max(y, py))
+            if ix * iy >= 0.7 * ww * hh: return True
+        return False
+    shapes = [s_ for s_ in shapes if not inside(s_[2])]
+    # 4c. drop OCR noise: short tokens inside pictures (icons, photos read as letters) and isolated big single characters (pins, arrows)
+    allh = [L["h"] for B in blocks for L in B["lines"]]; medh = float(np.median(allh)) if allh else 0
+    pm = np.zeros((h, w), np.uint8)
+    for px, py, pw, ph in pics: pm[py:py + ph, px:px + pw] = 1
+    def in_pic(B):                                                  # text is dropped only where a picture really keeps its pixels
+        return pm[max(0, B["y"]):B["y"] + B["h"], max(0, B["x"]):B["x"] + B["w"]].mean() > 0.9
+    def noise(B):
+        t = " ".join(L["text"] for L in B["lines"]); core = [ch for ch in t if ch.isalnum() or ord(ch) > 0x2E80]
+        conf = np.mean([w_["c"] for L in B["lines"] for w_ in L["words"]])
+        if len(core) <= 1 and B["h"] > 1.6 * medh: return True
+        # inside a picture the original pixels are already right: re-type text there only when OCR is sure (else a misread number
+        # would replace a correct one); low-confidence text stays as part of the picture
+        if in_pic(B) and (len(core) <= 3 or conf < 85 or B["h"] > 2.2 * medh): return True   # big words in a picture are signage
+        return False
+    blocks = [B for B in blocks if not noise(B)]
+    tmask = np.zeros((h, w), np.uint8)                              # text to remove from pictures = only the text kept as text boxes
+    for B in blocks:
+        for L in B["lines"]: cv2.rectangle(tmask, (L["x"] - 3, L["y"] - 3), (L["x"] + L["w"] + 3, L["y"] + L["h"] + 3), 255, -1)
     for a, c, cnt, holes in shapes:
         x, y, ww, hh = cv2.boundingRect(cnt)
         X, Y, Wd, Hd = left + x * sx, top + y * sy, ww * sx, hh * sy
@@ -207,11 +312,22 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         crop = Image.fromarray(sub)
         bio = io.BytesIO(); crop.save(bio, "PNG"); bio.seek(0)
         slide.shapes.add_picture(bio, Emu(int(left + x * sx)), Emu(int(top + y * sy)), Emu(int(ww * sx)), Emu(int(hh * sy)))
-    # 6. text boxes
-    for B in blocks:
+    # 6. text boxes — font family decided per page (majority of matched lines), bold per block
+    votes = {"sans": 0.0, "serif": 0.0}; fm = {}
+    for bi, B in enumerate(blocks):
+        col, _bgc = _text_colour(img, B); per = [_font_match(img, L, col, _bgc) for L in B["lines"]]
+        r_ = [m_ for m_ in per if m_]; fm[bi] = r_; fm[(bi, "line")] = per
+        for fam, bo, sc in r_: votes[fam] += max(sc, 0) * len(B["lines"])
+    page_serif = votes["serif"] > 1.25 * votes["sans"]
+    for bi, B in enumerate(blocks):
         col, _bgc = _text_colour(img, B)
-        lh = np.median([L["h"] for L in B["lines"]])
-        size_pt = max(6, round(lh * sy / 12700 * 1.07 * 2) / 2)  # OCR line box ≈ 0.93 em (calibrated on known 24/14 pt text)
+        # OCR box = ink extent: ≈0.93 em when a line has descenders (g j p q y , ;), ≈0.73 em for caps/digits/no-descender text
+        def em(L):
+            t = L["text"]; cjk_ = sum(1 for ch in t if ord(ch) > 0x2E80) > len(t) / 2
+            f = 0.88 if cjk_ else 0.93 if any(ch in "gjpqyQ,;()[]{}|/" for ch in t) else 0.74
+            return L["h"] / f
+        lh = float(np.median([em(L) for L in B["lines"]]))
+        size_pt = max(6, round(lh * sy / 12700 * 2) / 2)
         # width check: a line box made tall by an icon/number chip next to the words gives an oversized font; Arial averages ≈0.5 em per char
         wcap = max((L["w"] * sx / 12700) / max(len(L["text"]), 1) / 0.47 for L in B["lines"])
         if size_pt > wcap * 1.15: size_pt = max(6, round(wcap * 2) / 2)
@@ -220,7 +336,9 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         # bold: thick strokes relative to line height (only trusted for text >= ~13 pt; small text is anti-aliased mush)
         Lb = B["lines"][0]; p_ = img[Lb["y"]:Lb["y"] + Lb["h"], Lb["x"]:Lb["x"] + Lb["w"]].astype(int)
         bold = False
-        if p_.size and size_pt >= 13:
+        if fm.get(bi):                                             # rendered-match vote
+            bold = sum(1 for f_, bo, sc in fm[bi] if bo) > len(fm[bi]) / 2
+        elif p_.size and size_pt >= 13:
             m_ = (np.linalg.norm(p_ - np.array(col), axis=2) < np.linalg.norm(p_ - np.array(_bgc), axis=2)).astype(np.uint8)
             dt = cv2.distanceTransform(m_, cv2.DIST_L2, 3); sk = dt[dt > 0]
             bold = bool(len(sk)) and 2 * np.percentile(sk, 90) / Lb["h"] >= 0.15
@@ -229,7 +347,9 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         tf.vertical_anchor = MSO_ANCHOR.TOP
         for k, L in enumerate(B["lines"]):
             p = tf.paragraphs[0] if k == 0 else tf.add_paragraph()
-            r = p.add_run(); r.text = L["text"]; r.font.size = Pt(size_pt); r.font.color.rgb = _hex(col); r.font.name = "Arial"; r.font.bold = bold
+            r = p.add_run(); r.text = L["text"]; r.font.size = Pt(size_pt); r.font.color.rgb = _hex(col); r.font.name = "Times New Roman" if page_serif else "Arial"
+            ml = fm.get((bi, "line"), [None] * len(B["lines"]))[k]
+            r.font.bold = ml[1] if ml else bold                       # bold per line where the line could be matched
             rPr = r._r.get_or_add_rPr(); ea = etree.SubElement(rPr, "{http://schemas.openxmlformats.org/drawingml/2006/main}ea"); ea.set("typeface", "Microsoft YaHei")
     return dict(shapes=len(shapes), pictures=len(pics), text_blocks=len(blocks))
 
@@ -417,7 +537,7 @@ def review(src_imgs, out_pptx, sheet_path):
         sc = ssim(g1, g2); scores.append(round(float(sc), 3))
         row = Image.new("RGB", (a.width * 2 + 10, hgt), "#888"); row.paste(a, (0, 0)); row.paste(b, (a.width + 10, 0)); rows.append(row)
     if rows:
-        S = Image.new("RGB", (rows[0].width, sum(r.height + 8 for r in rows)), "#888"); y = 0
+        S = Image.new("RGB", (max(r.width for r in rows), sum(r.height + 8 for r in rows)), "#888"); y = 0   # pages can differ in width
         for r in rows: S.paste(r, (0, y)); y += r.height + 8
         S.save(sheet_path, quality=80)
     return scores

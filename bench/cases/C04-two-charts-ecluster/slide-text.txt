@@ -1,0 +1,37 @@
+[0.0,0.4] Chow Tai Fook is recommended to enter a new market given the customer changing preference, tightened policies and increasingly fierce competition
+[10.2,1.9] CTF’s 2018 revenue / By segment %
+[0.6,1.9] China fine jewelry annual market size and growth
+[0.6,2.1] CNY Billion
+[5.2,5.4] Tightened anti-corruption policies / Policies like eight-point guidelines against bureaucracy and extravagance affect luxury goods consumption
+[9.7,5.4] Increasingly fierce competition / Homogenous portfolio and price- war in fine jewelry limit the growth of the segment
+[0.3,7.3] Sources: Euromonitor International, Lit research, E-Cluster Analysis
+[12.9,7.3] 1
+[1.1,5.3] Customer changing preference / New emerging customers value the fashion design more and show different preference
+[0.3,1.4] 1
+[6.9,1.4] 2
+[0.6,1.4] Fine jewelry has a lower growth rate	Fine jewelry accounts for the majority of CTF*
+[0.3,7.1] Note: *CTF is the abbreviation for Chow Tai Fook
+[1.0,3.1] 532
+[2.0,2.7] 722
+[3.0,2.2] 998
+[12.1,3.9] 11%
+[10.6,2.8] Fine jewelry
+[11.5,4.5] 2018
+[12.1,3.0] 89%
+[10.4,3.8] Fashion jewelry
+[4.6,2.1] CAGR	CAGR 13-18		18-23 / 9%	13%
+[3.8,4.2] Total
+[4.8,4.2] 4%
+[5.7,4.2] 7%
+[0.7,4.5] 2013	2018	2023E / Major constraints limit the further development of fine jewelry
+[4.7,3.5] 4%
+[5.6,3.5] 5%
+[0.3,4.9] 3
+[7.8,2.7] 47
+[8.9,2.7] 48
+[7.3,1.9] CTF’s annual revenue / CNY Billion / 1%
+[7.7,4.5] 2013
+[8.8,4.5] 2018
+[3.8,2.6] Fashion jewelry
+[3.8,3.3] Fine jewelry
+[0.3,0.1] Market Overview: Market Analysis → Strategy Design → Implementation

@@ -1,0 +1,57 @@
+{
+ "size_in": [
+  10.0,
+  7.5
+ ],
+ "title": {
+  "text": "Organization chart  Simple",
+  "left_in": 0.505,
+  "top_in": 0.373,
+  "box": [
+   0.405,
+   0.323,
+   9.173,
+   0.513
+  ],
+  "above": 0,
+  "pt": 30.0,
+  "bold": false,
+  "font": "Arial",
+  "colour": "81BC00"
+ },
+ "body": {
+  "median_pt": 11.0,
+  "min_pt": 11.0
+ },
+ "margins": {
+  "left_in": 0.41,
+  "right_in": 0.391
+ },
+ "fonts": {
+  "latin": [
+   "Arial"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "theme_colours": [
+  "000000",
+  "002776",
+  "00A1DE",
+  "313131",
+  "3C8A2E",
+  "72C7E7",
+  "81BC00",
+  "BDD203",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "E4E4E4",
+  "545454",
+  "CCCCCC",
+  "B4B4B4",
+  "9C9C9C",
+  "6C6C6C",
+  "848484"
+ ]
+}

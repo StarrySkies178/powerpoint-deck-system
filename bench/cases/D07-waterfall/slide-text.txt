@@ -1,0 +1,9 @@
+[0.4,0.3] Waterfall   Columns
+[0.4,7.0] Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)
+[8.7,7.0] 83
+[chart COLUMN_STACKED (52)] categories=['A', '+ B', '+ C', '= Subtotal', '- E', '- F', '- G', '= Total']
+   series Invisible: [0.0, 10.0, 25.0, 0.0, 30.0, 20.0, 15.0, 0.0]
+   series Visible: [10.0, 15.0, 10.0, 35.0, 5.0, 10.0, 5.0, 15.0]
+   series Column2: [None, None, None, None, None, None, None, None]
+[0.4,1.6] Chart title goes here
+[0.4,6.7] Quote source descriptor: This is dummy text / 

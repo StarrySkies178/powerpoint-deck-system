@@ -1,0 +1,51 @@
+{
+ "id": "C05-timeline-ecluster",
+ "deck": "Case-2019-E-Cluster",
+ "slide": 17,
+ "kind": "plan",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.764,
+  "visual": 0.672,
+  "others": [
+   21,
+   15,
+   11,
+   13,
+   22,
+   4,
+   14,
+   24
+  ],
+  "deck_colours": [
+   "0C243C",
+   "0C3C6C",
+   "242454",
+   "243C54",
+   "3C5454",
+   "3C546C",
+   "546C84",
+   "848484",
+   "84849C",
+   "849CB4",
+   "9C9C9C",
+   "9C9CB4",
+   "B4B4B4",
+   "B4B4CC",
+   "CCB49C",
+   "CCCCCC",
+   "CCCCE4",
+   "CCE4E4",
+   "E4B49C",
+   "E4CCB4",
+   "E4CCCC",
+   "E4E4CC",
+   "E4E4E4",
+   "E4E4FC",
+   "FCE4B4",
+   "FCE4CC",
+   "FCE4E4"
+  ]
+ },
+ "skip_checks": []
+}

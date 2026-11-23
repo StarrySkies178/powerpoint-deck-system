@@ -263,8 +263,7 @@
    "study": [
     "Style/refs/case-competitions-2019-2020.md"
    ],
-   "rebuilt_from": "pdf/images",
-   "vector_checked": "image PDF rebuilt into shapes; the 17 pictures the rebuild left (photos, logos) were traced again and none was worth keeping (checked by eye 2026-11-23)"
+   "rebuilt_from": "pdf/images"
   },
   {
    "key": "case20-doubleclick",

@@ -1,0 +1,13 @@
+[0.4,0.3] Tables  Data table
+[0.4,7.0] Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)
+[8.7,7.0] 6
+ | Subhead | Subhead | Subhead | Subhead | Subhead | Subhead | Subhead | Subhead
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+Row description | xx | xx | xx | xx | xx | xx | xx | xx
+[0.4,1.6] Text

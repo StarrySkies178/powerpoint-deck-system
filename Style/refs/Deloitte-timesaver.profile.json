@@ -1,0 +1,126 @@
+{
+ "source": "Deloitte-timesaver.pptx",
+ "size": [
+  10.0,
+  7.5
+ ],
+ "fonts": {
+  "latin": "Arial",
+  "body": "Arial",
+  "ea": null
+ },
+ "title": {
+  "text_top": 0.37,
+  "text_bottom": 0.87,
+  "align_to": "top",
+  "x": 0.5,
+  "y": 0.32,
+  "w": 9.17,
+  "h": 0.51,
+  "ins_t": 0.05,
+  "ins_b": 0.05,
+  "pt": 30.0,
+  "lines": 1,
+  "bold": false,
+  "colour": "81BC00",
+  "anchor": "t",
+  "sub": {
+   "colour": "575757",
+   "pt": 30.0
+  },
+  "band": null,
+  "rule": null
+ },
+ "crumb": {
+  "x": 7.71,
+  "y": 0.0,
+  "pt": 10.0,
+  "bold": false,
+  "colours": [
+   "313131"
+  ]
+ },
+ "body": {
+  "pt": 11.0,
+  "label_pt": 11.0,
+  "text": "313131"
+ },
+ "margins": {
+  "left": 0.43,
+  "right": 0.82,
+  "body_top": 1.65
+ },
+ "source_line": {
+  "x": 0.41,
+  "y": 6.72,
+  "pt": 8.0,
+  "colour": "313131"
+ },
+ "page": {
+  "right": 9.58,
+  "y": 7.01,
+  "h": 0.28,
+  "pt": 9,
+  "colour": "313131"
+ },
+ "footer": {
+  "x": 0.4,
+  "y": 7.01,
+  "pt": 8.0,
+  "colour": "8C8C8C",
+  "text": "Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)"
+ },
+ "roles": {
+  "main": "00A1DE",
+  "secondary": "81BC00",
+  "accent": "81BC00",
+  "text": "313131",
+  "grey1": "313131",
+  "grey2": "575757",
+  "grey3": "8C8C8C",
+  "grey4": "B4B4B4",
+  "panel": "F2F2F2"
+ },
+ "colours_ranked": [
+  "00A1DE",
+  "81BC00",
+  "002776",
+  "3C8A2E",
+  "ED1B2F",
+  "00FFFF"
+ ],
+ "neutrals_ranked": [
+  "DCDCDC",
+  "B4B4B4",
+  "8C8C8C",
+  "575757",
+  "313131",
+  "99C3D3"
+ ],
+ "chart": {
+  "value_axis": true,
+  "gridlines": false,
+  "pt": 10.0
+ },
+ "table": {
+  "header_fill": "00A1DE",
+  "header_text": "FFFFFF",
+  "body_fill": "F2F2F2",
+  "pt": 11.0
+ },
+ "theme": [
+  "000000",
+  "002776",
+  "00A1DE",
+  "313131",
+  "3C8A2E",
+  "72C7E7",
+  "81BC00",
+  "BDD203",
+  "FFFFFF"
+ ],
+ "highlight": {
+  "chart": "accent"
+ },
+ "_eye_check": "highlight: charts highlight in green - set by eye"
+}

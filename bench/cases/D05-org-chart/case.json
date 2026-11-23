@@ -1,0 +1,43 @@
+{
+ "id": "D05-org-chart",
+ "deck": "Deloitte-timesaver",
+ "slide": 47,
+ "kind": "framework",
+ "palette": "slide",
+ "floor": {
+  "layout": 0.457,
+  "visual": 0.576,
+  "others": [
+   185,
+   34,
+   225,
+   237,
+   180,
+   136,
+   202,
+   205
+  ],
+  "deck_colours": [
+   "0C246C",
+   "0C9CE4",
+   "3C8424",
+   "3CB4E4",
+   "545454",
+   "6C6C6C",
+   "848484",
+   "84B40C",
+   "9C9C9C",
+   "9CCCFC",
+   "9CE4FC",
+   "B4B4B4",
+   "B4CC0C",
+   "B4E4FC",
+   "CCCCCC",
+   "CCE4FC",
+   "E4240C",
+   "E4E4E4",
+   "FC8484"
+  ]
+ },
+ "skip_checks": []
+}

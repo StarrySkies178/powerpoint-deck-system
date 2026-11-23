@@ -1,0 +1,43 @@
+[0.4,0.3] Four important potential risks are identified and preparation & mitigation solutions are provided for discussion
+[4.3,6.3] High
+[0.7,2.6] High
+[0.3,3.8] Likelihood / Medium
+[0.7,5.8] Low
+[2.5,6.4] Medium / Severity
+[1.1,6.4] Low
+[0.8,1.4] Risk mapping
+[0.4,1.4] 1
+[5.5,1.4] 2
+[5.9,1.4] Solutions for important risks
+[3.3,3.3] 1
+[3.8,3.9] 2
+[3.2,4.3] 3
+[3.3,4.9] 4
+Risks | Solutions
+Internal resistance / Changes in functions and work relationships cause anger and panic | [Avoid] Strengthen internal communication and provide employee training / [Mitigate] Adjust KPI system accordingly; introduce experienced management talent from outside when necessary
+Talent management / Insufficient supply of trained salespersons for rapid expansion | [Avoid] Make recruitment plan in advance / [Mitigate] Reduce labor demand with technology
+Supply chain mgmt. / Rapid store expansion requires agile logistics | [Avoid] Optimize logistics network / [Mitigate] Find reliable third-party logistic partner
+IT system upgrade / Low compatibility between old and new system may cause slow upgrade and delay implementation |  / [Avoid] Make upgrade plan in advance; careful selection of new system supplier / [Mitigate] Hire external technology experts for help
+[5.6,2.5] 1
+[5.6,3.5] 2
+[5.6,4.6] 3
+[5.6,5.5] 4
+[0.4,0.1] Market Analysis	Growth Strategy	Risk & Mitigation
+[3.2,5.7] 5
+[3.6,5.6] Customer
+[3.6,5.8] information
+[3.6,6.0] safety
+[1.6,3.0] 6
+[1.3,3.4] Comp
+[1.3,3.4] etitor’s / response
+[1.8,5.4] 7
+[2.1,5.3] Customer
+[2.1,5.5] preference
+[2.1,5.7] change
+[2.8,3.0] Top priority
+[1.3,4.7] 8
+[1.6,4.6] Cannibaliza
+[2.5,4.0]  /  /  / -
+[1.6,4.8] tion
+[0.4,7.2] Source: MindCraft Analysis
+[12.8,7.2] 12

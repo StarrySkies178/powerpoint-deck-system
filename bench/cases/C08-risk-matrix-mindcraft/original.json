@@ -1,0 +1,77 @@
+{
+ "size_in": [
+  13.333,
+  7.5
+ ],
+ "title": {
+  "text": "Fourimportantpotentialrisksareidentifiedandpreparation& mitigationsolutionsareprovidedfordiscussion",
+  "left_in": 0.387,
+  "top_in": 0.29,
+  "box": [
+   0.387,
+   0.276,
+   11.131,
+   0.895
+  ],
+  "above": 0.314,
+  "pt": 26.0,
+  "bold": false,
+  "font": "Verdana",
+  "colour": "000000"
+ },
+ "body": {
+  "median_pt": 14.0,
+  "min_pt": 12.0
+ },
+ "margins": {
+  "left_in": 0.288,
+  "right_in": 0.554
+ },
+ "fonts": {
+  "latin": [
+   "Arial",
+   "Verdana"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "source": {
+  "pt": 10.0,
+  "top_in": 7.242
+ },
+ "theme_colours": [
+  "000000",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "5C5C5C",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "3C3C3C",
+  "540C0C",
+  "545454",
+  "6C0C0C",
+  "6C2424",
+  "6C3C3C",
+  "6C6C6C",
+  "843C3C",
+  "846C6C",
+  "848484",
+  "9C6C6C",
+  "9C8484",
+  "9C9C9C",
+  "B4B4B4",
+  "CCCCCC",
+  "E48484",
+  "E4CCCC",
+  "E4E4E4",
+  "FCE4E4"
+ ]
+}

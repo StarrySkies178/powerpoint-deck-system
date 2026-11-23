@@ -1,0 +1,121 @@
+{
+ "id": "C05-timeline-ecluster",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.00 top 0.78; got left 0.00 top 0.67 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 24.0 pt, got 24.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref True, got True"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #FFFFFF, got #FFFFFF (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Arial, got Arial"
+  },
+  {
+   "check": "body text size",
+   "ok": false,
+   "detail": "ref median 14.0 / min 14.0 pt; got 13.0 / 9.5 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial', 'Arial MT'], got ['Arial']"
+  },
+  {
+   "check": "body margins",
+   "ok": false,
+   "detail": "ref L 0.84 R 1.10; got L 0.27 R 0.26 in"
+  },
+  {
+   "check": "colours",
+   "ok": false,
+   "detail": "off-palette #9CCCE4"
+  }
+ ],
+ "layout": 0.0,
+ "visual": 0.02,
+ "n_std": 10,
+ "n_std_ok": 7,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Implementation Timeline",
+   "left_in": 0.0,
+   "top_in": 0.667,
+   "box": [
+    0.0,
+    0.57,
+    13.33,
+    0.86
+   ],
+   "above": 0.39,
+   "pt": 24.0,
+   "bold": true,
+   "font": "Arial",
+   "colour": "FFFFFF"
+  },
+  "body": {
+   "median_pt": 13.0,
+   "min_pt": 9.5
+  },
+  "margins": {
+   "left_in": 0.27,
+   "right_in": 0.26
+  },
+  "fonts": {
+   "latin": [
+    "Arial"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "theme_colours": [
+   "000000",
+   "00A1DE",
+   "08163B",
+   "253449",
+   "354B70",
+   "72C7E7",
+   "7E7E7E",
+   "A1C8DF",
+   "C3C6CA",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "0C0C3C",
+   "9CCCE4",
+   "CCCCCC",
+   "E4E4E4",
+   "0C243C",
+   "0C0C24",
+   "B4B4B4",
+   "9C9C9C",
+   "6C6C84",
+   "E4E4FC"
+  ]
+ }
+}

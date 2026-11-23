@@ -1,0 +1,47 @@
+{
+ "id": "D02-numbered-columns",
+ "deck": "Deloitte-timesaver",
+ "slide": 11,
+ "kind": "text",
+ "palette": "slide",
+ "floor": {
+  "layout": 0.396,
+  "visual": 0.499,
+  "others": [
+   236,
+   243,
+   102,
+   99,
+   248,
+   100,
+   53,
+   233
+  ],
+  "deck_colours": [
+   "0C246C",
+   "0C9CE4",
+   "246C24",
+   "3C8424",
+   "3C843C",
+   "545454",
+   "6C84B4",
+   "6CCCE4",
+   "848484",
+   "84B40C",
+   "84CC0C",
+   "84CCE4",
+   "9C9C9C",
+   "9CCC0C",
+   "B4B4B4",
+   "B4CC0C",
+   "B4CC6C",
+   "B4E4FC",
+   "CCCCCC",
+   "CCE40C",
+   "CCE4CC",
+   "CCE4FC",
+   "E4E4E4"
+  ]
+ },
+ "skip_checks": []
+}

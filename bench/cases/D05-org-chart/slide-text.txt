@@ -1,0 +1,25 @@
+[0.4,0.3] Organization chart   Simple
+[0.4,7.0] Member Firms and DTTL: Insert appropriate copyright (Go Header & Footer to edit this text)
+[8.7,7.0] 47
+[6.4,1.9] Sponsor
+[6.4,2.2] Name Surname
+[6.4,1.9] Project management
+[6.4,2.2] Name Surname / Name Surname
+[6.4,1.9] QA
+[6.4,2.2] Short description
+[6.4,1.9] PMO
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Project management
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Subject experts
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Workstream
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Workstream
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Workstream
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Workstream
+[6.4,2.2] Name Surname / Name Surname / Name Surname
+[6.4,1.9] Workstream
+[6.4,2.2] Name Surname / Name Surname / Name Surname

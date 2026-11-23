@@ -12,9 +12,36 @@ const C = {
   g1: "F0F0F0",            // light panel (tint of grey4)
   g2: R("grey4"), g3: R("grey3"), g4: R("grey2"), g5: R("grey1"),
   hiBand: "CCECF8",        // light secondary tint for highlighted rows/boxes
+  chartHi: R("main"),      // the series / point that makes the point in charts
 };
+const HOUSE_C = { ...C };
+const tint = (hex, k) => hex.match(/../g).map((c) => Math.round(parseInt(c, 16) + (255 - parseInt(c, 16)) * k).toString(16).padStart(2, "0")).join("").toUpperCase();
+const lumOf = (hex) => { const [r, g, b] = hex.match(/../g).map((c) => { c = parseInt(c, 16) / 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+const contrast = (a, b) => { const [x, y] = [lumOf(a), lumOf(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+// useStyle(profile): switch master + generators to a reference's measured look (see house.js). useStyle(null) = house.
+function useStyle(profile) {
+  HOUSE.useStyle(profile);
+  W = HOUSE.W; H = HOUSE.H;
+  Object.assign(C, HOUSE_C);
+  const S = HOUSE.STYLE;
+  if (S) {
+    Object.assign(C, { navy: R("main"), cyan: R("secondary"), accent: R("accent"), text: R("text"), g2: R("grey4"), g3: R("grey3"), g4: R("grey2"), g5: R("grey1"),
+      g1: (S.roles.panel || "F2F2F2").toUpperCase(), hiBand: (S.roles.tint || S.roles.panel || "F2F2F2").toUpperCase() });
+    C.chartHi = S.highlight && S.highlight.chart === "accent" ? C.accent : C.navy;
+  }
+  THEME.headFontFace = HOUSE.FONT.latin; THEME.bodyFontFace = HOUSE.FONT.latin;
+  return S;
+}
+// chart look of the active style: the house hides the value axis; a reference may show it, with its own label size
+function chartStyle() {
+  const S = HOUSE.STYLE; if (!S) return {};
+  const ch = S.chart || {}, pt = ch.pt || Math.max(8, HOUSE.TYPE.label - 1);
+  return { valAxisHidden: !ch.value_axis, valAxisLabelFontSize: pt, valAxisLabelColor: C.text, valAxisLineShow: !!ch.value_axis,
+    valGridLine: ch.gridlines ? { color: C.g2, size: 0.5 } : { style: "none" }, catAxisLabelFontSize: pt, dataLabelFontSize: pt, legendFontSize: pt,
+    catAxisLabelFontFace: THEME.bodyFontFace, valAxisLabelFontFace: THEME.bodyFontFace, dataLabelFontFace: THEME.bodyFontFace, legendFontFace: THEME.bodyFontFace };
+}
 const THEME = { headFontFace: "Arial", bodyFontFace: "Arial" };
-const W = HOUSE.W, H = HOUSE.H;
+let W = HOUSE.W, H = HOUSE.H;
 const BODY = HOUSE.GRID.body; // content area under title (measured grid)
 
 // ---------- text helpers ----------
@@ -40,11 +67,13 @@ function fitSize(text, wIn, hIn, max = 16, min = 10) {
 // Text-safe green: the accent at 60% luminance (theme slot accent3, lumMod 60%), 5.7:1 on white.
 // Green TEXT on light backgrounds uses it automatically; green fills, lines and text on dark slides keep C.accent.
 const ACCENT_TEXT = "4D7100";
-const textGreen = (c, o) => (c === C.accent && !o.onDark ? ACCENT_TEXT : c);
+const textGreen = (c, o) => (c === C.accent && !o.onDark ? (HOUSE.STYLE ? (contrast(c, "FFFFFF") >= 3 ? c : C.text) : ACCENT_TEXT) : c);
+const typeK = () => (HOUSE.STYLE ? HOUSE.TYPE.body / 12.5 : 1);   // reference body size vs the generators' working size (~12.5 pt)
 function txt(slide, text, x, y, w, h, o = {}) {
   if (Array.isArray(text)) text = text.map((r) => (r.options && r.options.color === C.accent && !o.onDark ? { ...r, options: { ...r.options, color: ACCENT_TEXT } } : r));
   const plain = Array.isArray(text) ? text.map((r) => r.text).join("") : text;
-  const size = o.fontSize || fitSize(plain, w - 0.1, h - 0.06, o.max || 14, o.min || 10);
+  const k = typeK(), sc = (v) => Math.max(8, Math.round(v * k * 2) / 2);
+  const size = o.fontSize ? (k === 1 || o.keepSize ? o.fontSize : sc(o.fontSize)) : fitSize(plain, w - 0.1, h - 0.06, sc(o.max || 14), Math.min(sc(o.max || 14), sc(o.min || 10)));
   slide.addText(text, {
     x, y, w, h, fontFace: THEME.bodyFontFace, fontSize: size, color: textGreen(o.color || C.text, o),
     bold: !!o.bold, align: o.align || "left", valign: o.valign || "top", margin: o.margin ?? 0.04,
@@ -60,8 +89,18 @@ const textOn = (fill) => ([C.navy, C.cyan, C.accent, C.g5, C.g4].includes(fill) 
 const rad = (d) => (d * Math.PI) / 180;
 
 // ---------- slide frame (same position on every slide) ----------
-function frame(pres, slide, { title, subtitle, source, page, tracker, onLayout = true }) {
-  const G = HOUSE.GRID;
+function frame(pres, slide, { title, subtitle, source, page, tracker, crumb, onLayout = true }) {
+  const G = HOUSE.GRID, S = HOUSE.STYLE;
+  if (S && onLayout) {
+    const T = S.title;
+    if (subtitle && T.sub) slide.addText([{ text: title, options: { breakLine: true } }, { text: subtitle, options: { color: T.sub.colour, fontSize: T.sub.pt || T.pt } }], { placeholder: "title" });
+    else slide.addText(title, { placeholder: "title" });
+    if (source) slide.addText(source, { placeholder: "source" });
+    if (subtitle && !T.sub && !crumb) txt(slide, subtitle, T.x, HOUSE.GRID.subY, T.w, 0.3, { fontSize: S.body.label_pt, keepSize: true, color: C.g5 });
+    if (crumb) crumbLine(slide, crumb);
+    if (tracker) trackerBar(slide, tracker);
+    return;
+  }
   if (onLayout) { // slide was added with masterName "04 Title only" (or similar): fill the placeholders
     slide.addText(title, { placeholder: "title" });
     if (subtitle) slide.addText(subtitle, { placeholder: "subtitle" });
@@ -72,6 +111,15 @@ function frame(pres, slide, { title, subtitle, source, page, tracker, onLayout =
     if (source) txt(slide, source, G.left, G.footY, 9.5, G.footH, { fontSize: 9, color: C.g5, valign: "bottom", name: "source" });
   }
   if (tracker) trackerBar(slide, tracker);
+}
+// breadcrumb / section tracker line (case decks): crumb = { items:[...], current: i }, in the reference's crumb style
+function crumbLine(slide, crumb) {
+  const S = HOUSE.STYLE, cs = (S && S.crumb) || { x: HOUSE.GRID.left, y: 0.08, pt: 12, bold: false, colours: [C.g3, C.navy] };
+  const on = cs.colours.find((c) => c !== "BEBEBE" && c !== "CCCCCC" && c !== "A6A6A6") || C.navy, off = cs.colours.find((c) => c !== on) || C.g3;
+  const sep = crumb.sep || " \u25B6 ";
+  const runs = [];
+  crumb.items.forEach((it, i) => { if (i) runs.push({ text: sep, options: { color: on === C.navy ? C.g3 : on } }); runs.push({ text: it, options: { color: i === crumb.current ? on : off, bold: !!cs.bold } }); });
+  slide.addText(runs, { x: cs.x, y: cs.y, w: W - cs.x - 1.8, h: 0.3, fontFace: THEME.bodyFontFace, fontSize: cs.pt, margin: 0, valign: "top", isTextBox: true });
 }
 // numbered-square tracker top-right (RB rule: navigators are numbered squares)
 function trackerBar(slide, { n, current }) {
@@ -103,7 +151,7 @@ function chevronProcess(slide, spec, box = BODY) {
   const w = (avail + (n - 1) * (point - gap)) / n; // chevrons overlap by point depth
   spec.items.forEach((it, i) => {
     const x = box.x + i * (w - point + gap);
-    const fill = spec.highlight === i ? C.accent : (spec.highlight != null && i < spec.highlight ? C.g4 : C.navy);
+    const fill = (spec.fills && spec.fills[i]) || (spec.highlight === i ? C.accent : (spec.highlight != null && i < spec.highlight ? C.g4 : C.navy));
     slide.addShape(i === 0 ? "homePlate" : "chevron", { x, y: box.y, w, h: hH, fill: { color: fill }, line: { type: "none" }, objectName: `step${i + 1}` });
     txt(slide, it.label, x + (i === 0 ? 0.12 : point * 0.9), box.y, w - point * 1.6, hH, { max: 14, min: 10, bold: true, color: C.white, valign: "middle", align: "center" });
     if (it.text) txt(slide, it.text, x + 0.08, box.y + hH + 0.2, w - point - 0.05, box.h - hH - 0.3, { max: 14, min: 10 });
@@ -433,9 +481,9 @@ function barRanking(pres, slide, spec, box = BODY) {
   const others = d.map((x) => (x.label === spec.highlightLabel ? 0 : x.value));
   const hi = d.map((x) => (x.label === spec.highlightLabel ? x.value : 0));
   slide.addChart(pres.ChartType.bar, [{ name: "Others", labels, values: others }, { name: spec.highlightLabel, labels, values: hi }], {
-    ...box, barDir: "bar", barGrouping: "stacked", chartColors: [C.g3, C.navy], showLegend: false,
+    ...box, barDir: "bar", barGrouping: "stacked", chartColors: [C.g3, C.chartHi], showLegend: false,
     showValue: true, dataLabelPosition: "inBase", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: '#,##0;;;',
-    catAxisLabelColor: C.text, catAxisLabelFontSize: 12, catAxisLabelFontFace: "Arial", valAxisHidden: true,
+    catAxisLabelColor: C.text, catAxisLabelFontSize: 12, catAxisLabelFontFace: THEME.bodyFontFace, valAxisHidden: true,
     valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 45, catAxisLineShow: false,
   });
 }
@@ -454,6 +502,7 @@ function waterfall(pres, slide, spec, box = BODY) {
     ...box, barDir: "col", barGrouping: "stacked", chartColors: ["FFFFFF", C.navy, C.cyan, C.g4], showLegend: false,
     showValue: true, dataLabelPosition: "ctr", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: '#,##0;;;',
     catAxisLabelColor: C.text, catAxisLabelFontSize: 11, valAxisHidden: true, valGridLine: { style: "none" }, barGapWidthPct: 40,
+    ...chartStyle(), ...(spec.chartOptions || {}),
   });
 }
 
@@ -505,7 +554,7 @@ function columnHighlight(pres, slide, spec, box = BODY) {
   slide.addChart(pres.ChartType.bar, [{ name: "Others", labels, values: others }, { name: spec.highlightLabel || "Key", labels, values: hi }], {
     ...box, barDir: "col", barGrouping: "stacked", chartColors: [C.g3, C.navy], showLegend: false,
     showValue: true, dataLabelPosition: "inEnd", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: spec.format || "#,##0;;;",
-    catAxisLabelColor: C.text, catAxisLabelFontSize: 11, catAxisLabelFontFace: "Arial", valAxisHidden: true,
+    catAxisLabelColor: C.text, catAxisLabelFontSize: 11, catAxisLabelFontFace: THEME.bodyFontFace, valAxisHidden: true,
     valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 50,
   });
 }
@@ -547,6 +596,48 @@ function orgChart(slide, spec, box = BODY) {
       slide.addShape("rect", { x: x + 0.24, y, w: w - 0.24, h: h * 0.8, fill: { color: C.g1 }, line: { type: "none" } });
       txt(slide, g.label, x + 0.3, y, w - 0.36, h * 0.8, { max: 11, min: 8, valign: "middle", margin: 0 }); }); });
 }
+
+// top-down tree of any depth and width (vertical logic tree, org chart). spec: {label, sub?, hi?, children:[...]}, spec.look:
+//  "boxes" (default): filled boxes, label centred; "cards": header bar (label) + body below (sub), e.g. org charts.
+// Leaves share the width evenly; parents sit over their children; elbow connectors; a node with hi:true takes the highlight.
+function treeDown(slide, spec, box = BODY) {
+  const look = spec.look || "boxes", depthOf = (n) => 1 + Math.max(0, ...(n.children || []).map(depthOf));
+  const leavesOf = (n) => (n.children && n.children.length ? n.children.reduce((a, c) => a + leavesOf(c), 0) : 1);
+  const D = depthOf(spec), L = leavesOf(spec), slot = box.w / L, gapY = spec.gapY || 0.35;
+  const nh = spec.nodeH || Math.min(look === "cards" ? 1.0 : 0.62, (box.h - (D - 1) * gapY) / D), nw = Math.min(spec.maxW || 2.2, slot * 0.88);
+  const ln = { color: C.g3, width: 1 }, levelFill = spec.levelFill || [C.g5, C.g4, C.g3, C.g4];
+  const place = (n, x0, d) => {           // returns centre x
+    const kids = n.children || [];
+    let cx;
+    if (!kids.length) cx = x0 + slot / 2;
+    else { let x = x0; const cs = kids.map((k) => { const c = place(k, x, d + 1); x += leavesOf(k) * slot; return c; }); cx = (cs[0] + cs[cs.length - 1]) / 2; n._cs = cs; }
+    n._x = cx; n._y = box.y + d * (nh + gapY); return cx;
+  };
+  place(spec, box.x, 0);
+  const draw = (n, d) => {
+    const x = n._x - nw / 2, y = n._y, hi = !!n.hi;
+    if (look === "cards") {
+      const hh = Math.min(0.3, nh * 0.32), fill = hi ? C.accent : (n.fill || levelFill[Math.min(d, levelFill.length - 1)]);
+      slide.addShape("rect", { x, y, w: nw, h: hh, fill: { color: fill }, line: { type: "none" } });
+      txt(slide, n.label, x + 0.04, y, nw - 0.08, hh, { max: 11, min: 7, bold: true, color: textOn(fill) === C.white || contrast(fill, "FFFFFF") >= 3 ? C.white : C.text, align: "center", valign: "middle", margin: 0 });
+      slide.addShape("rect", { x, y: y + hh, w: nw, h: nh - hh, fill: { color: C.g1 }, line: { type: "none" } });
+      if (n.sub) txt(slide, n.sub, x + 0.06, y + hh + 0.02, nw - 0.12, nh - hh - 0.04, { max: 10, min: 7, valign: "top", margin: 0.02 });
+    } else {
+      const fill = hi ? C.accent : (n.fill || C.g2);
+      slide.addShape("rect", { x, y, w: nw, h: nh, fill: { color: fill }, line: { type: "none" } });
+      txt(slide, n.sub ? rich(n.label, n.sub, textOn(fill)) : n.label, x + 0.05, y, nw - 0.1, nh, { max: 14, min: 8, color: textOn(fill), align: "center", valign: "middle" });
+    }
+    const kids = n.children || [];
+    if (kids.length) {
+      const yb = y + nh, ym = yb + gapY / 2;
+      slide.addShape("line", { x: n._x, y: yb, w: 0, h: gapY / 2, line: ln });
+      if (kids.length > 1) slide.addShape("line", { x: n._cs[0], y: ym, w: n._cs[n._cs.length - 1] - n._cs[0], h: 0, line: ln });
+      n._cs.forEach((cx) => slide.addShape("line", { x: cx, y: ym, w: 0, h: gapY / 2, line: ln }));
+      kids.forEach((k) => draw(k, d + 1));
+    }
+  };
+  draw(spec, 0);
+}
 function targetOnion(slide, spec, box = BODY) {
   // spec.items: outer -> inner [{label, text}], spec.highlight
   const n = spec.items.length, D = Math.min(box.h, box.w * 0.5), cx = box.x + D / 2, cy = box.y + box.h / 2;
@@ -576,9 +667,17 @@ function phaseMatrix(slide, spec, box = BODY) {
 }
 function dataTable(slide, spec, box = BODY) {
   // spec.header:[...], spec.rows:[[...]], spec.highlightRow ; native, editable PowerPoint table
-  const rows = [spec.header.map((h) => ({ text: h, options: { bold: true, color: C.white, fill: { color: C.navy } } })),
-    ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || j === 0, fill: { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) }, align: j && typeof c === "number" ? "right" : "left" } })))];
-  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, fontFace: "Arial", fontSize: 12, color: C.text, border: { type: "solid", color: C.g3, pt: 0.5 }, rowH: Math.min(0.42, box.h / (spec.rows.length + 1)), valign: "middle", margin: 0.06 });
+  const S = HOUSE.STYLE, ts = (S && S.table) || {}, style = spec.style || "bands";
+  const hf = spec.headerFill !== undefined ? spec.headerFill : (ts.header_fill || C.navy), ht = spec.headerText || (hf && contrast(hf, "FFFFFF") >= 3 ? C.white : C.text);
+  const lines = style === "lines", pt = spec.fontSize || ts.pt || (S ? HOUSE.TYPE.label : 12);
+  const rows = [spec.header.map((h, j) => ({ text: h, options: { bold: true, color: hf ? ht : C.text, fill: hf ? { color: hf } : undefined, align: j && spec.alignRight !== false ? "right" : "left",
+      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: C.text, pt: 1 }, { type: "none" }] : undefined } })),
+    ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || (j === 0 && spec.boldFirst !== false && !lines),
+      fill: lines ? undefined : { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) },
+      align: j && (typeof c === "number" || /^[\d.,%+\-–$¥€x ]+$/.test(String(c))) ? "right" : "left",
+      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: C.g3, pt: 0.75 }, { type: "none" }] : undefined } })))];
+  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, colW: spec.colW, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, border: lines ? undefined : { type: "solid", color: C.g3, pt: 0.5 },
+    rowH: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)), valign: "middle", margin: 0.04 });
 }
 function iconList(slide, spec, box = BODY) {
   // spec.items:[{label, text, icon?: base64 png}], numbered circles if no icon
@@ -598,6 +697,6 @@ function puzzleGrid(slide, spec, box = BODY) {
     txt(slide, it.label, x + 0.1, y, s - 0.2, s, { max: 14, min: 8, bold: true, color: C.white, align: "center", valign: "middle" }); });
 }
 
-module.exports = { ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
+module.exports = { treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
   chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
   pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };

@@ -1,0 +1,5 @@
+[0.0,0.4] Implementation Timeline
+[2.3,5.8] Economy downturn / Suffer from slow ramp up problem when entering the new market / Potential brand image cannibalization, fail to launch new products in the market as expected / Market dynamics: customer behavior change, competitors’ response, etc.
+[0.8,5.8] Potential Risks
+[0.3,0.1] Market Overview → Strategy Design → Implementation: Timeline
+[12.9,7.3] 12

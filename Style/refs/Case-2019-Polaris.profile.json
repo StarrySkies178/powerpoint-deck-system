@@ -1,0 +1,114 @@
+{
+ "source": "Case-2019-Polaris.pptx",
+ "size": [
+  13.333,
+  7.5
+ ],
+ "fonts": {
+  "latin": "Arial",
+  "body": "Arial",
+  "ea": null
+ },
+ "title": {
+  "text_top": 0.07,
+  "text_bottom": 0.87,
+  "align_to": "bottom",
+  "x": 0.39,
+  "y": 0.06,
+  "w": 12.5,
+  "h": 0.83,
+  "ins_t": 0.01,
+  "ins_b": 0.0,
+  "pt": 24.0,
+  "lines": 2,
+  "bold": false,
+  "colour": "000000",
+  "anchor": "t",
+  "sub": null,
+  "band": null,
+  "rule": {
+   "colour": "CC0000",
+   "x": 0.0,
+   "y": 0.96,
+   "w": 12.97
+  }
+ },
+ "crumb": null,
+ "body": {
+  "pt": 14.0,
+  "label_pt": 12.0,
+  "text": "000000"
+ },
+ "margins": {
+  "left": 0.37,
+  "right": 0.32,
+  "body_top": 1.13
+ },
+ "source_line": {
+  "x": 0.39,
+  "y": 7.23,
+  "pt": 10.0,
+  "colour": "5C5C5C"
+ },
+ "page": {
+  "right": 12.98,
+  "y": 7.26,
+  "h": 0.18,
+  "pt": 9.0,
+  "colour": "5C5C5C"
+ },
+ "footer": null,
+ "roles": {
+  "main": "CC0000",
+  "secondary": "C30C3D",
+  "accent": "CC0000",
+  "text": "000000",
+  "grey1": "5C5C5C",
+  "grey2": "46637A",
+  "grey3": "7E7E7E",
+  "grey4": "A2A2A2",
+  "panel": "F1F1F1",
+  "tint": "FFC2C2"
+ },
+ "colours_ranked": [
+  "CC0000",
+  "C30C3D",
+  "009900",
+  "FF8585",
+  "FFC2C2"
+ ],
+ "neutrals_ranked": [
+  "F1F1F1",
+  "D5D5D5",
+  "5C5C5C",
+  "A2A2A2",
+  "7E7E7E",
+  "46637A"
+ ],
+ "chart": {
+  "value_axis": false,
+  "gridlines": false,
+  "pt": null
+ },
+ "table": {
+  "header_fill": "FFC2C2",
+  "header_text": "000000",
+  "body_fill": null,
+  "pt": 12.0
+ },
+ "theme": [
+  "000000",
+  "0000FF",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "variants": {}
+}

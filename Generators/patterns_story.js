@@ -31,7 +31,7 @@ function insightBox(slide, spec, box) {                                // "Insig
     const h = Math.min(avail * lines[i] / tot, lines[i] * size * 1.3 / 72 + 0.12);
     slide.addShape("rect", { x: box.x + 0.02, y: y + size / 72 * 0.45, w: 0.07, h: 0.07, fill: { color: C.navy }, line: { type: "none" } });
     const runs = String(b).split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((p) => ({ text: p.startsWith("**") ? p.slice(2, -2) : p, options: { bold: p.startsWith("**") } }));
-    slide.addText(runs, { x: box.x + 0.18, y, w: box.w - 0.18, h, fontFace: "Arial", fontSize: size, color: C.text, valign: "top", margin: 0, isTextBox: true });
+    slide.addText(runs, { x: box.x + 0.18, y, w: box.w - 0.18, h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: "top", margin: 0, isTextBox: true });
     y += h + 0.06;
   });
 }
@@ -46,18 +46,19 @@ function chartIn(pres, slide, c, box) {
   // c: {type:'column'|'bar'|'stacked'|'stacked100'|'line'|'pie'|'donut', labels, series:[{name,values}], highlight (series or point index), format}
   const t = c.type || "column", n = c.series.length, single = n === 1;
   const greys = [C.g4, C.g5, C.g3, C.g4, C.g5];
-  let colors = c.series.map((_, i) => (c.highlight === i ? C.navy : greys[i % greys.length]));
+  let colors = c.colors || c.series.map((_, i) => (c.highlight === i ? C.chartHi : greys[i % greys.length]));
   if (single && ["column", "bar"].includes(t) && c.highlight != null) {   // one series: highlight one point via two stacked series
     const v = c.series[0].values;
     const s2 = [{ name: "Others", labels: c.labels, values: v.map((x, i) => (i === c.highlight ? 0 : x)) }, { name: c.series[0].name, labels: c.labels, values: v.map((x, i) => (i === c.highlight ? x : 0)) }];
-    slide.addChart(pres.ChartType.bar, s2, { ...box, barDir: t === "bar" ? "bar" : "col", barGrouping: "stacked", chartColors: [C.g3, C.navy], showLegend: false, showValue: true,
+    slide.addChart(pres.ChartType.bar, s2, { ...box, barDir: t === "bar" ? "bar" : "col", barGrouping: "stacked", chartColors: [C.g3, C.chartHi], showLegend: false, showValue: true,
       dataLabelPosition: "inEnd", dataLabelFontSize: 10, dataLabelColor: C.white, dataLabelFormatCode: (c.format || "#,##0") + ";;;", catAxisLabelFontSize: 10, catAxisLabelColor: C.text,
       valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 50 });
     return;
   }
-  if (single && ["column", "bar", "line"].includes(t)) colors = [C.navy];
+  if (single && ["column", "bar", "line"].includes(t) && !c.colors) colors = [C.chartHi];
   const common = { ...box, chartColors: colors, showLegend: n > 1, legendPos: "b", legendFontSize: 9, legendColor: C.text, catAxisLabelFontSize: 10, catAxisLabelColor: C.text,
-    valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, dataLabelFontSize: 9, showValue: true, dataLabelFormatCode: c.format || "#,##0" };
+    valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, dataLabelFontSize: 9, showValue: c.showValue !== false, dataLabelFormatCode: c.format || "#,##0",
+    ...G.chartStyle(), ...(c.legendPos ? { legendPos: c.legendPos } : {}), ...(c.options || {}) };
   const data = c.series.map((s) => ({ name: s.name, labels: c.labels, values: s.values }));
   if (t === "radar") { slide.addChart(pres.ChartType.radar, data, { ...common, showValue: false, radarStyle: "filled", chartColors: c.series.map((_, i) => (c.highlight === i ? C.navy : [C.g3, C.cyan, C.g4][i % 3])), catAxisLabelFontSize: 10 }); return; }
   if (t === "line") slide.addChart(pres.ChartType.line, data, { ...common, lineSize: 2, lineDataSymbol: "circle", lineDataSymbolSize: 6, dataLabelPosition: "t" });

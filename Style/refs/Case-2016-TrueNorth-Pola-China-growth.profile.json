@@ -1,0 +1,124 @@
+{
+ "source": "Case-2016-TrueNorth-Pola-China-growth.pptx",
+ "size": [
+  10.0,
+  7.5
+ ],
+ "fonts": {
+  "latin": "Calibri",
+  "body": "Calibri",
+  "ea": null
+ },
+ "title": {
+  "text_top": 0.47,
+  "text_bottom": 1.33,
+  "align_to": "bottom",
+  "x": 0.35,
+  "y": 0.4,
+  "w": 9.65,
+  "h": 0.85,
+  "ins_t": 0.06,
+  "ins_b": 0.0,
+  "pt": 26.0,
+  "lines": 1,
+  "bold": false,
+  "colour": "FFFFFF",
+  "anchor": "t",
+  "sub": null,
+  "band": {
+   "colour": "CC0000",
+   "x": 0.0,
+   "y": 0.43,
+   "w": 10.0,
+   "h": 0.93
+  },
+  "rule": null
+ },
+ "crumb": {
+  "x": 0.35,
+  "y": 0.07,
+  "pt": 14.0,
+  "bold": false,
+  "colours": [
+   "CCCCCC",
+   "000000",
+   "CC0000"
+  ]
+ },
+ "body": {
+  "pt": 14.0,
+  "label_pt": 12.0,
+  "text": "000000"
+ },
+ "margins": {
+  "left": 0.25,
+  "right": 0.16,
+  "body_top": 1.46
+ },
+ "source_line": {
+  "x": 0.35,
+  "y": 7.24,
+  "pt": 10.0,
+  "colour": "000000"
+ },
+ "page": {
+  "right": 9.95,
+  "y": 7.27,
+  "h": 0.19,
+  "pt": 10.0,
+  "colour": "000000"
+ },
+ "footer": null,
+ "roles": {
+  "main": "CC0000",
+  "secondary": "E06E6E",
+  "accent": "CC0000",
+  "text": "000000",
+  "grey1": "3A3838",
+  "grey2": "777777",
+  "grey3": "A2A2A2",
+  "grey4": "EBC6C5",
+  "panel": "F1F1F1",
+  "tint": "F1F1F1"
+ },
+ "colours_ranked": [
+  "CC0000",
+  "E06E6E",
+  "BC2527",
+  "2D80A8"
+ ],
+ "neutrals_ranked": [
+  "D9D9D9",
+  "A2A2A2",
+  "777777",
+  "F1F1F1",
+  "EBC6C5",
+  "3A3838"
+ ],
+ "chart": {
+  "value_axis": false,
+  "gridlines": false,
+  "pt": null
+ },
+ "table": {
+  "header_fill": "CDCDCD",
+  "header_text": "000000",
+  "body_fill": "CDCDCD",
+  "pt": 13.0
+ },
+ "theme": [
+  "000000",
+  "0000FF",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "variants": {}
+}

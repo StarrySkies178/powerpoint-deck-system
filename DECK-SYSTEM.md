@@ -28,7 +28,7 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 7. **Work in batches.** Build 5–8 slides per batch and re-read the style rules before each one, so early rules don't fade by slide 25.
 8. **Use defaults, not guesses** (Section 8). State every assumption you make.
 9. **Missing pieces don't block work.** If a file in Section 2 doesn't exist yet, use its fallback and say so in the reply.
-10. **Look comes from the user's reference, or else the house default.** If the user gives a reference slide or template, match its look. If not, use the house default in `Style/style-rules.md`. The libraries in `Templates/` teach structure only. They are 4:3: re-proportion their layouts for 16:9, never stretch them.
+10. **Look comes from the user's reference, or else the house default.** If the user gives a reference slide or template, match its look. If not, use the house default in `Style/style-rules.md`. The libraries in `Templates/` teach structure only. They are 4:3: re-proportion their layouts for 16:9, never stretch them. **Match with tools, not by eye:** build with the reference's style profile (`P.useStyle(profile)`, profile from `scripts/make_style_profile.py`, saved as `Style/refs/<deck>.profile.json`); when the user names a slide, reuse that slide's stored object with its original colours (`objstore.place(..., colours="original")`) and refill it. How close this gets is measured by `bench/` (reproduction benchmark).
 11. **One source of truth.** Claude and Hermes both read this folder. Never keep copies of the rules anywhere else (Project docs, chat memory, the skill, Hermes config).
 
 ---
@@ -209,7 +209,8 @@ Powerpoint/
 ├── Style/                ← style-rules.md (house style), refs/ (style cards of studied references), style-findings.md, slide-index.md
 ├── catalogue/            ← README.md (spec format + status), one file per message type, examples/
 ├── Generators/           ← house.js (master + theme-link), patterns.js (pattern functions, any n), patterns_story.js (exec-summary forms, evidence panels, personas, journey, story charts), objstore.py, components.py (slides → single diagrams), rebuild_slides.py (PDF/image → editable slides), vectorize.py (pictures + embedded charts → shapes), build_*.js
-├── scripts/              ← audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look); check.py (not built yet)
+├── bench/                ← reproduction benchmark: 20 reference slides rebuilt from prompts and scored (README, results-log)
+├── scripts/              ← make_style_profile.py (a reference's measured look for the generators); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look); check.py (not built yet)
 ├── review/               ← contact sheets of ingested references (for the visual pass)
 ├── master/               ← house-master-16x9.potx (14 layouts, theme colours) + README.md
 ├── samples/              ← sample decks for review

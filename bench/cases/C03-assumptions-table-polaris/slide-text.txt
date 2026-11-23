@@ -1,0 +1,15 @@
+[12.8,7.3] 22
+[0.4,0.5] Backup: Key assumptions for financial analysis
+[0.4,7.2] Source: Polaris Analysis
+High Case | 2019 | 2020 | 2021 | 2022 | 2023
+#stores | 261 | 321 | 381 | 441 | 551
+Organic Growth(%) | 4% | 8% | 10% | 12% | 15%
+Online Growth(%) | 31% | 41% | 40% | 45% | 38%
+ / Base Case |  / 2019 |  / 2020 |  / 2021 |  / 2022 |  / 2023
+#stores | 261 | 306 | 351 | 396 | 441
+Organic Growth(%) | 4% | 8% | 10% | 10% | 12%
+Online Growth(%) | 31% | 32% | 32% | 30% | 30%
+ / Low Base |  / 2019 |  / 2020 |  / 2021 |  / 2022 |  / 2023
+#stores | 261 | 306 | 351 | 391 | 431
+Organic Growth(%) | 4% | 4% | 4% | 3% | 5%
+Online Growth(%) | 31% | 29% | 29% | 27% | 25%

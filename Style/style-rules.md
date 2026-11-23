@@ -29,8 +29,10 @@ Before Stage 2, study the reference thoroughly and write down its standards. Nev
 3. **Write the style card:** complete `Style/refs/<name>.md` with a short **"Standards to follow"** section of exact values. Include the font, the size scale by role (title, subtitle, body, labels, footnote), the margins, the title box position, the colour roles (main, secondary, accent, text, greys), line weights and the footer layout. Mark each value *measured* or *inferred*.
 4. **Show it in the Stage 1 brief:** list the key standards in a few lines so the user can correct a misread before anything is built.
 5. **Build to the card:**
-   - If the reference is a .pptx or .potx, build on its own master and layouts. *Why: this matches exactly, with no guessing.*
-   - Otherwise, set up the deck from the card's values.
+   - Make the reference's **style profile**: `python3 scripts/make_style_profile.py <file> Style/refs/<deck>.profile.json`. It measures slide size, title (position, size, bold, colour, font, band behind it, rule under it, second line), breadcrumb, fonts, body sizes, colour roles, tint, panel, margins, source line, page number, footer, chart style and table style. Compare it with 3–6 rendered slides; fix any value the eye disagrees with by hand, and note it in the card (e.g. `"highlight": {"chart": "accent"}`).
+   - Build with it: `P.useStyle(profile)` before `newDeck()`. The master, frame and every generator then use the reference's look. *Why: this matches with no guessing, and it is measured (`bench/`).*
+   - **When the user names a slide** ("like slide 62"), reuse that slide's own stored object: `objstore.place(..., colours="original")`, then refill its text, chart data and table cells. This is the closest match there is.
+   - A look the profile can't capture (e.g. a background picture used on one slide only) needs the reference's own object or picture. Say so if it isn't available.
    - Before every batch, re-read the card instead of the house-default sections below.
 6. **Check against the card:** the automatic check uses the card's fonts, sizes, colours and margins as the allowed set. Anything outside them is flagged.
 7. **Gaps:** where the reference doesn't show something (e.g. no chart in it), use the house default and say so.
