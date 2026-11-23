@@ -210,8 +210,8 @@
   },
   "lastChange": {
     "by": "Mike N",
-    "at": "2026-11-23T16:00:00Z",
+    "at": "2026-11-23T15:58:17Z",
     "via": "Claude chat",
-    "note": "v2.5 (folder 2.12): summary numbers as a plain Projection column (.hs-proj), as in the reference deck; KPI tiles removed; rule: only forms the references use"
+    "note": "v2.5 (folder 2.13): version stamp only. The folder's big files are now kept on GitHub as parts; nothing in the design system changed"
   }
 }
