@@ -4,7 +4,14 @@ More than one chat changes this folder at the same time (on 2026-11-23 three Cla
 
 *Why: without a sheet, version numbers collided at least four times (0.6 and 1.1 were each logged twice; 2.11 and 2.15 were each taken by a second chat mid-work), two chats edited `maintenance/github-sync.md` in the same half hour, and 280 files of v2.9 were missing from GitHub for hours while later versions were pushed. (Why those files were not pushed at the time is not recorded; with a claim on `GITHUB` and one chat syncing the whole folder at a time, a gap like that shows up at the next sync.)*
 
-**What to work on:** the shared plan is `maintenance/roadmap.md`. It is a proposal until the user approves it; when you take one of its steps, name the phase and step in your sign-in.
+**What to work on:** the shared plan is `maintenance/roadmap.md`. The user approved it on 2026-11-24. When you take one of its steps, name the phase and step in your sign-in.
+
+> **FREEZE in force since v2.23 (2026-11-24), until the user signs off Phase 1 of the roadmap.**
+> Do not change `Generators/`, `Style/` (except `Style/refs/`), `catalogue/`, `master/` or `DECK-SYSTEM.md`. The benchmark is being turned into a measuring instrument, and it cannot measure builders that keep moving.
+> - Still allowed: building decks, learning and storing references (`Templates/`, `Objects/store/`, `review/`, `Style/refs/`), the logs, and work on `bench/` that a roadmap step asks for.
+> - A lesson or rule change you would normally apply straight away: log it as usual in `logs/lessons-log.md`, then add one row to `logs/proposals.md` instead of applying it. It is applied when the freeze lifts. For the length of the freeze this replaces "apply straight away" in `maintenance/learning-loop.md` and in the skill.
+> - The only exception: a fix that a Phase 1 measuring step itself needs. Say so in your sign-in and in the changelog row.
+> - Only the user lifts the freeze. A chat that thinks a change cannot wait asks the user.
 
 Read this before you change **any** file in the folder: rules, scripts, generators, style, the object store, the logs. Building a deck without changing the system needs no sign-in until Stage 6 (the logs).
 

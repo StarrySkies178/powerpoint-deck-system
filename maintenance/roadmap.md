@@ -1,6 +1,6 @@
 # Roadmap: making the deck system measurable, coordinated, lean and portable
 
-**Status: PROPOSED, second draft, 2026-11-24. Not approved yet. No chat starts a phase until the user says so.**
+**Status: APPROVED by the user on 2026-11-24 ("lets do this now"). Phase 0 is in progress. Phase 1 building starts when Phase 0 is closed. The freeze of step 0.3 is in force (see the top of `maintenance/working-together.md`).**
 Written by the "Accessing Claude skills across devices" chat. Every step names what backs it: **[Research]** a published source, **[Files]** something measured in this folder, or **[Logic]** reasoning with no outside source. Sources are listed at the end.
 
 ## Where the system stands (measured 2026-11-24)
@@ -23,6 +23,12 @@ Written by the "Accessing Claude skills across devices" chat. Every step names w
 0.3 **Freeze the rules and builders, and take a baseline snapshot** (a tag on the GitHub mirror and the current benchmark numbers). No change to `Generators/`, `Style/` or `DECK-SYSTEM.md` until Phase 1 is signed off, except fixes the measuring work itself needs. **[Research]** Miller (Anthropic): evaluations are experiments. **[Logic]** An experiment needs a baseline that holds still.
 - **Pass test:** each chat's next change shows on the sheet; the drill gives CONFLICT; the tag exists.
 
+**Phase 0 result (2026-11-24, v2.23). Waiting for the user's sign-off.**
+- 0.1 Done. The skill card is saved (the saved skill has the "Other chats work in the folder too" section). Both other chats were given the line and answered that they follow the sheet: the deck building and style chat signs in as "Combining markdown files for skills", the references chat as "reference rebuild". Still to be seen: their next real change appearing on the sheet.
+- 0.2 Done. With this chat holding `maintenance/working-together.md`, the "Combining markdown files for skills" chat ran `work.py start` for the same file and got `CONFLICT: not signed in. Already held by another chat`, exit code 1, no id.
+- 0.3 Done. Freeze notice at the top of `maintenance/working-together.md`; both chats confirmed it. Baseline: tag `baseline-phase0` on the GitHub mirror (the v2.23 commit; builders and rules are as at v2.18). Baseline numbers, last full run (2026-11-24 00:40, v2.18): 9 of 20 pass, standards checks 196 of 212, mean layout 0.44, mean visual 0.49.
+- Also done alongside (allowed to start at any time): `logs/proposals.md` (step 2.1), `AGENTS.md` (step 5.1), `skill/deck-system/SKILL.md` (step 5.2).
+
 ## Phase 1. Build the measuring instrument
 
 1.1 **Split the benchmark report into two suites.** Regression: the 9 passing cases, which must stay 9 of 9. Capability: the 11 failing cases. **[Research]** Anthropic evals guide: regression tests should sit near 100%, capability tests start low; a capability test that starts passing graduates into the regression suite.
@@ -44,7 +50,7 @@ Written by the "Accessing Claude skills across devices" chat. Every step names w
 
 ## Phase 2. One writer, one list (alongside Phase 1)
 
-2.1 **Name one chat the editor of the shared files** (`DECK-SYSTEM.md`, `Style/storytelling.md`, `maintenance/learning-loop.md`). Others append proposals to `logs/proposals.md`. **[Research]** Cognition.
+2.1 **Name one chat the editor of the shared files** (`DECK-SYSTEM.md`, `Style/storytelling.md`, `maintenance/learning-loop.md`). Others append proposals to `logs/proposals.md`. *Set by default on 2026-11-24, the user can change it: the editor is the deck building and style chat ("Combining markdown files for skills").* **[Research]** Cognition.
 2.2 **This file is the shared to-do list;** a chat names the phase and step in its sign-in. **[Research]** Anthropic: simplest solution first.
 2.3 **Decision rule for more tooling:** after two weeks, more than one recorded conflict a week, or a real need for chats to message each other, leads to a trial of MCP Agent Mail; a to-do list that outgrows this file leads to a trial of Beads. Any third-party tool is read through before it is installed. **[Research]** Both tools exist and are documented; neither is tested here. **[Logic]** Evidence first, then machinery.
 - **Pass test:** two weeks with no duplicate version number, no lost edit, GitHub equal to the folder at each check.
