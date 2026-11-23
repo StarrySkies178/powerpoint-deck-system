@@ -1,7 +1,7 @@
 {
- "checked_at": "2026-11-23T19:23",
- "folder_version_checked": "2.35",
- "needs_publish": false,
+ "checked_at": "2026-11-23T21:32",
+ "folder_version_checked": "2.39",
+ "needs_publish": true,
  "new_generators": [],
  "published_hash": "d654f1393fdd7741cc77339da088efce9e5d3f2cedc7c54925d7ba219bcd9aa3",
  "published_files": {
