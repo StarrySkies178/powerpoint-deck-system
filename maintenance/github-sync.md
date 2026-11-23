@@ -25,3 +25,6 @@ The folder on the Mac is the source of truth. `github.com/StarrySkies178/powerpo
 - **Write a manifest first:** `find . -type f ! -name '.DS_Store' ! -name '~$*' ! -path './logs/sync-manifest.tsv' -printf '%P\t%s\n' | sort > logs/sync-manifest.tsv`, stage it, and use it as the checklist: every path must exist in the staged copy with the same size before committing.
 - **Stage only what changed** since the last sync (newer mtime, or missing/different size in the staged copy); copies made with `cp -p` keep old dates, so always finish with the size check.
 - **One staging call at a time, each ≤ ~35 MB and ≤ 45 files.** Several calls at once time out.
+- **Over 100 MB:** `Objects/store/media.zip` (101.8 MB on 2026-11-23) stays out of the repo (`.gitignore`); it can be rebuilt from `archive/media_v2.2_*.zip` + `archive/_incoming/done/v23/store/media-add-*.zip`. Check `find . -size +95M` before every push.
+- **`_to_delete/`** holds files waiting for the user to delete (sessions can't delete in the folder). It is never synced.
+- **Many small files:** zip them on the Mac into `_to_delete/`, stage the zip, unzip into the clone. One call instead of ten.
