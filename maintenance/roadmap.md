@@ -1,6 +1,6 @@
 # Roadmap: making the deck system measurable, coordinated, lean and portable
 
-**Status: APPROVED by the user on 2026-11-24 ("lets do this now"). Phase 0 is in progress. Phase 1 building starts when Phase 0 is closed. The freeze of step 0.3 is in force (see the top of `maintenance/working-together.md`).**
+**Status: APPROVED by the user on 2026-11-24 ("lets do this now"). Phase 0 is closed; Phase 1 is open since v2.24. The freeze of step 0.3 is in force (see the top of `maintenance/working-together.md`).**
 Written by the "Accessing Claude skills across devices" chat. Every step names what backs it: **[Research]** a published source, **[Files]** something measured in this folder, or **[Logic]** reasoning with no outside source. Sources are listed at the end.
 
 ## Where the system stands (measured 2026-11-24)
@@ -13,6 +13,7 @@ Written by the "Accessing Claude skills across devices" chat. Every step names w
 ## Rules for the whole plan
 
 - **A phase ends with a written result and the user's sign-off.** The result goes under the phase in this file. **[Logic]** A plan with no gates turns back into continuous change.
+  - *Delegation (2026-11-24):* the user allowed the "Accessing Claude skills across devices" chat to sign off for him and to keep the work moving on a 30-minute check, steering the other chats through Claude in Chrome. That chat signs off only what a pass test in this file decides. It never signs off a step that is the user's own judgement (1.3, the three briefs of 1.5, the ratings of 1.7), never loosens a pass test, and never lifts the freeze before Phase 1's pass test is met.
 - **Every pass test is fixed before the work starts and never moved quietly.** **[Files]** The benchmark already works this way (`bench/README.md`).
 - **Start with the simplest thing that works; add machinery only when a measurement says it is needed.** **[Research]** Anthropic, Building effective agents.
 
@@ -23,7 +24,7 @@ Written by the "Accessing Claude skills across devices" chat. Every step names w
 0.3 **Freeze the rules and builders, and take a baseline snapshot** (a tag on the GitHub mirror and the current benchmark numbers). No change to `Generators/`, `Style/` or `DECK-SYSTEM.md` until Phase 1 is signed off, except fixes the measuring work itself needs. **[Research]** Miller (Anthropic): evaluations are experiments. **[Logic]** An experiment needs a baseline that holds still.
 - **Pass test:** each chat's next change shows on the sheet; the drill gives CONFLICT; the tag exists.
 
-**Phase 0 result (2026-11-24, v2.23). Waiting for the user's sign-off.**
+**Phase 0 result (2026-11-24, v2.23). Signed off on 2026-11-24 under the user's delegation (v2.24).**
 - 0.1 Done. The skill card is saved (the saved skill has the "Other chats work in the folder too" section). Both other chats were given the line and answered that they follow the sheet: the deck building and style chat signs in as "Combining markdown files for skills", the references chat as "reference rebuild". Still to be seen: their next real change appearing on the sheet.
 - 0.2 Done. With this chat holding `maintenance/working-together.md`, the "Combining markdown files for skills" chat ran `work.py start` for the same file and got `CONFLICT: not signed in. Already held by another chat`, exit code 1, no id.
 - 0.3 Done. Freeze notice at the top of `maintenance/working-together.md`; both chats confirmed it. Baseline: commit `7e9bd62` on the GitHub mirror (the v2.23 commit; builders and rules are as at v2.18). The plan asked for a tag; pushing a tag from the chat was refused (403), so the commit id is the marker. It identifies the same snapshot, and the user can add a tag named `baseline-phase0` to it on GitHub at any time. Baseline numbers, last full run (2026-11-24 00:40, v2.18): 9 of 20 pass, standards checks 196 of 212, mean layout 0.44, mean visual 0.49.
@@ -45,6 +46,10 @@ Written by the "Accessing Claude skills across devices" chat. Every step names w
 - *Hidden source:* **[Logic]** No source found for this in slide or text evaluation; it is standard blinding from experimental practice.
 1.8 **Tune an AI judge on 20 of the slides and check it on the other 30.** **[Research]** Husain: refine the judge until it agrees with the expert, validate on separate data, and report both kinds of error because raw agreement misleads when failures are rare.
 - *Pass test for the judge:* at least 27 of 30, with misses listed by kind. **[Research]** Brown, Cai and DasGupta recommend the Wilson interval for small samples; 27 of 30 gives 74% to 97%, while the 13 of 15 in the first draft gave 62% to 96%, too wide to trust. If the judge fails, the user's own ratings stay the measure.
+**Phase 1 working notes**
+- 2026-11-24, v2.24: steps 1.1 and 1.2 given to the deck building chat. Step 1.3 waits for fresh comparison images: the `compare.png` files in `bench/cases/` date from the v2.6 run, not from v2.18.
+- 2026-11-24, finding for 1.3 and 1.4 (seen by the access chat in `compare.png` of C04 and C07, not yet measured): the picture of the ORIGINAL slide is itself rendered wrongly. In C04 the chart labels break one letter per line and overlap; in C07 the breadcrumb runs into the title and the legend and footnote are garbled. The original decks do not look like that, so the render of the reference (fonts or text boxes in the renderer) is at fault. Layout and visual are scored against that picture, so part of the gap may be the grader, not the builder. To check before any builder work: render the originals with the real fonts, or compare against the stored page images of the reference, and rescore. C10 and C07 also show real differences in the candidate (another table form; missing axes and rows), so this does not explain everything.
+
 - **Pass test for Phase 1:** two suites reported with a noise band; the cause of the 0 of 10 written down with numbers; the judge passes or is dropped; user's sign-off.
 - **Owners:** deck building and style chat (1.1, 1.2, 1.5 to 1.8); references and rebuild chat (1.4c); user (1.3, 1.7, three briefs).
 
