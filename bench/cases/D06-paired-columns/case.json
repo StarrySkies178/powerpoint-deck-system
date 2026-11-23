@@ -3,9 +3,10 @@
  "deck": "Deloitte-timesaver",
  "slide": 62,
  "kind": "chart",
+ "suite": "regression",
  "palette": "slide",
  "floor": {
-  "layout": 0.261,
+  "layout": 0.244,
   "visual": 0.523,
   "others": [
    93,
@@ -39,6 +40,7 @@
    "B4B4CC",
    "B4CC0C",
    "B4E4FC",
+   "CCCC0C",
    "CCCCCC",
    "CCE4E4",
    "CCE4FC",

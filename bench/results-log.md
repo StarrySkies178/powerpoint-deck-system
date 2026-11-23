@@ -30,3 +30,5 @@
 | 2026-11-24 00:40 | v2.18 form tags, repeat check, positioningMap bubble size (20 cases) | 9/20 | 196/212 | 0.44 | 0.49 |
 | 2026-11-24 01:42 | check: fresh copy at v2.24, nothing changed (20 cases) | 9/20 | 196/212 | 0.44 | 0.49 |
 | 2026-11-24 01:47 | v2.25 two suites (step 1.1), builds unchanged (20 cases) | 9/20 (regression 9/9, capability 0/11) | 196/212 | 0.44 | 0.49 |
+| 2026-11-23 18:08 | official environment: Mac VM, stored builds, current generators (20 cases) | 7/20 (regression 7/9, capability 0/11) | 194/212 | 0.44 | 0.48 |
+| 2026-11-23 18:16 | official environment (Mac VM): references re-rendered there, stored builds, current generators (20 cases) | 8/20 (regression 8/9, capability 0/11) | 194/212 | 0.44 | 0.48 |

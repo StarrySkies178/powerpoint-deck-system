@@ -3,10 +3,11 @@
  "deck": "Case-2019-Polaris",
  "slide": 16,
  "kind": "plan",
+ "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.607,
-  "visual": 0.614,
+  "layout": 0.609,
+  "visual": 0.615,
   "others": [
    13,
    20,
@@ -25,6 +26,7 @@
    "B4B4B4",
    "CC0C0C",
    "CCCCCC",
+   "E43C3C",
    "E45454",
    "E48484",
    "E4E4E4",

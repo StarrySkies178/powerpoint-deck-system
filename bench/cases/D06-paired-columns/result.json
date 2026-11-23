@@ -58,8 +58,8 @@
    "detail": "ref 8.0 pt at 6.72 in; got 8.0 pt at 6.72 in"
   }
  ],
- "layout": 0.9,
- "visual": 0.89,
+ "layout": 0.89,
+ "visual": 0.9,
  "n_std": 11,
  "n_std_ok": 11,
  "candidate": {
@@ -116,8 +116,7 @@
    "B4B4B4",
    "84B40C",
    "E4E4E4",
-   "CCCCCC",
-   "9CCC3C"
+   "CCCCCC"
   ]
  }
 }

@@ -58,7 +58,7 @@
    "detail": "ref 8.0 pt at 6.72 in; got 8.0 pt at 6.72 in"
   }
  ],
- "layout": 0.65,
+ "layout": 0.64,
  "visual": 0.7,
  "n_std": 11,
  "n_std_ok": 11,
@@ -114,8 +114,8 @@
   ],
   "render_colours": [
    "B4B4B4",
-   "9C9C9C",
    "CCCCCC",
+   "9C9C9C",
    "E4E4E4",
    "0C9CE4",
    "848484",

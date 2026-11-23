@@ -53,8 +53,8 @@
    "detail": "all colours in the reference palette"
   }
  ],
- "layout": 0.27,
- "visual": 0.4,
+ "layout": 0.26,
+ "visual": 0.34,
  "n_std": 10,
  "n_std_ok": 8,
  "candidate": {

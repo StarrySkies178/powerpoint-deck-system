@@ -1,0 +1,12 @@
+{
+ "_about": "The official benchmark environment (bench/README.md, 'Official environment'): the Linux VM of the Claude desktop app on the user's Mac, where the Powerpoint folder lives. bench_run.py compares libreoffice, poppler, arch and pptxgenjs with this and marks other runs as not comparable. Change it only on purpose, with a changelog row, and re-run all cases when you do.",
+ "set": "2026-11-24",
+ "where": "Mac, Claude desktop app VM (device_bash), folder ~/mnt/Powerpoint",
+ "libreoffice": "26.2.6.3",
+ "poppler": "22.02.0",
+ "arch": "aarch64",
+ "pptxgenjs": "4.0.1",
+ "python": "3.10.12",
+ "os": "Ubuntu 22.04.5 LTS",
+ "fonts": "Arial -> Liberation Sans; Microsoft YaHei -> Noto Sans CJK SC"
+}

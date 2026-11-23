@@ -53,7 +53,7 @@
    "detail": "all colours in the reference palette"
   }
  ],
- "layout": 0.86,
+ "layout": 0.85,
  "visual": 0.94,
  "n_std": 10,
  "n_std_ok": 10,
@@ -109,8 +109,8 @@
    "CCCCCC",
    "B4B4B4",
    "9C9C9C",
-   "6C6C6C",
    "848484",
+   "6C6C6C",
    "0C246C"
   ]
  }

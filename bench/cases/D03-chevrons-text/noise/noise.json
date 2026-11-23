@@ -1,6 +1,6 @@
 {
  "case": "D03-chevrons-text",
- "scored": "2026-11-24 01:48",
+ "scored": "2026-11-23 18:22",
  "runs": [
   {
    "run": "run1",
@@ -13,7 +13,7 @@
   {
    "run": "run2",
    "passed": true,
-   "layout": 0.69,
+   "layout": 0.7,
    "visual": 0.83,
    "std": "10/10",
    "failed": []
@@ -21,7 +21,7 @@
   {
    "run": "run3",
    "passed": true,
-   "layout": 0.69,
+   "layout": 0.7,
    "visual": 0.8,
    "std": "10/10",
    "failed": []

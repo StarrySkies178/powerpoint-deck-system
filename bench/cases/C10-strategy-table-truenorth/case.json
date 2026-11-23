@@ -3,10 +3,11 @@
  "deck": "Case-2016-TrueNorth-Pola-China-growth",
  "slide": 8,
  "kind": "table",
+ "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.777,
-  "visual": 0.612,
+  "layout": 0.774,
+  "visual": 0.625,
   "others": [
    12,
    16,
@@ -25,6 +26,7 @@
    "CC0C0C",
    "CC240C",
    "CC2424",
+   "CC3C3C",
    "CCCCCC",
    "E43C3C",
    "E46C54",

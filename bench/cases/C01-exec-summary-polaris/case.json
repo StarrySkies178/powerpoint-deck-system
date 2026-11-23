@@ -3,10 +3,11 @@
  "deck": "Case-2019-Polaris",
  "slide": 2,
  "kind": "exec-summary",
+ "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.488,
-  "visual": 0.614,
+  "layout": 0.506,
+  "visual": 0.613,
   "others": [
    5,
    6,
@@ -27,7 +28,6 @@
    "CCCCCC",
    "E45454",
    "E48484",
-   "E49C9C",
    "E4E4E4",
    "FCB4B4",
    "FCCCCC",

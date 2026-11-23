@@ -22,6 +22,7 @@ Each `cases/<id>/` holds:
 | `case.json` | `scripts/bench_setup.py` | Deck, slide, and the deck's "unrelated slide" floor for layout and visual |
 | `slide-text.txt` | `scripts/bench_setup.py` | The slide's text and chart data; only for writing the prompt |
 | `prompt.md` | Person or Claude, once | What a user would type: content, data, and the reference deck. Never positions, sizes or colours |
+| `brief/brief.md`, `brief/slide-map.csv` | `scripts/heldout.py brief` | The fresh builder's instructions; for C cases also the slide map without the target's row |
 | `build.js` | The builder, following DECK-SYSTEM from `prompt.md` only | Makes `candidate.pptx` |
 | `result.json`, `compare.png` | `scripts/bench_run.py` | Score, and original next to candidate |
 | `noise/run1` … `run3/` | Fresh builders, then `scripts/bench_noise.py` | Rebuilds from `prompt.md` for the noise band, each with its own build, candidate and result |
@@ -81,6 +82,8 @@ Each case in `cases.json` carries `"suite"`:
 | C04 two charts | capability | fail · 0.30 / 0.26 | 0.13 / 0.24, 0.26 / 0.30, 0.27 / 0.27 | 0 of 3 | 0.14 / 0.06 |
 | C07 scenario lines | capability | fail · 0.17 / 0.26 | 0.38 / 0.44, 0.38 / 0.44, 0.48 / 0.52 | 0 of 3 | 0.10 / 0.08 |
 
+Those numbers were scored in that day's cloud workspace. **Rescored in the official environment the same day** (`noise.md`, v2.29): same verdicts, every value within 0.04 (largest: C04 rebuild 2, layout 0.26 to 0.22); C07 rebuild 2 also fails the leave-one-out check.
+
 What it shows, and its limits:
 - **No verdict changed.** Every rebuild landed on the same side of the bar as the stored build, so the 3-of-3 rule keeps D03, D04 and D08 in regression and C04, C07 in capability.
 - **Spread between fresh rebuilds is small:** at most 0.03 on named slides (D), at most 0.14 layout and 0.08 visual on deck-as-reference slides (C). Treat a change in a C case's layout below about 0.15, or visual below about 0.10, as possibly noise; on D cases below about 0.05.
@@ -99,10 +102,23 @@ What it shows, and its limits:
 
 Every build uses only what its `prompt.md` says, plus the framework (`Generators/`, `Style/refs/<deck>.profile.json`, `Objects/store`).
 
+**Builder briefs and the leave-one-out check (since v2.29).** A fresh builder gets its instructions from `cases/<id>/brief/brief.md` (`python3 bench/scripts/heldout.py brief` writes them). For a deck-as-reference case the brief also holds `slide-map.csv`: `Style/slide-map.csv` without the target slide's row, to be used instead of the original, and says to skip study-note examples that name the target. `heldout.py check` reads a C build's own files (`build.js`, `build.py`, notes) and reports a finding when they cite the target slide: one of its stored-object ids, "slide N" or `slides[N-1]` for its number, the short deck name with it ("Mindcraft 14"), or five words in a row from its slide-map row that are not in the prompt. `bench_run.py` and `bench_noise.py` run the check after scoring and fail a case with a finding (check "leave-one-out"); a person reads the finding. It cannot see what a builder only read, so the filtered slide map in the brief is the main safeguard. First check (2026-11-24): every stored C build is clean; C07 noise rebuild 2 is a finding (its comment reuses its target's slide-map words, and its builder had reported seeing the row), so that rebuild now counts as failed. It failed already, so no verdict changed.
+
+## Official environment (since 2026-11-24, roadmap step 1.3)
+
+**All benchmark numbers come from one place: the Linux VM of the Claude desktop app on the user's Mac, working on the folder itself** (`device_bash`, `~/mnt/Powerpoint`). Its fingerprint is in `bench/environment.json`: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Python 3.10.12, Ubuntu 22.04; Arial renders as Liberation Sans, Microsoft YaHei as Noto Sans CJK SC.
+
+- **Both sides are rendered there.** The reference renders, measured standards and floors (`original.png`, `original.json`, `case.json`) were made again on the Mac with `bench_setup.py` on 2026-11-24, from PDFs of the reference decks exported there. Before that, they came from an earlier cloud workspace, so every Mac run compared two different LibreOffice versions.
+- `bench_run.py` prints the environment at the top and writes it into `results.md`. A run anywhere else is marked "NOT the official environment" there and in `results-log.md`: use it to try things, never as a result.
+- **Why the Mac:** the folder lives there, every chat linked to the Mac and Hermes can reach it, and results are written in place with nothing copied. Cloud workspaces differ from session to session; the per-case files dated 12:45 came from one, and they disagreed with `results.md`.
+- **How much the environment moves the numbers** (2026-11-24, 20 cases, stored builds): the cloud workspace of that day (LibreOffice 24.2.7, x86_64) against the official environment differs by 0.011 layout and 0.008 visual on average, at most 0.05 on one case (C01 layout, C09 visual). That is small against the bar, but it flips cases that sit near a threshold: with the old cloud-made references, D02 and Z01 failed on the Mac by the colour check; with references made on the Mac, Z01 still does (below).
+- **Known effect, not fixed (scorer unchanged):** the colour check takes dominant colours from a 320 x 180 shrink of the render. A thin coloured text edge blended with white can pass the 2% share there and count as an off-palette colour (Z01: 196 pixels of light green at the edges of the green Chinese title, 0.02% of the full render; C07: a light red tint). Proposal in `logs/proposals.md`. Until it is decided, Z01 counts as failing in the official environment and the regression suite reads 8 of 9.
+- To change the official environment on purpose: update `environment.json`, run `bench_setup.py` and `bench_run.py` there, and log it.
+
 ## Running
 
 ```
-python3 bench/scripts/bench_setup.py Templates <dir of the decks rendered to PDF>   # once, or after adding cases
+python3 bench/scripts/bench_setup.py Templates <dir of the decks rendered to PDF>   # once, or after adding cases; in the official environment, with PDFs exported there
 python3 bench/scripts/bench_run.py --label "what changed" [D|C|Z|case ids|regression|capability]   # build + score, writes results.md
 python3 bench/scripts/bench_noise.py <case ids>                                    # score the fresh rebuilds in cases/<id>/noise/, writes noise.md
 ```

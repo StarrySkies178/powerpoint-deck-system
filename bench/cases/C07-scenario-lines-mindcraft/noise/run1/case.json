@@ -3,10 +3,11 @@
  "deck": "Case-2019-Mindcraft",
  "slide": 14,
  "kind": "chart+text",
+ "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.504,
-  "visual": 0.657,
+  "layout": 0.505,
+  "visual": 0.665,
   "others": [
    5,
    24,
@@ -32,7 +33,6 @@
    "CC0C0C",
    "CCCCCC",
    "E48484",
-   "E4CCCC",
    "E4E4E4"
   ]
  },

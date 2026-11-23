@@ -49,8 +49,8 @@
   },
   {
    "check": "colours",
-   "ok": true,
-   "detail": "all colours in the reference palette"
+   "ok": false,
+   "detail": "off-palette #FCCCCC"
   },
   {
    "check": "source line",
@@ -58,10 +58,10 @@
    "detail": "ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in"
   }
  ],
- "layout": 0.48,
- "visual": 0.52,
+ "layout": 0.47,
+ "visual": 0.51,
  "n_std": 11,
- "n_std_ok": 9,
+ "n_std_ok": 8,
  "candidate": {
   "size_in": [
    13.333,

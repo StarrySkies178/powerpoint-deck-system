@@ -58,8 +58,8 @@
    "detail": "ref 10.0 pt at 7.24 in; got 10.0 pt at 7.23 in"
   }
  ],
- "layout": 0.13,
- "visual": 0.22,
+ "layout": 0.1,
+ "visual": 0.21,
  "n_std": 11,
  "n_std_ok": 10,
  "candidate": {
@@ -124,7 +124,7 @@
    "E4B4B4",
    "6C6C6C",
    "E45454",
-   "CC2424"
+   "FCE4E4"
   ]
  }
 }

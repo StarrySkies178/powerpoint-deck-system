@@ -16,6 +16,7 @@ Rule this measures (bench/README.md, "Noise band"): a case counts as passing onl
 import json, os, sys, shutil, subprocess, datetime, statistics, glob
 sys.path.insert(0, os.path.dirname(__file__))
 from bench_score import score_case, PASS
+import heldout   # leave-one-out check (v2.29)
 B = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CASES = {c["id"]: c for c in json.load(open(os.path.join(B, "cases.json")))}
 
@@ -35,9 +36,10 @@ def score(cid):
         for f in ("case.json", "original.json", "original.png"): shutil.copyfile(os.path.join(B, "cases", cid, f), os.path.join(run, f))
         err = build(run)
         if err: out.append(dict(run=os.path.basename(run), error=err)); print(cid, os.path.basename(run), "BUILD FAILED", err[-200:]); continue
-        r = score_case(run)
+        r = score_case(run); leak = heldout.check(cid, run)
+        if leak: r["passed"] = False; r["leave_one_out"] = leak; json.dump(r, open(os.path.join(run, "result.json"), "w"), indent=1, ensure_ascii=False)
         out.append(dict(run=os.path.basename(run), passed=r["passed"], layout=r["layout"], visual=r["visual"], std=f"{r['n_std_ok']}/{r['n_std']}",
-                        failed=[f"{s['check']} ({s['detail']})" for s in r["standards"] if not s["ok"]]))
+                        failed=[f"{s['check']} ({s['detail']})" for s in r["standards"] if not s["ok"]] + [f"leave-one-out ({x})" for x in leak]))
         print(cid, os.path.basename(run), "PASS" if r["passed"] else "fail", "std", out[-1]["std"], "layout", r["layout"], "visual", r["visual"])
     json.dump(dict(case=cid, scored=datetime.datetime.now().strftime("%Y-%m-%d %H:%M"), runs=out),
               open(os.path.join(B, "cases", cid, "noise", "noise.json"), "w"), indent=1, ensure_ascii=False)
@@ -59,7 +61,7 @@ def report():
         stored = f"{'**pass**' if st['passed'] else 'fail'} {st['n_std_ok']}/{st['n_std']} · {st['layout']:.2f} / " + ("–" if st["visual"] is None else f"{st['visual']:.2f}")
         L.append(f"| {cid} | {CASES[cid].get('suite', '')} | {stored} | " + " | ".join(cell(r) for r in runs) + f" | {sum(1 for r in ok if r['passed'])} of {len(runs)} | {fmt(lay)} | {fmt(vis)} |")
         for r in ok:
-            if r["failed"]: L.append(f"|  |  |  | {r['run']} failed: {'; '.join(r['failed'])[:160]} |  |  |  |  |  |")
+            if r["failed"]: L.append(f"|  |  |  | {r['run']} failed: {'; '.join(r['failed'])} |  |  |  |  |  |")
     L += ["", "Cells: result, standards passed, layout / visual."]
     open(os.path.join(B, "noise.md"), "w").write("\n".join(L) + "\n"); print("wrote bench/noise.md")
 

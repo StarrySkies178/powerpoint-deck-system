@@ -10,7 +10,7 @@
   {
    "check": "title position",
    "ok": true,
-   "detail": "ref left 0.00 top 0.78; got left 0.00 top 0.67 in"
+   "detail": "ref left 0.00 top 0.78; got left 0.00 top 0.66 in"
   },
   {
    "check": "title size",
@@ -35,7 +35,7 @@
   {
    "check": "body text size",
    "ok": false,
-   "detail": "ref median 14.0 / min 14.0 pt; got 13.0 / 9.5 pt"
+   "detail": "ref median 14.0 / min 14.0 pt; got 10.0 / 9.5 pt"
   },
   {
    "check": "fonts",
@@ -54,7 +54,7 @@
   }
  ],
  "layout": 0.0,
- "visual": 0.02,
+ "visual": 0.0,
  "n_std": 10,
  "n_std_ok": 7,
  "candidate": {
@@ -65,7 +65,7 @@
   "title": {
    "text": "Implementation Timeline",
    "left_in": 0.0,
-   "top_in": 0.667,
+   "top_in": 0.656,
    "box": [
     0.0,
     0.57,
@@ -79,7 +79,7 @@
    "colour": "FFFFFF"
   },
   "body": {
-   "median_pt": 13.0,
+   "median_pt": 10.0,
    "min_pt": 9.5
   },
   "margins": {
@@ -108,8 +108,8 @@
   "render_colours": [
    "0C0C3C",
    "9CCCE4",
-   "CCCCCC",
    "E4E4E4",
+   "CCCCCC",
    "0C243C",
    "0C0C24",
    "B4B4B4",

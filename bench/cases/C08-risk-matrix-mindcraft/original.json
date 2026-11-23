@@ -54,6 +54,7 @@
   "FFFFFF"
  ],
  "render_colours": [
+  "242424",
   "3C3C3C",
   "540C0C",
   "545454",
@@ -68,9 +69,9 @@
   "9C8484",
   "9C9C9C",
   "B4B4B4",
+  "CC0C0C",
   "CCCCCC",
   "E48484",
-  "E4CCCC",
   "E4E4E4",
   "FCE4E4"
  ]

@@ -35,7 +35,7 @@
   {
    "check": "body text size",
    "ok": true,
-   "detail": "ref median 14.0 / min 12.0 pt; got 14.0 / 13.5 pt"
+   "detail": "ref median 14.0 / min 12.0 pt; got 14.0 / 12.0 pt"
   },
   {
    "check": "fonts",
@@ -49,8 +49,8 @@
   },
   {
    "check": "colours",
-   "ok": true,
-   "detail": "all colours in the reference palette"
+   "ok": false,
+   "detail": "off-palette #FCCCCC"
   },
   {
    "check": "source line",
@@ -58,10 +58,10 @@
    "detail": "ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in"
   }
  ],
- "layout": 0.25,
- "visual": 0.32,
+ "layout": 0.17,
+ "visual": 0.24,
  "n_std": 11,
- "n_std_ok": 10,
+ "n_std_ok": 9,
  "candidate": {
   "size_in": [
    13.333,
@@ -85,7 +85,7 @@
   },
   "body": {
    "median_pt": 14.0,
-   "min_pt": 13.5
+   "min_pt": 12.0
   },
   "margins": {
    "left_in": 0.35,
@@ -118,13 +118,13 @@
    "E4E4E4",
    "CCCCCC",
    "B4B4B4",
-   "E48484",
    "9C9C9C",
-   "FCCCCC",
-   "FCE4E4",
+   "E48484",
    "848484",
    "6C6C6C",
-   "545454"
+   "FCE4E4",
+   "545454",
+   "FCCCCC"
   ]
  }
 }

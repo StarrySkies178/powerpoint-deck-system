@@ -3,10 +3,11 @@
  "deck": "Deloitte-timesaver",
  "slide": 83,
  "kind": "chart",
+ "suite": "regression",
  "palette": "slide",
  "floor": {
-  "layout": 0.313,
-  "visual": 0.553,
+  "layout": 0.317,
+  "visual": 0.551,
   "others": [
    259,
    240,

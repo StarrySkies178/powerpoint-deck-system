@@ -1,37 +1,41 @@
 {
  "case": "C07-scenario-lines-mindcraft",
- "scored": "2026-11-24 01:52",
+ "scored": "2026-11-23 18:22",
  "runs": [
   {
    "run": "run1",
    "passed": false,
-   "layout": 0.38,
-   "visual": 0.44,
-   "std": "9/11",
+   "layout": 0.37,
+   "visual": 0.42,
+   "std": "8/11",
    "failed": [
     "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "colours (off-palette #FCCCCC)",
     "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
    ]
   },
   {
    "run": "run2",
    "passed": false,
-   "layout": 0.38,
-   "visual": 0.44,
-   "std": "9/11",
+   "layout": 0.37,
+   "visual": 0.43,
+   "std": "8/11",
    "failed": [
     "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 10.0 pt)",
-    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+    "colours (off-palette #FCCCCC)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)",
+    "leave-one-out (build.js: words from the target's row in Style/slide-map.csv ('cagr column capex line chart'))"
    ]
   },
   {
    "run": "run3",
    "passed": false,
-   "layout": 0.48,
-   "visual": 0.52,
-   "std": "9/11",
+   "layout": 0.47,
+   "visual": 0.51,
+   "std": "8/11",
    "failed": [
     "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 10.0 pt)",
+    "colours (off-palette #FCCCCC)",
     "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
    ]
   }

@@ -1,11 +1,11 @@
 {
  "case": "D08-text-and-chart",
- "scored": "2026-11-24 01:52",
+ "scored": "2026-11-23 18:22",
  "runs": [
   {
    "run": "run1",
    "passed": true,
-   "layout": 0.86,
+   "layout": 0.85,
    "visual": 0.92,
    "std": "11/11",
    "failed": []
@@ -13,7 +13,7 @@
   {
    "run": "run2",
    "passed": true,
-   "layout": 0.86,
+   "layout": 0.85,
    "visual": 0.92,
    "std": "11/11",
    "failed": []
@@ -21,7 +21,7 @@
   {
    "run": "run3",
    "passed": true,
-   "layout": 0.86,
+   "layout": 0.85,
    "visual": 0.92,
    "std": "11/11",
    "failed": []
