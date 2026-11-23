@@ -1,4 +1,4 @@
-# Benchmark results: v2.6 final: sibling layouts, deck panel headers, table rules, deck chart text (full run) (2026-11-23 20:44)
+# Benchmark results: v2.7: source line kept on the slide, venn label contrast (full run) (2026-11-23 21:23)
 
 **9 / 20 pass** (bar: all standards, layout ≥ 0.6, visual ≥ 0.5)
 

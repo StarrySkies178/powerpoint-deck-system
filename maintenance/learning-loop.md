@@ -28,7 +28,11 @@ Read this after every deck (Stage 6) and whenever a rule changes. Claude **appli
 5. Add a line to `logs/changelog.md` and bump the version (minor change → 0.x+1; restructure → x+1.0).
 6. Set the lesson's status to `applied`.
 7. Sync the folder to GitHub (`maintenance/github-sync.md`).
-8. If `Style/style-rules.md`, the master or `Generators/house.js` changed, update the Claude design system **Powerpoint House Style** (https://claude.ai/artifact/QRdhaeQi9cizMGrfLQHru3) to match: tokens, README and the affected previews. The folder stays the source of truth.
+8. Keep the Claude design system in step, after **every** applied change: run `python3 scripts/sync_design_system.py`. It rewrites the design system's tokens and Slides kit from `Generators/house.js`, checks that every generator is in `design-system/pattern-map.json`, and prints what to do:
+   - `IN SYNC`: nothing to do.
+   - `PUBLISH NEEDED`: publish the listed files as `design-system/PUBLISH.md` says, then run it again with `--mark-published <version>`.
+   - `NEW GENERATORS`: add each to `pattern-map.json` (its component, its Slides recipe, or neither = PowerPoint only). If the pattern is used often, write its Slides recipe in `design-system/project/slides-kit/patterns.md`.
+   The folder stays the source of truth; the design system is never edited by hand in Claude.
 
 ## Review every ~5 decks (or monthly)
 

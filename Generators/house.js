@@ -76,14 +76,14 @@ function defineLayouts(pres) {
     const S = STYLE, T = S.title, objs = [];
     if (T.band) objs.push({ rect: { x: T.band.x, y: T.band.y, w: T.band.w, h: T.band.h, fill: { color: T.band.colour }, line: { type: "none" } } });
     if (T.rule) objs.push({ line: { x: T.rule.x, y: T.rule.y, w: T.rule.w, h: 0, line: { color: T.rule.colour, width: 1.5 } } });
-    if (S.footer && S.footer.text) objs.push({ text: { text: S.footer.text, options: { x: S.footer.x, y: S.footer.y, w: W * 0.7, h: 0.25, fontFace: FONT.latin, fontSize: S.footer.pt, color: S.footer.colour || R("grey2"), margin: 0, valign: "top" } } });
+    if (S.footer && S.footer.text) objs.push({ text: { text: S.footer.text, options: { x: S.footer.x, y: S.footer.y, w: W * 0.7, h: Math.min(0.25, H - S.footer.y - 0.01), fontFace: FONT.latin, fontSize: S.footer.pt, color: S.footer.colour || R("grey2"), margin: 0, valign: "top" } } });
     // the title's text edge is pinned where the reference keeps it: the top line (grows down) or the bottom line (grows up)
     const th2 = (T.pt * 1.2 * 2) / 72 + 0.06, toBottom = T.align_to === "bottom";
     const ty = toBottom ? (T.text_bottom ?? T.y + T.h) - th2 : (T.text_top ?? T.y);
     const tph = { placeholder: { options: t({ name: "title", type: "title", x: T.x, y: ty, w: T.w, h: th2, fontSize: T.pt, bold: !!T.bold, color: T.colour,
       align: "left", valign: toBottom ? "bottom" : "top" }), text: "Action title" } };
     const sl = S.source_line || { x: GRID.left, y: GRID.footY, pt: TYPE.foot, colour: R("grey1") };
-    const sph = { placeholder: { options: t({ name: "source", type: "body", x: sl.x, y: sl.y, w: W * 0.7, h: 0.25, fontSize: sl.pt, color: sl.colour || R("grey1"), valign: "top" }), text: "Source: …" } };
+    const sph = { placeholder: { options: t({ name: "source", type: "body", x: sl.x, y: sl.y, w: W * 0.7, h: Math.min(0.25, H - sl.y - 0.01), fontSize: sl.pt, color: sl.colour || R("grey1"), valign: "top" }), text: "Source: …" } };
     const pg = S.page ? { x: S.page.right - 0.8, y: S.page.y, w: 0.8, h: S.page.h || 0.25, fontFace: FONT.latin, fontSize: S.page.pt, color: S.page.colour, align: "right", valign: "top", margin: 0 } : undefined;
     def({ title: "04 Title only", background: { color: "FFFFFF" }, slideNumber: pg, objects: objs, placeholders: [tph, sph] });
   } else

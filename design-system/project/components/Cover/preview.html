@@ -1,0 +1,51 @@
+<!-- @dsCard height=288 -->
+<style>
+  .cov { position: relative; width: 960px; height: 288px; background: var(--paper); overflow: hidden; font-family: var(--font-sans); }
+  .cov svg { position: absolute; left: 0; top: 0; }
+  .main { fill: var(--main); } .secondary { fill: var(--secondary); } .accent { fill: var(--accent); } .tint { fill: var(--main-tint); }
+  .cut { fill: var(--paper); }
+  .main, .secondary, .accent, .tint, .cut { rx: var(--radius-none); }
+  .name { position: absolute; left: 38.4px; bottom: 57.6px; width: 440px; margin: 0; font-size: 66px; line-height: .95; font-weight: 700; color: var(--main); }
+  .tag { position: absolute; left: 38.4px; bottom: 28.8px; width: 440px; margin: 0; font-size: 13px; color: var(--grey-1); }
+</style>
+<div class="cov">
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <!-- blocks: main 192x288 (10 x gutter, full height), secondary 192x115.2 (6 x gutter), main-tint 57.6x153.6, accent 96x57.6 (5 x 3 gutter, the small rare mark) -->
+    <!-- arrangement: one tall slab bleeding top and bottom with satellites bleeding right, a flush modular grid like a slide's 12-column body -->
+    <!-- pattern: tiles cut out of the main slab (ground showing through), two merged two-wide like equal boxes in a row; row chosen because the README says "boxes in a row are the same size with equal gutter gaps", flat and square -->
+    <!-- scales: tile 19.2 = gutter, pitch 38.4 = margin-x, block gaps 19.2 = gutter, corners radius-none -->
+    <rect class="main" x="576" y="0" width="192" height="288"/>
+    <rect class="secondary" x="768" y="0" width="192" height="115.2"/>
+    <rect class="accent" x="787.2" y="134.4" width="96" height="57.6"/>
+    <rect class="tint" x="902.4" y="134.4" width="57.6" height="153.6"/>
+    <rect class="cut" x="595.2" y="19.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="19.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="19.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="19.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="595.2" y="57.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="57.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="57.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="57.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="595.2" y="96.0" width="57.6" height="19.2"/>
+    <rect class="cut" x="672.0" y="96.0" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="96.0" width="19.2" height="19.2"/>
+    <rect class="cut" x="595.2" y="134.4" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="134.4" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="134.4" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="134.4" width="19.2" height="19.2"/>
+    <rect class="cut" x="595.2" y="172.8" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="172.8" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="172.8" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="172.8" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="211.2" width="57.6" height="19.2"/>
+    <rect class="cut" x="595.2" y="211.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="211.2" width="19.2" height="19.2"/>
+    <rect class="cut" x="595.2" y="249.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="633.6" y="249.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="672.0" y="249.6" width="19.2" height="19.2"/>
+    <rect class="cut" x="710.4" y="249.6" width="19.2" height="19.2"/>
+  </svg>
+  <p class="name">Powerpoint<br>House Style</p>
+  <p class="tag">Grey does the work; one accent marks the point.</p>
+</div>
+<script></script>

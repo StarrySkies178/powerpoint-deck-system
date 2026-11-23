@@ -1,0 +1,213 @@
+{
+ "_about": "generator (Generators/patterns*.js) -> design-system React component and/or Slides kit recipe (design-system/project/slides-kit/patterns.md). Empty = PowerPoint route only. scripts/sync_design_system.py reports generators missing from this map.",
+ "patterns": {
+  "frame": {
+   "component": "Slide",
+   "slides": "frame"
+  },
+  "takeaway": {
+   "component": "TakeawayBox",
+   "slides": "takeaway"
+  },
+  "trackerBar": {
+   "component": "Tracker"
+  },
+  "agendaTracker": {
+   "component": "Agenda",
+   "slides": "agenda"
+  },
+  "kpiRow": {
+   "component": "KPIRow",
+   "slides": "kpi-row"
+  },
+  "donutKpis": {
+   "component": "DonutKPI"
+  },
+  "columnHighlight": {
+   "component": "ColumnChart",
+   "slides": "bars"
+  },
+  "barRanking": {
+   "component": "BarRanking",
+   "slides": "hbars"
+  },
+  "waterfall": {
+   "component": "Waterfall",
+   "slides": "waterfall"
+  },
+  "chartIn": {
+   "component": "ColumnChart, LineChart, StackedBar100, Pie",
+   "slides": "bars",
+   "note": "line and pie: draw as an svg with labels as <p> over it"
+  },
+  "stackedCagr": {
+   "slides": "bars",
+   "note": "stacked columns + a small table"
+  },
+  "growthPairs": {
+   "slides": "bars"
+  },
+  "growthBars": {
+   "slides": "bars"
+  },
+  "chartTakeaway": {
+   "component": "ChartCommentary",
+   "slides": "compose"
+  },
+  "explodedBar": {},
+  "heatGrid": {
+   "component": "Heatmap",
+   "slides": "table"
+  },
+  "matrix": {
+   "component": "Matrix",
+   "slides": "matrix"
+  },
+  "positioningMap": {
+   "component": "Scatter"
+  },
+  "riskMatrix": {
+   "slides": "matrix",
+   "note": "3x3 grid + table"
+  },
+  "scoringTable": {
+   "component": "HarveyBallTable",
+   "slides": "table"
+  },
+  "dataTable": {
+   "slides": "table"
+  },
+  "phaseMatrix": {
+   "slides": "table"
+  },
+  "initiativeMatrix": {
+   "slides": "table"
+  },
+  "beforeAfter": {
+   "component": "BeforeAfter",
+   "slides": "pairs"
+  },
+  "chevronProcess": {
+   "component": "ChevronProcess",
+   "slides": "steps"
+  },
+  "staircase": {
+   "slides": "steps"
+  },
+  "timeline": {
+   "component": "Timeline",
+   "slides": "steps"
+  },
+  "gantt": {
+   "component": "Gantt"
+  },
+  "issueTree": {
+   "component": "IssueTree"
+  },
+  "treeDown": {
+   "component": "OrgChart"
+  },
+  "orgChart": {
+   "component": "OrgChart"
+  },
+  "valueTree": {},
+  "pyramid": {
+   "component": "Pyramid"
+  },
+  "funnel": {
+   "component": "Funnel"
+  },
+  "temple": {
+   "component": "Temple",
+   "slides": "cards"
+  },
+  "cycle": {
+   "component": "Cycle"
+  },
+  "hubSpoke": {
+   "component": "HubSpoke"
+  },
+  "venn": {
+   "component": "Venn"
+  },
+  "targetOnion": {},
+  "converge": {},
+  "forcesIn": {},
+  "puzzleGrid": {},
+  "iconList": {
+   "slides": "exec"
+  },
+  "labelledRows": {
+   "slides": "exec"
+  },
+  "textColumns": {
+   "component": "TextColumns",
+   "slides": "cards"
+  },
+  "letteredSummary": {
+   "component": "ExecSummary",
+   "slides": "exec"
+  },
+  "issueGoalStrategy": {
+   "component": "ExecSummary",
+   "slides": "exec"
+  },
+  "pyramidSummary": {
+   "component": "ExecSummary",
+   "slides": "exec"
+  },
+  "decisionFramework": {},
+  "storyDiagram": {},
+  "personaCards": {
+   "slides": "cards"
+  },
+  "customerJourney": {
+   "slides": "steps"
+  },
+  "evidencePanels": {
+   "slides": "compose"
+  },
+  "composeSlide": {
+   "slides": "compose",
+   "note": "multi-panel slide with numbered sub-headlines"
+  },
+  "mapRegions": {
+   "component": "ChinaMap",
+   "note": "component: China by province only"
+  },
+  "regionMultiples": {},
+  "siteCallouts": {},
+  "geoZoom": {},
+  "buildingExplode": {},
+  "floorPlan": {}
+ },
+ "helpers": [
+  "chartStyle",
+  "chip",
+  "cityLL",
+  "contrast",
+  "crumbLine",
+  "fadeOut",
+  "fitSize",
+  "geo",
+  "harvey",
+  "harveyBall",
+  "label",
+  "layoutBoxes",
+  "legend",
+  "marker",
+  "matches",
+  "pointIn",
+  "project",
+  "regionShape",
+  "tint",
+  "txt",
+  "useStyle",
+  "vlabel",
+  "writeObjectSlots",
+  "subhead",
+  "soWhat",
+  "insightBox",
+  "sticker"
+ ]
+}

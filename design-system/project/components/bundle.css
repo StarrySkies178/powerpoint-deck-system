@@ -1,0 +1,11 @@
+/* Powerpoint House Style: the slide frame (1280 x 720 px = 13.33 x 7.5 in at 96 dpi). Geometry = Generators/house.js GRID. */
+.hs-slide { position: relative; width: var(--slide-w); height: var(--slide-h); background: var(--surface); color: var(--ink); font-family: var(--font-sans); overflow: hidden; box-sizing: border-box; }
+.hs-slide *, .hs-el * { box-sizing: border-box; }
+.hs-title { position: absolute; left: var(--margin-x); top: var(--title-top); width: 1059px; height: var(--title-h); display: flex; align-items: flex-end; margin: 0; color: var(--title); }
+.hs-sub { position: absolute; left: var(--margin-x); top: var(--subtitle-top); margin: 0; color: var(--muted); }
+.hs-body { position: absolute; left: var(--margin-x); top: var(--body-top); width: 1203.2px; height: var(--body-h); }
+.hs-src, .hs-pg { position: absolute; top: var(--footer-top); height: 27px; display: flex; align-items: flex-end; margin: 0; color: var(--muted); }
+.hs-src { left: var(--margin-x); max-width: 912px; }
+.hs-pg { right: var(--margin-x); }
+.hs-el { font-family: var(--font-sans); color: var(--ink); }
+.hs-stage { width: 1280px; height: 720px; }

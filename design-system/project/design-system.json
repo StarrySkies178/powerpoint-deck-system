@@ -1,0 +1,217 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-22T17:31:47Z"
+  },
+  "title": "Powerpoint House Style",
+  "namespace": "HouseStyle",
+  "libraries": [
+    {
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "sections": {},
+  "groups": [
+    "Real output",
+    "Photos",
+    "Maps"
+  ],
+  "assetGroups": {
+    "Real output": {
+      "name": "Real output",
+      "tile": "l",
+      "order": [
+        "real-01.jpg",
+        "real-02.jpg",
+        "real-03.jpg",
+        "real-04.jpg",
+        "real-05.jpg",
+        "real-06.jpg",
+        "real-07.jpg",
+        "real-08.jpg",
+        "real-09.jpg",
+        "real-10.jpg",
+        "real-11.jpg",
+        "real-12.jpg",
+        "real-13.jpg",
+        "real-14.jpg",
+        "real-15.jpg",
+        "real-16.jpg",
+        "real-17.jpg",
+        "real-18.jpg",
+        "real-19.jpg",
+        "real-20.jpg"
+      ],
+      "files": {
+        "real-01.jpg": {
+          "name": "real-01.jpg",
+          "blob": "3c217cfe9172db3d7b1df8f888728572",
+          "size": 50851,
+          "type": "image/jpeg"
+        },
+        "real-02.jpg": {
+          "name": "real-02.jpg",
+          "blob": "2bc454fdcc1e9501fdb54a6d72521172",
+          "size": 76865,
+          "type": "image/jpeg"
+        },
+        "real-03.jpg": {
+          "name": "real-03.jpg",
+          "blob": "19bc727868cdbc06e2aa68fc10260e11",
+          "size": 30788,
+          "type": "image/jpeg"
+        },
+        "real-04.jpg": {
+          "name": "real-04.jpg",
+          "blob": "b0eea537ebdc3c4e7da4a949a8685ef7",
+          "size": 37777,
+          "type": "image/jpeg"
+        },
+        "real-05.jpg": {
+          "name": "real-05.jpg",
+          "blob": "028d057d5a2a7d31532dad6a087f9393",
+          "size": 80636,
+          "type": "image/jpeg"
+        },
+        "real-06.jpg": {
+          "name": "real-06.jpg",
+          "blob": "303756fb0ae56c49c9e7ff63bdfac830",
+          "size": 59089,
+          "type": "image/jpeg"
+        },
+        "real-07.jpg": {
+          "name": "real-07.jpg",
+          "blob": "98667d00bffc00508776cff7e263cf1e",
+          "size": 54386,
+          "type": "image/jpeg"
+        },
+        "real-08.jpg": {
+          "name": "real-08.jpg",
+          "blob": "dc61044a413d62b5e75630dce50464ff",
+          "size": 29344,
+          "type": "image/jpeg"
+        },
+        "real-09.jpg": {
+          "name": "real-09.jpg",
+          "blob": "faae4b5913ce0a03dda52f75e4ac7b83",
+          "size": 56252,
+          "type": "image/jpeg"
+        },
+        "real-10.jpg": {
+          "name": "real-10.jpg",
+          "blob": "104909d2413f6f38461ab41a9b8c8db5",
+          "size": 65382,
+          "type": "image/jpeg"
+        },
+        "real-11.jpg": {
+          "name": "real-11.jpg",
+          "blob": "e40dc7e4b369ebce18faaf1e3bcf16ae",
+          "size": 59902,
+          "type": "image/jpeg"
+        },
+        "real-12.jpg": {
+          "name": "real-12.jpg",
+          "blob": "b8679cae20549bde37b8a89013c00ab1",
+          "size": 24248,
+          "type": "image/jpeg"
+        },
+        "real-13.jpg": {
+          "name": "real-13.jpg",
+          "blob": "add3bc210f58ec67d8d4ad9e0f404655",
+          "size": 85209,
+          "type": "image/jpeg"
+        },
+        "real-14.jpg": {
+          "name": "real-14.jpg",
+          "blob": "1d42a9e87a8089819c0bcf5539e069bf",
+          "size": 54619,
+          "type": "image/jpeg"
+        },
+        "real-15.jpg": {
+          "name": "real-15.jpg",
+          "blob": "54a6383db4472eca07180ace3afb03e9",
+          "size": 73274,
+          "type": "image/jpeg"
+        },
+        "real-16.jpg": {
+          "name": "real-16.jpg",
+          "blob": "0866caecc99591e4a124fbb0c5e0aa4b",
+          "size": 26506,
+          "type": "image/jpeg"
+        },
+        "real-17.jpg": {
+          "name": "real-17.jpg",
+          "blob": "40a5ec1cab369dc9f7940f1df80006db",
+          "size": 78563,
+          "type": "image/jpeg"
+        },
+        "real-18.jpg": {
+          "name": "real-18.jpg",
+          "blob": "5fff90bafb9eb3b95bb73df9b985ad17",
+          "size": 56204,
+          "type": "image/jpeg"
+        },
+        "real-19.jpg": {
+          "name": "real-19.jpg",
+          "blob": "9dbf6edc58c7307664969e8cd88bf1c0",
+          "size": 48911,
+          "type": "image/jpeg"
+        },
+        "real-20.jpg": {
+          "name": "real-20.jpg",
+          "blob": "87fed651e3dcf13016914681980710ee",
+          "size": 29547,
+          "type": "image/jpeg"
+        }
+      }
+    },
+    "Photos": {
+      "name": "Photos",
+      "tile": "l",
+      "order": [
+        "pudong-skyline-bund.jpg"
+      ],
+      "files": {
+        "pudong-skyline-bund.jpg": {
+          "name": "pudong-skyline-bund.jpg",
+          "blob": "6c5461cc212b89a94b804f782c413104",
+          "size": 270982,
+          "type": "image/jpeg"
+        }
+      }
+    },
+    "Maps": {
+      "name": "Maps",
+      "tile": "l",
+      "order": [
+        "china-provinces.svg"
+      ],
+      "files": {
+        "china-provinces.svg": {
+          "name": "china-provinces.svg",
+          "blob": "041c045e0510b26776eca68577c4606e",
+          "size": 55011,
+          "type": "image/svg+xml"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Mike N",
+    "at": "2026-11-23T13:20:00Z",
+    "via": "Claude chat",
+    "note": "v2.3 (folder 2.7): Slides kit (slides-kit/deck.css + patterns.md) so Claude Slides decks follow the house style; README routing table; kept in step by the folder's scripts/sync_design_system.py"
+  }
+}

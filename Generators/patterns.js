@@ -388,7 +388,10 @@ function venn(slide, spec, box = BODY) {
   pos.slice(0, n).forEach(([dx, dy], i) => {
     slide.addShape("ellipse", { x: cx + dx - d / 2, y: cy + dy - d / 2, w: d, h: d, fill: { color: cols[i], transparency: 30 }, line: { color: C.white, width: 2 } });
     const lx = cx + dx * 1.2 - 0.9, ly = cy + dy * 1.25 - 0.35;
-    txt(slide, spec.items[i].label, lx, ly, 1.8, 0.7, { max: 14, bold: true, color: C.white, align: "center", valign: "middle" });
+    // white only where it reads on the see-through circle (3 : 1 or more); grey and accent circles take the dark text
+    const seen = cols[i].match(/../g).map((c) => Math.round(parseInt(c, 16) * 0.7 + 255 * 0.3).toString(16).padStart(2, "0")).join("");
+    const onDark = contrast("FFFFFF", seen) >= 3;
+    txt(slide, spec.items[i].label, lx, ly, 1.8, 0.7, { max: 14, bold: true, color: onDark ? C.white : C.text, onDark, align: "center", valign: "middle" });
   });
   if (spec.intersection) {
     slide.addShape("ellipse", { x: cx - 0.17, y: cy - 0.17 + (n === 3 ? off * 0.08 : 0), w: 0.34, h: 0.34, fill: { color: C.white }, line: { color: C.accent, width: 2 } });

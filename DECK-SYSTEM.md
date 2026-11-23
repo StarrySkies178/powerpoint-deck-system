@@ -48,7 +48,8 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 | Stage 3–4: any photo, logo, headshot or icon | `Objects/images.md` (sources, licences and image rules) | n/a |
 | Stage 4: chart slides | The `dataviz` skill for chart craft (labels, axes, marks). Colours and fonts always come from the active style, never from the skill's palette | Section 5 + style rules only |
 | Finding a reference slide | Search `Style/slide-index.md`. Don't read the whole file | n/a |
-| Stage 5: checking | `scripts/check.py`, then Section 7 | Run the automatic checks by inspection and say which ones were skipped |
+| Stage 5: checking | `scripts/deck_lint.py` (the automatic checks), then Section 7 | Run the automatic checks by inspection and say which ones were skipped |
+| A deck asked for **inside Claude** (Slides deck, Design page) instead of a PowerPoint file | `maintenance/output-routes.md` | Build the PowerPoint file and say why |
 | Stage 6: after the deck | `maintenance/learning-loop.md` | n/a |
 | Changing rules, setup, studying the libraries | `maintenance/*` | n/a |
 
@@ -58,7 +59,7 @@ Don't open `maintenance/` files during a normal build. They are for changing the
 
 ## 3. Workflow
 
-**Stage 1. Brief.** Restate the brief in 3 lines: **audience**, **goal** (what they should think or do afterwards), **key message**. Then add a 4th line: **style source**, either "matching your reference: [file]" or "house default". If a reference is given, study it first (`Style/style-rules.md` Section 1: measure with `scripts/study_reference.py`, look at rendered slides, write the style card) and list its key standards in the brief: font, size scale, margins, colour roles. Fill any gap from Section 8 and say so.
+**Stage 1. Brief.** Restate the brief in 3 lines: **audience**, **goal** (what they should think or do afterwards), **key message**. Then add a 4th line: **style source**, either "matching your reference: [file]" or "house default". Add a 5th line: **output**, "PowerPoint file" (the default) or, only when the user asks for a deck inside Claude, "Claude Slides deck" (`maintenance/output-routes.md`). If a reference is given, study it first (`Style/style-rules.md` Section 1: measure with `scripts/study_reference.py`, look at rendered slides, write the style card) and list its key standards in the brief: font, size scale, margins, colour roles. Fill any gap from Section 8 and say so.
 
 **Stage 2. Storyline (titles only).** Write a numbered list of slide titles.
 - Pyramid principle: the answer first, then the supporting points.
@@ -109,9 +110,10 @@ Then check the **rhythm rules**:
 - Build in batches of 5–8 slides. Before each batch, re-read the style rules and the relevant catalogue files.
 - Start from the master (`master/house-master-16x9.potx`) and use the generator for each pattern, supplying only the data, text, count and highlight. All colours must be theme slots, so the deck recolours with Design → Variants → Colors.
 - If no archetype fits, design the slide in the house style, flag it **NEW**, and propose adding it to the catalogue.
+- **Other output route:** for a Claude Slides deck, Stages 1–3 and 5–6 are the same; only this stage changes: build from the design system's Slides kit (`maintenance/output-routes.md`). One brain, two ways out.
 
 **Stage 5. Check.**
-1. Run `scripts/check.py` and fix everything it flags.
+1. Run `python3 scripts/deck_lint.py <deck.pptx>` (add `--profile Style/refs/<deck>.profile.json` when matching a reference). Fix every **E**rror; look at every **W**arning and fix it or say why it stays. Never hand over a deck with errors.
 2. Render every slide to an image and review it against Section 7.
 3. For important decks, the visual review is done by a separate pass that didn't build the deck.
 
@@ -170,9 +172,10 @@ Each archetype has a spec in `catalogue/`, in the format set out in `catalogue/R
 
 ## 7. Checklists
 
-**Automatic (`scripts/check.py`)**
+**Automatic (`scripts/deck_lint.py`; the archetype-repeat rule is checked on the slide plan)**
 - Only fonts, sizes and colours from the active style (the user's reference, or the house default)
 - No text overflowing its box, and nothing outside the margins
+- No text hidden under a shape drawn on top of it, and no text nearly the same colour as the fill behind it
 - Body text per slide within the word limit
 - The same archetype never twice in a row
 - Every content slide has an action title (a full sentence, not a 1–2 word label)
@@ -210,8 +213,9 @@ Powerpoint/
 ├── Style/                ← style-rules.md (house style), refs/ (style cards of studied references), style-findings.md, slide-index.md
 ├── catalogue/            ← README.md (spec format + status), one file per message type, examples/
 ├── Generators/           ← house.js (master + theme-link), patterns.js (pattern functions, any n), patterns_story.js (exec-summary forms, evidence panels, personas, journey, story charts), patterns_place.js (maps, zoom chains, sites, buildings, floor plans), objstore.py, components.py (slides → single diagrams), rebuild_slides.py (PDF/image → editable slides), vectorize.py (pictures + embedded charts → shapes), build_*.js
+├── design-system/        ← source of the Claude design system "Powerpoint House Style" (project/ = the published files, pattern-map.json, PUBLISH.md); kept in step by scripts/sync_design_system.py
 ├── bench/                ← reproduction benchmark: 20 reference slides rebuilt from prompts and scored (README, results-log)
-├── scripts/              ← make_style_profile.py (a reference's measured look for the generators); layout_skeleton.py (panel boxes of a reference slide); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look); check.py (not built yet)
+├── scripts/              ← deck_lint.py (quality gate for every deck); sync_design_system.py (design system follows the folder); make_style_profile.py (a reference's measured look for the generators); layout_skeleton.py (panel boxes of a reference slide); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look)
 ├── review/               ← contact sheets of ingested references (for the visual pass)
 ├── master/               ← house-master-16x9.potx (14 layouts, theme colours) + README.md
 ├── samples/              ← sample decks for review

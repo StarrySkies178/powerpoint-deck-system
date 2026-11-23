@@ -185,12 +185,13 @@ function marker(slide, m, x, y, size, o = {}) {
   if (kind === "star") slide.addShape("star5", { x: x - d / 2, y: y - d / 2, w: d, h: d, fill: { color: col }, line: { color: C.white, width: 0.5 }, objectName: "marker " + (m.label || m.name || "") });
   else if (kind === "pin") {
     slide.addShape("teardrop", { x: x - d / 2, y: y - d * 1.25, w: d, h: d, rotate: 135, fill: { color: col }, line: { color: C.white, width: 0.75 }, objectName: "pin " + (m.label || m.name || "") });
-    if (m.n != null) txt(slide, String(m.n), x - d / 2, y - d * 1.25, d, d, { fontSize: Math.max(7, d * 36), bold: true, color: C.white, align: "center", valign: "middle", margin: 0, onDark: true });
+    if (m.n != null) txt(slide, String(m.n), x - d / 2, y - d * 1.25, d, d, { fontSize: Math.max(8, d * 36), bold: true, color: C.white, align: "center", valign: "middle", margin: 0, onDark: true });
   } else {
     slide.addShape("ellipse", { x: x - d / 2, y: y - d / 2, w: d, h: d, fill: { color: col }, line: { color: C.white, width: 0.75 }, objectName: "marker " + (m.label || m.name || "") });
-    if (m.n != null) txt(slide, String(m.n), x - d / 2, y - d / 2, d, d, { fontSize: Math.max(7, d * 30), bold: true, color: C.white, align: "center", valign: "middle", margin: 0, onDark: true });
+    if (m.n != null) txt(slide, String(m.n), x - d / 2, y - d / 2, d, d, { fontSize: Math.max(8, d * 30), bold: true, color: C.white, align: "center", valign: "middle", margin: 0, onDark: true });
   }
 }
+const markRect = (kind, x, y, s) => (kind === "pin" ? { x: x - s / 2, y: y - s * 1.25, w: s, h: s * 1.25 } : { x: x - s / 2, y: y - s / 2, w: s, h: s });   // the room a marker takes
 function placeOf(m, P, regions, feats) {
   if (m.lon != null) return P.p(m.lon, m.lat);
   const at = m.at || m.name;
@@ -206,7 +207,9 @@ function placeLabel(slide, used, text, x, y, r, o = {}) {
   let pick = cands.map(([cx, cy]) => ({ x: cx, y: cy, w, h })).find((c) => !hit(c));
   if (!pick) { if (o.skipIfCrowded) return; pick = { x: cands[0][0], y: cands[0][1], w, h }; }
   used.push(pick);
-  txt(slide, text, pick.x, pick.y, w + 0.05, h, { fontSize: fs_, bold: !!o.bold, color: o.color || C.text, valign: "middle", margin: 0, align: pick.x < x ? "right" : "left" });
+  const leftOf = pick.x + w <= x;   // the label sits left of its point: right-aligned, ending before the marker
+  if (o.pad !== false) slide.addShape("roundRect", { x: pick.x - 0.02, y: pick.y, w: w + 0.04, h, rectRadius: 0.03, fill: { color: C.white, transparency: 20 }, line: { type: "none" }, objectName: "label pad " + text });
+  txt(slide, text, leftOf ? pick.x - 0.05 : pick.x, pick.y, w + 0.05, h, { fontSize: fs_, bold: !!o.bold, color: o.color || C.text, valign: "middle", margin: 0, align: leftOf ? "right" : pick.x < x - w / 4 ? "center" : "left" });
 }
 function legend(slide, items, x, y, o = {}) {   // items: [{color, label, kind}]
   const rh = o.rowH || 0.24;
@@ -269,11 +272,13 @@ function mapRegions(pres, slide, spec, box = BODY) {
     const IP = project([], ib, { bbox: [106.5, 2.8, 122.5, 24.2], projection: "equirect", pad: 0.02, allParts: true });
     const ic = { x0: ib.x, y0: ib.y, x1: ib.x + ib.w, y1: ib.y + ib.h };
     for (const f of feats) regionShape(pres, slide, f, IP, { fill: f.inset ? C.g5 : fillOf(f, true), line: f.inset ? C.g5 : f.name.startsWith("海南") ? C.g4 : C.white, lineWidth: f.inset ? 0.25 : 0.4, clip: ic, minArea: 0, tol: 0.002, prefix: "inset " });
-    if (iw >= 0.75) txt(slide, spec.lang === "zh" ? "南海诸岛" : "South China Sea Islands", ib.x, ib.y + ib.h - 0.2, ib.w, 0.18, { fontSize: 6.5, color: C.g5, align: "center", margin: 0 });
+    const zhI = spec.lang === "zh", iLines = zhI ? 1 : 2;   // label at the smallest readable size (8 pt); left out when the inset is too narrow for it
+    if (iw >= (zhI ? 0.5 : 0.9)) txt(slide, zhI ? "南海诸岛" : "South China Sea\nIslands", ib.x, ib.y + ib.h - 0.03 - iLines * 0.14, ib.w, iLines * 0.14, { fontSize: 8, color: C.g5, align: "center", valign: "middle", margin: 0 });
   }
   const used = [];   // occupied label/marker rectangles
   const mk = spec.markers || [], mmax = Math.max(1, ...mk.map((m) => m.value || 0));
-  const placed = mk.map((m) => { const [x, y] = placeOf(m, P, regions, feats); const s = m.size || (m.value != null ? sizeOf(m.value, mmax, spec.minDot, spec.maxDot) : 0.16); used.push({ x: x - s / 2, y: y - s / 2, w: s, h: s }); return { m, x, y, s }; });
+  const placed = mk.map((m) => { const [x, y] = placeOf(m, P, regions, feats); const s = m.size || (m.value != null ? sizeOf(m.value, mmax, spec.minDot, spec.maxDot) : 0.16); used.push(markRect(m.kind || spec.markerKind, x, y, s)); return { m, x, y, s }; });
+  (spec.pins || []).forEach((m) => { const [x, y] = placeOf(m, P, regions, feats); used.push(markRect("pin", x, y, m.size || 0.3)); });   // pins another generator draws later (siteCallouts): region labels keep clear of them
   // region labels (centred; skipped where they would collide)
   const lab = spec.labels ?? "auto", lang = spec.lang || "en";
   if (lab) for (const [name, r] of Object.entries(regions)) {
@@ -286,14 +291,14 @@ function mapRegions(pres, slide, spec, box = BODY) {
     if (text == null) continue;
     if (spec.labelValues && k != null) text += (lang === "zh" ? " " : ", ") + (spec.format ? spec.format(vals[k]) : vals[k]);
     const dark = (spec.highlight || []).some((h) => matches(f, h)) || (k != null && bins && bins.filter((c) => vals[k] >= c).length / bins.length > 0.6);
-    const fs_ = spec.labelSize || (typeof lab === "object" ? 8 : Math.max(7, Math.min(10, Math.sqrt(r.w * r.h) * 6)));
+    const fs_ = spec.labelSize || (typeof lab === "object" ? 8 : Math.max(8, Math.min(10, Math.sqrt(r.w * r.h) * 6)));
     const w = String(text).length * fs_ / 72 * 0.56 + 0.06, h = fs_ / 72 * 1.5, rc = { x: r.cx - w / 2, y: r.cy - h / 2, w, h };
     if (rc.x < box.x || rc.x + w > box.x + box.w || used.some((b) => rc.x < b.x + b.w && b.x < rc.x + rc.w && rc.y < b.y + b.h && b.y < rc.y + rc.h)) continue;
     used.push(rc);
     txt(slide, text, rc.x - 0.02, rc.y, w + 0.04, h, { fontSize: fs_, color: dark ? C.white : C.text, align: "center", valign: "middle", margin: 0, onDark: dark, bold: dark });
   }
+  for (const { m, x, y, s } of placed) marker(slide, m, x, y, s, { kind: spec.markerKind });   // all markers first, labels on top
   for (const { m, x, y, s } of placed) {
-    marker(slide, m, x, y, s, { kind: spec.markerKind });
     if (m.label) placeLabel(slide, used, m.label, x, y, s / 2, { fontSize: spec.markerLabelSize || 9, bold: !!m.hi, color: m.hi ? C.navy : C.text });
   }
   if (spec.legend !== false && (bins || spec.markerLegend || spec.legendItems)) {
@@ -337,8 +342,8 @@ function regionMultiples(pres, slide, spec, box = BODY) {
       used.push({ x: mx - s / 2, y: my - s / 2, w: s, h: s }); ms.push({ m, mx, my, s });
     }
     ms.sort((a, b) => (b.m.kind === "star") - (a.m.kind === "star"));
+    for (const { m, mx, my, s } of ms) marker(slide, m, mx, my, s);
     for (const { m, mx, my, s } of ms) {
-      marker(slide, m, mx, my, s);
       if (m.label !== false) placeLabel(slide, used, m.label || m.at || m.name, mx, my, s / 2, { fontSize: 9, bold: !!m.hi, color: m.hi ? C.navy : C.text });
     }
     if (grp.note) txt(slide, grp.note, x + 0.08, y + ch - 0.3, cw - 0.16, 0.26, { fontSize: 9, color: C.g5, margin: 0 });
@@ -359,7 +364,7 @@ function regionMultiples(pres, slide, spec, box = BODY) {
 function siteCallouts(pres, slide, spec, box = BODY) {
   const both = spec.side === "both", share = spec.mapShare || (both ? 0.44 : 0.52);
   const mapBox = both ? { x: box.x + box.w * (1 - share) / 2, y: box.y, w: box.w * share, h: box.h } : { x: box.x, y: box.y, w: box.w * share, h: box.h };
-  const M = mapRegions(pres, slide, { ...spec, markers: [], legend: spec.legend ?? false }, mapBox);
+  const M = mapRegions(pres, slide, { ...spec, markers: [], pins: spec.sites, legend: spec.legend ?? false }, mapBox);
   const pins = spec.sites.map((s, i) => ({ s, i, xy: placeOf(s, M.P, M.regions, M.features) }));
   let left = [], right = pins;
   if (both) { const byX = [...pins].sort((a, b) => a.xy[0] - b.xy[0]); left = byX.slice(0, Math.floor(pins.length / 2)); right = byX.slice(left.length); }
@@ -400,7 +405,7 @@ function geoZoom(pres, slide, spec, box = BODY) {
     if (lv.label || lv.title) {
       if (lv.label) { slide.addShape("rect", { x, y: box.y, w: Math.min(w, 0.3 + lv.label.length * 0.085), h: 0.26, fill: { color: C.navy }, line: { type: "none" } });
         txt(slide, lv.label, x, box.y, Math.min(w, 0.3 + lv.label.length * 0.085), 0.26, { fontSize: 9, bold: true, color: C.white, align: "center", valign: "middle", margin: 0, onDark: true }); }
-      if (lv.title) txt(slide, lv.title, x + (lv.label ? Math.min(w, 0.3 + lv.label.length * 0.085) + 0.08 : 0), box.y, w, 0.26, { fontSize: 11, bold: true, color: C.navy, valign: "middle", margin: 0 });
+      if (lv.title) txt(slide, lv.title, x + (lv.label ? Math.min(w, 0.3 + lv.label.length * 0.085) + 0.08 : 0), box.y, Math.max(0.3, w - (lv.label ? Math.min(w, 0.3 + lv.label.length * 0.085) + 0.08 : 0)), 0.26, { fontSize: 11, bold: true, color: C.navy, valign: "middle", margin: 0 });
     }
     const pb = { x, y: box.y + head, w, h: box.h - head };
     let M;

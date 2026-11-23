@@ -1,19 +1,17 @@
 const pptxgen = require("pptxgenjs");
 const G = require("./patterns.js");
 const { C } = G;
-const pres = new pptxgen();
-pres.layout = "LAYOUT_WIDE";
-pres.theme = { headFontFace: "Arial", bodyFontFace: "Arial" };
-pres.title = "Pattern generators — test deck";
-let page = 1;
-const S = (title, subtitle, source, tr) => { const s = pres.addSlide(); G.frame(pres, s, { title, subtitle, source, page: page++, tracker: tr }); return s; };
+const H = G.HOUSE;
+const pres = H.newDeck(pptxgen, "Pattern generators: test deck");   // the house master, as every deck (2026-11-23: was a bare deck from before the master existed)
+const L = H.LAYOUT;
+const S = (title, subtitle, source, tr) => { const s = pres.addSlide({ masterName: L.titleOnly }); G.frame(pres, s, { title, subtitle, source, tracker: tr }); return s; };
 const B = G.BODY;
 
 // 1 cover
-{ const s = pres.addSlide(); s.background = { color: C.navy }; page++;
-  G.txt(s, "Pattern generators", 0.8, 2.3, 11, 1.0, { fontSize: 40, bold: true, color: C.white });
-  G.txt(s, "Every pattern redrawn from rules, for any number of items", 0.8, 3.35, 11, 0.6, { fontSize: 20, color: "BFD7EA" });
-  G.txt(s, "Test deck · house style (working draft)", 0.8, 6.6, 8, 0.4, { fontSize: 12, color: "BFD7EA" }); }
+{ const s = pres.addSlide({ masterName: L.title });
+  s.addText("Pattern generators: every pattern redrawn from rules, for any number of items", { placeholder: "title" });
+  s.addText("Test deck · house style", { placeholder: "subtitle" });
+  s.addText("Illustrative data only", { placeholder: "date" }); }
 
 // 2 evolution: chevrons 3 / 5 / 7
 { const s = S("The same process pattern redraws itself for 3, 5 or 7 steps", "chevron-process: width = (W + (n−1)(point−gap)) / n", null, { n: 5, current: 0 });
@@ -129,4 +127,4 @@ const B = G.BODY;
     { label: "How", text: "JV with a local distributor gives reach to 40k outlets from day one" },
     { label: "Decision", text: "Approve US$ 25 m and start partner talks in Q1" }] }); }
 
-pres.writeFile({ fileName: "pattern-demo.pptx" }).then(() => console.log("written"));
+(async () => { await pres.writeFile({ fileName: "pattern-demo.pptx" }); await H.finalize("pattern-demo.pptx"); console.log("written"); })();
