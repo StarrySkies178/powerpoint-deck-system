@@ -9,5 +9,8 @@ node_modules/
 
 # local clean-up folder (files waiting for the user to delete)
 _to_delete/
-# over GitHub's 100 MB limit; the folder keeps it (rebuild: archive/media_v2.2 + archive/_incoming/done/v23/store/media-add-*.zip)
-Objects/store/media.zip
+
+# >>> big files kept as parts (written by scripts/bigfiles.py, do not edit)
+/Objects/store/media.zip
+/archive/media_v2.8_2026-11-23.zip
+# <<< big files
