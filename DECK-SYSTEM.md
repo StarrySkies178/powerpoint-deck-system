@@ -90,6 +90,7 @@ Don't open `maintenance/` files during a normal build. They are for changing the
 - *Data shape* means the number of items, periods and dimensions, and whether the parts sum to a whole.
 - *Variant* means orientation, light or dark, number of items, and which side the image goes on.
 - Below the table, add an **assets needed** list: every photo, logo and headshot, each marked "in Objects/" or "missing, please supply".
+- **Photo check:** for the cover, each section divider and every slide about a place, a site, a product or an industry, decide whether one photo would make the point land faster. If so, run `python3 scripts/get_photo.py search "<words>"` (free-licensed, full resolution, nothing downloaded yet), look at the candidates and put the best one in the assets list with its size and licence. Approving the plan approves those downloads (`Objects/images.md`).
 
 Also check the **slide rules** from `Style/storytelling.md` §8:
 - Analysis slides: at most 3 numbered panels, each with a sentence sub-headline; together they prove the title (`evidencePanels`).
@@ -215,7 +216,7 @@ Powerpoint/
 ├── Generators/           ← house.js (master + theme-link), patterns.js (pattern functions, any n), patterns_story.js (exec-summary forms, evidence panels, personas, journey, story charts), patterns_place.js (maps, zoom chains, sites, buildings, floor plans), objstore.py, components.py (slides → single diagrams), rebuild_slides.py (PDF/image → editable slides), vectorize.py (pictures + embedded charts → shapes), build_*.js
 ├── design-system/        ← source of the Claude design system "Powerpoint House Style" (project/ = the published files, pattern-map.json, PUBLISH.md); kept in step by scripts/sync_design_system.py
 ├── bench/                ← reproduction benchmark: 20 reference slides rebuilt from prompts and scored (README, results-log)
-├── scripts/              ← deck_lint.py (quality gate for every deck); sync_design_system.py (design system follows the folder); make_style_profile.py (a reference's measured look for the generators); layout_skeleton.py (panel boxes of a reference slide); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look)
+├── scripts/              ← deck_lint.py (quality gate for every deck); get_photo.py (finds and fetches free-licensed photos at full resolution, logs the credit); sync_design_system.py (design system follows the folder); make_style_profile.py (a reference's measured look for the generators); layout_skeleton.py (panel boxes of a reference slide); audit_reference.py (full-treatment check, must pass before 'learned'); ingest_reference.py (adds any new reference; PDFs/screenshots are turned into editable slides first); study_reference.py (measures its look)
 ├── review/               ← contact sheets of ingested references (for the visual pass)
 ├── master/               ← house-master-16x9.potx (14 layouts, theme colours) + README.md
 ├── samples/              ← sample decks for review

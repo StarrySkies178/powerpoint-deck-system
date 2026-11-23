@@ -21,6 +21,7 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
   W no source      a chart on the slide but no source line
   W tight          text close to overflowing its box
   W covered        part of a text sits under a shape drawn on top of it
+  W low-res image  a picture with under 150 pixels per inch at the size it is shown (it will look soft on a large screen)
   W contrast       words under 12 pt on a fill with less than 3 : 1 contrast (white on the accent green or on light grey is the usual case)
   W wordy          body text over twice the default limit (~40 words / ~80 Chinese characters)
 
@@ -125,7 +126,13 @@ def lint_slide(prs, slide, n, st):
                 Wn.append(f"margins: {sh.name} spans x {ex0:.2f}–{ex1:.2f} in (margins {st['margin'][0]:.2f} / {W - st['margin'][1]:.2f})")
         if getattr(sh, "has_chart", False) and sh.has_chart: has_chart = True
         if sh.shape_type == 13:                               # pictures keep their own colours
-            painted.append((z, "rect", None, (x, y, w, h), None, 1.0)); continue
+            painted.append((z, "rect", None, (x, y, w, h), None, 1.0))
+            try:
+                pw, ph = sh.image.size; cl, cr_ = sh.crop_left + sh.crop_right, sh.crop_top + sh.crop_bottom
+                ppi = min(pw * (1 - cl) / max(w, 0.01), ph * (1 - cr_) / max(h, 0.01))
+                if w * h > 1 and ppi < 150 and not (sh.image.ext or "").lower() in ("svg", "emf", "wmf"): Wn.append(f"low-res image: {sh.name} has {ppi:.0f} pixels per inch at {w:.1f} x {h:.1f} in ({pw} x {ph} px file)")
+            except Exception: pass
+            continue
         f = fill_hex(ctx, sh); l = line_hex(ctx, sh)
         if f and w > 0.02 and h > 0.02:
             kind, pts = _geom(sh)

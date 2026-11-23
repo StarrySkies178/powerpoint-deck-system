@@ -1,5 +1,5 @@
 Claude outputs/case-competitions.md	22882
-DECK-SYSTEM.md	22811
+DECK-SYSTEM.md	23355
 Generators/backfill_role_src.py	3968
 Generators/build_master.js	388
 Generators/build_objdemo.js	1437
@@ -28,7 +28,7 @@ Generators/vectorize.py	12637
 Objects/README.md	6452
 Objects/Visual/photos/pudong-skyline-bund.jpg	270982
 Objects/credits.md	372
-Objects/images.md	3998
+Objects/images.md	4835
 Objects/maps/README.md	1957
 Objects/maps/adm1/ABW.json	412
 Objects/maps/adm1/AFG.json	40604
@@ -481,6 +481,7 @@ archive/DECK-SYSTEM_v2.3_2026-11-23.md	20073
 archive/DECK-SYSTEM_v2.4_2026-11-23.md	20685
 archive/DECK-SYSTEM_v2.5_2026-11-23.md	21306
 archive/DECK-SYSTEM_v2.6_2026-11-23.md	21596
+archive/DECK-SYSTEM_v2.7_2026-11-23.md	22811
 archive/Objects-README_v0.9_2026-11-22.md	4425
 archive/Objects-README_v1.0_2026-11-22.md	4838
 archive/Objects-README_v2.3_2026-11-23.md	6102
@@ -664,12 +665,14 @@ archive/changelog_v2.2_2026-11-23.md	17892
 archive/changelog_v2.4_2026-11-23.md	20276
 archive/components_v1.2_2026-11-23.py	8640
 archive/components_v1.9_2026-11-22.py	8745
+archive/deck_lint_v2.7_2026-11-23.py	18063
 archive/demo_v2.6_2026-11-23.js	11476
 archive/house-master-16x9_v2.0_2026-11-23.potx	33558
 archive/house_v2.0_2026-11-23.js	15240
 archive/house_v2.1_2026-11-23.js	15240
 archive/house_v2.3_2026-11-23.js	15364
 archive/house_v2.6_2026-11-23.js	20260
+archive/images_v2.7_2026-11-23.md	3998
 archive/index_v0.9_2026-11-22.json	1085520
 archive/index_v1.1_2026-11-23.json	1207267
 archive/index_v1.2_2026-11-23.json	1310344
@@ -1078,7 +1081,7 @@ design-system/project/components/Waterfall/preview.html	780
 design-system/project/components/bundle.css	1139
 design-system/project/components/bundle.js	112862
 design-system/project/components/index.d.ts	8806
-design-system/project/design-system.json	5672
+design-system/project/design-system.json	5624
 design-system/project/slides-kit/deck.css	9750
 design-system/project/slides-kit/patterns.md	16353
 design-system/project/tokens.json	10306
@@ -1086,7 +1089,7 @@ design-system/state.json	9461
 design-system/sync-report.md	567
 design-system/tools/asset-blobs.json	1341
 design-system/tools/gen_components.py	40148
-logs/changelog.md	25257
+logs/changelog.md	26378
 logs/lessons-log.md	5330
 logs/usage-log.md	483
 maintenance/github-sync.md	2671
@@ -1160,8 +1163,9 @@ samples/sample-deck-v0.1.pptx	113166
 samples/sample-deck-v0.2.pptx	113703
 scripts/audit_reference.py	5485
 scripts/composition.py	5480
-scripts/deck_lint.py	18063
+scripts/deck_lint.py	18665
 scripts/get_map.py	13358
+scripts/get_photo.py	7054
 scripts/ingest_reference.py	11425
 scripts/layout_scan.py	3656
 scripts/layout_skeleton.py	6594
