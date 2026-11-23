@@ -78,4 +78,5 @@ Every run is added to `bench/results-log.md`, which keeps the history. Needs Lib
 The pass bar never moved. These measuring fixes apply to the original and the candidate alike:
 - Round 3: title position from real font metrics and inherited anchors (was a character-count guess).
 - Round 6: table text is measured; quarter-turned boxes use their turned bounds; colour palette scope written down (slide for D/Z, deck for C).
+- v2.6: labels of native charts count as body text (before, charts drawn as text boxes counted and native charts did not).
 - Round 7: title position measured on the render (glyph tops on the title's own background), because wrap estimates disagreed with what LibreOffice draws.

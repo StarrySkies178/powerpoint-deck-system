@@ -231,10 +231,20 @@ SRC = re.compile(r"^\s*(source|sources|quote source|note|notes|来源|资料来�
 def measure(pptx_path, slide_no):
     prs = Presentation(pptx_path); slide = prs.slides[slide_no - 1]; ctx = Ctx(prs, slide)
     W, H = prs.slide_width / EMU, prs.slide_height / EMU
-    texts, boxes = [], []
+    texts, boxes, chart_runs = [], [], []
     for sh, (x, y, w, h) in walk(slide.shapes):
         full = w > 0.95 * W and h > 0.95 * H
         if not full and w * h > 0: boxes.append((x, y, w, h))
+        if getattr(sh, "has_chart", False) and sh.has_chart and not full:   # native chart labels are slide text too
+            cx = sh.chart._chartSpace
+            szs = [int(e.get("sz")) / 100 for e in cx.iter(qn("a:defRPr")) if e.get("sz")] + [int(e.get("sz")) / 100 for e in cx.iter(qn("a:rPr")) if e.get("sz")]
+            if szs:
+                pt = collections.Counter(szs).most_common(1)[0][0]
+                try:
+                    cats = [str(c) for c in sh.chart.plots[0].categories]; nv = sum(len(list(se.values)) for pl in sh.chart.plots for se in pl.series)
+                except Exception: cats, nv = [], 0
+                n_ch = sum(len(c) for c in cats) + 4 * nv
+                if n_ch: chart_runs.append((pt, n_ch, (x, y, w, h)))
         if not getattr(sh, "has_text_frame", False) or not sh.has_text_frame: continue
         runs = []
         for p in sh.text_frame.paragraphs:
@@ -268,6 +278,7 @@ def measure(pptx_path, slide_no):
     s_top = src["y"] if src else 0.93 * H
     body = [t for t in texts if t is not title and t is not src and t["y"] + t["h"] / 2 > t_bot and t["y"] + t["h"] / 2 < s_top]
     sizes = [r[1] for t in body for r in t["runs"] for _ in range(max(1, len(r[0]) // 10))]
+    sizes += [pt for pt, n_ch, (x, y, w, h) in chart_runs if t_bot < y + h / 2 < s_top for _ in range(max(1, n_ch // 10))]
     bb = [b for b in boxes if b[1] + b[3] / 2 > t_bot - 0.05 and b[1] + b[3] / 2 < s_top and b[2] < 0.98 * W]
     latin = collections.Counter(r[3] for t in texts for r in t["runs"] if r[3])
     cjk_text = any(CJK.search(t["text"]) for t in texts)

@@ -35,7 +35,7 @@ function useStyle(profile) {
 // chart look of the active style: the house hides the value axis; a reference may show it, with its own label size
 function chartStyle() {
   const S = HOUSE.STYLE; if (!S) return {};
-  const ch = S.chart || {}, pt = ch.pt || Math.max(8, HOUSE.TYPE.label - 1);
+  const ch = S.chart || {}, pt = ch.pt || HOUSE.TYPE.body;   // no native charts in the reference: its drawn chart labels use the body size
   return { valAxisHidden: !ch.value_axis, valAxisLabelFontSize: pt, valAxisLabelColor: C.text, valAxisLineShow: !!ch.value_axis,
     valGridLine: ch.gridlines ? { color: C.g2, size: 0.5 } : { style: "none" }, catAxisLabelFontSize: pt, dataLabelFontSize: pt, legendFontSize: pt,
     catAxisLabelFontFace: THEME.bodyFontFace, valAxisLabelFontFace: THEME.bodyFontFace, dataLabelFontFace: THEME.bodyFontFace, legendFontFace: THEME.bodyFontFace };
@@ -72,7 +72,7 @@ const typeK = () => (HOUSE.STYLE ? HOUSE.TYPE.body / 12.5 : 1);   // reference b
 function txt(slide, text, x, y, w, h, o = {}) {
   if (Array.isArray(text)) text = text.map((r) => (r.options && r.options.color === C.accent && !o.onDark ? { ...r, options: { ...r.options, color: ACCENT_TEXT } } : r));
   const plain = Array.isArray(text) ? text.map((r) => r.text).join("") : text;
-  const k = typeK(), sc = (v) => Math.max(8, Math.round(v * k * 2) / 2);
+  const k = o.noScale ? 1 : typeK(), sc = (v) => Math.max(8, Math.round(v * k * 2) / 2);
   const size = o.fontSize ? (k === 1 || o.keepSize ? o.fontSize : sc(o.fontSize)) : fitSize(plain, w - 0.1, h - 0.06, sc(o.max || 14), Math.min(sc(o.max || 14), sc(o.min || 10)));
   slide.addText(text, {
     x, y, w, h, fontFace: THEME.bodyFontFace, fontSize: size, color: textGreen(o.color || C.text, o),
@@ -667,15 +667,16 @@ function phaseMatrix(slide, spec, box = BODY) {
 }
 function dataTable(slide, spec, box = BODY) {
   // spec.header:[...], spec.rows:[[...]], spec.highlightRow ; native, editable PowerPoint table
-  const S = HOUSE.STYLE, ts = (S && S.table) || {}, style = spec.style || "bands";
-  const hf = spec.headerFill !== undefined ? spec.headerFill : (ts.header_fill || C.navy), ht = spec.headerText || (hf && contrast(hf, "FFFFFF") >= 3 ? C.white : C.text);
+  const S = HOUSE.STYLE, ts = (S && S.table) || {}, style = spec.style || ts.style || "bands";
+  const hf = spec.headerFill !== undefined ? spec.headerFill : (style === "lines" && S ? null : (ts.header_fill || C.navy)), ht = spec.headerText || (hf && contrast(hf, "FFFFFF") >= 3 ? C.white : C.text);
   const lines = style === "lines", pt = spec.fontSize || ts.pt || (S ? HOUSE.TYPE.label : 12);
+  const hr = ts.header_rule || [C.text, 1], rr = ts.row_rule || [C.g3, 0.75];
   const rows = [spec.header.map((h, j) => ({ text: h, options: { bold: true, color: hf ? ht : C.text, fill: hf ? { color: hf } : undefined, align: j && spec.alignRight !== false ? "right" : "left",
-      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: C.text, pt: 1 }, { type: "none" }] : undefined } })),
+      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: hr[0], pt: hr[1] }, { type: "none" }] : undefined } })),
     ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || (j === 0 && spec.boldFirst !== false && !lines),
       fill: lines ? undefined : { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) },
       align: j && (typeof c === "number" || /^[\d.,%+\-–$¥€x ]+$/.test(String(c))) ? "right" : "left",
-      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: C.g3, pt: 0.75 }, { type: "none" }] : undefined } })))];
+      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: rr[0], pt: rr[1] }, { type: "none" }] : undefined } })))];
   slide.addTable(rows, { x: box.x, y: box.y, w: box.w, colW: spec.colW, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, border: lines ? undefined : { type: "solid", color: C.g3, pt: 0.5 },
     rowH: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)), valign: "middle", margin: 0.04 });
 }

@@ -35,7 +35,7 @@
   {
    "check": "body text size",
    "ok": false,
-   "detail": "ref median 18.0 / min 18.0 pt; got 14.5 / 14.5 pt"
+   "detail": "ref median 18.0 / min 18.0 pt; got 14.0 / 11.0 pt"
   },
   {
    "check": "fonts",
@@ -45,7 +45,7 @@
   {
    "check": "body margins",
    "ok": false,
-   "detail": "ref L 0.48 R 0.87; got L 0.25 R 0.16 in"
+   "detail": "ref L 0.48 R 0.87; got L 0.60 R 0.62 in"
   },
   {
    "check": "colours",
@@ -53,8 +53,8 @@
    "detail": "all colours in the reference palette"
   }
  ],
- "layout": 0.0,
- "visual": 0.14,
+ "layout": 0.27,
+ "visual": 0.4,
  "n_std": 10,
  "n_std_ok": 8,
  "candidate": {
@@ -79,12 +79,12 @@
    "colour": "FFFFFF"
   },
   "body": {
-   "median_pt": 14.5,
-   "min_pt": 14.5
+   "median_pt": 14.0,
+   "min_pt": 11.0
   },
   "margins": {
-   "left_in": 0.25,
-   "right_in": 0.16
+   "left_in": 0.6,
+   "right_in": 0.62
   },
   "fonts": {
    "latin": [
@@ -107,15 +107,15 @@
   ],
   "render_colours": [
    "CC0C0C",
-   "6C6C6C",
-   "848484",
-   "E4E4E4",
-   "E45454",
-   "E46C6C",
    "9C9C9C",
-   "B4B4B4",
+   "848484",
+   "E46C6C",
+   "6C6C6C",
+   "E45454",
+   "E43C3C",
    "CCCCCC",
-   "E48484"
+   "E4E4E4",
+   "B4B4B4"
   ]
  }
 }

@@ -12,10 +12,21 @@ function chip(slide, label, x, y, s = 0.3, fill = C.navy) {           // numbere
   slide.addShape("rect", { x, y, w: s, h: s, fill: { color: fill }, line: { type: "none" } });
   txt(slide, String(label), x, y, s, s, { fontSize: s > 0.4 ? 16 : 11, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
 }
-function subhead(slide, n, text, x, y, w) {                            // [n] sub-headline sentence + rule (the panel's point)
+function subhead(slide, n, text, x, y, w) {                            // [n] sub-headline sentence + rule (the panel's point); returns its height
+  const ps = G.HOUSE.STYLE && G.HOUSE.STYLE.panel;
+  if (ps) {                                                             // the reference deck's own sub-headline: chip shape/colour, headline size/colour, rule
+    const s = Math.max(0.24, Math.min(0.4, ps.size || 0.3)), hh = Math.max(0.4, (ps.pt * 1.25) / 72 + 0.08);
+    slide.addShape(ps.chip === "ellipse" ? "ellipse" : "rect", { x, y: y + (hh - s) / 2, w: s, h: s, fill: { color: ps.fill || C.navy }, line: { type: "none" } });
+    txt(slide, String(n), x, y + (hh - s) / 2, s, s, { fontSize: Math.min(ps.chip_pt || 12, s * 72 * 0.6), noScale: true, bold: true, color: ps.text || C.white, align: "center", valign: "middle", margin: 0 });
+    txt(slide, text, x + s + 0.1, y, w - s - 0.1, hh, { max: ps.pt, min: Math.max(9, ps.pt - 3), noScale: true, bold: ps.bold !== false, color: ps.colour || C.text, valign: "middle", margin: 0 });
+    const ry = y + Math.max(hh + 0.02, ps.rule ? ps.rule[2] : 0);
+    if (ps.rule) slide.addShape("line", { x, y: ry, w, h: 0, line: { color: ps.rule[0], width: ps.rule[1] } });
+    return ry - y + 0.12;
+  }
   chip(slide, n, x, y + 0.02, 0.28);
   txt(slide, text, x + 0.36, y, w - 0.36, 0.5, { max: 13, min: 10, bold: true, color: C.text, valign: "middle" });
   slide.addShape("line", { x, y: y + 0.52, w, h: 0, line: { color: C.navy, width: 1 } });
+  return 0.62;
 }
 function insightBox(slide, spec, box) {                                // "Insights" label + bullets; **key words** in bold
   txt(slide, spec.label || "Insights", box.x, box.y, box.w, 0.34, { fontSize: 12, bold: true, color: C.navy });
@@ -52,7 +63,8 @@ function chartIn(pres, slide, c, box) {
     const s2 = [{ name: "Others", labels: c.labels, values: v.map((x, i) => (i === c.highlight ? 0 : x)) }, { name: c.series[0].name, labels: c.labels, values: v.map((x, i) => (i === c.highlight ? x : 0)) }];
     slide.addChart(pres.ChartType.bar, s2, { ...box, barDir: t === "bar" ? "bar" : "col", barGrouping: "stacked", chartColors: [C.g3, C.chartHi], showLegend: false, showValue: true,
       dataLabelPosition: "inEnd", dataLabelFontSize: 10, dataLabelColor: C.white, dataLabelFormatCode: (c.format || "#,##0") + ";;;", catAxisLabelFontSize: 10, catAxisLabelColor: C.text,
-      valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 50 });
+      valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 50,
+      ...(({ dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace }) => (dataLabelFontSize ? { dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace } : {}))(G.chartStyle()) });
     return;
   }
   if (single && ["column", "bar", "line"].includes(t) && !c.colors) colors = [C.chartHi];
@@ -82,7 +94,8 @@ function stackedCagr(pres, slide, spec, box = BODY) {
   const data = spec.series.map((s) => ({ name: s.name, labels: spec.periods, values: s.values }));
   slide.addChart(pres.ChartType.bar, data, { x: box.x, y: box.y + 0.3, w: cw, h: box.h - 0.3, barDir: "col", barGrouping: "stacked", chartColors: colors, showLegend: false,
     showValue: true, dataLabelPosition: "ctr", dataLabelFontSize: 9, dataLabelColor: C.white, dataLabelFormatCode: "#,##0;;;", catAxisLabelFontSize: 11, catAxisLabelColor: C.text,
-    valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 60 });
+    valAxisHidden: true, valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 60,
+    ...(({ dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace }) => (dataLabelFontSize ? { dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace } : {}))(G.chartStyle()) });
   // legend + CAGR table, rows in the same top→bottom order as the stack
   const hdr = spec.cagr?.headers || [], x0 = box.x + cw + 0.15, rowH = Math.min(0.42, (box.h - 0.7) / n);
   const nameW = tw - hdr.length * 0.8;
@@ -415,7 +428,7 @@ function fillPanel(pres, slide, p, box, i, numbered, boxed) {
     txt(slide, p.headline, box.x + 0.12, box.y, box.w - 0.24, 0.5, { max: 13, min: 10, bold: true, color: C.white, valign: "middle", align: "center" });
     box = { x: box.x + 0.12, y: box.y + 0.6, w: box.w - 0.24, h: box.h - 0.7 }; p = { ...p, headline: null }; y = box.y;
   }
-  if (p.headline) { if (numbered) subhead(slide, i + 1, p.headline, box.x, y, box.w); else txt(slide, p.headline, box.x, y, box.w, 0.5, { max: 13, min: 10, bold: true, valign: "middle" }); y += 0.62; }
+  if (p.headline) { if (numbered) y += subhead(slide, p.number || i + 1, p.headline, box.x, y, box.w); else { txt(slide, p.headline, box.x, y, box.w, 0.5, { max: 13, min: 10, bold: true, valign: "middle" }); y += 0.62; } }
   const tk = p.takeaway ? Math.min(0.85, Math.max(0.55, box.h * 0.2)) : 0;   // panel takeaway box under its exhibit (2019-20 decks)
   const inner = { x: box.x, y, w: box.w, h: box.y + box.h - y - (p.note ? 0.25 : 0) - (tk ? tk + 0.1 : 0) };
   if (tk) { const ty = inner.y + inner.h + 0.1;
@@ -424,6 +437,7 @@ function fillPanel(pres, slide, p, box, i, numbered, boxed) {
     txt(slide, p.takeaway, box.x + 0.17, ty + 0.03, box.w - 0.25, tk - 0.06, { max: 12, min: 9, bold: true, color: C.navy, valign: "middle" }); }
   if (p.chart) chartIn(pres, slide, p.chart, inner);
   else if (p.draw) p.draw(slide, inner);
+  else if (p.map) require("./patterns_place.js").mapRegions(pres, slide, p.map, inner);   // a map panel: any mapRegions spec
   else if (p.bullets) { slide.addShape("rect", { ...inner, fill: { color: C.g1 }, line: { type: "none" } });
     txt(slide, p.bullets.map((b) => "• " + b).join("\n"), inner.x + 0.15, inner.y + 0.12, inner.w - 0.3, inner.h - 0.24, { max: 16, min: 10, paraSpaceAfter: 6 }); }
   else if (p.text) txt(slide, p.text, inner.x, inner.y, inner.w, inner.h, { max: 14, min: 10 });
@@ -432,7 +446,8 @@ function fillPanel(pres, slide, p, box, i, numbered, boxed) {
 }
 function composeSlide(pres, slide, spec, box = BODY) {
   // spec.layout (code), spec.panels:[...], spec.insights, spec.soWhat, spec.decision, spec.tactics:[{title,text}], spec.numbered (default true)
-  const L = layoutBoxes(spec.layout, box, spec.panels.length), numbered = spec.numbered !== false;
+  // spec.regions: explicit panel boxes, e.g. from a sibling slide of the reference deck (scripts/layout_skeleton.py)
+  const L = spec.regions ? { panels: spec.regions.panels || spec.regions, insight: spec.regions.insight } : layoutBoxes(spec.layout, box, spec.panels.length), numbered = spec.numbered !== false;
   spec.panels.slice(0, L.panels.length).forEach((p, i) => fillPanel(pres, slide, p, L.panels[i], i, numbered, spec.boxed));
   if (L.insight && (spec.insights || spec.soWhat)) {
     const I = L.insight;

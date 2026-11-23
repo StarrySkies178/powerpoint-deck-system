@@ -110,7 +110,33 @@
   "header_fill": "F1F1F1",
   "header_text": "FFFFFF",
   "body_fill": "DFECF5",
-  "pt": 15.5
+  "pt": 15.5,
+  "header_rule": [
+   "FFFFFF",
+   1.5
+  ],
+  "row_rule": [
+   "FFFFFF",
+   1.5
+  ],
+  "header_bold": true,
+  "style": "bands"
+ },
+ "panel": {
+  "chip": "ellipse",
+  "fill": "283954",
+  "text": "FFFFFF",
+  "size": 0.31,
+  "chip_pt": 15.0,
+  "pt": 17.0,
+  "bold": true,
+  "colour": "10366C",
+  "rule": [
+   "10366C",
+   1.56,
+   0.31
+  ],
+  "n": 13
  },
  "theme": [
   "000000",

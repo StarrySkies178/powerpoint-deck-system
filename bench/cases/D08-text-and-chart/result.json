@@ -35,7 +35,7 @@
   {
    "check": "body text size",
    "ok": true,
-   "detail": "ref median 18.0 / min 10.0 pt; got 18.0 / 10.0 pt"
+   "detail": "ref median 18.0 / min 9.0 pt; got 18.0 / 9.0 pt"
   },
   {
    "check": "fonts",
@@ -85,7 +85,7 @@
   },
   "body": {
    "median_pt": 18.0,
-   "min_pt": 10.0
+   "min_pt": 9.0
   },
   "margins": {
    "left_in": 0.42,

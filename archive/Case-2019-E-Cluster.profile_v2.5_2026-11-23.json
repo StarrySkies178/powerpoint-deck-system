@@ -1,0 +1,130 @@
+{
+ "source": "Case-2019-E-Cluster.pptx",
+ "size": [
+  13.333,
+  7.5
+ ],
+ "fonts": {
+  "latin": "Arial",
+  "body": "Arial MT",
+  "ea": null
+ },
+ "title": {
+  "text_top": 0.57,
+  "text_bottom": 1.26,
+  "align_to": "top",
+  "x": 0.0,
+  "y": 0.45,
+  "w": 13.33,
+  "h": 0.86,
+  "ins_t": 0.01,
+  "ins_b": 0.0,
+  "pt": 24.0,
+  "lines": 1,
+  "bold": true,
+  "colour": "FFFFFF",
+  "anchor": "t",
+  "sub": null,
+  "band": {
+   "colour": "08163B",
+   "x": 0.0,
+   "y": 0.43,
+   "w": 13.32,
+   "h": 0.89
+  },
+  "rule": {
+   "colour": "10366C",
+   "x": 4.6,
+   "y": 1.74,
+   "w": 8.49
+  }
+ },
+ "crumb": {
+  "x": 0.3,
+  "y": 0.09,
+  "pt": 15.0,
+  "bold": true,
+  "colours": [
+   "202C4F",
+   "BEBEBE"
+  ]
+ },
+ "body": {
+  "pt": 15.0,
+  "label_pt": 14.0,
+  "text": "000000"
+ },
+ "margins": {
+  "left": 0.27,
+  "right": 0.26,
+  "body_top": 1.43
+ },
+ "source_line": {
+  "x": 0.27,
+  "y": 7.28,
+  "pt": 10.0,
+  "colour": "585858"
+ },
+ "page": {
+  "right": 13.02,
+  "y": 7.29,
+  "h": 0.19,
+  "pt": 10.0,
+  "colour": "585858"
+ },
+ "footer": null,
+ "roles": {
+  "main": "08163B",
+  "secondary": "354B70",
+  "accent": "354B70",
+  "text": "000000",
+  "grey1": "253449",
+  "grey2": "7E7E7E",
+  "grey3": "A1C8DF",
+  "grey4": "C3C6CA",
+  "panel": "F1F1F1",
+  "tint": "FFE4A9"
+ },
+ "colours_ranked": [
+  "08163B",
+  "354B70",
+  "63A4CC",
+  "FDBE28",
+  "FFE4A9",
+  "CC0000"
+ ],
+ "neutrals_ranked": [
+  "F1F1F1",
+  "C1DBEB",
+  "253449",
+  "7E7E7E",
+  "C3C6CA",
+  "A1C8DF"
+ ],
+ "chart": {
+  "value_axis": false,
+  "gridlines": false,
+  "pt": null
+ },
+ "table": {
+  "header_fill": "F1F1F1",
+  "header_text": "FFFFFF",
+  "body_fill": "DFECF5",
+  "pt": 15.5
+ },
+ "theme": [
+  "000000",
+  "0000FF",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "variants": {}
+}

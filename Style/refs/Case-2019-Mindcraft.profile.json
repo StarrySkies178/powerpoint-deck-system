@@ -100,7 +100,33 @@
   "header_fill": "808080",
   "header_text": "000000",
   "body_fill": "7E7E7E",
-  "pt": 14.0
+  "pt": 14.0,
+  "header_rule": [
+   "000000",
+   1.0
+  ],
+  "row_rule": [
+   "FFFFFF",
+   1.0
+  ],
+  "header_bold": false,
+  "style": "bands"
+ },
+ "panel": {
+  "chip": "rect",
+  "fill": "C00000",
+  "text": "FFFFFF",
+  "size": 0.35,
+  "chip_pt": 14.0,
+  "pt": 14.0,
+  "bold": true,
+  "colour": "000000",
+  "rule": [
+   "7E7E7E",
+   1.2,
+   0.33
+  ],
+  "n": 56
  },
  "theme": [
   "000000",

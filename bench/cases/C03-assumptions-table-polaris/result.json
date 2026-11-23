@@ -53,8 +53,8 @@
    "detail": "ref 10.0 pt at 7.24 in; got 10.0 pt at 7.23 in"
   }
  ],
- "layout": 0.17,
- "visual": 0.13,
+ "layout": 0.06,
+ "visual": 0.27,
  "n_std": 10,
  "n_std_ok": 10,
  "candidate": {
@@ -106,14 +106,13 @@
    "FFFFFF"
   ],
   "render_colours": [
-   "FCCCCC",
    "E4E4E4",
-   "E4B4B4",
    "CCCCCC",
-   "FCB4B4",
-   "E4CCCC",
    "9C9C9C",
-   "B4B4B4"
+   "B4B4B4",
+   "E4B4B4",
+   "848484",
+   "6C6C6C"
   ]
  }
 }

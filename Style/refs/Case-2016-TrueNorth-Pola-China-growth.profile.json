@@ -104,7 +104,29 @@
   "header_fill": "CDCDCD",
   "header_text": "000000",
   "body_fill": "CDCDCD",
-  "pt": 13.0
+  "pt": 13.0,
+  "header_rule": [
+   "FFFFFF",
+   3.0
+  ],
+  "row_rule": [
+   "FFFFFF",
+   1.0
+  ],
+  "header_bold": false,
+  "style": "bands"
+ },
+ "panel": {
+  "chip": "rect",
+  "fill": "CC0000",
+  "text": "FFFFFF",
+  "size": 0.36,
+  "chip_pt": 14.0,
+  "pt": 14.0,
+  "bold": true,
+  "colour": "000000",
+  "rule": null,
+  "n": 28
  },
  "theme": [
   "000000",

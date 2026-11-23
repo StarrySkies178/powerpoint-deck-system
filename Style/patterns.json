@@ -2115,7 +2115,7 @@
    "title_example": "",
    "engine": "free",
    "keywords": "map|world|china|地图|globe|flags|regions|united states|europe|asia",
-   "variants": "",
+   "variants": "choropleth by value with bins; sized city dots with 'BJ, 20' labels; highlighted regions; China with South China Sea inset; map as a composeSlide panel (map:)",
    "source_slides": {
     "Maps-world-US-China": "1-40",
     "Deloitte-timesaver": "119-136,154-159",
@@ -2123,10 +2123,11 @@
     "Roland-Berger-modules": "100,431-435",
     "Concept-graphics-mono": "81-84",
     "McKinsey-frequently-used": "158,305",
-    "BearingPoint-diagrams": "143"
+    "BearingPoint-diagrams": "143",
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
    },
    "source_count": 89,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_place.js mapRegions (any country/province/city from Objects/maps)"
   },
   {
    "id": "icon-infographic",
@@ -2328,6 +2329,126 @@
    },
    "source_count": 2,
    "generator": "Generators/patterns_story.js explodedBar"
+  },
+  {
+   "id": "region-multiples",
+   "category": "E. Compare & position",
+   "name": "Regional small multiples",
+   "story": "The same country split into regions, each with its core city and next cities.",
+   "use_when": "A national plan run region by region (radiation from core cities).",
+   "avoid_when": "One region matters: zoom into it instead.",
+   "parts": "dashed panels per region with title, region map, star = core city, pins by stage, shared legend",
+   "count": [
+    2,
+    9
+   ],
+   "scaling": "grid chosen to fit the panel shape; empty cell holds the legend",
+   "emphasis": "core cities as stars in the accent colour",
+   "title_example": "Five core cities radiate to the rest of their regions in two stages",
+   "engine": "map",
+   "keywords": "regions|radiation|core city|north east south|map panels",
+   "variants": "",
+   "source_slides": {
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
+   },
+   "source_count": 1,
+   "generator": "Generators/patterns_place.js regionMultiples"
+  },
+  {
+   "id": "geo-zoom",
+   "category": "A. Argument & storyline",
+   "name": "Zoom chain (country → province → city → site)",
+   "story": "From the whole to the chosen part in one slide.",
+   "use_when": "Showing where exactly, with the context it sits in.",
+   "avoid_when": "The audience already knows the geography: start at the city.",
+   "parts": "2–4 maps left to right, the chosen part boxed and joined to the next map by zoom lines; level chips; numbered sites with callout cards on the last map",
+   "count": [
+    2,
+    4
+   ],
+   "scaling": "last level gets the most width",
+   "emphasis": "the chosen part in the main colour at every level; accent box + zoom lines",
+   "title_example": "In Shenzhen, four malls in the CBD districts are the best first sites",
+   "engine": "map",
+   "keywords": "zoom|drill down|where|location|site selection",
+   "variants": "world → country → regions",
+   "source_slides": {
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
+   },
+   "source_count": 4,
+   "generator": "Generators/patterns_place.js geoZoom"
+  },
+  {
+   "id": "site-callouts",
+   "category": "E. Compare & position",
+   "name": "Site map with callouts",
+   "story": "Which sites in a city, and what each offers.",
+   "use_when": "Site selection, store network in a city, case-study city.",
+   "avoid_when": "More than ~6 sites: use a table plus a dot map.",
+   "parts": "district map, target districts shaded, numbered pins, a card per site on a dashed leader (traffic, customers, price)",
+   "count": [
+    2,
+    6
+   ],
+   "scaling": "cards stack on one or both sides",
+   "emphasis": "the first site's card and leader in the accent colour",
+   "title_example": "Taking Shanghai as an example, four sites score best on our criteria",
+   "engine": "map",
+   "keywords": "site|mall|location|district|callout",
+   "variants": "cards right; cards on both sides",
+   "source_slides": {
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
+   },
+   "source_count": 4,
+   "generator": "Generators/patterns_place.js siteCallouts"
+  },
+  {
+   "id": "building-explode",
+   "category": "C. Structure & composition",
+   "name": "Exploded building",
+   "story": "What happens on each floor or area of a building.",
+   "use_when": "A store, office, campus or plant concept; anything with floors or areas.",
+   "avoid_when": "A single-room layout: use a floor plan.",
+   "parts": "isometric floors stacked apart (bottom → top), zones on each floor, a card per floor on an elbow leader",
+   "count": [
+    1,
+    5
+   ],
+   "scaling": "floors keep ~60% of each lower floor visible; zone names or numbers by space",
+   "emphasis": "the floor that matters in the main colour, its key zone dark",
+   "title_example": "The flagship stacks three experiences: train, recover, play",
+   "engine": "iso",
+   "keywords": "building|floor|store concept|layout|zones|exploded",
+   "variants": "numbers + zone legend in the card when names don't fit",
+   "source_slides": {
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
+   },
+   "source_count": 1,
+   "generator": "Generators/patterns_place.js buildingExplode"
+  },
+  {
+   "id": "floor-plan",
+   "category": "C. Structure & composition",
+   "name": "Floor plan with customer path",
+   "story": "How the space leads the customer through it.",
+   "use_when": "Store or office layout, visitor flow.",
+   "avoid_when": "Exact architecture matters: use the architect's drawing.",
+   "parts": "footprint with walls, numbered zones, entrance arrow, dashed customer path, numbered legend with one line per zone",
+   "count": [
+    3,
+    9
+   ],
+   "scaling": "zones in 0–1 coordinates of the footprint",
+   "emphasis": "the centre-piece zone in the main colour",
+   "title_example": "Four areas lead the customer from the window to the service desk",
+   "engine": "grid",
+   "keywords": "floor plan|layout|zones|customer path|store design",
+   "variants": "",
+   "source_slides": {
+    "Case-2019/2020 decks": "Style/refs/case-competitions-2019-2020.md §10"
+   },
+   "source_count": 2,
+   "generator": "Generators/patterns_place.js floorPlan"
   }
  ]
 }

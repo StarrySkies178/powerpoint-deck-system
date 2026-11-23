@@ -15,3 +15,12 @@
 | 2026-11-23 16:17 | round 7d: full run (render-measured title) (20 cases) | 9/20 | 196/212 | 0.43 | 0.46 |
 | 2026-11-23 16:26 | final: run from the folder layout (generators v2.4, store with original colours) (20 cases) | 9/20 | 196/212 | 0.43 | 0.46 |
 | 2026-11-23 08:29 | check on the user's machine (D06, C03) (2 cases) | 1/2 | 21/21 | 0.52 | 0.50 |
+| 2026-11-23 20:38 | v2.6 try: sibling layouts + deck panel headers + table rules (C cases) (10 cases) | 0/10 | 89/106 | 0.17 | 0.21 |
+| 2026-11-23 20:39 | v2.6: sibling layouts, deck panel headers, table rules (full run) (20 cases) | 9/20 | 195/212 | 0.45 | 0.48 |
+| 2026-11-23 20:40 | v2.6: C04 cards at the deck's body size (1 cases) | 0/1 | 10/11 | 0.34 | 0.19 |
+| 2026-11-23 20:42 | v2.6: native chart labels measured (scorer), full run (20 cases) | 9/20 | 195/212 | 0.45 | 0.49 |
+| 2026-11-23 20:42 | v2.6: chart labels at the deck's body size when it has no native charts (full run) (20 cases) | 9/20 | 195/212 | 0.45 | 0.49 |
+| 2026-11-23 20:43 | v2.6: single-series highlight charts follow the reference chart style (full run) (20 cases) | 9/20 | 195/212 | 0.45 | 0.49 |
+| 2026-11-23 20:43 | v2.6: C04 CAGR table as in the prompt (1 cases) | 0/1 | 11/11 | 0.33 | 0.26 |
+| 2026-11-23 20:44 | v2.6 final: sibling layouts, deck panel headers, table rules, deck chart text (full run) (20 cases) | 9/20 | 196/212 | 0.45 | 0.49 |
+| 2026-11-23 12:45 | v2.6 check on the user's machine (C04, C09) (2 cases) | 0/2 | 19/21 | 0.30 | 0.33 |

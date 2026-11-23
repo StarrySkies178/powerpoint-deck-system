@@ -125,6 +125,37 @@ def profile(path, slides=None):
             if b["y"] < t["y"] + 0.05 and b is not t and re.search(r"►|▶|→|»|\t", b["text"]) and b["size"] < t["size"]:
                 cols = [r[5].upper() for r in b["runs"]]
                 T["crumb"].append((b["x"], b["y"], b["size"], b["runs"][0][2], b["runs"][0][3], collections.Counter(cols).most_common()))
+        # panel sub-headline: a small chip with a number/letter, a headline to its right, often a rule underneath
+        for sh, (x, y, w, h) in items:
+            if not (0.12 < w < 0.5 and 0.12 < h < 0.5) or not getattr(sh, "has_text_frame", False) or not sh.has_text_frame: continue
+            ct = sh.text_frame.text.strip()
+            if not re.fullmatch(r"[0-9A-Za-z]{1,2}|[0-9][.][0-9]", ct): continue
+            heads = [b for b in texts if b["sh"] is not sh and abs((b["y"] + b["h"] / 2) - (y + h / 2)) < 0.2 and 0 < b["x"] - x < 0.9 and len(b["text"]) > 8
+                     and b["size"] < t["size"] - 2 and b is not t]
+            if not heads: continue
+            hd = min(heads, key=lambda b: b["x"] - x)
+            geom = sh._element.find(".//" + qn("a:prstGeom"))
+            cr = [r for p_ in sh.text_frame.paragraphs for r in p_.runs if r.text.strip()]
+            cprops = run_props(ctx, sh, sh.text_frame.paragraphs[0], cr[0]) if cr else None
+            r1 = hd["runs"][0]
+            rule = None
+            for sh2, (x2, y2, w2, h2) in items:
+                if h2 < 0.04 and w2 > 1.5 and hd["y"] + hd["h"] - 0.15 < y2 < hd["y"] + hd["h"] + 0.35 and abs(x2 - x) < 0.6:
+                    rc = line_hex(ctx, sh2) or fill_hex(ctx, sh2)
+                    if rc:
+                        ln = sh2._element.find(qn("p:spPr") + "/" + qn("a:ln")); wd = int(ln.get("w")) / 12700 if ln is not None and ln.get("w") else 1
+                        rule = (rc.upper(), round(wd, 2), round(y2 - y, 2))
+            cf = fill_hex(ctx, sh)
+            if not cf:   # number in its own text box over a filled shape (circle/square): take that shape
+                cx2, cy2 = x + w / 2, y + h / 2
+                under = [(sh2, b2) for sh2, b2 in items if sh2 is not sh and fill_hex(ctx, sh2) and b2[0] <= cx2 <= b2[0] + b2[2] and b2[1] <= cy2 <= b2[1] + b2[3] and b2[2] < 0.6 and b2[3] < 0.6]
+                if under:
+                    sh2, b2 = under[0]; cf = fill_hex(ctx, sh2); geom = sh2._element.find(".//" + qn("a:prstGeom"))
+                    if geom is None and abs(b2[2] - b2[3]) < 0.04: geom = {"prst": "ellipse"}   # drawn circle (custom geometry)
+                    w = h = max(b2[2], b2[3])
+            T["panel"].append(dict(chip=geom.get("prst") if geom is not None else "rect", fill=(cf or "").upper() or None,
+                text=cprops[4].upper() if cprops else "FFFFFF", size=round((w + h) / 2, 2), chip_pt=cprops[0] if cprops else 11,
+                pt=r1[1], bold=r1[2], colour=r1[5].upper(), italic=None, rule=rule))
         # source line and page number
         for b in texts:
             if SRC.match(b["text"]) and b["y"] > 0.75 * H:
@@ -167,6 +198,13 @@ def profile(path, slides=None):
                     p = tcp(c); f = p.find(qn("a:solidFill")) if p is not None else None
                     return ctx.colour(f).upper() if f is not None else None
                 T["tbl_head"].append(cfill(c0)); T["tbl_body"].append(cfill(c1))
+                def lnb(c, side="a:lnB"):
+                    p = tcp(c); l = p.find(qn(side)) if p is not None else None
+                    if l is None or l.find(qn("a:noFill")) is not None: return None
+                    f = l.find(qn("a:solidFill")); return (ctx.colour(f).upper(), round(int(l.get("w", "12700")) / 12700, 2)) if f is not None else None
+                T["tbl_head_rule"].append(lnb(c0)); T["tbl_body_rule"].append(lnb(c1))
+                hr = [r for p in c0.text_frame.paragraphs for r in p.runs if r.text.strip()]
+                if hr: T["tbl_head_bold"].append(run_props(ctx, sh, c0.text_frame.paragraphs[0], hr[0])[1])
                 rr = [r for p in c0.text_frame.paragraphs for r in p.runs if r.text.strip()]
                 if rr: T["tbl_head_text"].append(run_props(ctx, sh, c0.text_frame.paragraphs[0], rr[0])[4].upper())
                 rr = [r for p in c1.text_frame.paragraphs for r in p.runs if r.text.strip()]
@@ -217,7 +255,12 @@ def profile(path, slides=None):
                    tint=max([c for c, a, L in colours if L > 80] or [panel[0] if panel else "F2F2F2"], key=lambda c: chroma(c)[1])),
         colours_ranked=[c for c, a, L in colours[:6]], neutrals_ranked=[c for c, a, L in neutrals[:6]],
         chart=dict(value_axis=mode(T["chart_valax"], False), gridlines=mode(T["chart_grid"], False), pt=med(T["chart_pt"], None, 1)),
-        table=dict(header_fill=mode(T["tbl_head"]), header_text=mode(T["tbl_head_text"]), body_fill=mode(T["tbl_body"]), pt=med(T["tbl_pt"], None, 1)),
+        table=dict(header_fill=mode(T["tbl_head"]), header_text=mode(T["tbl_head_text"]), body_fill=mode(T["tbl_body"]), pt=med(T["tbl_pt"], None, 1),
+                   header_rule=mode(T["tbl_head_rule"]), row_rule=mode(T["tbl_body_rule"]), header_bold=mode(T["tbl_head_bold"], True),
+                   style="lines" if (mode(T["tbl_head_rule"]) or mode(T["tbl_body_rule"])) and not mode(T["tbl_body"]) else "bands"),
+        panel=(lambda P: dict(chip=mode([q["chip"] for q in P]), fill=mode([q["fill"] for q in P]), text=mode([q["text"] for q in P]), size=med([q["size"] for q in P]),
+                              chip_pt=med([q["chip_pt"] for q in P], 11, 1), pt=med([q["pt"] for q in P], 13, 1), bold=mode([q["bold"] for q in P], True),
+                              colour=mode([q["colour"] for q in P]), rule=mode([q["rule"] for q in P]), n=len(P)))(T["panel"]) if len(T["panel"]) >= 3 else None,
         theme=sorted(set(Ctx(prs, prs.slides[0]).scheme.values())),
         variants={"dark_panel": T["variant"][0]} if T["variant"] else {},
     )
