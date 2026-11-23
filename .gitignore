@@ -20,5 +20,6 @@ logs/active-work.md
 # >>> big files kept as parts (written by scripts/bigfiles.py, do not edit)
 /Objects/store/media.zip
 /archive/media_pre-v2.15_2026-11-23.zip
+/archive/media_pre-v2.38_2026-11-23.zip
 /archive/media_v2.8_2026-11-23.zip
 # <<< big files

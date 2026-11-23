@@ -1,0 +1,662 @@
+{
+"p3-b3-l0": "",
+"p3-b17-l0": "43,834 46,152",
+"p3-b18-l0": "1,232",
+"p3-b21-l0": "1,110",
+"p3-b56-l0": "",
+"p4-b1-l0": "1 T1&2 cities are highly competitive",
+"p4-b13-l0": "",
+"p4-b17-l0": "Growing 3rd party platform commission",
+"p4-b18-l0": "",
+"p4-b36-l0": "3rd party online platforms (e.g. Meituan)",
+"p5-b1-l0": "1 Fruit Mkt covers 6 customer personas",
+"p5-b35-l0": "",
+"p7-b17-l0": "1400+ new stores",
+"p7-b31-l0": "",
+"p8-b9-l0": "Market Demand ²",
+"p8-b38-l0": "Mianyan 35",
+"p8-b38-l1": "",
+"p8-b54-l0": "36",
+"p8-b88-l0": "Note: ¹ full list see appendix;",
+"p8-b89-l0": "²Market Demand: fruit consumption number in 2019;",
+"p9-b10-l0": "",
+"p9-b36-l0": "",
+"p10-b27-l0": "City Partner pays one-time investment fee and fixed annual operation fee to headquarter, and earns ~75% of profit",
+"p11-b37-l0": "",
+"p11-b38-l0": "",
+"p12-b55-l0": "Live: Lijiaqi (李佳琦) / Weiya (薇娅); poverty alleviation charity live with farmer",
+"p13-b13-l0": "",
+"p13-b45-l0": "",
+"p15-b36-l0": "1.5",
+"p16-b9-l0": "Higher than expected: Agile reverse",
+"p18-b36-l0": "2.",
+"p19-b1-l0": "Store in Tier 1,2 cities (FruitCo. : Chain Store)",
+"p19-b7-l0": "40-50m^2",
+"p19-b30-l5": "315,000",
+"p19-b71-l0": "2,201,204",
+"p20-b1-l0": "Store in Tier 3,4 cities (L&Y Fruits: Independent Store)",
+"p20-b3-l0": "2021",
+"p20-b29-l5": "305,000",
+"p20-b34-l3": "982,575",
+"p20-b53-l1": "50,938",
+"p20-b69-l0": "1,025,829",
+"p20-b75-l0": "409,964",
+"p20-b78-l0": "48,601",
+"p20-b79-l0": "356,669",
+"p2-b45-l0": "",
+"p3-b5-l0": "1 Increasing potential customer base",
+"p3-b6-l0": "2 Upgrade in product mix",
+"p3-b8-l0": "A Increasing purchasing power",
+"p3-b11-l0": "",
+"p3-b35-l0": "B Rising awareness of dietary structure,",
+"p3-b44-l0": "Online Sales Offline Sales",
+"p4-b15-l0": "Speciality Chain",
+"p4-b16-l0": "Community Buy",
+"p4-b16-l2": "Mom&Pop",
+"p4-b23-l0": "GreatSunFoods",
+"p4-b27-l0": "Xianfeng JoyTree",
+"p5-b15-l0": "A",
+"p5-b17-l0": "",
+"p5-b34-l0": "",
+"p5-b34-l1": "",
+"p7-b4-l0": "",
+"p8-b23-l0": "Luo",
+"p8-b37-l0": "",
+"p8-b43-l0": "",
+"p8-b52-l0": "",
+"p8-b73-l0": "Key drivers of the store expansion",
+"p8-b86-l0": "Xiamen",
+"p9-b3-l1": "",
+"p9-b45-l0": "",
+"p11-b3-l0": "",
+"p11-b15-l0": "",
+"p12-b1-l0": "",
+"p12-b18-l0": "",
+"p12-b19-l0": "",
+"p12-b22-l0": "",
+"p13-b26-l0": "",
+"p13-b34-l0": "",
+"p15-b1-l0": "",
+"p15-b2-l0": "",
+"p16-b33-l0": "",
+"p20-b45-l0": "Commodity",
+"p20-b48-l0": "",
+"_missing": {
+"m4-1": {
+"page": 3,
+"text": "17%",
+"x": 1090,
+"y": 278,
+"w": 35,
+"h": 14,
+"conf": 95.0
+},
+"m4-2": {
+"page": 3,
+"text": "83%",
+"x": 1277,
+"y": 277,
+"w": 36,
+"h": 13,
+"conf": 96.0
+},
+"m8-4": {
+"page": 7,
+"text": "21",
+"x": 301,
+"y": 363,
+"w": 16,
+"h": 13,
+"conf": 96.0
+},
+"m8-5": {
+"page": 7,
+"text": "36",
+"x": 442,
+"y": 350,
+"w": 18,
+"h": 13,
+"conf": 96.0
+},
+"m8-6": {
+"page": 7,
+"text": "12",
+"x": 229,
+"y": 402,
+"w": 18,
+"h": 13,
+"conf": 96.0
+},
+"m8-7": {
+"page": 7,
+"text": "10",
+"x": 716,
+"y": 385,
+"w": 16,
+"h": 13,
+"conf": 96.0
+},
+"m8-8": {
+"page": 7,
+"text": "17",
+"x": 800,
+"y": 388,
+"w": 16,
+"h": 12,
+"conf": 96.0
+},
+"m8-9": {
+"page": 7,
+"text": "12",
+"x": 700,
+"y": 500,
+"w": 17,
+"h": 13,
+"conf": 96.0
+},
+"m18-14": {
+"page": 17,
+"text": "1",
+"x": 185,
+"y": 560,
+"w": 6,
+"h": 14,
+"conf": 96.0
+},
+"m4-0": {
+"page": 3,
+"text": "93%",
+"x": 1259,
+"y": 205,
+"w": 33,
+"h": 13,
+"conf": 96.0
+},
+"w1-0": {
+"page": 0,
+"text": "Growth Strategy Proposal:",
+"x": 57,
+"y": 665,
+"w": 764,
+"h": 59,
+"conf": 96.0
+},
+"w1-1": {
+"page": 0,
+"text": "Lifestyle",
+"x": 714,
+"y": 737,
+"w": 241,
+"h": 59,
+"conf": 96.0
+},
+"w1-2": {
+"page": 0,
+"text": "Develop Fruit",
+"x": 59,
+"y": 738,
+"w": 385,
+"h": 57,
+"conf": 95.0
+},
+"w1-3": {
+"page": 0,
+"text": "Bain Cup Case Competition",
+"x": 133,
+"y": 819,
+"w": 372,
+"h": 29,
+"conf": 94.0
+},
+"w1-4": {
+"page": 0,
+"text": "Starlight Consulting",
+"x": 56,
+"y": 855,
+"w": 262,
+"h": 29,
+"conf": 96.0
+},
+"w7-6": {
+"page": 6,
+"text": "Data-driven",
+"x": 1196,
+"y": 484,
+"w": 148,
+"h": 32,
+"conf": 91.0
+},
+"w7-7": {
+"page": 6,
+"text": "Support",
+"x": 626,
+"y": 653,
+"w": 56,
+"h": 15,
+"conf": 96.0
+},
+"w7-8": {
+"page": 6,
+"text": "Smart customer journey",
+"x": 1220,
+"y": 699,
+"w": 294,
+"h": 25,
+"conf": 95.0
+},
+"w7-9": {
+"page": 6,
+"text": "Increase customer",
+"x": 752,
+"y": 705,
+"w": 231,
+"h": 20,
+"conf": 95.0
+},
+"w7-10": {
+"page": 6,
+"text": "loyalty",
+"x": 992,
+"y": 705,
+"w": 83,
+"h": 25,
+"conf": 96.0
+},
+"w7-11": {
+"page": 6,
+"text": "Increase repurchase",
+"x": 1221,
+"y": 741,
+"w": 254,
+"h": 25,
+"conf": 95.0
+},
+"w7-12": {
+"page": 6,
+"text": "Expand customer",
+"x": 752,
+"y": 747,
+"w": 218,
+"h": 25,
+"conf": 95.0
+},
+"w7-13": {
+"page": 6,
+"text": "base",
+"x": 980,
+"y": 748,
+"w": 59,
+"h": 19,
+"conf": 96.0
+},
+"w8-14": {
+"page": 7,
+"text": "Med",
+"x": 854,
+"y": 281,
+"w": 31,
+"h": 14,
+"conf": 82.0
+},
+"w9-16": {
+"page": 8,
+"text": "Local community",
+"x": 707,
+"y": 674,
+"w": 166,
+"h": 20,
+"conf": 95.0
+},
+"w9-17": {
+"page": 8,
+"text": "Cities",
+"x": 527,
+"y": 701,
+"w": 52,
+"h": 15,
+"conf": 96.0
+},
+"w9-18": {
+"page": 8,
+"text": "Each serves",
+"x": 704,
+"y": 701,
+"w": 117,
+"h": 15,
+"conf": 96.0
+},
+"w9-19": {
+"page": 8,
+"text": "close",
+"x": 495,
+"y": 727,
+"w": 49,
+"h": 15,
+"conf": 96.0
+},
+"w9-20": {
+"page": 8,
+"text": "highway",
+"x": 577,
+"y": 727,
+"w": 78,
+"h": 19,
+"conf": 96.0
+},
+"w10-21": {
+"page": 9,
+"text": "Pre",
+"x": 715,
+"y": 222,
+"w": 29,
+"h": 14,
+"conf": 92.0
+},
+"w10-22": {
+"page": 9,
+"text": "Online",
+"x": 1438,
+"y": 228,
+"w": 72,
+"h": 17,
+"conf": 96.0
+},
+"w10-23": {
+"page": 9,
+"text": "opening",
+"x": 701,
+"y": 250,
+"w": 69,
+"h": 15,
+"conf": 95.0
+},
+"w10-24": {
+"page": 9,
+"text": "channel",
+"x": 1430,
+"y": 256,
+"w": 87,
+"h": 18,
+"conf": 96.0
+},
+"w10-25": {
+"page": 9,
+"text": "Marketing",
+"x": 880,
+"y": 395,
+"w": 109,
+"h": 23,
+"conf": 96.0
+},
+"w10-26": {
+"page": 9,
+"text": "materials",
+"x": 883,
+"y": 424,
+"w": 102,
+"h": 17,
+"conf": 96.0
+},
+"w10-27": {
+"page": 9,
+"text": "supply chain, and provide operation,",
+"x": 160,
+"y": 444,
+"w": 351,
+"h": 20,
+"conf": 95.0
+},
+"w10-28": {
+"page": 9,
+"text": "marketing and pricing suggestions",
+"x": 170,
+"y": 471,
+"w": 333,
+"h": 20,
+"conf": 96.0
+},
+"w10-29": {
+"page": 9,
+"text": "Tidy",
+"x": 850,
+"y": 549,
+"w": 44,
+"h": 21,
+"conf": 93.0
+},
+"w10-30": {
+"page": 9,
+"text": "Guaranteed",
+"x": 1226,
+"y": 549,
+"w": 121,
+"h": 17,
+"conf": 96.0
+},
+"w10-31": {
+"page": 9,
+"text": "Reason-free",
+"x": 1411,
+"y": 549,
+"w": 125,
+"h": 17,
+"conf": 91.0
+},
+"w10-32": {
+"page": 9,
+"text": "Fruit Quality",
+"x": 1030,
+"y": 551,
+"w": 128,
+"h": 20,
+"conf": 96.0
+},
+"w10-33": {
+"page": 9,
+"text": "floor space",
+"x": 855,
+"y": 575,
+"w": 117,
+"h": 22,
+"conf": 95.0
+},
+"w10-34": {
+"page": 9,
+"text": "delivery time",
+"x": 1220,
+"y": 575,
+"w": 133,
+"h": 21,
+"conf": 95.0
+},
+"w10-35": {
+"page": 9,
+"text": "refund policy",
+"x": 1405,
+"y": 575,
+"w": 136,
+"h": 21,
+"conf": 95.0
+},
+"w10-36": {
+"page": 9,
+"text": "measurement",
+"x": 1023,
+"y": 577,
+"w": 143,
+"h": 16,
+"conf": 96.0
+},
+"w10-37": {
+"page": 9,
+"text": "Automatic order fulfillment",
+"x": 859,
+"y": 753,
+"w": 255,
+"h": 17,
+"conf": 96.0
+},
+"w10-38": {
+"page": 9,
+"text": "Community service",
+"x": 1235,
+"y": 753,
+"w": 187,
+"h": 21,
+"conf": 96.0
+},
+"w10-39": {
+"page": 9,
+"text": "Provide monetary",
+"x": 139,
+"y": 779,
+"w": 163,
+"h": 19,
+"conf": 96.0
+},
+"w10-40": {
+"page": 9,
+"text": "award base",
+"x": 308,
+"y": 779,
+"w": 108,
+"h": 15,
+"conf": 96.0
+},
+"w10-41": {
+"page": 9,
+"text": "growth",
+"x": 501,
+"y": 779,
+"w": 60,
+"h": 19,
+"conf": 93.0
+},
+"w10-42": {
+"page": 9,
+"text": "Track store",
+"x": 858,
+"y": 779,
+"w": 109,
+"h": 16,
+"conf": 96.0
+},
+"w10-43": {
+"page": 9,
+"text": "performance",
+"x": 974,
+"y": 779,
+"w": 123,
+"h": 20,
+"conf": 95.0
+},
+"w10-44": {
+"page": 9,
+"text": "Track regional purchase habit",
+"x": 1235,
+"y": 779,
+"w": 289,
+"h": 21,
+"conf": 96.0
+},
+"w10-45": {
+"page": 9,
+"text": "store",
+"x": 450,
+"y": 780,
+"w": 44,
+"h": 14,
+"conf": 96.0
+},
+"w10-46": {
+"page": 9,
+"text": "Prioritize demand",
+"x": 138,
+"y": 803,
+"w": 156,
+"h": 16,
+"conf": 96.0
+},
+"w10-47": {
+"page": 9,
+"text": "fulfillment and store upgrade",
+"x": 300,
+"y": 803,
+"w": 255,
+"h": 20,
+"conf": 77.0
+},
+"w12-49": {
+"page": 11,
+"text": "Intelligent",
+"x": 1197,
+"y": 690,
+"w": 95,
+"h": 19,
+"conf": 95.0
+},
+"w12-50": {
+"page": 11,
+"text": "in-app",
+"x": 1476,
+"y": 701,
+"w": 59,
+"h": 19,
+"conf": 91.0
+},
+"w12-51": {
+"page": 11,
+"text": "Scheduling",
+"x": 1190,
+"y": 715,
+"w": 108,
+"h": 19,
+"conf": 96.0
+},
+"w12-52": {
+"page": 11,
+"text": "listing",
+"x": 1476,
+"y": 725,
+"w": 58,
+"h": 19,
+"conf": 96.0
+},
+"w16-54": {
+"page": 15,
+"text": "Establish inspection",
+"x": 910,
+"y": 652,
+"w": 239,
+"h": 22,
+"conf": 92.0
+},
+"w16-55": {
+"page": 15,
+"text": "Quarterly inspection",
+"x": 924,
+"y": 691,
+"w": 193,
+"h": 21,
+"conf": 96.0
+},
+"w16-56": {
+"page": 15,
+"text": "supply chain and stores",
+"x": 1155,
+"y": 691,
+"w": 229,
+"h": 21,
+"conf": 96.0
+},
+"w16-57": {
+"page": 15,
+"text": "Execute in-house reward and punishment system",
+"x": 925,
+"y": 726,
+"w": 476,
+"h": 21,
+"conf": 96.0
+}
+}
+}

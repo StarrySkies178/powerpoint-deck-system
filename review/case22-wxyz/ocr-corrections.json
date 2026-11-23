@@ -1,0 +1,632 @@
+{
+"p1-b3-l0": "",
+"p2-b9-l2": "premium trend",
+"p2-b9-l3": "demand",
+"p2-b35-l0": "age B2B platform to reach",
+"p2-b36-l0": "",
+"p2-b40-l0": "8.4 Bn RMB incremental revenue",
+"p3-b15-l0": "Penetration d",
+"p3-b21-l0": "",
+"p3-b22-l0": "30%-35%",
+"p3-b29-l0": "1,450",
+"p3-b47-l0": "70",
+"p3-b57-l0": "Highlights",
+"p3-b68-l0": "",
+"p4-b32-l0": "",
+"p5-b34-l0": "2026E²",
+"p5-b65-l0": "",
+"p6-b0-l0": {
+"sub": [
+"^9 ",
+""
+]
+},
+"p6-b2-l0": "",
+"p6-b12-l0": "DT",
+"p6-b17-l0": "",
+"p6-b31-l0": "~5 tier cities",
+"p7-b4-l0": "",
+"p7-b6-l0": "",
+"p7-b50-l0": "",
+"p7-b53-l0": "",
+"p8-b6-l0": "9",
+"p8-b12-l0": "",
+"p8-b20-l1": "• Develop more flavors",
+"p8-b21-l0": "• All ages",
+"p8-b35-l0": "",
+"p9-b4-l0": "0%",
+"p9-b50-l0": "",
+"p10-b0-l0": {
+"sub": [
+"^9 ",
+""
+]
+},
+"p10-b44-l0": "",
+"p11-b0-l0": "Under “3+1”strategy, NF’s carbonates segment is projected to grow to 8.4",
+"p11-b22-l0": "84",
+"p11-b31-l0": "",
+"p11-b32-l0": "2026E²",
+"p11-b64-l0": "",
+"p12-b34-l0": "",
+"p3-b15-l1": "",
+"p3-b19-l0": "Non-cola with sugar",
+"p3-b30-l0": "Rising penetration rate",
+"p3-b39-l0": "",
+"p3-b65-l0": "",
+"p3-b67-l0": "Page 4",
+"p4-b0-l2": "1 Non-sugar customer: Higher willingness to pay for premium",
+"p4-b19-l0": "",
+"p5-b16-l0": "",
+"p5-b51-l0": "",
+"p6-b6-l0": "Soda",
+"p6-b8-l0": "",
+"p7-b4-l1": "",
+"p7-b8-l0": "",
+"p7-b49-l0": "汽茶” in Chinese.",
+"p7-b52-l0": "Page 9",
+"p8-b24-l0": "",
+"p8-b29-l0": "",
+"p8-b38-l0": "",
+"p9-b14-l0": "",
+"p9-b22-l0": "Branding",
+"p9-b25-l0": "NF Spring",
+"p9-b36-l1": "market",
+"p9-b40-l0": "",
+"p9-b47-l0": "",
+"p10-b16-l2": "capture latest industrial",
+"p10-b37-l0": "",
+"p12-b9-l0": "",
+"p12-b12-l0": "",
+"_missing": {
+"m3-0": {
+"page": 2,
+"text": "360",
+"x": 221,
+"y": 838,
+"w": 34,
+"h": 16,
+"conf": 95.0
+},
+"m3-1": {
+"page": 2,
+"text": "430",
+"x": 220,
+"y": 1004,
+"w": 36,
+"h": 17,
+"conf": 96.0
+},
+"m9-3": {
+"page": 8,
+"text": "1%",
+"x": 643,
+"y": 268,
+"w": 31,
+"h": 18,
+"conf": 96.0
+},
+"m9-4": {
+"page": 8,
+"text": "(6.0)",
+"x": 339,
+"y": 531,
+"w": 30,
+"h": 18,
+"conf": 95.0
+},
+"m9-5": {
+"page": 8,
+"text": "5%",
+"x": 422,
+"y": 532,
+"w": 34,
+"h": 20,
+"conf": 96.0
+},
+"m9-6": {
+"page": 8,
+"text": "8%",
+"x": 336,
+"y": 568,
+"w": 34,
+"h": 21,
+"conf": 96.0
+},
+"m9-7": {
+"page": 8,
+"text": "(8.3)",
+"x": 337,
+"y": 597,
+"w": 34,
+"h": 20,
+"conf": 96.0
+},
+"w2-2": {
+"page": 1,
+"text": "Strategy",
+"x": 360,
+"y": 486,
+"w": 150,
+"h": 37,
+"conf": 96.0
+},
+"w2-3": {
+"page": 1,
+"text": "Distribution Strategy",
+"x": 1618,
+"y": 486,
+"w": 373,
+"h": 36,
+"conf": 96.0
+},
+"w2-4": {
+"page": 1,
+"text": "Product",
+"x": 207,
+"y": 487,
+"w": 140,
+"h": 29,
+"conf": 96.0
+},
+"w2-5": {
+"page": 1,
+"text": "Innovate premium channe",
+"x": 1704,
+"y": 536,
+"w": 355,
+"h": 23,
+"conf": 92.0
+},
+"w2-6": {
+"page": 1,
+"text": "Launch premium product target",
+"x": 151,
+"y": 549,
+"w": 490,
+"h": 30,
+"conf": 93.0
+},
+"w2-7": {
+"page": 1,
+"text": "high-",
+"x": 649,
+"y": 549,
+"w": 68,
+"h": 30,
+"conf": 92.0
+},
+"w2-8": {
+"page": 1,
+"text": "end customers",
+"x": 151,
+"y": 581,
+"w": 201,
+"h": 23,
+"conf": 95.0
+},
+"w2-9": {
+"page": 1,
+"text": "DTC and online communit",
+"x": 1717,
+"y": 588,
+"w": 356,
+"h": 24,
+"conf": 91.0
+},
+"w2-10": {
+"page": 1,
+"text": "white collar, middle class, gym guy",
+"x": 917,
+"y": 621,
+"w": 474,
+"h": 30,
+"conf": 94.0
+},
+"w2-11": {
+"page": 1,
+"text": "Add nutrition, design glass bottle package",
+"x": 187,
+"y": 629,
+"w": 571,
+"h": 29,
+"conf": 93.0
+},
+"w2-12": {
+"page": 1,
+"text": "Value: reduce daily anxiety,",
+"x": 814,
+"y": 663,
+"w": 371,
+"h": 30,
+"conf": 96.0
+},
+"w2-13": {
+"page": 1,
+"text": "healthier, more",
+"x": 1197,
+"y": 663,
+"w": 203,
+"h": 27,
+"conf": 95.0
+},
+"w2-14": {
+"page": 1,
+"text": "nutrition",
+"x": 1411,
+"y": 663,
+"w": 107,
+"h": 24,
+"conf": 95.0
+},
+"w2-15": {
+"page": 1,
+"text": "product, remain",
+"x": 436,
+"y": 679,
+"w": 214,
+"h": 30,
+"conf": 93.0
+},
+"w2-16": {
+"page": 1,
+"text": "existing",
+"x": 323,
+"y": 680,
+"w": 104,
+"h": 29,
+"conf": 96.0
+},
+"w2-17": {
+"page": 1,
+"text": "one",
+"x": 263,
+"y": 685,
+"w": 50,
+"h": 18,
+"conf": 96.0
+},
+"w2-18": {
+"page": 1,
+"text": "Ads",
+"x": 814,
+"y": 706,
+"w": 53,
+"h": 24,
+"conf": 96.0
+},
+"w2-19": {
+"page": 1,
+"text": "attractive",
+"x": 1002,
+"y": 706,
+"w": 123,
+"h": 24,
+"conf": 96.0
+},
+"w2-20": {
+"page": 1,
+"text": "vending machine and",
+"x": 1718,
+"y": 719,
+"w": 292,
+"h": 23,
+"conf": 95.0
+},
+"w2-21": {
+"page": 1,
+"text": "other regions.",
+"x": 1726,
+"y": 775,
+"w": 185,
+"h": 30,
+"conf": 95.0
+},
+"w2-22": {
+"page": 1,
+"text": "expand",
+"x": 1580,
+"y": 776,
+"w": 99,
+"h": 29,
+"conf": 96.0
+},
+"w2-23": {
+"page": 1,
+"text": "Qicha: Mix and Match Bravely",
+"x": 792,
+"y": 854,
+"w": 410,
+"h": 30,
+"conf": 90.0
+},
+"w2-24": {
+"page": 1,
+"text": "Target: town youngster,",
+"x": 809,
+"y": 909,
+"w": 318,
+"h": 30,
+"conf": 95.0
+},
+"w2-25": {
+"page": 1,
+"text": "blue collar, Gen",
+"x": 1139,
+"y": 909,
+"w": 211,
+"h": 27,
+"conf": 92.0
+},
+"w2-26": {
+"page": 1,
+"text": "for money,",
+"x": 985,
+"y": 951,
+"w": 142,
+"h": 30,
+"conf": 96.0
+},
+"w2-27": {
+"page": 1,
+"text": "Value: value",
+"x": 808,
+"y": 952,
+"w": 168,
+"h": 23,
+"conf": 96.0
+},
+"w2-28": {
+"page": 1,
+"text": "unique taste, more",
+"x": 1139,
+"y": 952,
+"w": 254,
+"h": 29,
+"conf": 95.0
+},
+"w2-29": {
+"page": 1,
+"text": "flavors,",
+"x": 1402,
+"y": 952,
+"w": 97,
+"h": 27,
+"conf": 96.0
+},
+"w2-30": {
+"page": 1,
+"text": "Ads",
+"x": 809,
+"y": 994,
+"w": 52,
+"h": 24,
+"conf": 96.0
+},
+"w2-31": {
+"page": 1,
+"text": "attractive",
+"x": 996,
+"y": 994,
+"w": 124,
+"h": 24,
+"conf": 96.0
+},
+"w2-32": {
+"page": 1,
+"text": "market consumers,",
+"x": 1248,
+"y": 994,
+"w": 259,
+"h": 27,
+"conf": 96.0
+},
+"w2-33": {
+"page": 1,
+"text": "mass",
+"x": 1166,
+"y": 1000,
+"w": 71,
+"h": 18,
+"conf": 96.0
+},
+"w4-34": {
+"page": 3,
+"text": "Non-sugar",
+"x": 459,
+"y": 480,
+"w": 143,
+"h": 28,
+"conf": 92.0
+},
+"w4-35": {
+"page": 3,
+"text": "needs",
+"x": 914,
+"y": 480,
+"w": 82,
+"h": 23,
+"conf": 96.0
+},
+"w8-36": {
+"page": 7,
+"text": "Launch",
+"x": 1220,
+"y": 318,
+"w": 109,
+"h": 20,
+"conf": 94.0
+},
+"w8-37": {
+"page": 7,
+"text": "product",
+"x": 1445,
+"y": 318,
+"w": 118,
+"h": 21,
+"conf": 95.0
+},
+"w8-38": {
+"page": 7,
+"text": "High-ends",
+"x": 1629,
+"y": 319,
+"w": 155,
+"h": 28,
+"conf": 88.0
+},
+"w8-39": {
+"page": 7,
+"text": "new",
+"x": 1371,
+"y": 322,
+"w": 60,
+"h": 16,
+"conf": 78.0
+},
+"w8-40": {
+"page": 7,
+"text": "RMB",
+"x": 1505,
+"y": 365,
+"w": 71,
+"h": 23,
+"conf": 76.0
+},
+"w8-41": {
+"page": 7,
+"text": "lightness",
+"x": 2021,
+"y": 415,
+"w": 118,
+"h": 20,
+"conf": 89.0
+},
+"w8-42": {
+"page": 7,
+"text": "being",
+"x": 1991,
+"y": 446,
+"w": 77,
+"h": 29,
+"conf": 96.0
+},
+"w8-43": {
+"page": 7,
+"text": "Non sugar",
+"x": 1057,
+"y": 516,
+"w": 111,
+"h": 22,
+"conf": 96.0
+},
+"w8-44": {
+"page": 7,
+"text": "sugar",
+"x": 1109,
+"y": 765,
+"w": 58,
+"h": 17,
+"conf": 96.0
+},
+"w8-45": {
+"page": 7,
+"text": "Non",
+"x": 1067,
+"y": 766,
+"w": 31,
+"h": 11,
+"conf": 88.0
+},
+"w8-46": {
+"page": 7,
+"text": "More",
+"x": 1643,
+"y": 871,
+"w": 76,
+"h": 31,
+"conf": 96.0
+},
+"w8-47": {
+"page": 7,
+"text": "Reimagine position",
+"x": 1226,
+"y": 874,
+"w": 301,
+"h": 32,
+"conf": 91.0
+},
+"w8-48": {
+"page": 7,
+"text": "~ 4 RMB",
+"x": 1442,
+"y": 923,
+"w": 129,
+"h": 25,
+"conf": 89.0
+},
+"w8-49": {
+"page": 7,
+"text": "Mismatch boidly",
+"x": 1933,
+"y": 964,
+"w": 235,
+"h": 31,
+"conf": 85.0
+},
+"w8-50": {
+"page": 7,
+"text": "GenZ",
+"x": 1643,
+"y": 969,
+"w": 90,
+"h": 25,
+"conf": 91.0
+},
+"w8-51": {
+"page": 7,
+"text": "restrain",
+"x": 2024,
+"y": 1000,
+"w": 108,
+"h": 23,
+"conf": 96.0
+},
+"w8-52": {
+"page": 7,
+"text": "never",
+"x": 1934,
+"y": 1004,
+"w": 82,
+"h": 18,
+"conf": 95.0
+},
+"w8-53": {
+"page": 7,
+"text": "yourself",
+"x": 1931,
+"y": 1032,
+"w": 119,
+"h": 31,
+"conf": 96.0
+},
+"w8-54": {
+"page": 7,
+"text": "With sugar",
+"x": 1066,
+"y": 1098,
+"w": 116,
+"h": 23,
+"conf": 96.0
+},
+"w11-55": {
+"page": 10,
+"text": "Page 14",
+"x": 2040,
+"y": 1211,
+"w": 59,
+"h": 41,
+"conf": 81.0
+}
+}
+}

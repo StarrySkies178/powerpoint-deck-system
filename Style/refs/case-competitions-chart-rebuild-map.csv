@@ -41,3 +41,86 @@ case-olddriver-lg-008p2,stacked-chart,100% stacked columns with series lines,"st
 case-olddriver-lg-015p1,stacked-chart,100% stacked columns by city tier with series lines,"stackedCagr / chartIn {type:""stacked""|""stacked100""}"
 case-olddriver-lg-015p2,stacked-chart,100% stacked columns by city tier with series lines,"stackedCagr / chartIn {type:""stacked""|""stacked100""}"
 case-olddriver-lg-015p3,pie-chart,pie with legend and panel headline,"chartIn {type:""pie""|""donut""}"
+case21-chillchili-003,stacked-chart,stacked columns with CAGR / forecast split: header bars market/drivers; stacked columns with CAGR table and circled key rows; two numbered driver columns ,"stackedCagr / chartIn {type:""stacked""}"
+case21-chillchili-004,bubble-portfolio,bubble positioning map: bubble map (coverage x ARPC) with dashed target zone + share waterfall below; strength/weakness heat table (we,positioningMap
+case21-chillchili-005,mekko,variable-width 100% columns: marimekko of consumer segments (tier x willingness to pay) with target cells in green + priority legend; perso,"no builder yet (patterns.json: mekko ""not yet""); nearest chartIn {type:""stacked100""}"
+case21-chillchili-006,column-chart,clustered or simple columns: clustered column of KPC by age group with dashed top-3 box and numbered tags; KPC table vs rival with on-par/u,"chartIn {type:""column""} / growthBars"
+case21-chillchili-007,waterfall,revenue or cost bridge: EBIT bridge waterfall with shaded topline/bottomline zones and circled 4x; row labels growth strategy / value ,waterfall
+case21-chillchili-008,scatter,scatter with zones: city criteria table above city-score scatter with dashed prioritised zone and tier strategy labels; chevron to,positioningMap
+case21-chillchili-014,gantt,roadmap bars: lettered initiative gantt by year + risk mitigation list with likelihood x severity mini matrix; revenue scena,gantt
+case21-starlight-003,column-chart,clustered or simple columns: red/grey header tabs (trend / drivers); stacked online/offline columns with CAGR bubbles; numbered and lettere,"chartIn {type:""column""} / growthBars"
+case21-starlight-004,bar-chart,horizontal bars: three numbered panels: penetration bars by channel type with dashed line; donut of player shares; 100% online/,"chartIn {type:""bar""}"
+case21-starlight-008,bubble-portfolio,bubble positioning map: city bubbles (demand x penetration) shaded by competition with two dashed type clusters + criteria/driver tabl,positioningMap
+case21-starlight-015,waterfall,revenue or cost bridge: base-case revenue bridge + bullets with red figures; bear and bull small bridges with bold commentary; capex c,waterfall
+case21-starlight-016,risk-matrix,numbered risk map: likelihood x impact bubbles with hand-drawn red circle around prioritised lettered risks and arrow; lettered r,riskMatrix
+case21-truenorth-004,stacked-chart,stacked columns with CAGR / forecast split: 1: stacked columns historical/forecast split with CAGR table + key-trend/driver table under it; 2: supply/dema,"stackedCagr / chartIn {type:""stacked""}"
+case21-truenorth-005,bubble-portfolio,bubble positioning map: 1: positioning bubble map (price x product breadth) with dashed cluster + national/regional logo table; 2: cor,positioningMap
+case21-truenorth-009,scatter,scatter with zones: 1: CAGR x volume scatter with dashed clusters + insight + partner logo flow to boxed outcome + KPI chips; 2: c,positioningMap
+case21-truenorth-010,map,"shaded province map with markers: China map with four numbered zones zoomed out to the sides (center, entered, star priority) + stacked columns ",mapRegions / geoZoom
+case21-truenorth-016,combo-chart,"columns with a line (growth, margin or scenarios): 1: clustered columns low/base/optimistic + zone contribution waterfall + boxed notes; 2: key assumptions (form",chartIn column + line (no combo type yet: two charts overlaid)
+case21-truenorth-017,gantt,roadmap bars: numbered initiatives with importance/feasibility star ratings and short/mid/long-term bars; grey risk-analysis,gantt
+case21-truenorth-020,bubble-portfolio,bubble positioning map: city bubble matrix (market attractiveness x ability to win) with dashed zone clusters linked to small province,positioningMap
+case21-whyconsulting-004,stacked-chart,"stacked columns with CAGR / forecast split: stacked online/offline columns with highlighted year box and CAGR table, supply/demand driver legend; red-outl","stackedCagr / chartIn {type:""stacked""}"
+case21-whyconsulting-005,scoring-table,"rating table: channel x 4 dimensions shaded rating grid with text in cells, overall score column, winning row outlined red, ",scoringTable / heatGrid
+case21-whyconsulting-006,mekko,variable-width 100% columns: share mekko (others vs CR5) with circled rev/store and store counts + red arrow bullets; red-outlined panel of,"no builder yet (patterns.json: mekko ""not yet""); nearest chartIn {type:""stacked100""}"
+case21-whyconsulting-010,waterfall,revenue or cost bridge: grey strategy tab bar with active tab red; store bridge waterfall with numbered bracket split to criteria and ,waterfall
+case21-whyconsulting-013,scoring-table,rating table: tab bar; three red-icon considerations; numbered model boxes with red key phrases; chevrons to per-format fit ,scoringTable / heatGrid
+case21-whyconsulting-014,waterfall,revenue or cost bridge: scenario assumption table + value levers with red phrases; strategy contribution waterfall (red increments); r,waterfall
+case21-whyconsulting-016,risk-matrix,numbered risk map: probability x severity grid with grey quarter-circle zones and numbered red/grey dots; chevron to numbered ris,riskMatrix
+case21-whyconsulting-021,waterfall,revenue or cost bridge: two unit-economics waterfalls (revenue 100% down to profit) with red COGS and profit bars,waterfall
+case22-beaninnovator-006,mekko,variable-width 100% columns: numbered panels: brand-share mekko by category with logos; channel x tier red heat grid with gradient legend a,"no builder yet (patterns.json: mekko ""not yet""); nearest chartIn {type:""stacked100""}"
+case22-beaninnovator-012,map,"shaded province map with markers: red italic heading with lettered selection path; Harvey-ball channel table, bars, tick ranking list, line + ba",mapRegions / geoZoom
+case22-beaninnovator-013,pie-chart,pie or donut: numbered panels: grey-headed red italic KPI numbers + dashed takeaway; price range candlestick chart with pink,"chartIn {type:""pie""|""donut""} / donutKpis"
+case22-beaninnovator-014,combo-chart,"columns with a line (growth, margin or scenarios): numbered panels: stacked market columns with growth-rate line and dashed share row; two preference column char",chartIn column + line (no combo type yet: two charts overlaid)
+case22-beaninnovator-015,waterfall,revenue or cost bridge: grey italic approach bar; three red ribbon steps; product mock-up with icon rows and red phrases; vertical pri,waterfall
+case22-beaninnovator-017,combo-chart,"columns with a line (growth, margin or scenarios): dashed key-assumption box with red italic rule headings and formulas; numbered panels: scenario clustered colu",chartIn column + line (no combo type yet: two charts overlaid)
+case22-beaninnovator-018,risk-matrix,numbered risk map: red-headed panels: red gradient probability x severity field with numbered dashed risk labels (market vs opera,riskMatrix
+case22-fusion-003,stacked-chart,stacked columns with CAGR / forecast split: stacked columns with CAGR columns and dashed growth line + icon driver boxes; red chevron to red takeaway sub-,"stackedCagr / chartIn {type:""stacked""}"
+case22-fusion-004,mekko,variable-width 100% columns: grey mekko age x tier with shaded takeaway box; red chevron sub-head; persona table with red line avatars (des,"no builder yet (patterns.json: mekko ""not yet""); nearest chartIn {type:""stacked100""}"
+case22-fusion-005,bar-chart,horizontal bars: KPC horizontal bars per persona group (high-tier vs lower-tier) with labels inside bars + trend lines; chevron,"chartIn {type:""bar""}"
+case22-fusion-006,stacked-chart,stacked columns with CAGR / forecast split: two numbered shadowed panels: 100% channel bars brand vs industry with connector lines; POS occupancy and dist,"stackedCagr / chartIn {type:""stacked""}"
+case22-fusion-009,map,shaded province map with markers: red-headed criteria list; chevron to coloured cluster map with arrows and factory/centre icons; red line callo,mapRegions / geoZoom
+case22-fusion-011,bubble-portfolio,bubble positioning map: four channel scene cards with icons and product images; pink bubble chart (chain scale x product fit) with red,positioningMap
+case22-fusion-014,gantt,roadmap bars: impact x feasibility quarter-circle zones with numbered wars feeding initiative gantt (0-1 / 1-3 / 3-5 yr chev,gantt
+case22-iiva-007,scatter,scatter with zones: red sub-head bars; price x sales scatter with shaded price band and red implication box; numbered product-laun,positioningMap
+case22-iiva-008,scoring-table,"rating table: logo column heads x KPC rows with grey bracket labels (availability / experience); grey bar cells with values,",scoringTable / heatGrid
+case22-iiva-010,waterfall,revenue or cost bridge: revenue bridge with broken axis and margin labels; EBIT methodology equation row (channel = POS x SPPS x margi,waterfall
+case22-iiva-012,bar-chart,"horizontal bars: three grey-headed evidence panels (bars, circled price screenshot, bars); pink pain-point panels with numbered","chartIn {type:""bar""}"
+case22-iiva-013,map,"shaded province map with markers: red-headed panels; pink chevron ""3 change"" column; current vs future distribution trees with gradient control ",mapRegions / geoZoom
+case22-iiva-015,bubble-portfolio,"bubble positioning map: red-headed reason box with numbered points, share bar and logo bars with circled value; cuisine scatter (size ",positioningMap
+case22-iiva-017,gantt,roadmap bars: feasibility x potential scatter with red ellipse on priority channels + legend; channel gantt bars by year; re,gantt
+case22-iiva-018,stacked-chart,stacked columns with CAGR / forecast split: numbered panels: stacked cost columns per unit (red/grey) with connector lines; channel profit stacked columns,"stackedCagr / chartIn {type:""stacked""}"
+case22-shibaco-003,stacked-chart,stacked columns with CAGR / forecast split: corner section tag (External); stacked columns with circled CAGR and red down marker; pink-shaded heat table o,"stackedCagr / chartIn {type:""stacked""}"
+case22-shibaco-006,bar-chart,horizontal bars: channel group rows with sales % bars and paired POS bars (red box on M&P row); red-outlined panel with red tag,"chartIn {type:""bar""}"
+case22-shibaco-007,scoring-table,"rating table: category bubble chart (size x CAGR, red = Genki) + revenue 100% bar with red lead segment; red-outlined panel:",scoringTable / heatGrid
+case22-shibaco-009,bubble-portfolio,bubble positioning map: red triangle heads; formula lines; region bubble chart (consumption x max POS) coloured by group + target rate,positioningMap
+case22-shibaco-014,stacked-chart,stacked columns with CAGR / forecast split: stacked revenue columns by product with CAGR column and circled value + red-outlined numbered key drivers; let,"stackedCagr / chartIn {type:""stacked""}"
+case22-wxyz-003,stacked-chart,"stacked columns with CAGR / forecast split: stacked columns with growth arrow and CAGR columns, hand-drawn red circles; icon-headed driver columns with re","stackedCagr / chartIn {type:""stacked""}"
+case22-wxyz-005,waterfall,revenue or cost bridge: pink-shaded assumption and revenue tables + formula; revenue bridge waterfall with red increments; scenario co,waterfall
+case22-wxyz-008,scatter,"scatter with zones: price ladder of bottle images by segment with pink competitive band, red dashed launch / lower-down boxes and ",positioningMap
+case22-wxyz-009,mekko,variable-width 100% columns: share mekko with NF segment red + dashed note box; criteria table with red icon heads and italic sub-rows x tw,"no builder yet (patterns.json: mekko ""not yet""); nearest chartIn {type:""stacked100""}"
+case22-wxyz-012,risk-matrix,numbered risk map: likelihood x severity square with grey quarter-circle high zone and lettered red / grey dots; red chevron to l,riskMatrix
+case24-basil-004,stacked-chart,stacked columns with CAGR / forecast split: breadcrumb trail; numbered demand / supply heads; red triangle chart labels; stacked columns with growth line;,"stackedCagr / chartIn {type:""stacked""}"
+case24-basil-005,column-chart,"clustered or simple columns: grey two-level header tree (income level / city -> four segments); per-column chart (stacked columns, 100% bar","chartIn {type:""column""} / growthBars"
+case24-basil-012,gantt,roadmap bars: numbered panels: 10-year gantt grid with red and grey bars; hexagon mission / value / focus cluster with chevr,gantt
+case24-basil-013,risk-matrix,numbered risk map: likelihood x severity square with grey quarter-circle zones and numbered circles; numbered risk / mitigation t,riskMatrix
+case24-basil-014,combo-chart,"columns with a line (growth, margin or scenarios): numbered panels: grey strategy pills with investment figures, red dashed box with red icon heads and numbered ",chartIn column + line (no combo type yet: two charts overlaid)
+case24-bstorm-004,stacked-chart,"stacked columns with CAGR / forecast split: stacked columns with growth bubble and red / grey vertical segment tags beside CAGR columns, hand-drawn circle","stackedCagr / chartIn {type:""stacked""}"
+case24-bstorm-006,scoring-table,rating table: positioning step chart (care need x tier) of grey bands with logos and red strategic-focus arrows; KSF table w,scoringTable / heatGrid
+case24-bstorm-008,scatter,scatter with zones: lettered title tag; bullets with red phrases; dark centre-type boxes with chevron to grey limited-coverage pan,positioningMap
+case24-bstorm-009,map,"shaded province map with markers: red-shaded priority map with circles / triangles sized by new centres, dashed legend, gradient priority tag; c",mapRegions / geoZoom
+case24-bstorm-014,line-chart,scenario lines: bold-ruled sub-heads; red triangle italic labels; assumption table with grey header; grey driver box with bold,"chartIn {type:""line""}"
+case24-bstorm-015,gantt,roadmap bars: red group labels with red gantt bars by year; red italic future-engine line with 100% stacked cost columns and,gantt
+case24-cvcj-004,combo-chart,"columns with a line (growth, margin or scenarios): numbered panels: market columns with growth line + dashed callout; mode share stacked columns now vs aim with ",chartIn column + line (no combo type yet: two charts overlaid)
+case24-cvcj-005,column-chart,clustered or simple columns: equation header (profile + demand = service) with red plus / equals; population columns with red dashed highli,"chartIn {type:""column""} / growthBars"
+case24-cvcj-009,pie-chart,pie or donut: red principle bar with rounded red-outlined training boxes and logos; numbered problem list with chevron to 2x,"chartIn {type:""pie""|""donut""} / donutKpis"
+case24-cvcj-010,map,"shaded province map with markers: numbered panels: China map with red dots, arrows and tags around it, red headings with icons and outlined boxe",mapRegions / geoZoom
+case24-cvcj-012,combo-chart,"columns with a line (growth, margin or scenarios): grey / red stacked labels cycle with next-period loop; dashed joint-venture depth x breadth panel with partner",chartIn column + line (no combo type yet: two charts overlaid)
+case24-cvcj-013,gantt,roadmap bars: lettered strategy list with star feasibility ratings and red / grey gantt bars by year; risk table with number,gantt
+case24-yess-004,stacked-chart,stacked columns with CAGR / forecast split: red lead words in title; red triangle sub-heads; stacked red columns with CAGR text + grey takeaway box; red-h,"stackedCagr / chartIn {type:""stacked""}"
+case24-yess-007,waterfall,revenue or cost bridge: flat revenue bridge with italic driver labels; pink-to-red gradient banner; positioning sketch (needs x wealth,waterfall
+case24-yess-011,bubble-portfolio,bubble positioning map: red triangle heads; city bubble chart (population x income) coloured by potential with broken axes; three bran,positioningMap
+case24-yess-014,combo-chart,"columns with a line (growth, margin or scenarios): four red-headed outlined panels: clustered columns in red shades; EBIT margin curves; gradient gantt bars by y",chartIn column + line (no combo type yet: two charts overlaid)
+case24-yess-017,column-chart,clustered or simple columns: two red columns-with-YoY-line charts; ranking table by year with client name in red,"chartIn {type:""column""} / growthBars"
+case24-yess-018,heat-grid,shaded count grid: dense company x province count grid with pink-shaded non-zero cells and type group labels,heatGrid
+case24-yess-020,gantt,roadmap bars: red group labels with bullets; gradient pink-to-red gantt bars by year,gantt

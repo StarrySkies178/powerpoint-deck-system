@@ -1,0 +1,562 @@
+{
+"p4-b34-l0": "",
+"p4-b35-l0": "",
+"p4-b56-l0": "",
+"p4-b56-l1": "",
+"p4-b56-l2": "",
+"p4-b56-l3": "",
+"p4-b56-l4": "",
+"p3-b5-l0": "COMPANY",
+"p4-b4-l0": "2 Supply Side: Inadequate Quantity and Quality of Caregivers &",
+"p4-b18-l0": "73",
+"p4-b21-l0": "6.1",
+"p4-b30-l0": "2025E",
+"p4-b31-l0": "2030E",
+"p4-b54-l0": "-49",
+"p5-b18-l0": "58",
+"p5-b19-l0": "2030E",
+"p5-b28-l0": "High-Income (Monthly >20K)",
+"p5-b39-l0": "25,000",
+"p5-b53-l0": "0",
+"p6-b5-l0": "3",
+"p6-b22-l1": "organization (VTI)",
+"p7-b4-l0": "3",
+"p8-b4-l0": "2 Customized Advertising Channels",
+"p10-b4-l0": "1. Utilize Health Self-monitoring Devices",
+"p12-b1-l2": "1",
+"p12-b18-l0": "2 Balance between Profitability and Social Responsibility",
+"p13-b16-l0": "④ Tight cashflow",
+"p14-b1-l1": "billion incremental revenue in 2034, in which developing nursing centers serves as the Engine 2.",
+"p1-b7-l0": "",
+"p2-b7-l0": "> S",
+"p2-b9-l0": "",
+"p2-b10-l0": ">",
+"p2-b11-l0": "",
+"p2-b17-l0": "",
+"p2-b27-l0": "",
+"p4-b43-l0": "Institution",
+"p5-b31-l0": "Mid-Income (Monthly",
+"p5-b57-l0": "Dajia",
+"p5-b67-l0": "",
+"p6-b45-l0": "",
+"p7-b2-l0": "",
+"p8-b40-l0": "",
+"p9-b60-l0": "",
+"p9-b65-l0": "",
+"p9-b67-l0": "",
+"p11-b17-l0": "",
+"p11-b31-l0": "",
+"p12-b17-l0": "",
+"p12-b41-l0": "",
+"p13-b7-l0": "",
+"p13-b8-l3": "(e.g., patient monitoring)",
+"p13-b17-l0": "",
+"p14-b8-l0": "Introduction of HK senior citizens",
+"p14-b61-l0": "",
+"_missing": {
+"m4-0": {
+"page": 3,
+"text": "0.3",
+"x": 676,
+"y": 245,
+"w": 18,
+"h": 11,
+"conf": 91.0
+},
+"m5-1": {
+"page": 4,
+"text": "76",
+"x": 780,
+"y": 566,
+"w": 9,
+"h": 6,
+"conf": 60.0
+},
+"m14-6": {
+"page": 13,
+"text": "957",
+"x": 1009,
+"y": 387,
+"w": 20,
+"h": 9,
+"conf": 65.0
+},
+"m14-7": {
+"page": 13,
+"text": "676",
+"x": 955,
+"y": 411,
+"w": 20,
+"h": 9,
+"conf": 96.0
+},
+"m14-8": {
+"page": 13,
+"text": "328",
+"x": 901,
+"y": 438,
+"w": 20,
+"h": 9,
+"conf": 96.0
+},
+"m14-9": {
+"page": 13,
+"text": "113",
+"x": 848,
+"y": 458,
+"w": 19,
+"h": 9,
+"conf": 95.0
+},
+"m14-10": {
+"page": 13,
+"text": "13",
+"x": 797,
+"y": 466,
+"w": 11,
+"h": 9,
+"conf": 96.0
+},
+"w2-0": {
+"page": 1,
+"text": "Note:",
+"x": 31,
+"y": 778,
+"w": 49,
+"h": 16,
+"conf": 93.0
+},
+"w2-1": {
+"page": 1,
+"text": "S-supply",
+"x": 205,
+"y": 779,
+"w": 82,
+"h": 19,
+"conf": 92.0
+},
+"w4-3": {
+"page": 3,
+"text": "Recommendation",
+"x": 270,
+"y": 10,
+"w": 138,
+"h": 12,
+"conf": 93.0
+},
+"w4-4": {
+"page": 3,
+"text": "Current",
+"x": 727,
+"y": 250,
+"w": 43,
+"h": 10,
+"conf": 95.0
+},
+"w4-5": {
+"page": 3,
+"text": "Research Institute,",
+"x": 419,
+"y": 778,
+"w": 180,
+"h": 16,
+"conf": 95.0
+},
+"w4-6": {
+"page": 3,
+"text": "Population Census, Taikang,",
+"x": 812,
+"y": 778,
+"w": 276,
+"h": 20,
+"conf": 90.0
+},
+"w4-7": {
+"page": 3,
+"text": "Basil Analysis",
+"x": 1097,
+"y": 778,
+"w": 131,
+"h": 20,
+"conf": 96.0
+},
+"w4-8": {
+"page": 3,
+"text": "iResearch, Ruiguan, Qianzhan",
+"x": 113,
+"y": 779,
+"w": 296,
+"h": 19,
+"conf": 84.0
+},
+"w4-9": {
+"page": 3,
+"text": "and",
+"x": 645,
+"y": 779,
+"w": 34,
+"h": 15,
+"conf": 96.0
+},
+"w4-10": {
+"page": 3,
+"text": "National",
+"x": 726,
+"y": 779,
+"w": 77,
+"h": 15,
+"conf": 95.0
+},
+"w5-11": {
+"page": 4,
+"text": "LaSalle",
+"x": 344,
+"y": 778,
+"w": 71,
+"h": 16,
+"conf": 90.0
+},
+"w5-12": {
+"page": 4,
+"text": "Research, Jones Lang",
+"x": 118,
+"y": 779,
+"w": 217,
+"h": 19,
+"conf": 95.0
+},
+"w6-13": {
+"page": 5,
+"text": "modem.”",
+"x": 603,
+"y": 533,
+"w": 70,
+"h": 13,
+"conf": 91.0
+},
+"w6-14": {
+"page": 5,
+"text": "Research Centre",
+"x": 174,
+"y": 778,
+"w": 159,
+"h": 16,
+"conf": 94.0
+},
+"w6-15": {
+"page": 5,
+"text": "Source",
+"x": 32,
+"y": 779,
+"w": 64,
+"h": 15,
+"conf": 96.0
+},
+"w6-16": {
+"page": 5,
+"text": "Ageing, Taikang Community, Senior Living",
+"x": 371,
+"y": 779,
+"w": 399,
+"h": 19,
+"conf": 90.0
+},
+"w6-17": {
+"page": 5,
+"text": "Basil",
+"x": 870,
+"y": 779,
+"w": 33,
+"h": 15,
+"conf": 96.0
+},
+"w6-18": {
+"page": 5,
+"text": "China",
+"x": 139,
+"y": 783,
+"w": 25,
+"h": 11,
+"conf": 94.0
+},
+"w7-19": {
+"page": 6,
+"text": "Corporate with",
+"x": 1063,
+"y": 343,
+"w": 129,
+"h": 20,
+"conf": 93.0
+},
+"w7-20": {
+"page": 6,
+"text": "TAIKANG",
+"x": 1198,
+"y": 343,
+"w": 85,
+"h": 16,
+"conf": 92.0
+},
+"w7-21": {
+"page": 6,
+"text": "PENSION, providing consultation",
+"x": 1064,
+"y": 371,
+"w": 293,
+"h": 20,
+"conf": 96.0
+},
+"w7-22": {
+"page": 6,
+"text": "potential customers",
+"x": 1163,
+"y": 399,
+"w": 172,
+"h": 20,
+"conf": 96.0
+},
+"w7-23": {
+"page": 6,
+"text": "younger",
+"x": 1085,
+"y": 403,
+"w": 73,
+"h": 16,
+"conf": 96.0
+},
+"w7-24": {
+"page": 6,
+"text": "children",
+"x": 1101,
+"y": 426,
+"w": 69,
+"h": 16,
+"conf": 96.0
+},
+"w7-25": {
+"page": 6,
+"text": "current customers",
+"x": 1198,
+"y": 428,
+"w": 160,
+"h": 14,
+"conf": 95.0
+},
+"w7-26": {
+"page": 6,
+"text": "community",
+"x": 331,
+"y": 697,
+"w": 112,
+"h": 41,
+"conf": 85.0
+},
+"w7-27": {
+"page": 6,
+"text": "Lowering vacancy",
+"x": 49,
+"y": 714,
+"w": 214,
+"h": 20,
+"conf": 96.0
+},
+"w7-28": {
+"page": 6,
+"text": "rate",
+"x": 268,
+"y": 716,
+"w": 38,
+"h": 14,
+"conf": 96.0
+},
+"w7-30": {
+"page": 6,
+"text": "Source:",
+"x": 32,
+"y": 779,
+"w": 65,
+"h": 15,
+"conf": 94.0
+},
+"w7-31": {
+"page": 6,
+"text": "HKFTU Greater Bay Area",
+"x": 308,
+"y": 779,
+"w": 245,
+"h": 16,
+"conf": 81.0
+},
+"w7-32": {
+"page": 6,
+"text": "Xinhuanet,",
+"x": 198,
+"y": 780,
+"w": 95,
+"h": 14,
+"conf": 93.0
+},
+"w7-33": {
+"page": 6,
+"text": "Service",
+"x": 666,
+"y": 783,
+"w": 33,
+"h": 10,
+"conf": 90.0
+},
+"w8-34": {
+"page": 7,
+"text": "Source Basil Analysis",
+"x": 32,
+"y": 768,
+"w": 213,
+"h": 26,
+"conf": 94.0
+},
+"w9-35": {
+"page": 8,
+"text": "Source; National Bureau",
+"x": 33,
+"y": 779,
+"w": 234,
+"h": 15,
+"conf": 90.0
+},
+"w9-36": {
+"page": 8,
+"text": "Statistics",
+"x": 302,
+"y": 779,
+"w": 85,
+"h": 15,
+"conf": 96.0
+},
+"w9-37": {
+"page": 8,
+"text": "China, China Research",
+"x": 420,
+"y": 779,
+"w": 224,
+"h": 15,
+"conf": 95.0
+},
+"w9-38": {
+"page": 8,
+"text": "Ageing, Jinding Capital",
+"x": 756,
+"y": 779,
+"w": 221,
+"h": 19,
+"conf": 92.0
+},
+"w10-39": {
+"page": 9,
+"text": "BASIL",
+"x": 1305,
+"y": 756,
+"w": 82,
+"h": 25,
+"conf": 95.0
+},
+"w10-40": {
+"page": 9,
+"text": "Source: iResearch,",
+"x": 31,
+"y": 778,
+"w": 184,
+"h": 17,
+"conf": 89.0
+},
+"w10-41": {
+"page": 9,
+"text": "Basil Analysis",
+"x": 282,
+"y": 778,
+"w": 132,
+"h": 20,
+"conf": 96.0
+},
+"w11-42": {
+"page": 10,
+"text": "Source iResearch",
+"x": 31,
+"y": 768,
+"w": 178,
+"h": 26,
+"conf": 90.0
+},
+"w12-43": {
+"page": 11,
+"text": "Basil Analysis",
+"x": 372,
+"y": 776,
+"w": 130,
+"h": 24,
+"conf": 94.0
+},
+"w12-44": {
+"page": 11,
+"text": "Source; Taikang Insurance Group,",
+"x": 32,
+"y": 779,
+"w": 324,
+"h": 19,
+"conf": 76.0
+},
+"w13-45": {
+"page": 12,
+"text": "Basil Analysis",
+"x": 371,
+"y": 776,
+"w": 132,
+"h": 24,
+"conf": 96.0
+},
+"w13-46": {
+"page": 12,
+"text": "Source: Taikang Insurance Group,",
+"x": 32,
+"y": 778,
+"w": 323,
+"h": 20,
+"conf": 90.0
+},
+"w14-47": {
+"page": 13,
+"text": "Service",
+"x": 626,
+"y": 766,
+"w": 70,
+"h": 34,
+"conf": 96.0
+},
+"w14-48": {
+"page": 13,
+"text": "Taikang Insurance Group, Fushoukang Elderly Care",
+"x": 112,
+"y": 778,
+"w": 505,
+"h": 20,
+"conf": 86.0
+},
+"w14-49": {
+"page": 13,
+"text": "Basil Analysis",
+"x": 751,
+"y": 778,
+"w": 132,
+"h": 20,
+"conf": 96.0
+},
+"w14-50": {
+"page": 13,
+"text": "Source:",
+"x": 32,
+"y": 779,
+"w": 66,
+"h": 15,
+"conf": 93.0
+}
+}
+}

@@ -1,0 +1,3075 @@
+# Slide index — all 11 template decks
+
+Every slide in the Templates folder, by deck. Use it to find an object: search for "Gantt", "cycle", "matrix", "waterfall", etc.
+
+
+## Concept graphics (mono)  (Concept-graphics-mono.ppt)
+
+- 1: 2004兺06懍14粧
+- 2: 2004兺06懍14粧
+- 3: 2004兺06懍14粧
+- 4: 2004兺06懍14粧
+- 5: 2004兺06懍14粧
+- 6: 2004兺06懍14粧
+- 7: 2004兺06懍14粧
+- 8: 2004兺06懍14粧
+- 9: 2004兺06懍14粧
+- 10: 2004兺06懍14粧
+- 11: 2004兺06懍14粧
+- 12: 2004兺06懍14粧
+- 13: 2004兺06懍14粧
+- 14: 2004兺06懍14粧
+- 15: 2004兺06懍14粧
+- 16: 2004兺06懍14粧
+- 17: 2004兺06懍14粧
+- 18: 2004兺06懍14粧
+- 19: 2004兺06懍14粧
+- 20: 2004兺06懍14粧
+- 21: 2004兺06懍14粧
+- 22: 2004兺06懍14粧
+- 23: 2004兺06懍14粧
+- 24: 2004兺06懍14粧
+- 25: 2004兺06懍14粧
+- 26: 2004兺06懍14粧
+- 27: 2004兺06懍14粧
+- 28: 2004兺06懍14粧
+- 29: 2004兺06懍14粧
+- 30: 2004兺06懍14粧
+- 31: 2004兺06懍14粧
+- 32: 2004兺06懍14粧
+- 33: 2004兺06懍14粧
+- 34: 2004兺06懍14粧
+- 35: 2004兺06懍14粧
+- 36: 2004兺06懍14粧
+- 37: 2004兺06懍14粧
+- 38: 2004兺06懍14粧
+- 39: 2004兺06懍14粧
+- 40: 2004兺06懍14粧
+- 41: 2004兺06懍14粧
+- 42: 2004兺06懍14粧
+- 43: 2004兺06懍14粧
+- 44: 2004兺06懍14粧
+- 45: 2004兺06懍14粧
+- 46: 2004兺06懍14粧
+- 47: 2004兺06懍14粧
+- 48: 2004兺06懍14粧
+- 49: 2004兺06懍14粧
+- 50: 2004兺06懍14粧
+- 51: 2004兺06懍14粧
+- 52: 2004兺06懍14粧
+- 53: 2004兺06懍14粧
+- 54: 2004兺06懍14粧
+- 55: 2004兺06懍14粧
+- 56: 2004兺06懍14粧
+- 57: 2004兺06懍14粧
+- 58: 2004兺06懍14粧
+- 59: 2004兺06懍14粧
+- 60: 2004兺06懍14粧
+- 61: 2004兺06懍14粧
+- 62: 2004兺06懍14粧
+- 63: 2004兺06懍14粧
+- 64: 2004兺06懍14粧
+- 65: 2004兺06懍14粧
+- 66: 2004兺06懍14粧
+- 67: 2004兺06懍14粧
+- 68: 2004兺06懍14粧
+- 69: 2004兺06懍14粧
+- 70: 2004兺06懍14粧
+- 71: 2004兺06懍14粧
+- 72: 2004兺06懍14粧
+- 73: 2004兺06懍14粧
+- 74: 2004兺06懍14粧
+- 75: 2004兺06懍14粧
+- 76: 2004兺06懍14粧
+- 77: 2004兺06懍14粧
+- 78: 2004兺06懍14粧
+- 79: 2004兺06懍14粧
+- 80: 2004兺06懍14粧
+- 81: 2004兺06懍14粧
+- 82: 2004兺06懍14粧
+- 83: 2004兺06懍14粧
+- 84: 2004兺06懍14粧
+- 85: 2004兺06懍14粧
+- 86: 2004兺06懍14粧
+- 87: 2004兺06懍14粧
+- 88: 2004兺06懍14粧
+- 89: 2004兺06懍14粧
+- 90: 2004兺06懍14粧
+- 91: 2004兺06懍14粧
+- 92: 2004兺06懍14粧
+- 93: 2004兺06懍14粧
+- 94: 2004兺06懍14粧
+- 95: 2004兺06懍14粧
+- 96: 2004兺06懍14粧
+- 97: 2004兺06懍14粧
+- 98: 2004兺06懍14粧
+- 99: 2004兺06懍14粧
+- 100: 2004兺06懍14粧
+- 101: 2004兺06懍14粧
+- 102: 2004兺06懍14粧
+- 103: 2004兺06懍14粧
+- 104: 2004兺06懍14粧
+- 105: 2004兺06懍14粧
+- 106: 2004兺06懍14粧
+- 107: 2004兺06懍14粧
+- 108: 2004兺06懍14粧
+- 109: 2004兺06懍14粧
+- 110: 2004兺06懍14粧
+- 111: 2004兺06懍14粧
+- 112: 2004兺06懍14粧
+- 113: 2004兺06懍14粧
+- 114: 2004兺06懍14粧
+- 115: 2004兺06懍14粧
+- 116: 2004兺06懍14粧
+- 117: 2004兺06懍14粧
+- 118: 2004兺06懍14粧
+- 119: 2004兺06懍14粧
+- 120: 2004兺06懍14粧
+- 121: 2004兺06懍14粧
+- 122: 2004兺06懍14粧
+- 123: 2004兺06懍14粧
+- 124: 2004兺06懍14粧
+- 125: 2004兺06懍14粧
+- 126: 2004兺06懍14粧
+- 127: 2004兺06懍14粧
+- 128: 2004兺06懍14粧
+- 129: 2004兺06懍14粧
+- 130: 2004兺06懍14粧
+- 131: 2004兺06懍14粧
+- 132: 2004兺06懍14粧
+- 133: 2004兺06懍14粧
+- 134: 2004兺06懍14粧
+- 135: 2004兺06懍14粧
+- 136: 2004兺06懍14粧
+- 137: 2004兺06懍14粧
+- 138: 2004兺06懍14粧
+- 139: 2004兺06懍14粧
+- 140: 2004兺06懍14粧
+- 141: 2004兺06懍14粧
+- 142: 2004兺06懍14粧
+- 143: 2004兺06懍14粧
+- 144: 2004兺06懍14粧
+- 145: 2004兺06懍14粧
+- 146: 2004兺06懍14粧
+- 147: 2004兺06懍14粧
+- 148: 2004兺06懍14粧
+- 149: 2004兺06懍14粧
+- 150: 2004兺06懍14粧
+- 151: 2004兺06懍14粧
+- 152: 2004兺06懍14粧
+- 153: 2004兺06懍14粧
+- 154: 2004兺06懍14粧
+- 155: 2004兺06懍14粧
+- 156: 2004兺06懍14粧
+- 157: 2004兺06懍14粧
+- 158: 2004兺06懍14粧
+- 159: 2004兺06懍14粧
+- 160: 2004兺06懍14粧
+- 161: 2004兺06懍14粧
+- 162: 2004兺06懍14粧
+- 163: 2004兺06懍14粧
+- 164: 2004兺06懍14粧
+- 165: 2004兺06懍14粧
+- 166: 2004兺06懍14粧
+- 167: 2004兺06懍14粧
+- 168: 2004兺06懍14粧
+- 169: 2004兺06懍14粧
+- 170: 2004兺06懍14粧
+- 171: 2004兺06懍14粧
+- 172: 2004兺06懍14粧
+- 173: 2004兺06懍14粧
+- 174: 2004兺06懍14粧
+- 175: 2004兺06懍14粧
+- 176: 2004兺06懍14粧
+- 177: 2004兺06懍14粧
+- 178: 2004兺06懍14粧
+- 179: 2004兺06懍14粧
+- 180: 2004兺06懍14粧
+- 181: 2004兺06懍14粧
+- 182: 2004兺06懍14粧
+- 183: 2004兺06懍14粧
+- 184: 2004兺06懍14粧
+- 185: 2004兺06懍14粧
+- 186: 2004兺06懍14粧
+- 187: 2004兺06懍14粧
+- 188: 2004兺06懍14粧
+- 189: 2004兺06懍14粧
+- 190: 2004兺06懍14粧
+- 191: 2004兺06懍14粧
+- 192: 2004兺06懍14粧
+- 193: 2004兺06懍14粧
+- 194: 2004兺06懍14粧
+- 195: 2004兺06懍14粧
+- 196: 2004兺06懍14粧
+- 197: 2004兺06懍14粧
+- 198: 2004兺06懍14粧
+- 199: 2004兺06懍14粧
+- 200: 2004兺06懍14粧
+- 201: 2004兺06懍14粧
+
+## McKinsey frequently used  (McKinsey-frequently-used.ppt)
+
+- 1: Frequently Used Template
+- 2: 2X2 CUBED
+- 3: 2X2 TOWER
+- 4: 5PS MARKETING
+- 5: 7S
+- 6: ARROW 3D
+- 7: CUBES1 3D
+- 8: CUBES2 3D
+- 9: CUBES3 3D
+- 10: CUTOUT 3D
+- 11: FORCES AT WORK
+- 12: JOINT
+- 13: LEVEL SEPARATE 4
+- 14: LINEAR A 3D
+- 15: LINEAR B 3D
+- 16: LINEAR C 3D
+- 17: LINEAR D 3D
+- 18: LINEAR E 3D
+- 19: LINEAR G 3D
+- 20: LINEAR I 3D
+- 21: LINEAR J 3D
+- 22: LINEAR N 3D
+- 23: LINEAR P 3D
+- 24: LINEAR Q 3D
+- 25: LINEAR Q 3D
+- 26: LINKS 3
+- 27: PERSPECTIVE 3D
+- 28: PROPELLER 3D
+- 29: RINGS 3D
+- 30: SCALE
+- 31: SCALES
+- 32: SIZES IN
+- 33: SPIRAL1 3D
+- 34: SPIRAL2 3D
+- 35: SPOTLIGHT
+- 36: STAIRCASE
+- 37: STARS 3D
+- 38: WIRE CUBES
+- 39: ARROWS
+- 40: LEVEL 1
+- 41: LEVEL 2
+- 42: LEVEL 3
+- 43: LEVEL 4
+- 44: LEVEL 5
+- 45: LEVEL 6
+- 46: FLOW 2
+- 47: FLOW 2 TITLE
+- 48: FLOW 3
+- 49: FLOW 3 TITLE
+- 50: FLOW 4
+- 51: FLOW 4 TITLE
+- 52: FLOW 5
+- 53: FLOW 5 TITLE
+- 54: FLOW 6
+- 55: FLOW 6 TITLE
+- 56: BLADES
+- 57: BOX
+- 58: BOX
+- 59: CYCLE 1
+- 60: CYCLE 2
+- 61: CYCLE 3
+- 62: CYCLE 4
+- 63: CYCLE 5
+- 64: CYCLE 6
+- 65: CYCLE 7
+- 66: CYCLE 8
+- 67: INCOMING
+- 68: RIBBON
+- 69: RING
+- 70: UPON 2
+- 71: CONTINUOUS
+- 72: CUTOUT
+- 73: LINEAR A
+- 74: LINEAR B
+- 75: LINEAR C
+- 76: LINEAR D
+- 77: LINEAR E
+- 78: LINEAR F
+- 79: LINEAR G
+- 80: LINEAR H
+- 81: LINEAR I
+- 82: LINEAR J
+- 83: LINEAR K
+- 84: LINEAR N
+- 85: LINEAR P
+- 86: LINEAR Q
+- 87: PROPELLER
+- 88: STEP 5
+- 89: 2 ON 1
+- 90: AGAINST
+- 91: AT WORK
+- 92: COUPLED HORIZ
+- 93: COUPLED VERT
+- 94: FOCUSED
+- 95: FORCES AT WORK
+- 96: PARALLEL
+- 97: SPLIT
+- 98: SURROUND
+- 99: TWISTED
+- 100: UP & AWAY
+- 101: UP & DOWN
+- 102: 2S-5S
+- 103: 3CS TRIANGLE
+- 104: 3S-4S
+- 105: 7S
+- 106: BUSS PORTFOLIO
+- 107: CHANGE BOARD
+- 108: DELTA P
+- 109: MACS
+- 110: MANUFACTURING STRATEGY
+- 111: PENTAGON
+- 112: PRICE BENEFIT
+- 113: SMILE CHART
+- 114: STRAT GAMEBOARD
+- 115: STRAT MANAGE
+- 116: TREE PRODUCTIVITY
+- 117: VALUE CREATION
+- 118: VALUE SOURCES
+- 119: GANTT10
+- 120: GANTT15
+- 121: VENN 2
+- 122: VENN 3
+- 123: Frequently Used Template
+- 124: AREA
+- 125: BAR
+- 126: BAR 2
+- 127: BAR BUTTED
+- 128: BAR STACKED
+- 129: BAR STACKED 100%
+- 130: BUBBLE
+- 131: COLUMN
+- 132: COLUMN 2
+- 133: COLUMN BUTTED
+- 134: COLUMN STACKED
+- 135: COLUMN STACKED 100%
+- 136: COMBO PIE SEGMENT COLUMN
+- 137: COST CURVE
+- 138: DUAL COLUMN LINE
+- 139: DUAL LINE
+- 140: LINE
+- 141: PIE
+- 142: PIE 2
+- 143: RANGE HIGH LOW
+- 144: SCATTER X & Y
+- 145: WATERFALL BAR
+- 146: WATERFALL COLUMN
+- 147: Frequently Used Template
+- 148: ARROWS
+- 149: DISCLAIMERS CLIENT
+- 150: DISCLAIMERS INTERNAL
+- 151: DISCLAIMERS PRESENTATION
+- 152: LEGENDS
+- 153: MCKINSEY LOGO
+- 154: MISC
+- 155: MOONS
+- 156: STICKER
+- 157: STICKER OTHER
+- 158: WORLD MAP
+- 159: Frequently Used Template
+- 160: PPT TABLE 2
+- 161: PPT TABLE 3
+- 162: PPT TABLE 4
+- 163: PPT TABLE 5
+- 164: PPT TABLE 6
+- 165: Frequently Used Template
+- 166: (graphic, no title)
+- 167: (graphic, no title)
+- 168: (graphic, no title)
+- 169: EXHIBIT TITLE
+- 170: EXHIBIT TITLE
+- 171: EXHIBIT TITLE
+- 172: EXHIBIT TITLE
+- 173: 2 COLUMN
+- 174: 3 COLUMN
+- 175: 4 COLUMN
+- 176: 5 COLUMN
+- 177: 6 COLUMN
+- 178: 7 COLUMN
+- 179: 8 COLUMN
+- 180: 3-STEP
+- 181: 4-STEP
+- 182: 5-STEP
+- 183: 3 HORIZONTAL
+- 184: 4 HORIZONTAL
+- 185: 5 HORIZONTAL
+- 186: 4-STEP
+- 187: FLOW 2
+- 188: FLOW 2 TITLE
+- 189: FLOW 3
+- 190: FLOW 3 TITLE
+- 191: FLOW 4
+- 192: FLOW 4 TITLE
+- 193: FLOW 5
+- 194: FLOW 5 TITLE
+- 195: HORIZONTAL FLOW 3
+- 196: HORIZONTAL FLOW 4
+- 197: HORIZONTAL FLOW 5
+- 198: HORIZONTAL FLOW 6
+- 199: HORIZONTAL FLOW 7
+- 200: FLOW WITH SHOCK 1
+- 201: FLOW WITH SHOCK 2
+- 202: FLOW WITH 3 COLUMN
+- 203: FLOW WITH 2 COLUMN
+- 204: SQUARE FLOW
+- 205: FRAMEWORK
+- 206: (graphic, no title)
+- 207: (graphic, no title)
+- 208: (graphic, no title)
+- 209: (graphic, no title)
+- 210: (graphic, no title)
+- 211: (graphic, no title)
+- 212: (graphic, no title)
+- 213: (graphic, no title)
+- 214: SCP
+- 215: (graphic, no title)
+- 216: (graphic, no title)
+- 217: (graphic, no title)
+- 218: (graphic, no title)
+- 219: (graphic, no title)
+- 220: (graphic, no title)
+- 221: (graphic, no title)
+- 222: TEAM STRUCTURE
+- 223: (graphic, no title)
+- 224: (graphic, no title)
+- 225: (graphic, no title)
+- 226: Title Text
+- 227: Title Text
+- 228: (graphic, no title)
+- 229: Risk management
+- 230: (graphic, no title)
+- 231: CYCLE 2
+- 232: CYCLE 2
+- 233: CYCLE 3
+- 234: CYCLE 3
+- 235: CYCLE 4
+- 236: CYCLE 4
+- 237: CYCLE 5
+- 238: CYCLE 5
+- 239: CYCLE 6
+- 240: CYCLE 6
+- 241: FORCES AT WORK
+- 242: 2 BY 2 MATRIX
+- 243: 2 BY 3 MATRIX
+- 244: 3 BY 3 MATRIX
+- 245: 4 BY 3 MATRIX
+- 246: 4 BY 3 MATRIX
+- 247: STUDY OBJECTIVE
+- 248: LEVEL 03
+- 249: LEVEL 04
+- 250: LEVEL 09
+- 251: GANTT – 4 WEEK
+- 252: (graphic, no title)
+- 253: (graphic, no title)
+- 254: (graphic, no title)
+- 255: (graphic, no title)
+- 256: (graphic, no title)
+- 257: (graphic, no title)
+- 258: (graphic, no title)
+- 259: (graphic, no title)
+- 260: (graphic, no title)
+- 261: (graphic, no title)
+- 262: (graphic, no title)
+- 263: (graphic, no title)
+- 264: (graphic, no title)
+- 265: Mon
+- 266: Responsibility
+- 267: Label 1
+- 268: (graphic, no title)
+- 269: Label 1
+- 270: Label 1
+- 271: Label 1
+- 272: Label 1
+- 273: Label 1
+- 274: Label 1
+- 275: Label 1
+- 276: Label 1
+- 277: EXHIBIT TITLE
+- 278: EXHIBIT TITLE
+- 279: EXHIBIT TITLE
+- 280: EXHIBIT TITLE
+- 281: EXHIBIT TITLE
+- 282: EXHIBIT TITLE
+- 283: EXHIBIT TITLE
+- 284: EXHIBIT TITLE
+- 285: EXHIBIT TITLE
+- 286: EXHIBIT TITLE
+- 287: Title (Measure)
+- 288: Title (Measure)
+- 289: ROIC TREE ANALYSIS
+- 290: EXHIBIT TITLE
+- 291: EXHIBIT TITLE
+- 292: EXHIBIT TITLE
+- 293: Label 1
+- 294: Label 1
+- 295: Label 1
+- 296: Title Measure
+- 297: Title Measure
+- 298: Title Measure
+- 299: Title Measure
+- 300: Title Measure
+- 301: Title (Measure)
+- 302: STICKER AND OTHERS
+- 303: High Medium Low
+- 304: STICKER AND OTHERS
+- 305: MAPS
+- 306: APPENDIX
+- 307: END OF DOC
+
+## BearingPoint diagrams  (BearingPoint-diagrams.ppt)
+
+- 1: Author Presented To Date
+- 2: Index Page
+- 3: The Corporate Colors
+- 4: The Corporate Colors (former KPMG) Used When Necessary
+- 5: Action/reaction
+- 6: Action/reaction
+- 7: Action/reaction
+- 8: Action/reaction
+- 9: Against the tide/with the tide
+- 10: Balance/imbalance
+- 11: Balance/imbalance
+- 12: Chances/risks
+- 13: Change of direction
+- 14: Circulation (2 factors)
+- 15: Circulation (3 factors)
+- 16: Circulation (4 factors)
+- 17: Circulation (5 factors)
+- 18: Circulation (6 factors)
+- 19: Circulation (7 factors)
+- 20: Circulation (8 factors)
+- 21: Conflict
+- 22: Conflict
+- 23: Divergent
+- 24: Consequences (5)
+- 25: Consequences (4)
+- 26: Consequences
+- 27: Cooperation
+- 28: Dead end
+- 29: Dependance
+- 30: Development/Growth
+- 31: Development/Growth
+- 32: Development/Growth
+- 33: Development/Growth
+- 34: Development/Growth
+- 35: Development/Growth
+- 36: Development/Growth
+- 37: Development/Growth
+- 38: Change
+- 39: Direction
+- 40: Factors (2)
+- 41: Factors (3)
+- 42: Factors (3)
+- 43: Factors (3)
+- 44: Factors (4)
+- 45: Factors (4)
+- 46: Factors (4)
+- 47: Factors (4)
+- 48: Factors (4)
+- 49: Factors (6)
+- 50: Factors (6)
+- 51: Factors (8)
+- 52: Factors(5)
+- 53: Factors (3)
+- 54: Factors (4)
+- 55: Factors (5)
+- 56: Content(3)
+- 57: Factors
+- 58: Factors
+- 59: Value Dynamic
+- 60: Feedback
+- 61: Feedback
+- 62: Feedback
+- 63: Feedback
+- 64: Feedback
+- 65: Filter
+- 66: Filter
+- 67: Flexibility
+- 68: Focus – expansion
+- 69: Harmony
+- 70: Impact
+- 71: Influence (1 factor)
+- 72: Influence (2 factors)
+- 73: Influence (2 factors)
+- 74: Influence (4 factors)
+- 75: Influence (6 factors)
+- 76: Influence (6 factors)
+- 77: Input/output
+- 78: Matrix
+- 79: Matrix
+- 80: Measures plan – planned activities
+- 81: Measures plan – planned measures
+- 82: Measures plan – planned individual steps
+- 83: Mutuality
+- 84: Mutuality
+- 85: Obstacle
+- 86: Obstacle
+- 87: Option
+- 88: Option
+- 89: Plus/minus
+- 90: Plus/minus
+- 91: Plus/minus
+- 92: Portfolio
+- 93: Portfolio
+- 94: Pressure
+- 95: Continuous planning and forecasting
+- 96: Prioritization
+- 97: Process
+- 98: Process
+- 99: Process – decrease
+- 100: Process – increase
+- 101: Project
+- 102: Project
+- 103: Project procedure
+- 104: Puzzle
+- 105: Puzzle (for color presentations)
+- 106: Puzzle
+- 107: Redesign
+- 108: Redesign
+- 109: Resistance
+- 110: Rethink
+- 111: Separation
+- 112: Separation
+- 113: Separation
+- 114: Storyboard
+- 115: Strengths/weaknesses
+- 116: Target (1 factor)
+- 117: Target (3 factors)
+- 118: Text blocks (5)
+- 119: Text blocks (5)
+- 120: Text blocks (3 + 4)
+- 121: Timetable
+- 122: Value-added chain
+- 123: Waste of resources – problem
+- 124: Waste of resources – solution
+- 125: (graphic, no title)
+- 126: Project
+- 127: Matrix & Steps
+- 128: 信息系统
+- 129: Project
+- 130: High-level Flow Chart
+- 131: Factors & Matrix
+- 132: Matrix
+- 133: Delivery Model
+- 134: Research
+- 135: Development
+- 136: Multi-trends Development
+- 137: Steps
+- 138: Cycle
+- 139: Shared Services
+- 140: Compare
+- 141: Better Practice Finance Process Model
+- 142: Prioritization Sample
+- 143: Activity maps
+- 144: Capability assessment
+- 145: Assessment
+- 146: Flow
+- 147: Segmentation
+- 148: Segmentation(2)
+- 149: Segmentation(3)
+- 150: Dupont Analysis(1)
+- 151: Dupont Analysis(2)
+- 152: Growth Share Matrix
+- 153: Growth Spread Matrix
+- 154: Market Definition
+- 155: Partnering Maps
+- 156: Portfolio Matrix
+- 157: Risk Matrix
+- 158: Root Cause Analysis
+- 159: Scenario Development
+- 160: Sector Chart
+- 161: Strategy Articulation Map
+- 162: Strategy Articulation
+- 163: Traffic Light Charts
+- 164: Bar
+- 165: Empty Bars
+- 166: Compare
+- 167: Compare 2
+- 168: Multi Factors Time Series
+- 169: 产能与需求增长速度对比
+- 170: 机会成本 营运所产生的机会成本 产生的费用
+
+## BCG writing clear slides  (BCG-writing-clear-slides.ppt)
+
+- 1: WRITING CLEAR AND INTERESTING SLIDES 2005，Shanghai
+- 2: WRITING CLEAR AND INTERESTING SLIDES
+- 3: TODAY’S OBJECTIVE
+- 4: WHAT PUZZLES YOU OR CHALLENGS YOU THE MOST WHEN WRITING SLIDES?
+- 5: WRITING CLEAR, SUCCINCT, AND INTERESTING SLIDES
+- 6: STRONG GROWTH IN OTHER PRODUCTS OFFSET BY PARTS’ DECLINE
+- 7: THE REDESIGN PROCESS INVOLVES FOUR DISCRETE STAGES
+- 8: THE 36” LIFTER DOMINATES SALES AND PROFIT 1992 Product Family Profitability
+- 9: Starting Base
+- 10: Good slides are:
+- 11: WRITING CLEAR, SUCCINCT, AND INTERESTING SLIDES
+- 12: SLIDES ARE VISUAL AIDS
+- 13: SLIDES ARE ALSO A RECORD OF THE PRESENTATION
+- 14: SEVERAL COMPROMISES ARE POSSIBLE
+- 15: COMPROMISE MUST BE CONSISTENT WITH AUDIENCE AND PURPOSE
+- 16: WRITING CLEAR, SUCCINCT, AND INTERESTING SLIDES
+- 17: Graphics Tables Word slides Combinations of the above
+- 18: BASIC GUIDELINES HELP YOU SELECT FORMATS
+- 19: BUT THE FINAL SELECTION DEPENDS ON THE MESSAGE YOU WANT YOUR AUDIENCE TO TAKE AWAY
+- 20: GRAPHICS HELP THE AUDIENCE VISUALIZE THE POINTS
+- 21: Steady growth of banking assets
+- 22: China market potential
+- 23: WHAT DO YOU WANT TO SAY?
+- 24: SOME BASIC RULES FOR DESCRIPTIVE GRAPHICS For Time Series, Use a Column or Line Chart
+- 25: GROWTH IN TRADE FINANCE SLOWED AND WILL REMAIN SLUGGISH
+- 26: (graphic, no title)
+- 27: MOTHERS WILLING TO BREASTFEED BUT WOULD USE INFANT FORMULAE AS A SUPPLEMENT
+- 28: FOREIGN PLAYERS ALREADY HAS A STRONG FOOT INTO FOREIGN CURRENCY BUSINESS
+- 29: (graphic, no title)
+- 30: SOME BASIC RULES FOR EXPLANATORY GRAPHICS For Regressions and Causal Relationships
+- 31: AFFLUENT IS AN ATTRACTIVE SEGMENT, GENERATING HIGHEST CONTRIBUTION PER CUSTOMER
+- 32: SOME BASIC RULES FOR EXPLANATORY GRAPHICS For “Novel” Comparisons
+- 33: TABLES ARE ALSO USED TO DISPLAY QUANTITATIVE AND QUALITATIVE DATA
+- 34: WORD SLIDES HAVE SEVERAL USES
+- 35: COMBINING FORMATS CAN MAKE MESSAGE STRONGER
+- 36: CUSTOMER INTERACTION FAR FROM IDEAL
+- 37: FOLLOWING EXAMPLES PRESENT SAME DATA IN DIFFERENT FORMATS
+- 38: Exercise 1
+- 39: PROFITS GROWING FASTER THAN SALES - 2
+- 40: PROFITS GROWING FASTER THAN SALES - 3
+- 41: FOCUSING ON SMALL CUSTOMERS WILL PROVIDE THE MAXIMUM LEVERAGE - 1
+- 42: FOCUSING ON SMALL CUSTOMERS WILL PROVIDE THE MAXIMUM LEVERAGE - 2
+- 43: FOCUSING ON SMALL CUSTOMERS WILL PROVIDE THE MAXIMUM LEVERAGE - 3
+- 44: AGENDA
+- 45: AGENDA
+- 46: TO DISPLAY INFORMATION EFFECTIVELY, YOU NEED TO
+- 47: THE SLIDE—THE BASIC BUILDING BLOCK
+- 48: HOW TO MAKE SLIDES USER FRIENDLY
+- 49: THE TRANSITION RELATES THIS SLIDE TO THE NEXT ONE
+- 50: No end punctuation follows any of these points
+- 51: RECOMMENDED FORMAT FOR TABLES AND BOXES
+- 52: THIS IS THE FORMAT FOR TABLES
+- 53: RECOMMENDED GRAPH FORMAT
+- 54: USE THESE QUESTIONS TO REVIEW YOUR SLIDES
+- 55: RECAP: WHAT DO YOU SEE ON A GOOD SLIDE
+
+## Bain concept diagrams  (Bain-concept-diagrams.pptx)
+
+- 1: Visual Enhancement Concept Diagrams
+- 2: Circular Flows
+- 3: Circular arrows - two
+- 4: Circular arrows - three
+- 5: Circular arrows - four
+- 6: Circular arrows - five
+- 7: Circular arrows - six
+- 8: Circular arrows - seven
+- 9: Circular arrows - eight
+- 10: Circular arrows - nine
+- 11: Circular arrows – joined
+- 12: Recycling
+- 13: Triangle
+- 14: Segmented circular arrows
+- 15: Simple virtuous cycle
+- 16: Linear Flows
+- 17: Arrow stair steps
+- 18: Box steps
+- 19: Ramp charts
+- 20: Ramp charts
+- 21: Dumbell
+- 22: Moving forward
+- 23: Growth/flow template
+- 24: Parallel flow - three
+- 25: Parallel Flow - four
+- 26: Parallel flow - five
+- 27: Process arrows
+- 28: Process arrows
+- 29: Process arrows
+- 30: Segmented parallel flow
+- 31: Split arrow - two
+- 32: Short split arrow - two
+- 33: Split arrow - three
+- 34: Short split arrow - three
+- 35: Subdivided flow - two
+- 36: Subdivided flow - three
+- 37: Subdivided flow - four
+- 38: Text arrows – 5 items
+- 39: Timeline
+- 40: February
+- 41: Timeline – arrows 2
+- 42: Timeline – arrows 3
+- 43: Timeline
+- 44: Relative flow of ‘traffic’
+- 45: Vertical Flows
+- 46: Funnel – three tiers
+- 47: Funnel – four tiers
+- 48: Funnel - five tiers
+- 49: Pyramid – 3 segments
+- 50: Pyramid
+- 51: Pyramid – 7 segments
+- 52: Strategy pyramid
+- 53: Three related subsections
+- 54: Segmentation
+- 55: Cube – Four by four
+- 56: Honeycomb—6 parts
+- 57: 5 parts
+- 58: 7 parts
+- 59: 8 parts
+- 60: Target / Onion
+- 61: Target / Onion
+- 62: Target
+- 63: Target / Onion Charts
+- 64: 3D Spheres  5 divisions
+- 65: Fan template – Four parts
+- 66: Fan template – Five parts
+- 67: Radial diagram – 5 segments
+- 68: Radial diagram – 6 segments
+- 69: Radial diagram – 7 segments
+- 70: Wedges – 4 segments
+- 71: Wedges – four segments
+- 72: Wedge – 5 segments
+- 73: Wedges – 7 segments
+- 74: Wedges – 7 segments
+- 75: Filters/ Screens
+- 76: Filters with arrow
+- 77: Filters with shrinking arrow
+- 78: Iceberg
+- 79: Iceberg
+- 80: Level / result – one/one
+- 81: Level / result – two/one
+- 82: Obstacle
+- 83: Leverage/ Balance
+- 84: Cannon balls
+- 85: Cannon balls
+- 86: Cannon balls
+- 87: Fulcrum – one vs. one
+- 88: Fulcrum – one vs. two
+- 89: Fulcrum – one vs. three
+- 90: Inter-relationships
+- 91: Atom
+- 92: Centre sphere
+- 93: Centre sphere
+- 94: Centre sphere
+- 95: House chart
+- 96: Interlocking circles - three
+- 97: Interlocking circles - four
+- 98: Key decision maker
+- 99: Key decision with inputs
+- 100: Overlapping circles
+- 101: Puzzle – 9 pieces
+- 102: Puzzle – five pieces
+- 103: Puzzle pieces – circular
+- 104: Shared - seven
+- 105: Semi-circles
+- 106: Venn diagram
+- 107: Venn diagram – stacked
+- 108: Wagon wheel
+- 109: Forces at work
+- 110: Arrow in arrow
+- 111: Converging arrows - three
+- 112: Converging arrows - three (2)
+- 113: Converging arrows - four
+- 114: Diverging arrows - four
+- 115: Diverging arrows - four
+- 116: Mountain track
+- 117: Trade off
+- 118: Trade off
+- 119: Changing course
+- 120: Value chain loop
+- 121: Value chain loop – back two
+- 122: Value chain loop – back three
+- 123: Value chain loop – back one
+- 124: Circular arrows - five
+- 125: Circular arrows - five
+- 126: Measurements
+- 127: Dashboards / Tachometer
+- 128: Dashboards / Tachometer
+- 129: Thermometer
+- 130: Common text slides
+- 131: Org chart (4 boxes)
+- 132: Org chart (5 boxes)
+- 133: Org chart
+- 134: Vertical value chain
+- 135: Vertical segments
+- 136: 20 column RAPID table
+- 137: Newspaper cut-out, torn edges
+- 138: Five prong spider chart
+- 139: Six prong spider chart 1
+- 140: Six prong spider chart 2
+- 141: Gantt chart 1
+- 142: Gantt chart 2
+- 143: 3D Options
+- 144: Circular arrows - seven
+- 145: Circular Org chart – 4 + 8 items
+- 146: Funnel
+- 147: Gear wheels
+- 148: Gear wheels
+- 149: Gear wheels
+- 150: Matrix – Positioning matrix
+- 151: Pyramid – multiple segment options
+- 152: Pyramid – multiple segment options
+- 153: Radial diagrams – 5 segments
+- 154: Radial diagrams – 6 segments
+- 155: Radial diagrams – 7 segments
+- 156: Radial diagram – 7 segments
+- 157: Radial diagrams – 8 segments
+- 158: Radial diagrams
+- 159: Radial diagrams
+- 160: Seesaw
+- 161: Timeline – arrows
+- 162: Venn Diagrams  Two circles
+- 163: Venn diagrams
+- 164: Work Flow Basic Set: Sales & distribution
+- 165: Work Flow Basic Set: Manufacturing
+- 166: Work Flow Basic Set: Customer service
+- 167: Work Flow - IT Set
+
+## Roland Berger modules  (Roland-Berger-modules.ppt)
+
+- 1: (graphic, no title)
+- 2: Contents Page
+- 3: A. Standard slides
+- 4: Methodological competence
+- 5: Organizational chart
+- 6: Organizational chart (including headcount)
+- 7: B. Lists (1) – Factors, no specific number
+- 8: Lists – horizontal (variations)
+- 9: Lists – vertical (variations)
+- 10: Schedule
+- 11: Sets of guidelines
+- 12: (graphic, no title)
+- 13: (graphic, no title)
+- 14: STUDY OBJECTIVE
+- 15: (graphic, no title)
+- 16: C. Lists (2) – Factors, specific number
+- 17: Pyramid (3 or 4 levels)
+- 18: Pyramid (5 levels/centered)
+- 19: 3 factors (interwoven)
+- 20: Common ground
+- 21: 4 factors (1)
+- 22: factor
+- 23: 4 factors (2)
+- 24: 4 factors (3)
+- 25: 4 factors (3a – weighted)
+- 26: 4 factors (3b – dynamic)
+- 27: 6 factors (variation)
+- 28: D. Matrix – Factors, comparisons
+- 29: Matrix/table (Horizontal/vertical comparison of data – variations)
+- 30: Special types of matrix – opportunities/threats
+- 31: Special types of matrix – pros and cons
+- 32: Special types of matrix – controversy
+- 33: Special types of matrix – conflict/tension (1)
+- 34: Special types of matrix – conflict/tension (2)
+- 35: Special types of matrix – bottom up/top down (1)
+- 36: Special types of matrix – bottom up/top down (2)
+- 37: Special types of matrix – equilibrium
+- 38: Special types of matrix – imbalance
+- 39: (graphic, no title)
+- 40: Risk management
+- 41: E. Process (1) – Factors, steps
+- 42: Processes
+- 43: Process/phases
+- 44: Cycles (1) (color presentation)
+- 45: Cycles (2)
+- 46: Spirals (orthogonal)
+- 47: Hurdles
+- 48: Resistance/obstacles
+- 49: Filters
+- 50: Change of mindset/direction
+- 51: Nodes/interfaces
+- 52: Pressure
+- 53: Increase/decrease
+- 54: Various types of brackets (to be used instead of block arrows)
+- 55: F. Process 2 – Factors, impact
+- 56: Consequences (1)
+- 57: Consequences (1a)
+- 58: Consequences (2)
+- 59: Consequences (3)
+- 60: Consequences (4)
+- 61: Impact (3 factors)
+- 62: Impact (4 and 6 factors)
+- 63: Impact (4 factors)
+- 64: Impact (5 factors)
+- 65: Impact (6 factors)
+- 66: Impact (7 factors)
+- 67: Impact (8 factors)
+- 68: Impact and result (1)
+- 69: Impact and result (2)
+- 70: Circulation (2 factors)
+- 71: Circulation (3 factors)
+- 72: Circulation (4 factors)
+- 73: Circulation (5 factors)
+- 74: Circulation (6 factors)
+- 75: Circulation (7 factors)
+- 76: Circulation (8 factors)
+- 77: Vision
+- 78: Action/reaction
+- 79: Action/reaction
+- 80: Value chain
+- 81: G. Process 3 – Factors, interlinked
+- 82: Action/reaction (1)
+- 83: Action/reaction (2) (transparent – color presentation)
+- 84: Action/reaction
+- 85: Interaction
+- 86: Jigsaw puzzle
+- 87: Spiral
+- 88: Annex: Nine key changes compared to the old standards
+- 89: New Content design – Key changes regarding „lean, linear, literal"
+- 90: New Content design – Key changes regarding „lean, linear, literal"
+- 91: (graphic, no title)
+- 92: ……
+- 93: Action/reaction
+- 94: Against the tide/with the tide
+- 95: Balance/imbalance
+- 96: Balance/imbalance
+- 97: Balance/imbalance
+- 98: Chances/risks
+- 99: Change of direction
+- 100: China map
+- 101: Columns and tables
+- 102: Columns and tables
+- 103: Columns and tables
+- 104: Bar chart
+- 105: Column chart
+- 106: Column chart
+- 107: Column chart
+- 108: Column chart
+- 109: Column chart
+- 110: Column chart
+- 111: Column chart
+- 112: Column chart
+- 113: Column chart
+- 114: Conflict
+- 115: Conflict
+- 116: ……
+- 117: Consequences (2)
+- 118: Consequences (3)
+- 119: Consequences (4)
+- 120: Consequences (5)
+- 121: Consequences (2)
+- 122: Consequences (3)
+- 123: Consequences (4)
+- 124: Consequences (5)
+- 125: Consequences
+- 126: Consultants profil (English), [Firstname Lastname]
+- 127: Cooperation
+- 128: Cooperation
+- 129: Cooperation
+- 130: Cost breakdown chart
+- 131: Dead end
+- 132: Dependance
+- 133: Development
+- 134: Dice
+- 135: Direction
+- 136: Factors (2)
+- 137: Factors (3)
+- 138: Factors (3)
+- 139: Factors (3)
+- 140: Factors (4)
+- 141: Factors (4)
+- 142: Factors (4)
+- 143: Factors (4)
+- 144: Factors (6)
+- 145: Factors (6)
+- 146: Factors (8)
+- 147: Factors (4)
+- 148: Factors (5)
+- 149: Factors (5)
+- 150: Feedback
+- 151: Feedback
+- 152: Feedback
+- 153: Feedback
+- 154: Feedback
+- 155: Filter
+- 156: Filter
+- 157: Flexibility
+- 158: Flexibility
+- 159: Flexibility
+- 160: Focus – expansion
+- 161: Growth
+- 162: Guidelines
+- 163: Harmony
+- 164: Hurdles and brakes
+- 165: Impact
+- 166: Influence (1 factor)
+- 167: Influence (2 factors)
+- 168: Influence (2 factors)
+- 169: Influence (4 factors)
+- 170: Influence (4 factors)
+- 171: Influence (6 factors)
+- 172: Input/output
+- 173: Interaction
+- 174: Margin chart
+- 175: Matrix
+- 176: Matrix
+- 177: Matrix
+- 178: Matrix
+- 179: Measures plan – planned activities
+- 180: Measures plan – planned measures
+- 181: Measures plan – planned individual steps
+- 182: Models
+- 183: Moon chart
+- 184: Multipliers
+- 185: Multipliers
+- 186: Mutuality
+- 187: Mutuality
+- 188: Obstacle
+- 189: Obstacle
+- 190: Obstacle
+- 191: Organizational and flow chart
+- 192: Organizational and flow chart
+- 193: Organizational and flow chart
+- 194: Option
+- 195: Option
+- 196: Option
+- 197: Penetration
+- 198: Pie chart
+- 199: Pie chart
+- 200: Pie chart
+- 201: Plus/minus
+- 202: Plus/minus
+- 203: Plus/minus
+- 204: Plus/minus
+- 205: Plus/minus
+- 206: Portfolio
+- 207: Portfolio
+- 208: Pressure
+- 209: Pressure
+- 210: Pressure
+- 211: Prioritization
+- 212: Process
+- 213: Process
+- 214: Process – decrease
+- 215: Project
+- 216: Project
+- 217: Project procedure
+- 218: Puzzle
+- 219: Resistance
+- 220: Restructuring
+- 221: Rethink
+- 222: Separation
+- 223: Separation
+- 224: Separation
+- 225: Spinning off parts of a company
+- 226: Storyboard
+- 227: Storyboard
+- 228: Strengths/weaknesses
+- 229: Table
+- 230: Table
+- 231: Table
+- 232: Table
+- 233: Table
+- 234: Table
+- 235: Target (1 factor)
+- 236: Target (2 factors)
+- 237: Target (3 factors)
+- 238: Team organization
+- 239: Text blocks (2)
+- 240: Text blocks (3)
+- 241: Text blocks (4)
+- 242: Text blocks (5)
+- 243: Text blocks (2)
+- 244: Text blocks (3)
+- 245: Text blocks (4)
+- 246: Text blocks (5)
+- 247: Text blocks (3 + 3)
+- 248: Text blocks (3 + 4)
+- 249: Text in box
+- 250: Text in box
+- 251: Text in box
+- 252: Timetable
+- 253: Value-added chain
+- 254: Vision
+- 255: Waste of resources – problem
+- 256: Waste of resources – solution
+- 257: (graphic, no title)
+- 258: (graphic, no title)
+- 259: ＋
+- 260: (graphic, no title)
+- 261: SWOT
+- 262: (graphic, no title)
+- 263: (graphic, no title)
+- 264: ……
+- 265: (graphic, no title)
+- 266: (graphic, no title)
+- 267: (graphic, no title)
+- 268: (graphic, no title)
+- 269: (graphic, no title)
+- 270: (graphic, no title)
+- 271: (graphic, no title)
+- 272: 两种方式的比较
+- 273: (graphic, no title)
+- 274: (graphic, no title)
+- 275: (graphic, no title)
+- 276: ……
+- 277: (graphic, no title)
+- 278: 2X2 CUBED
+- 279: 2X2 TOWER
+- 280: 5PS MARKETING
+- 281: 7S
+- 282: ARROW 3D
+- 283: CUBES1 3D
+- 284: CUBES2 3D
+- 285: CUBES3 3D
+- 286: FORCES AT WORK
+- 287: JOINT
+- 288: LEVEL SEPARATE 4
+- 289: LINEAR A 3D
+- 290: LINEAR B 3D
+- 291: LINEAR C 3D
+- 292: LINEAR D 3D
+- 293: LINEAR E 3D
+- 294: LINEAR G 3D
+- 295: LINEAR I 3D
+- 296: LINEAR J 3D
+- 297: LINEAR N 3D
+- 298: LINEAR P 3D
+- 299: LINEAR Q 3D
+- 300: LINEAR Q 3D
+- 301: CUTOUT 3D
+- 302: LINKS 3
+- 303: PERSPECTIVE 3D
+- 304: PROPELLER 3D
+- 305: RINGS 3D
+- 306: SCALE
+- 307: SCALES
+- 308: SIZES IN
+- 309: SPIRAL1 3D
+- 310: SPIRAL2 3D
+- 311: SPOTLIGHT
+- 312: STAIRCASE
+- 313: WIRE CUBES
+- 314: ARROWS
+- 315: BLADES
+- 316: BOX
+- 317: BOX
+- 318: INCOMING
+- 319: RIBBON
+- 320: RING
+- 321: UPON 2
+- 322: CONTINUOUS
+- 323: LINEAR K
+- 324: STEP 5
+- 325: 2 ON 1
+- 326: AGAINST
+- 327: AT WORK
+- 328: COUPLED HORIZ
+- 329: COUPLED VERT
+- 330: FOCUSED
+- 331: FORCES AT WORK
+- 332: PARALLEL
+- 333: SPLIT
+- 334: SURROUND
+- 335: TWISTED
+- 336: UP & AWAY
+- 337: UP & DOWN
+- 338: 3Cs TRIANGLE
+- 339: BUSS PORTFOLIO
+- 340: CHANGE BOARD
+- 341: PENTAGON
+- 342: PRICE BENEFIT
+- 343: SMILE CHART
+- 344: STRAT MANAGE
+- 345: TREE PRODUCTIVITY
+- 346: VALUE CREATION
+- 347: VALUE SOURCES
+- 348: GANTT10
+- 349: GANTT15
+- 350: LEFT TO RIGHT
+- 351: STUDY OBJECTIVE
+- 352: TOP DOWN
+- 353: 2X2 CUBED
+- 354: 2X2 EXTENDED
+- 355: 2X2 TOWER
+- 356: 2X2
+- 357: 3X3 EXTENDED
+- 358: 3X3
+- 359: PASS THROUGH
+- 360: FLOW DOWN
+- 361: 4 BOX 3D
+- 362: BOUNCE
+- 363: CUBE WITH CIRCLES
+- 364: SEASAW
+- 365: WAY THRU
+- 366: DECISIONS
+- 367: LOOPS
+- 368: ROLLERS
+- 369: 2 AROUND
+- 370: 4 IN 1 SQUARE
+- 371: SIZES IN
+- 372: CROSS SECTION
+- 373: HONEYCOMB
+- 374: JOINT
+- 375: VENN 2
+- 376: VENN 3
+- 377: AREA
+- 378: BAR
+- 379: BAR BUTTED
+- 380: BAR STACKED
+- 381: BAR STACKED 100%
+- 382: BUBBLE
+- 383: COLUMN
+- 384: COLUMN 2
+- 385: COLUMN BUTTED
+- 386: COLUMN STACKED
+- 387: COLUMN STACKED 100%
+- 388: COMBO PIE SEGMENT COLUMN
+- 389: COST CURVE
+- 390: DUAL COLUMN LINE
+- 391: DUAL LINE
+- 392: LINE
+- 393: PIE
+- 394: PIE 2
+- 395: RANGE HIGH LOW
+- 396: SCATTER X & Y
+- 397: WATERFALL BAR
+- 398: WATERFALL COLUMN
+- 399: 定位目标
+- 400: 公司战略
+- 401: ARROWS
+- 402: MCKINSEY LOGO
+- 403: MOONS
+- 404: STICKER
+- 405: STICKER OTHER
+- 406: (graphic, no title)
+- 407: (graphic, no title)
+- 408: (graphic, no title)
+- 409: EXHIBIT TITLE
+- 410: EXHIBIT TITLE
+- 411: EXHIBIT TITLE
+- 412: EXHIBIT TITLE
+- 413: Title Measure
+- 414: Label 1
+- 415: Label 1
+- 416: (graphic, no title)
+- 417: Title Measure
+- 418: (graphic, no title)
+- 419: Title Measure
+- 420: Title Measure
+- 421: (graphic, no title)
+- 422: 1. Improve customer service and other card operations
+- 423: (graphic, no title)
+- 424: A.T. Kearney & EDS
+- 425: (graphic, no title)
+- 426: Foreign supermarket Country / Name / Year of entry
+- 427: (graphic, no title)
+- 428: STICKER AND OTHERS
+- 429: (graphic, no title)
+- 430: STICKER AND OTHERS
+- 431: MAPS
+- 432: WORLD MAP
+- 433: 海南
+- 434: America
+- 435: (graphic, no title)
+- 436: END OF DOC
+
+## Deloitte timesaver  (Deloitte-timesaver.pptx)
+
+- 1: February 2014
+- 2: Structured text
+- 3: Contents
+- 4: Tables Table with text
+- 5: Tables Table with full column of bullets and dashes
+- 6: Tables Data table
+- 7: Tables Alternative data table
+- 8: Tables Chevron table
+- 9: Text boxes Two text boxes with paragraph, bullet, and dash points
+- 10: Text boxes Two-by-two
+- 11: Text boxes Two columns of numbered points for each point
+- 12: Text boxes To ways of showing major points
+- 13: Text boxes Major points with chevrons
+- 14: Text boxes Chevrons with text boxes
+- 15: Text boxes Vertical chevrons with text
+- 16: Text boxes Influencing chevrons
+- 17: Text boxes Chevrons resulting from
+- 18: Text blocks Arrow leading to
+- 19: Text blocks Elements leading to
+- 20: Text blocks Interrelated
+- 21: Text blocks Sequence
+- 22: Text blocks Enveloping elements
+- 23: Text blocks Michelangelo (top alignment)
+- 24: Text blocks Michelangelo (left alignment)
+- 25: Text blocks Two squares
+- 26: Text blocks Leading to
+- 27: Text blocks Interaction
+- 28: Text blocks Coupled vertical
+- 29: Text blocks Working together
+- 30: Text blocks Sources leading to
+- 31: Text blocks Gravitating to
+- 32: Quotes Subtitle runs here
+- 33: Quotes Subtitle runs here
+- 34: Quotes Subtitle runs here
+- 35: Contents
+- 36: Logic trees Blue, one level plus text
+- 37: Logic trees White, one level plus text
+- 38: Logic trees Vertical
+- 39: Logic trees Vertical with straight lines
+- 40: Logic trees Hypothesis tree
+- 41: Logic trees Executive summary tree
+- 42: Driver trees Arrows showing base trends
+- 43: Driver trees Moons showing base trends
+- 44: Driver trees Text with general trends
+- 45: Driver trees Expanded text
+- 46: Driver trees Arrows showing trend
+- 47: Organization chart Simple
+- 48: Organization chart Extensive
+- 49: Organization chart With text blocks
+- 50: Contents
+- 51: Bar charts Paired
+- 52: Horizontal stacked bar chart Subtitle runs here
+- 53: Bar charts Two stacked
+- 54: Bar charts Four parallel
+- 55: Bar charts Paired (9 colors)
+- 56: Bar charts Butterfly
+- 57: Column chart Stacked (9 colors)
+- 58: Column charts Two stacked
+- 59: Column charts Stacked bar chart and text
+- 60: Column charts Four on a page
+- 61: Column chart Paired (9 colors)
+- 62: Column chart Paired
+- 63: Column charts Four paired
+- 64: Column charts Multiple
+- 65: Area chart Stacked (9 colors)
+- 66: Area chart Stacked
+- 67: Area chart 100% (‘parfait chart‘)
+- 68: Pie chart Multiple colors
+- 69: Pie charts Labels on outside
+- 70: Pie charts Slice exploded
+- 71: Pie chart Explosion
+- 72: Pie chart Stacked column 100%
+- 73: Pie chart Labels on outside
+- 74: Text and chart slide Subtitle runs here
+- 75: Multiple chart slide Subtitle runs here
+- 76: Radar chart
+- 77: Line chart
+- 78: Line charts Two
+- 79: Line charts Two with text
+- 80: Smoothed line chart
+- 81: Smoothed line charts Two
+- 82: Smoothed line charts Two with text
+- 83: Waterfall Columns
+- 84: Waterfall Columns without gaps
+- 85: Waterfall Bars
+- 86: Waterfall Bars without gaps
+- 87: High-low-median chart
+- 88: Stock/elevator chart
+- 89: Scatter chart
+- 90: Bubble chart
+- 91: Driver tree chart DuPont chart with bars
+- 92: CAGR tree
+- 93: Contents
+- 94: Chevrons
+- 95: Circles Small arrows
+- 96: Circles Arrows
+- 97: Circles Chevrons
+- 98: Circles Process ending in a closed loop
+- 99: Spheres Interrelated
+- 100: Spheres Overlapping
+- 101: Spheres Blades
+- 102: Spheres Sizes in
+- 103: Spheres Spotlight and rollers
+- 104: Spheres Closed loop
+- 105: Spheres Visor
+- 106: Spheres Pieces
+- 107: Spheres Ying and yang
+- 108: Spheres Eggs
+- 109: Boxes Matrices
+- 110: Boxes Honeycomb
+- 111: Triangles Basic
+- 112: Triangles – pyramids
+- 113: Puzzles Square
+- 114: Puzzles Rectangular
+- 115: Puzzles Five pieces
+- 116: Others Trackers
+- 117: Contents
+- 118: World map FY2013 People by region
+- 119: Maps Regions
+- 120: Maps Regions
+- 121: Maps Regions
+- 122: Maps United States
+- 123: Maps Netherlands
+- 124: Maps Benelux
+- 125: Maps UK
+- 126: Maps Italy
+- 127: Maps France
+- 128: Maps Australia
+- 129: Maps Germany and Spain
+- 130: Maps Switzerland & Austria
+- 131: Maps Sweden, Finland and Denmark
+- 132: Maps Hungary and Poland
+- 133: Maps Russia
+- 134: Maps Tunisia and Greece
+- 135: Maps India and China
+- 136: Flags
+- 137: Contents
+- 138: Generic strategy development framework English
+- 139: Restructuring framework
+- 140: Competitive strategy 3.0 framework
+- 141: Strategy development The fish
+- 142: Strategy development The loop
+- 143: Backward strategic planning framework
+- 144: Incremental versus dynamic strategic planning framework
+- 145: Pentagon
+- 146: Strategic disciplines
+- 147: 7S
+- 148: 3Cs triangle
+- 149: Value creation
+- 150: Portfolio matrix
+- 151: Business portfolio 3x3
+- 152: Business portfolio 3x3
+- 153: Five forces
+- 154: Activity map – generic
+- 155: Activity map Very detailed
+- 156: Activity map Competitor overview
+- 157: Activity map Synergy analysis
+- 158: Activity map Synergy summary
+- 159: Activity map Competitive groups
+- 160: Activity map Ranges of activities across value chain
+- 161: Swimlanes
+- 162: Process flow
+- 163: Process map
+- 164: Contents
+- 165: Table with moons
+- 166: More moons (a.k.a. Harvey Balls)
+- 167: Table with traffic lights
+- 168: Heat map
+- 169: Table with arrows
+- 170: Levels of maturity
+- 171: Steps Three
+- 172: Steps Four
+- 173: Steps Five
+- 174: Steps Six
+- 175: Steps With more flights
+- 176: Diagonal boxes Three steps
+- 177: Diagonal boxes Four steps
+- 178: Diagonal boxes Five steps
+- 179: Diagonal boxes Six steps
+- 180: Linear text
+- 181: Expansion
+- 182: Diversion
+- 183: Continuous
+- 184: Cutout
+- 185: Linear
+- 186: Linear
+- 187: Radiating outward
+- 188: Expansion
+- 189: Step-by-step actions
+- 190: Interrelated stages
+- 191: Heptagon
+- 192: Leverage
+- 193: Balance 1
+- 194: Jumping point
+- 195: Forces at work
+- 196: Forced
+- 197: Surround
+- 198: Flow down
+- 199: History
+- 200: Timelines
+- 201: Gantt chart or timeline chart
+- 202: Calender
+- 203: Calendars First day of the month is Monday, Tuesday, Wednesday or Thursday
+- 204: Calendars First day of the month is Friday, Saturday or Sunday
+- 205: Curves Generic life cycle
+- 206: Curves Country maturity
+- 207: Curves Bell curve
+- 208: Curves Cost curve
+- 209: Curves Downward and upward slopes
+- 210: Other Cross
+- 211: Other Funnels
+- 212: Other Spectrum
+- 213: Other Thermometers
+- 214: Other Saving thermometer
+- 215: Contents
+- 216: Tree with accompanying text
+- 217: Tree with circular text boxes
+- 218: Connectors with honeycomb
+- 219: Connectors with bubbles
+- 220: Connectors with puzzle pieces
+- 221: Leaves and bubble combined
+- 222: Leaves with text
+- 223: Ranking elements Arrows with supportive text
+- 224: Ranking elements Numbered bubbles
+- 225: Ranking elements Numbered raindrops
+- 226: Ranking elements Numbered cubes
+- 227: Ranking elements Numbered arrows
+- 228: Ranking elements Numbered ribbons
+- 229: Ranking elements Twisted ribbons
+- 230: Ranking elements Ribbons bouncing
+- 231: Bends Arrows with icons
+- 232: Bends Ribbons with icons
+- 233: Wreath
+- 234: Integrated beach ball with textboxes
+- 235: Combined ring and pinpoint icons
+- 236: Pinwheel with text
+- 237: Golf clubs with textboxes
+- 238: Integrated triangles and supportive text
+- 239: Elevated hoops
+- 240: Process circle
+- 241: Contents
+- 242: Iconography
+- 243: Iconography
+- 244: Iconography
+- 245: Iconography
+- 246: Iconography
+- 247: Iconography
+- 248: Iconography
+- 249: Iconography
+- 250: Iconography
+- 251: Iconography
+- 252: Iconography
+- 253: Appendix
+- 254: Deloitte PowerPoint template
+- 255: Appendix
+- 256: Appendix Numbered elements
+- 257: Appendix Call out containers
+- 258: Appendix Title styles
+- 259: Appendix Generic elements
+- 260: Appendix
+- 261: (graphic, no title)
+
+## EY graphics  (EY-graphics.pptx)
+
+- 1: Information graphics
+- 2: Introduction to EY Yellow
+- 3: How to use these slides
+- 4: (graphic, no title)
+- 5: (graphic, no title)
+- 6: (graphic, no title)
+- 7: (graphic, no title)
+- 8: (graphic, no title)
+- 9: (graphic, no title)
+- 10: (graphic, no title)
+- 11: (graphic, no title)
+- 12: (graphic, no title)
+- 13: (graphic, no title)
+- 14: (graphic, no title)
+- 15: (graphic, no title)
+- 16: (graphic, no title)
+- 17: (graphic, no title)
+- 18: (graphic, no title)
+- 19: (graphic, no title)
+- 20: (graphic, no title)
+- 21: (graphic, no title)
+- 22: (graphic, no title)
+- 23: (graphic, no title)
+- 24: (graphic, no title)
+- 25: (graphic, no title)
+- 26: (graphic, no title)
+- 27: (graphic, no title)
+- 28: (graphic, no title)
+- 29: (graphic, no title)
+- 30: (graphic, no title)
+- 31: (graphic, no title)
+- 32: (graphic, no title)
+- 33: (graphic, no title)
+- 34: (graphic, no title)
+- 35: (graphic, no title)
+- 36: (graphic, no title)
+- 37: (graphic, no title)
+- 38: (graphic, no title)
+- 39: (graphic, no title)
+- 40: (graphic, no title)
+- 41: (graphic, no title)
+- 42: (graphic, no title)
+- 43: (graphic, no title)
+- 44: (graphic, no title)
+- 45: Text Text Text Text
+- 46: (graphic, no title)
+- 47: (graphic, no title)
+- 48: (graphic, no title)
+- 49: (graphic, no title)
+- 50: (graphic, no title)
+- 51: (graphic, no title)
+- 52: (graphic, no title)
+- 53: (graphic, no title)
+- 54: (graphic, no title)
+- 55: (graphic, no title)
+- 56: (graphic, no title)
+- 57: (graphic, no title)
+- 58: (graphic, no title)
+- 59: (graphic, no title)
+- 60: (graphic, no title)
+- 61: (graphic, no title)
+- 62: (graphic, no title)
+- 63: (graphic, no title)
+- 64: (graphic, no title)
+- 65: (graphic, no title)
+- 66: (graphic, no title)
+- 67: (graphic, no title)
+- 68: (graphic, no title)
+- 69: (graphic, no title)
+- 70: (graphic, no title)
+- 71: (graphic, no title)
+- 72: (graphic, no title)
+- 73: (graphic, no title)
+- 74: (graphic, no title)
+- 75: (graphic, no title)
+- 76: (graphic, no title)
+- 77: (graphic, no title)
+- 78: (graphic, no title)
+- 79: (graphic, no title)
+- 80: (graphic, no title)
+- 81: (graphic, no title)
+- 82: (graphic, no title)
+- 83: (graphic, no title)
+- 84: (graphic, no title)
+- 85: (graphic, no title)
+- 86: (graphic, no title)
+- 87: (graphic, no title)
+- 88: (graphic, no title)
+- 89: (graphic, no title)
+- 90: (graphic, no title)
+- 91: (graphic, no title)
+- 92: (graphic, no title)
+- 93: (graphic, no title)
+- 94: (graphic, no title)
+- 95: (graphic, no title)
+- 96: (graphic, no title)
+- 97: (graphic, no title)
+- 98: (graphic, no title)
+- 99: (graphic, no title)
+- 100: (graphic, no title)
+- 101: (graphic, no title)
+- 102: (graphic, no title)
+- 103: (graphic, no title)
+- 104: (graphic, no title)
+- 105: (graphic, no title)
+- 106: (graphic, no title)
+- 107: (graphic, no title)
+- 108: (graphic, no title)
+- 109: (graphic, no title)
+- 110: (graphic, no title)
+- 111: (graphic, no title)
+- 112: (graphic, no title)
+- 113: (graphic, no title)
+- 114: (graphic, no title)
+- 115: (graphic, no title)
+- 116: (graphic, no title)
+- 117: (graphic, no title)
+- 118: (graphic, no title)
+- 119: (graphic, no title)
+- 120: (graphic, no title)
+- 121: (graphic, no title)
+- 122: (graphic, no title)
+- 123: (graphic, no title)
+- 124: (graphic, no title)
+- 125: (graphic, no title)
+- 126: (graphic, no title)
+- 127: (graphic, no title)
+- 128: (graphic, no title)
+- 129: (graphic, no title)
+- 130: (graphic, no title)
+- 131: (graphic, no title)
+- 132: (graphic, no title)
+- 133: (graphic, no title)
+- 134: (graphic, no title)
+- 135: (graphic, no title)
+- 136: (graphic, no title)
+- 137: (graphic, no title)
+- 138: (graphic, no title)
+- 139: (graphic, no title)
+- 140: (graphic, no title)
+- 141: (graphic, no title)
+- 142: (graphic, no title)
+- 143: (graphic, no title)
+- 144: (graphic, no title)
+- 145: (graphic, no title)
+- 146: (graphic, no title)
+- 147: (graphic, no title)
+- 148: (graphic, no title)
+- 149: (graphic, no title)
+- 150: (graphic, no title)
+- 151: (graphic, no title)
+- 152: (graphic, no title)
+- 153: (graphic, no title)
+- 154: (graphic, no title)
+- 155: (graphic, no title)
+- 156: (graphic, no title)
+- 157: (graphic, no title)
+- 158: (graphic, no title)
+- 159: (graphic, no title)
+- 160: (graphic, no title)
+- 161: (graphic, no title)
+- 162: (graphic, no title)
+- 163: (graphic, no title)
+- 164: (graphic, no title)
+- 165: (graphic, no title)
+- 166: (graphic, no title)
+- 167: (graphic, no title)
+- 168: (graphic, no title)
+- 169: (graphic, no title)
+- 170: (graphic, no title)
+- 171: (graphic, no title)
+- 172: (graphic, no title)
+- 173: (graphic, no title)
+- 174: (graphic, no title)
+- 175: (graphic, no title)
+- 176: (graphic, no title)
+- 177: (graphic, no title)
+- 178: (graphic, no title)
+- 179: Scoring - Harvey balls
+- 180: Scoring - arrows
+- 181: Scoring - stars
+- 182: (graphic, no title)
+- 183: (graphic, no title)
+- 184: (graphic, no title)
+- 185: (graphic, no title)
+- 186: (graphic, no title)
+- 187: (graphic, no title)
+- 188: (graphic, no title)
+- 189: (graphic, no title)
+- 190: (graphic, no title)
+- 191: (graphic, no title)
+- 192: (graphic, no title)
+- 193: (graphic, no title)
+- 194: (graphic, no title)
+- 195: (graphic, no title)
+- 196: (graphic, no title)
+- 197: (graphic, no title)
+- 198: (graphic, no title)
+- 199: (graphic, no title)
+- 200: (graphic, no title)
+- 201: (graphic, no title)
+- 202: (graphic, no title)
+- 203: (graphic, no title)
+- 204: (graphic, no title)
+- 205: (graphic, no title)
+- 206: (graphic, no title)
+- 207: (graphic, no title)
+- 208: (graphic, no title)
+- 209: (graphic, no title)
+- 210: (graphic, no title)
+- 211: (graphic, no title)
+- 212: (graphic, no title)
+- 213: (graphic, no title)
+- 214: (graphic, no title)
+- 215: (graphic, no title)
+- 216: (graphic, no title)
+- 217: (graphic, no title)
+- 218: (graphic, no title)
+- 219: (graphic, no title)
+- 220: Introducing EY’s Advisory Services
+- 221: Page 1 Advisory: focus on performance
+- 222: The world is constantly changing
+- 223: Organizations need to find new ways to innovate — and do it quickly
+- 224: We’re structured to help you grow, protect and optimize your business
+- 225: We develop strategies that drive transformational change
+- 226: We optimize processes that drive business outcomes
+- 227: We implement technologies that enable business performance
+- 228: Together we’ll pave a path to performance
+- 229: And we’ll work with you globally and collaboratively to build a better working world
+- 230: Client success stories
+- 231: Knowledge is power Using data analytics to drive your growth agenda
+- 232: Conserving costs, powering growth Rebuild the service company operating model
+- 233: A new prescription for market success Using commercial agility to gain market share
+- 234: Advisory: focus on performance
+- 235: Bringing patients into focus Using analytics to create a 360-degree view
+- 236: Advisory: focus on performance
+- 237: Recognition in the market
+- 238: We’re recognized as a market leader by analysts and industry professionals
+- 239: We’re recognized as a market leader by analysts and industry professionals
+- 240: We’re recognized as a market leader by analysts and industry professionals
+- 241: Timely and relevant insights
+- 242: Thought leadership
+- 243: 5 insights for executives
+- 244: IT Risk Insights
+- 245: Want to learn more?
+- 246: Page 26 Advisory: focus on performance
+
+## A.T. Kearney charts  (AT-Kearney-charts.ppt)
+
+- 1: Multi-layered organization chart variations
+- 2: Processes
+- 3: Focusing screen process
+- 4: Decision tree
+- 5: Process maps
+- 6: Dynamic process 1
+- 7: Mekko and Gantt charts
+- 8: Think-cell – Mekko charts
+- 9: Think-cell – Mekko charts based on two different values
+- 10: PPT table tool – Gantt chart variation
+- 11: PPT table tool – Gantt chart variation
+- 12: PPT table tool – Gantt chart variation
+- 13: PPT table tool – Gantt chart variation
+- 14: PPT table tool – Gantt chart variation
+- 15: Think-cell – Gantt chart example
+- 16: Think-cell – Gantt chart example
+- 17: Think-cell – Gantt chart example
+- 18: Charts
+- 19: Use “ATK Library” tab to copy preformatted pages with Excel charts into your file
+- 20: Charts
+- 21: Excel – Stacked bar chart template
+- 22: Excel – 100% Stacked bar chart template
+- 23: Excel – Clustered bar chart template
+- 24: Excel –Stacked bar chart
+- 25: Excel – 100% Stacked bar chart
+- 26: Excel – Clustered bar chart – sorted by value
+- 27: Excel – Bar chart comparison
+- 28: Excel – Bar charts comparison
+- 29: Excel – Bar chart comparison
+- 30: Charts
+- 31: Excel – Bubble chart template
+- 32: Shapes – Two-by-two matrix
+- 33: Excel – Bubble chart – relation of portfolios – area vs. width
+- 34: Excel – Bubble chart – two series
+- 35: Excel – Bubble chart
+- 36: Excel – Bubble chart
+- 37: Excel – Bubble chart – High-low matrix
+- 38: Charts
+- 39: Excel – Line with markers chart template
+- 40: Excel – Scatter with straight lines and markers
+- 41: Excel – Line with markers chart
+- 42: Excel – Line with markers chart
+- 43: Click on the line and select type of trend line
+- 44: Excel – Line with markers chart
+- 45: Excel – Scatter chart template
+- 46: Excel – Scatter with only markers chart
+- 47: Excel – Stacked area chart – cumulative
+- 48: Excel – Scatter chart
+- 49: Excel – Scatter with straight lines and markers – evaluation with gap
+- 50: Charts
+- 51: Excel – Radar chart (spider web)
+- 52: Excel – Filled radar chart (spider web)
+- 53: Charts
+- 54: Excel – Stacked column chart template
+- 55: Excel – 100% Stacked column chart template
+- 56: Excel – Clustered column chart template
+- 57: Excel – Stacked column chart
+- 58: Excel – Stacked column chart variation
+- 59: Excel – Stacked column chart
+- 60: Excel – 100% Stacked column chart
+- 61: Excel – 100% Stacked column chart
+- 62: Excel – Clustered column chart variation
+- 63: Excel – Clustered column chart comparison
+- 64: Excel – Stacked column chart comparison
+- 65: Excel – Clustered column chart comparison
+- 66: Excel – Clustered column chart comparison
+- 67: Excel – Clustered column chart comparison
+- 68: Excel – Clustered column chart
+- 69: Excel – Clustered column chart comparison
+- 70: Excel – Clustered column chart comparison
+- 71: Excel – 100% Stacked column chart
+- 72: Excel – Stacked column chart and shape combination
+- 73: Excel – Stacked column chart
+- 74: Excel – Stacked column chart
+- 75: Charts
+- 76: Excel – Pie chart template
+- 77: Excel – Column chart and pie chart
+- 78: Excel – Pie breakout to stacked column chart
+- 79: Excel – Pie chart and column – combined
+- 80: Excel – Pie chart and column
+- 81: Excel – Waterfall chart and pie
+- 82: Excel – Clustered column, one series changed to line chart
+- 83: Excel – Clustered column, one series changed to line chart
+- 84: Excel – Clustered column, one series changed to line chart
+- 85: Excel – Combined chart with column + line + area
+- 86: Excel – Pie chart
+- 87: Excel – Pie chart
+- 88: Charts
+- 89: Excel – Waterfall chart
+- 90: Excel – Waterfall chart
+- 91: Excel – Waterfall chart
+- 92: Excel – Waterfall chart
+- 93: Charts
+- 94: think-cell facilitates chart creation with PowerPoint
+- 95: think-cell installation is available for all users at A.T. Kearney
+- 96: This element was changed without think-cell
+- 97: Charts
+- 98: Think-cell – Stacked bar chart
+- 99: Think-cell – Stacked bar chart
+- 100: Think-cell – Bar chart
+- 101: Think-cell – Stacked bar chart
+- 102: Think-cell – Bar chart comparison
+- 103: Think-cell – Bar chart comparison
+- 104: Think-cell – Bar chart comparison
+- 105: Charts
+- 106: Think-cell – Bubble chart
+- 107: Think-cell – Bubble chart
+- 108: Think-cell – Bubble chart
+- 109: Think-cell – Bubble chart
+- 110: Think-cell – Bubble chart
+- 111: Think-cell – Bubble chart
+- 112: Think-cell – Bubble chart
+- 113: Charts
+- 114: Think-cell – Line chart
+- 115: Think-cell – Line chart
+- 116: Think-cell – Scatter chart
+- 117: Think-cell – Line chart
+- 118: Think-cell – Line graph comparison
+- 119: Think-cell – Likert diagram
+- 120: Think-cell – Cumulative area chart
+- 121: Think-cell – Scatter chart
+- 122: Charts
+- 123: Think-cell – Stacked column chart
+- 124: Think-cell – Column chart variation
+- 125: Think-cell – Column chart variation
+- 126: Think-cell – Stacked column chart
+- 127: Think-cell – Stacked column chart
+- 128: Think-cell – Stacked column chart – 100%
+- 129: Think-cell – Column chart comparison
+- 130: Think-cell – Column chart comparison
+- 131: Think-cell – Column chart comparison
+- 132: Think-cell – Column chart comparison
+- 133: Think-cell – Column chart comparison
+- 134: Think-cell – Clustered column chart
+- 135: Think-cell – Clustered column chart comparison
+- 136: Think-cell – Clustered column chart comparison
+- 137: Think-cell – Stacked column chart
+- 138: Think-cell – chart and shape combination
+- 139: Think-cell – Stacked column chart
+- 140: Think-cell – Stacked column chart
+- 141: Charts
+- 142: Think-cell – Pie chart comparison
+- 143: Think-cell – Column chart and pie charts
+- 144: Think-cell – Pie breakout to stacked column chart
+- 145: Think-cell – Pie chart and column – combined
+- 146: Think-cell – Pie chart and column
+- 147: Think-cell – Waterfall chart and pie
+- 148: Think-cell – Line and column chart
+- 149: Think-cell – Line and column chart
+- 150: Think-cell – Line and column chart
+- 151: Think-cell – Pie chart
+- 152: Charts
+- 153: Think-cell – Waterfall chart
+- 154: Think-cell – Waterfall chart
+- 155: Think-cell – Waterfall chart – up and down
+- 156: Think-cell – Waterfall chart
+- 157: Charts
+- 158: Think-cell – Mekko charts
+- 159: Think-cell – Mekko charts based on two different values
+- 160: Charts
+- 161: Think-cell – Gantt chart example
+- 162: Think-cell – Gantt chart example
+- 163: Think-cell – Gantt chart example
+- 164: Practice slides
+- 165: This is an example of a case study slide with a two-line headline
+- 166: Stages of excellence
+- 167: SWOT analysis
+- 168: Benchmarking
+- 169: Benchmarking
+- 170: Multidimensional graphic
+- 171: Vision
+- 172: Vision
+- 173: Best-price evaluation
+- 174: Sourcing group steps with running icon
+- 175: Cascading process
+- 176: Cascading process with bullet boxes
+- 177: A.T. Kearney E-business portfolio
+- 178: Pyramid
+- 179: Pyramid with callout
+- 180: Pyramid scale
+- 181: Common objects
+- 182: Common objects
+- 183: A.T. Kearney's consulting services structure
+- 184: Processes
+- 185: Lessons learned
+- 186: Interconnectivity
+- 187: Spheres of influence
+- 188: Define and describe function
+- 189: Interconnectivity – eight points
+- 190: Star and arrows
+- 191: Four point with A.T. Kearney
+- 192: Classical temple
+- 193: Classical pillars with bullets
+- 194: Custom graphics
+- 195: Process wheels
+- 196: Cyclic process flows
+- 197: Puzzles
+- 198: Puzzles
+- 199: Components
+- 200: Action causes a reaction
+- 201: Miscellaneous graphics
+- 202: Cogs turning
+- 203: Cogs turning
+- 204: Spirals
+- 205: 3-dimensional objects
+- 206: Diamonds – use radar chart to generate diamonds of any number of segments
+- 207: Diamonds
+- 208: Graphic elements
+- 209: Intersecting circles
+- 210: Obstacle or barricade graphic
+- 211: Outline – curved lines
+- 212: Interdependencies
+- 213: Circular arc segments – generated as doughnut chart
+- 214: Circular arc segments – generated as doughnut chart
+- 215: Circular arc segments – generated as doughnut chart
+- 216: Circular arc segments – generated as doughnut chart
+- 217: Circular arc segments – generated as doughnut chart
+- 218: Circular arc segments – created with “edit points”
+- 219: Arrow graphics
+- 220: Arrow graphics
+- 221: Arrow graphics
+- 222: Arrow graphics
+- 223: Arrow graphics
+- 224: Arrow graphics
+- 225: Arrow graphics
+- 226: Arrow graphics
+- 227: Arrow graphics
+- 228: Arrow graphics
+- 229: Arrow graphics
+- 230: Miscellaneous graphics
+- 231: Miscellaneous graphics
+- 232: Miscellaneous graphics
+- 233: Miscellaneous graphics
+- 234: Miscellaneous graphics
+
+## Quick Presentation Toolkit  (Quick-Presentation-Toolkit.pptx)
+
+- 1: (graphic, no title)
+- 2: (graphic, no title)
+- 3: (graphic, no title)
+- 4: (graphic, no title)
+- 5: (graphic, no title)
+- 6: (graphic, no title)
+- 7: (graphic, no title)
+- 8: (graphic, no title)
+- 9: (graphic, no title)
+- 10: (graphic, no title)
+- 11: (graphic, no title)
+- 12: (graphic, no title)
+- 13: (graphic, no title)
+- 14: (graphic, no title)
+- 15: (graphic, no title)
+- 16: (graphic, no title)
+- 17: (graphic, no title)
+- 18: (graphic, no title)
+- 19: (graphic, no title)
+- 20: (graphic, no title)
+- 21: (graphic, no title)
+- 22: (graphic, no title)
+- 23: (graphic, no title)
+- 24: (graphic, no title)
+- 25: (graphic, no title)
+- 26: (graphic, no title)
+- 27: (graphic, no title)
+- 28: (graphic, no title)
+- 29: (graphic, no title)
+- 30: (graphic, no title)
+- 31: (graphic, no title)
+- 32: (graphic, no title)
+- 33: (graphic, no title)
+- 34: (graphic, no title)
+- 35: (graphic, no title)
+- 36: (graphic, no title)
+- 37: (graphic, no title)
+- 38: (graphic, no title)
+- 39: (graphic, no title)
+- 40: (graphic, no title)
+- 41: (graphic, no title)
+- 42: (graphic, no title)
+- 43: (graphic, no title)
+- 44: (graphic, no title)
+- 45: (graphic, no title)
+- 46: (graphic, no title)
+- 47: (graphic, no title)
+- 48: (graphic, no title)
+- 49: (graphic, no title)
+- 50: (graphic, no title)
+- 51: (graphic, no title)
+- 52: (graphic, no title)
+- 53: (graphic, no title)
+- 54: (graphic, no title)
+- 55: (graphic, no title)
+- 56: (graphic, no title)
+- 57: (graphic, no title)
+- 58: (graphic, no title)
+- 59: (graphic, no title)
+- 60: (graphic, no title)
+- 61: (graphic, no title)
+- 62: (graphic, no title)
+- 63: (graphic, no title)
+- 64: (graphic, no title)
+- 65: (graphic, no title)
+- 66: (graphic, no title)
+- 67: (graphic, no title)
+- 68: (graphic, no title)
+- 69: (graphic, no title)
+- 70: (graphic, no title)
+- 71: (graphic, no title)
+- 72: (graphic, no title)
+- 73: (graphic, no title)
+- 74: (graphic, no title)
+- 75: (graphic, no title)
+- 76: (graphic, no title)
+- 77: (graphic, no title)
+- 78: (graphic, no title)
+- 79: (graphic, no title)
+- 80: (graphic, no title)
+- 81: (graphic, no title)
+- 82: (graphic, no title)
+- 83: (graphic, no title)
+- 84: (graphic, no title)
+- 85: (graphic, no title)
+- 86: (graphic, no title)
+- 87: (graphic, no title)
+- 88: (graphic, no title)
+- 89: (graphic, no title)
+- 90: (graphic, no title)
+- 91: Vertical Column Charts
+- 92: Hints for drawing charts
+- 93: Waterfall chart 1
+- 94: Waterfall chart 2
+- 95: Waterfall chart 3
+- 96: Waterfall chart 4
+- 97: Waterfall chart 5
+- 98: Waterfall chart 6
+- 99: Deviation column chart
+- 100: Range column chart
+- 101: Grouped column chart 1
+- 102: Grouped column chart 2
+- 103: Sub-divided column chart
+- 104: Sub-divided 100% column chart
+- 105: Step-column chart
+- 106: Combination column-line chart 1
+- 107: Combination column-line chart 2
+- 108: Other Charts
+- 109: Hints for drawing charts
+- 110: Line chart
+- 111: Smooth line chart
+- 112: Area chart
+- 113: Area chart 100%
+- 114: Grouped correlation chart
+- 115: Radar chart 1
+- 116: Radar chart 2
+- 117: Bubble chart
+- 118: Portfolio in two dimensions
+- 119: Portfolio in three dimensions
+- 120: Pie Charts
+- 121: Hints for drawing charts
+- 122: Pie chart
+- 123: Double pie chart
+- 124: Combination pie and column chart
+- 125: Combined pie charts (labeled)
+- 126: Combined pie charts (non-labeled)
+- 127: Doughnut chart
+- 128: Standard Visuals: Dynamic Concepts – Balance/Imbalance
+- 129: Balance 1
+- 130: Balance 2
+- 131: Balance 3
+- 132: Balance 4
+- 133: Balance 5
+- 134: Balance/Imbalance 1
+- 135: Balance/Imbalance 2
+- 136: Imbalance
+- 137: Fragile balance
+- 138: Dependence
+- 139: Balancing steps
+- 140: Rethinking
+- 141: Standard Visuals: Dynamic Concepts – Barriers/Resistance
+- 142: Barriers/Obstacles 1
+- 143: Barriers/Obstacles 2
+- 144: Barriers/Obstacles 3
+- 145: Barriers/Obstacles 4
+- 146: Penetrable barrier
+- 147: Resistance
+- 148: Breakthrough
+- 149: Penetration
+- 150: Filter 1
+- 151: Filter 2
+- 152: Multiple filters
+- 153: Broken link
+- 154: Dead end
+- 155: Standard Visuals: Static Objects - Boxes
+- 156: Factors 1
+- 157: Factors 2
+- 158: Factors 3
+- 159: Factors 4
+- 160: Factors 5
+- 161: Factors 6
+- 162: Components 1
+- 163: Components 2
+- 164: Components 3
+- 165: Interrelationship
+- 166: Cube 2x2x2
+- 167: Cube 2x2x4
+- 168: Cube 3x3x4
+- 169: Segmentation
+- 170: Standard Visuals: Dynamic Concepts – Cause & Effect
+- 171: Direct 1
+- 172: Direct 2
+- 173: Magnified proportions
+- 174: Alternative effect
+- 175: Causal chain
+- 176: Standard Visuals: Static Objects - Circles
+- 177: Interlocking circles 1
+- 178: Interlocking circles 2
+- 179: Interlocking circles 3
+- 180: Interlocking circles 4
+- 181: Interlocking circles 5
+- 182: Interlocking circles 6
+- 183: Circular segments 1
+- 184: Circular segments 2 - donuts
+- 185: Circular segments 3 - separated
+- 186: Factors
+- 187: Linked circles 1
+- 188: Linked circles 2
+- 189: Components
+- 190: Layers
+- 191: Standard Visuals: Processes – Circular Flows
+- 192: Circular flow 1
+- 193: Circular flow 2
+- 194: Circular flow 3
+- 195: Circular flow 4
+- 196: Circular flow 5
+- 197: Circular flow 6
+- 198: Circular flow 7
+- 199: Circular flow 8
+- 200: Circular flow 9
+- 201: Circular flow 10
+- 202: Circular flow 11
+- 203: Circular flow 12
+- 204: Circular flow 13
+- 205: Iterative flow 1
+- 206: Iterative flow 2
+- 207: Iterative flow 3
+- 208: Iterative flow 4
+- 209: Dual iterative flow
+- 210: Impacted flow 1
+- 211: Impacted flow 2
+- 212: Standard Visuals: Tools – Evaluation
+- 213: Scoring 1 - Harvey Balls
+- 214: Scoring 2 - arrows
+- 215: Scoring 3 - stars
+- 216: Stages 1 - Thermometer
+- 217: Stages 2 - Traffic lights
+- 218: Opportunities/Risks 1
+- 219: Opportunities/Risks 2
+- 220: Advantages/Disadvantages
+- 221: Comparison
+- 222: Evaluation chart 1
+- 223: Evaluation chart 2
+- 224: Standard Visuals: Dynamic Concepts – Forces/Influence
+- 225: Influence 1
+- 226: Influence 2
+- 227: Influence 3
+- 228: Influence 4
+- 229: Influence 5
+- 230: Pressure 1
+- 231: Pressure 2
+- 232: Pressure 3
+- 233: Pressure 4
+- 234: Forces 1
+- 235: Forces 2
+- 236: Forces 3
+- 237: Forces 4
+- 238: Forces 5
+- 239: Forces 6
+- 240: Forces 7
+- 241: Forces 8
+- 242: Porter’s Five Forces
+- 243: Factors 1
+- 244: Factors 2
+- 245: Factors 3
+- 246: Key Drivers
+- 247: Goal-setting 1
+- 248: Goal-setting 2
+- 249: Flexibility
+- 250: Reduction
+- 251: Increase
+- 252: Standard Visuals: Dynamic Concepts – Interaction/Feedback
+- 253: Interaction 1
+- 254: Feedback 1
+- 255: Feedback 2
+- 256: Feedback 3
+- 257: Cross-fertilization 1
+- 258: Cross-fertilization 2
+- 259: Cross-fertilization 3
+- 260: Cross-fertilization 4
+- 261: Standard Visuals: Tools – Project Management
+- 262: Project phases
+- 263: Process chart
+- 264: Implementation plan
+- 265: Gantt chart 1
+- 266: Gantt chart 2
+- 267: Gantt chart 3
+- 268: Gantt chart 4
+- 269: Organization chart
+- 270: Parallel chart
+- 271: Project organisation 1
+- 272: Project organisation 2
+- 273: Credential template 1
+- 274: Credential template 2
+- 275: Resume English
+- 276: Resume German
+- 277: Resume - further languages
+- 278: Confidentiality clause (e.g. for proposals) - English
+- 279: Confidentiality clause (e.g. for proposals) - German
+- 280: Confidentiality clause - Further languages
+- 281: Standard Visuals: Static Objects – Other Structures
+- 282: Puzzle pieces 1
+- 283: Puzzle pieces 2
+- 284: Puzzle pieces 3
+- 285: Pyramid components 1
+- 286: Pyramid components 2
+- 287: Stacked pyramid – 3 layers
+- 288: Stacked pyramid – 4 layers
+- 289: Pyramid/Factors
+- 290: Multiple pyramids
+- 291: Pyramid surrounded by spheres
+- 292: Factors - hexagonal 1
+- 293: Factors - hexagonal 2
+- 294: Pillars 1
+- 295: Pillars 2
+- 296: Standard Visuals: Static Objects – Text Objects
+- 297: Consequences/Conclusion 1
+- 298: Consequences/Conclusion 2
+- 299: Consequences/Conclusion 3
+- 300: Consequences/Conclusion 4
+- 301: Consequences/Conclusion 5
+- 302: Consequences/Conclusion 6
+- 303: Consequences/Conclusion 7
+- 304: Consequences/Conclusion 8
+- 305: Consequences/Conclusion 9
+- 306: Consequences/Conclusion 10
+- 307: Consequences/Conclusion 11
+- 308: Things in common
+- 309: Press clippings/quotes 1
+- 310: Press clippings/quotes 2
+- 311: Summary points 1
+- 312: Summary points 2
+- 313: Matrix 1
+- 314: Matrix 2
+- 315: Matrix 3
+- 316: Matrix 4
+- 317: Matrix – transparent 1
+- 318: Matrix – transparent 2
+- 319: Standard Visuals: Static Objects - Trees
+- 320: Horizontal issue tree - symmetric
+- 321: Horizontal issue tree - asymmetric
+- 322: Vertical issue tree - symmetric
+- 323: Vertical issue tree - asymmetric
+- 324: Mapping - horizontal
+- 325: Comment text
+- 326: Standard Visuals: Tools – Useful Objects
+- 327: Fade-outs and cover-ups
+- 328: Duration, milestones and tick
+- 329: Arrows and movements
+- 330: Discontinuous axis marks
+- 331: Legends
+- 332: Harvey-ball legends
+- 333: Quick manual pie chart
+- 334: Standard Visuals: Tools – Maps
+- 335: World (globe)
+- 336: World (geological)
+- 337: World (shade-able)
+- 338: North America (shade-able)
+- 339: South America (shade-able)
+- 340: Africa (shade-able)
+- 341: Europe (shade-able)
+- 342: East Asia (shade-able)
+- 343: South-east Asia and Australia (shade-able)
+- 344: Regions - United States (shade-able)
+- 345: Regions – Brazil
+- 346: Regions – EU (shade-able)
+- 347: Standard Visuals: Tools – Project Management
+- 348: Project phases
+- 349: Process chart
+- 350: Implementation plan
+- 351: Gantt chart 1
+- 352: Gantt chart 2
+- 353: Gantt chart 3
+- 354: Gantt chart 4
+- 355: Organization chart
+- 356: Parallel chart
+- 357: Project organisation 1
+- 358: Project organisation 2
+- 359: Credential template 1
+- 360: Credential template 2
+- 361: Resume English
+- 362: Resume German
+- 363: Resume - further languages
+- 364: Confidentiality clause (e.g. for proposals) - English
+- 365: Confidentiality clause (e.g. for proposals) - German
+- 366: Confidentiality clause - Further languages
+- 367: Standard Visuals: Static Objects – Other Structures
+- 368: Puzzle pieces 1
+- 369: Puzzle pieces 2
+- 370: Puzzle pieces 3
+- 371: Pyramid components 1
+- 372: Pyramid components 2
+- 373: Stacked pyramid – 3 layers
+- 374: Stacked pyramid – 4 layers
+- 375: Stacked pyramid – 5 layers
+- 376: Pyramid/Factors
+- 377: Multiple pyramids
+- 378: Pyramid surrounded by spheres
+- 379: Factors - hexagonal 1
+- 380: Factors - hexagonal 2
+- 381: Pillars 1
+- 382: Pillars 2
+- 383: Standard Visuals: Static Objects – Text Objects
+- 384: Consequences/Conclusion 1
+- 385: Consequences/Conclusion 2
+- 386: Consequences/Conclusion 3
+- 387: Consequences/Conclusion 4
+- 388: Consequences/Conclusion 5
+- 389: Consequences/Conclusion 6
+- 390: Consequences/Conclusion 7
+- 391: Consequences/Conclusion 8
+- 392: Consequences/Conclusion 9
+- 393: Consequences/Conclusion 10
+- 394: Consequences/Conclusion 11
+- 395: Things in common
+- 396: Press clippings/quotes 1
+- 397: Press clippings/quotes 2
+- 398: Summary points 1
+- 399: Summary points 2
+- 400: Matrix 1
+- 401: Matrix 2
+- 402: Matrix 3
+- 403: Matrix 4
+- 404: Matrix – transparent 1
+- 405: Matrix – transparent 2
+- 406: Standard Visuals: Static Objects - Trees
+- 407: Horizontal issue tree - symmetric
+- 408: Horizontal issue tree - asymmetric
+- 409: Vertical issue tree - symmetric
+- 410: Vertical issue tree - asymmetric
+- 411: Mapping - horizontal
+- 412: Comment text
+- 413: Standard Visuals: Tools – Useful Objects
+- 414: Fade-outs and cover-ups
+- 415: Duration, milestones and tick
+- 416: Arrows and movements
+- 417: Discontinuous axis marks
+- 418: Legends
+- 419: Harvey-ball legends
+- 420: Quick manual pie chart
+
+## Maps (world, US, China)  (Maps-world-US-China.pptx)
+
+- 1: 世界地图
+- 2: 世界地图
+- 3: 美国地图
+- 4: 中国地图-细分到省级
+- 5: 中国地图-细分到省级（精细版）
+- 6: 中国地图-细分到市级
+- 7: 北京市地图
+- 8: 上海市地图
+- 9: 天津市地图
+- 10: 重庆地图
+- 11: 香港地图
+- 12: 澳门地图
+- 13: 海南省地图
+- 14: 安徽省地图
+- 15: 福建省地图
+- 16: 甘肃省地图
+- 17: 广东省地图
+- 18: 贵州省地图
+- 19: 河北省地图
+- 20: 黑龙江省地图
+- 21: 河南省地图
+- 22: 湖北省地图
+- 23: 湖南省地图
+- 24: 江苏省地图
+- 25: 江西省地图
+- 26: 吉林省地图
+- 27: 辽宁省地图
+- 28: 内蒙古省地图
+- 29: 青海省地图
+- 30: 山东省地图
+- 31: 陕西省地图
+- 32: 山西省地图
+- 33: 四川省地图
+- 34: 云南省地图
+- 35: 浙江省地图
+- 36: 广西省地图
+- 37: 新疆省地图
+- 38: 西藏省地图
+- 39: 宁夏自治区地图
+- 40: 台湾省地图
+
+# Case-competition decks (added 2026-11-22; story study: Style/refs/case-competitions.md)
+
+
+## Case-2016-TrueNorth-Pola-China-growth  (Templates/Case-2016-TrueNorth-Pola-China-growth.pptx)
+
+- 1: Pola Orbis growth strategy in China  [meta]
+- 2: Content  [tracker]
+- 3: Beauty market growing at decreasing rate; skin care primary, driven by mask & anti-aging  [stacked-chart]
+- 4: Mid/high-end boom driven by new-behaviour generation  [stacked-chart]
+- 5: Young consumers: mobilisation & socialisation across decision journey  [chart-commentary]
+- 6: Consumers more sophisticated; J/K brands emerging  [bubble-portfolio]
+- 7: Pola has disappointing performance in China  [matrix-2x2]
+- 8: Five-year strategies fix issues one-to-one  [framework]
+- 9: Pola & Jurlique reposition on target customers  [matrix-2x2]
+- 10: Dynamic product development builds brand memory  [vertical-process]
+- 11: Multi-phase marketing shapes brand image  [cycle]
+- 12: Pola counters, Jurlique exclusive shops; digitise stores  [scoring-table]
+- 13: Online stores capture mobile & social shopping  [radar]
+- 14: Brand value proposition & social CRM build loyalty  [pyramid]
+- 15: Greenfield investment gives full control  [scoring-table]
+- 16: Strategies ensure steady growth in five years  [stacked-chart]
+- 17: Five-year roadmap  [gantt]
+- 18: Recap: strategies fix issues one-to-one  [framework]
+- 19: Backup slides  [meta]
+- 20: Growth assumptions Pola  [text-columns]
+- 21: Growth assumptions Jurlique  [text-columns]
+- 22: Sensitivity: three scenarios  [small-multiples]
+- 23: Pessimistic scenario  [small-multiples]
+
+## Case-2016-Harvester-LG-HH-expansion  (Templates/Case-2016-Harvester-LG-HH-expansion.pptx)
+
+- 1: LG expansion strategy proposal  [meta]
+- 2: Executive summary  [exec-summary-tree]
+- 3: Agenda (company overview)  [tracker]
+- 4: Overview of LG H&H in China  [framework]
+- 5: Agenda (industry analysis)  [tracker]
+- 6: Cosmetics booming; skin & colour outperform  [stacked-chart]
+- 7: Premium & mid-tier skin care grow fast  [stacked-chart]
+- 8: Mid-tier colour suits Korean brands  [stacked-chart]
+- 9: Survey: products target different customers  [persona-cards]
+- 10: Target customers in advanced/developing eastern cities  [map]
+- 11: Department store & horizontal e-commerce preferred  [pie-chart]
+- 12: Survey: channel preference by price tier  [kpi-numbers]
+- 13: Policy impact on product, manufacture, ownership  [impact-out]
+- 14: Agenda (expansion strategy)  [tracker]
+- 15: LG should set up strategy to expand  [framework]
+- 16: A: Premium skin & mid-tier colour focus  [options-branch]
+- 17: B: R&D & manufacturing centre vital  [phase-matrix]
+- 18: C1: Premium skin — offline, department stores  [labelled-rows]
+- 19: C2: Mid-tier colour — online and offline equally  [pros-cons]
+- 20: End slide  [meta]
+
+## Case-2016-Jaguar-Amorepacific-China  (Templates/Case-2016-Jaguar-Amorepacific-China.pptx)
+
+- 1: Case analysis proposal — Jaguar  [meta]
+- 2: Executive summary  [exec-summary-tree]
+- 3: China is AMOG's new growth engine  [combo-chart]
+- 4: Agenda  [tracker]
+- 5: Four product segments anchored on growth & profitable price  [scoring-table]
+- 6: Select brands by segment-designated consumer groups  [persona-cards]
+- 7: Three brands out of scope; luxury brand to add  [chart-commentary]
+- 8: Therefore, prioritise four brands with three strategies  [synthesis]
+- 9: Agenda  [tracker]
+- 10: Offline 70% and boutique trend; online targets specific groups  [chart-commentary]
+- 11: Channel guidebook: features of each channel  [scoring-table]
+- 12: Journey elements suggest channel focus per group  [customer-journey]
+- 13: Peer comparison: expand offline  [small-multiples]
+- 14: Therefore, assign channel focus by brand  [synthesis]
+- 15: Agenda  [tracker]
+- 16: Consumer habits lead to geographic strategy  [table]
+- 17: AMOREPACIFIC: tier-1 luxury  [chart-commentary]
+- 18: Etude House: tier-2, trendy for girls  [chart-commentary]
+- 19: Sulwhasoo men tier-1; IOPE office lady tier 1-2  [chart-commentary]
+- 20: Thank you  [meta]
+
+## Case-2016-Synergy-KOSE-expansion  (Templates/Case-2016-Synergy-KOSE-expansion.pptx)
+
+- 1: Proposal for KOSE five-year expansion  [meta]
+- 2: Executive summary  [exec-summary-tree]
+- 3: Agenda  [tracker]
+- 4: Skin care is the largest subset; face care key  [stacked-chart]
+- 5: Essence & mask have highest growth & penetration  [icon-infographic]
+- 6: Function preference varies by region and age  [map]
+- 7: Tier 2 largest; tier 3-4 via online  [stacked-chart]
+- 8: Fragmented market; western brands dominate, J/K expanding  [bubble-portfolio]
+- 9: Agenda  [tracker]
+- 10: KOSE under-penetrated and slow  [kpi-numbers]
+- 11: Cut redundant brands; new men & baby brands  [before-after]
+- 12: Expand lucrative product mix per brand  [issue-tree]
+- 13: Position mid products as higher cost-performance  [issue-tree]
+- 14: Differentiate distribution per brand  [labelled-rows]
+- 15: Promotion methods per product & consumer group  [table]
+- 16: Forecast penetration & revenue  [line-chart]
+- 17: Timeline and uncertainties  [gantt]
+- 18: Thank you  [meta]
+
+## Case-2017-LittleBoat-GREE-digital  (Templates/Case-2017-LittleBoat-GREE-digital.pptx)
+
+- 1: GREE digitalisation strategy — first round  [meta]
+- 2: Content  [tracker]
+- 3: Market analysis  [meta]
+- 4: Penetration at ceiling; replacement buyers  [bar-chart]
+- 5: Buyers have more power, less price sensitive  [column-chart]
+- 6: Demands more personalised (long tail)  [bar-chart]
+- 7: New buyers buy online, prefer mobile  [stacked-chart]
+- 8: Young buyers; social media key information source  [bar-chart]
+- 9: Strategy 1 — Omni-channel  [meta]
+- 10: GREE neglected online sales  [column-chart]
+- 11: Landscape of online/offline channels  [matrix-2x2]
+- 12: Prioritise vertical B2C, especially Tmall  [radar]
+- 13: Strategy 1: integrate online & offline (O2M)  [converge]
+- 14: Omni-channel participates in every stage  [customer-journey]
+- 15: Strategy 2 — Product intelligentization  [meta]
+- 16: GREE can't meet needs; lags in intelligence  [kpi-numbers]
+- 17: Launch smart lines for high-value customers  [staircase]
+- 18: Strategy 2: upgrade smart ecosystem  [before-after]
+
+## Case-2017-OnTheNeptune-appliance-digital  (Templates/Case-2017-OnTheNeptune-appliance-digital.pptx)
+
+- 1: Digital transformation strategy — On the Neptune  [meta]
+- 2: Executive summary  [exec-summary-tree]
+- 3: Lagging digitally, Meling missed online  [chart-commentary]
+- 4: Market landscape & status analysis  [tracker]
+- 5: Refrigerator focus promises higher profit  [line-chart]
+- 6: Mid/high-end fridges drive growth  [bubble-portfolio]
+- 7: Tier 3&4 cities: growth, less competition  [column-chart]
+- 8: Post-80s/90s in tier 3&4 cities  [table]
+- 9: Mid positioning with competitive price  [matrix-2x2]
+- 10: Customised needs and valuable dimensions  [persona-cards]
+- 11: Strategy  [tracker]
+- 12: Strategy overview  [issue-tree]
+- 13: Distinguish brand image; diversified promotion  [radar]
+- 14: Individualise products; mini-fridge niche  [labelled-rows]
+- 15: Self-run mall benefits; 3rd-party attention differs  [pros-cons]
+- 16: Three measures for online self-run mall  [labelled-rows]
+- 17: Offline boutiques boost online  [map]
+- 18: Summary of strategies (DMRT scoring)  [scoring-table]
+
+## Case-2017-Polaris-GREE-digital  (Templates/Case-2017-Polaris-GREE-digital.pptx)
+
+- 1: GREE digital transformation strategy  [meta]
+- 2: Executive summary: blueprint for growth  [exec-summary-tree]
+- 3: Stagnant market transforming digitally  [combo-chart]
+- 4: 80s/90s main customers prefer smart & online  [bar-chart]
+- 5: Strong in smart products, lagging online  [bubble-portfolio]
+- 6: Five-year strategy overview  [framework]
+- 7: R&D: smart home ecosystem first priority  [staircase]
+- 8: Pre-sales: customer-oriented digital system  [scoring-table]
+- 9: Sales: 5 online sales models  [matrix-2x2]
+- 10: Sales: pros and cons of each model  [scoring-table]
+- 11: Sales: choose B & E short term, X long term  [matrix-2x2]
+- 12: Sales: omni-channel system  [framework]
+- 13: Sales: omni-channel avoids cannibalisation  [before-after]
+- 14: After-sales: cooperate with online platforms  [bar-chart]
+- 15: Comprehensive strategy on customer journey  [customer-journey]
+- 16: Implementation timeline  [gantt]
+
+## Case-2017-SSSR-GREE-online  (Templates/Case-2017-SSSR-GREE-online.pptx)
+
+- 1: Case analysis proposal  [meta]
+- 2: Agenda  [tracker]
+- 3: Online drives WG growth; Gree lags online  [stacked-chart]
+- 4: Agenda  [tracker]
+- 5: Gree has room to improve product, channel, CRM  [scoring-table]
+- 6: Agenda  [tracker]
+- 7: S-term: mid-priced, high-end, tailor-made A/C  [table]
+- 8: L-term: diversify portfolio; smart eco-system  [stacked-chart]
+- 9: Agenda  [tracker]
+- 10: Leverage offline presence for online  [value-chain]
+- 11: Separate on/offline product codes; incentivise  [before-after]
+- 12: Strict price control across online stores  [chart-commentary]
+- 13: Agenda  [tracker]
+- 14: eCRM with 3P platforms  [table]
+- 15: Central dispatch & unified logistics  [before-after]
+- 16: Agenda  [tracker]
+- 17: Earnings forecast  [stacked-chart]
+- 18: Strategy lifts performance, ROI 13.48%  [waterfall]
+- 19: Acquisitions: richer line, ~5% CAGR  [stacked-chart]
+- 20: End slide  [meta]
+- 21: Appendix: roadmap  [gantt]
+- 22: Appendix: revenue model natural growth  [table]
+- 23: Appendix: revenue model after transformation  [table]
+- 24: Appendix: incremental revenue breakdown  [table]
+- 25: Appendix: 5-year financial projection  [table]
+- 26: Appendix: online sales models  [table]
+- 27: Appendix: service & logistics  [chart-commentary]
+- 28: Appendix: online customer characteristics  [chart-commentary]
+- 29: Appendix: text analysis of JD comments  [table]
+
+## Case-2016-Sparkle-Shiseido-China-rebuilt  (Templates/Case-2016-Sparkle-Shiseido-China-rebuilt.pptx)
+
+- 1: Cosmetic Co. China expansion strategy  [meta]
+- 2: Executive summary: Shiseido's blueprint  [exec-summary-tree]
+- 3: China market growing rapidly but far from saturation  [stacked-chart]
+- 4: Skin & colour most appealing; premium stronger  [stacked-chart]
+- 5: High-tier cities lead; low-tier potential  [bubble-portfolio]
+- 6: Therefore prioritise Shiseido & CPB  [bubble-portfolio]
+- 7: Female 25-44 most attractive; whitening & anti-aging  [table]
+- 8: Hence target ages & functions per brand  [table]
+- 9: CPB: high-tier cities via department stores  [chart-commentary]
+- 10: Meanwhile Shiseido: various offline channels  [scoring-table]
+- 11: Furthermore, capture low-tier potential  [column-chart]
+- 12: Offline crucial; online rising  [map]
+- 13: Among online: Tmall optimal, JD potential…  [bar-chart]
+- 14: …then Tmall enables further growth  [combo-chart]
+- 15: Long term: online+offline across every journey step  [customer-journey]
+- 16: Implementation timeline  [gantt]
+
+## Case-2016-OldDriver-LG-HH-SUM37-rebuilt  (Templates/Case-2016-OldDriver-LG-HH-SUM37-rebuilt.pptx)
+
+- 1: China expansion strategy for LG H&H  [meta]
+- 2: Executive summary: launch & expand SU:M 37° in China  [exec-summary-tree]
+- 3: 1 Company overview  [tracker]
+- 4: LG lags its Korean rival due to incomplete brand line-up  [case-study]
+- 5: 2 Segment and brand  [tracker]
+- 6: Skin care dominant and growing fast  [stacked-chart]
+- 7: Korean companies grow fast in fragmented market  [stacked-chart]
+- 8: Premium skin care promising for Korean brands  [combo-chart]
+- 9: Korean brands' advantage in prestige price range  [radar]
+- 10: Target women 23-35 with higher income  [table]
+- 11: SU:M 37° shows greatest potential  [scoring-table]
+- 12: 3 Channel and strategies  [tracker]
+- 13: Key issues → goals → strategies  [issue-tree]
+- 14: Analysis 1: physical stores remain most powerful  [pie-chart]
+- 15: Analysis 2: tier 1&2 physical, lower tiers online  [stacked-chart]
+- 16: Strategy 1: five flagship stores, then dept stores  [map]
+- 17: Strategy 2: Tmall & JD partnership  [combo-chart]
+- 18: Strategy 3: O2O brand community  [cycle]
+- 19: External factors: risks  [framework]
+- 20: Appendix: implementation order  [gantt]
+- 21: Appendix: LG H&H overview  [map]
+
+## Case-2019-Bainology  (Case-2019-Bainology.pptx)
+
+- 1: (cover)  [meta]
+- 2: Executive Summary  [exec-summary-tree]
+- 3: Agenda  [tracker]
+- 4: Case Background  [meta]
+- 5: Pandora is suffering from a revenue growth decline after fast growth in Mainland China as a new entrant to the fragmented fashion jewelry market  [stacked-chart]
+- 6: Strategy and Implementation Plan  [meta]
+- 7: 1 Store Expansion: Pandora should strengthen presence in existing market and penetrate into white space  [bubble-portfolio]
+- 8: Pandora should open 35 new stores in shopping malls in selected 11 upper tier cities for further expansion  [map]
+- 9: Pandora should target 15 lower tier cities to launch new stores in shopping malls for first-mover advantage  [map]
+- 10: 2 Omni-channel Experience Upgrade: Pandora should solve pain points to increase exposure and conversion rate along customer journey  [customer-journey]
+- 11: Four solutions are recommended for optimizing omni-channel process and enhancing customer experience  [customer-journey]
+- 12: Sub-Brand Launch: Pandora is recommended to establish Dear Pandora to  [evidence-panels]
+- 13: Dear Pandora has unique design and tailored sales plan to boost revenue Product Design Pricing & Marketing Strategy  [initiative-matrix]
+- 14: Dear Pandora will open four flagship stores in tier 1 cities, and leverage online channels at the first stage then enter current Pandora stores in the long run Prototype & Operation Model Selection of  [evidence-panels]
+- 15: Dear Pandora’s revenue is determined by in-store traffic and sales conversion capability, and its stores should adopt a relatively cost-efficient model DP’s Revenue Prospect for Single Store Economics  [column-chart]
+- 16: Dear Pandora business will make a profit in the first year and further achieve a profitable expansion and a promising future DP’s Single Store Economics DP Business Revenue Forecast Key Takeaways  [column-chart]
+- 17: Risk Mapping Mitigation  [meta]
+- 18: Pandora may face risks and uncertainties, and proper mitigations are needed  [risk-matrix]
+- 19: Appendix  [meta]
+- 20: 3. Sample’s Monthly Spending Distribution CNY, %  [column-chart]
+- 21: Appendix 2: Online Channel Performance Analysis  [scoring-table]
+- 22: Appendix 3: City Selection Model for Store Expansion  [scoring-table]
+- 23: Population in China  [driver-tree]
+- 24: Appendix 5: Dear Pandora Single Store Economics Model  [table]
+- 25: Appendix 5: Dear Pandora Business FY23-25 Financial Forecast Model  [table]
+- 26: Appendix 5: Dear Pandora Business Financial Forecast Key Assumptions  [table]
+- 27: Appendix 6: 2019-2023 Implementation Plan and Key Performance Milestones in Strategy Execution  [gantt]
+- 28: (team page)  [meta]
+
+## Case-2019-E-Cluster  (Case-2019-E-Cluster.pptx)
+
+- 1: (cover)  [meta]
+- 2: Market overview Market analysis: Entry luxury jewelry market is a blue sea to enter Capability analysis: CTF displays strong value chain capabilities of new strategy launch Customer analysis: Millenni  [exec-summary-tree]
+- 3: Agenda  [tracker]
+- 4: Chow Tai Fook is recommended to enter a new market given the customer changing preference, tightened policies and increasingly fierce competition  [stacked-chart]
+- 5: Entry luxury jewelry targeting at millennials is a blue sea for Chow Tai Fook to enter  [bubble-portfolio]
+- 6: Among where, embedded earrings & necklace made of silver or metal mixed will be a promising new product portfolio  [column-chart]
+- 7: Chow Tai Fook well fits in the market key success factors in product R&D, promotion and channel  [table]
+- 8: Agenda  [tracker]
+- 9: Chow Tai Fook is recommended to introduce a new concept to millennials by leveraging its young brand, SOINLOVE, to cut in entry luxury jewelry market  [evidence-panels]
+- 10: Fashion fanatics and middle-class aspirants are identified as Chow Tai Fook’s major target customers  [persona-cards]
+- 11: New Product Portfolio New Product Launch Strategy  [initiative-matrix]
+- 12: SOINLOVE can provide different online solutions to various target customer groups for better promotion  [column-chart]
+- 13: SOINLOVE is recommended to set a tiered city prioritization strategy among top tier cities given the customer presence  [bubble-portfolio]
+- 14: SOINLOVE store should create impressive luxury in-store experience on store design and digital service throughout the customer journey  [customer-journey]
+- 15: Agenda  [tracker]
+- 16: The financial forecast of business expansion and channel integration indicates a promising future  [waterfall]
+- 17: Implementation Timeline  [gantt]
+- 18: Appendix  [meta]
+- 19: Vertically Integrated Business Model  [column-chart]
+- 20: Both Día and Selíni collections can leverage the mainstream social media platforms for customer engagement  [heat-grid]
+- 21: Criteria for site location Site Attributes  [map]
+- 22: Appendix：Financial forecast model  [table]
+- 23: Appendix：City expansion forecast  [table]
+- 24: Appendix：City tier definition  [table]
+
+## Case-2019-InnoVision  (Case-2019-InnoVision.pptx)
+
+- 1: (cover)  [meta]
+- 2: Company Overview  [tracker]
+- 3: Fashion jewelry Manufactured with non-precious metals and alloys Average price <3000RMB Fine jewelry Manufactured with precious metals and/or gemstones Average price >3000RMB  [stacked-chart]
+- 4: Swarovski is a nationwide entry luxury brand facing homogeneous competition  [bubble-portfolio]
+- 5: 1 Swarovski’s target customers should be new generations and middle class  [persona-cards]
+- 6: Future Sales  [initiative-matrix]
+- 7: Swarovski ’s current store portfolio fails to 1 cover target customer groups in the future  [evidence-panels]
+- 8: 1 New store types can add value to the customer journey  [customer-journey]
+- 9: White Swan City — 35 Direct-sale stores in 9 cities Black Swan City — 5 Concept stores in 5 cities  [bubble-portfolio]
+- 10: 1 Omni-channel changes customer journey with integration of various channels  [customer-journey]
+- 11: There are three key differences between “multi-channel” 2 and “omni-channel”  [scoring-table]
+- 12: Swarovski can apply omni-channel platform and big data to achieve channel integration  [chevron-process]
+- 13: Innovation is the key factor that makes Swarovski fall behind APM given the strong brand and value proposition  [scoring-table]
+- 14: Swarovski will become innovative with InnoElement Strategy…  [chevron-process]
+- 15: Timeline: Swarovski should initiate the five-year strategy by focusing on Future Sales Strategy from 2019  [gantt]
+- 16: 1 New strategies will increase revenue 2 New strategies will cause higher enterprise value  [heat-grid]
+- 17: Appendix: White swan city is selected out through market increments index in the next 5 years  [scoring-table]
+- 18: Appendix: Red swan city is selected out through travel Index  [table]
+- 19: Select regional new stores’ locations by K- means cluster  [bubble-portfolio]
+- 20: Utilize store managing system to evaluate efficiencies  [driver-tree]
+- 21: 1 Without new stores  [table]
+- 22: 1 Without new stores sensitivity analysis  [table]
+- 23: 1 With new stores  [table]
+- 24: 1 With new stores  [table]
+- 25: 1 With new stores sensitivity analysis  [table]
+
+## Case-2019-Mindcraft  (Case-2019-Mindcraft.pptx)
+
+- 1: (cover)  [meta]
+- 2: Agenda  [tracker]
+- 3: Fine jewelry market expects attractive growth in next five years, mainly driven by the strong demands from millennials in tier 1 and 2 cities and emerging middle class from tier 3 and 4 cities. These   [exec-summary-tree]
+- 4: Market Outlook Growth Strategy Financial & Risks  [stacked-chart]
+- 5: Rising middle class enlarges jewelry customer base  [stacked-chart]
+- 6: Customer Profile Growth Strategy Financial & Risks  [persona-cards]
+- 7: Low penetration of young brands in high tiers and lack of access and awareness in low tiers hinder CSS’s growth  [bubble-portfolio]
+- 8: Market Analysis Strategy Overview Financial & Risks  [waterfall]
+- 9: Tier 3&4 middle class: increase brand awareness Mainly use CSS to target all subgroups, with the promotion of other brands later in following years Promotion tactics  [persona-cards]
+- 10: Market Analysis Offline Expansion Financial & Risks Increasing penetration with multiple brands is recommended to better cater millennials in high-tier cities  [stacked-chart]
+- 11: Market Analysis Offline Expansion Financial & Risks  [evidence-panels]
+- 12: Market Analysis Offline Expansion Financial & Risks  [text-columns]
+- 13: Market Analysis Omni-channel Strategy Financial & Risks Holistic omni-channel strategy is designed alongside typical customer journey with preliminary best practice showcase  [customer-journey]
+- 14: Market Analysis Growth Strategy Financial Forecasting  [stacked-chart]
+- 15: Market Analysis Growth Strategy Risk & Mitigation  [risk-matrix]
+- 16: Short Term Strategy  [gantt]
+- 17: Diversification Personalization  [stacked-chart]
+- 18: CSS partnered with all top e-commerce platforms  [bubble-portfolio]
+- 19: KOL recommendation Top female fashion KOL Mid-high level image  [evidence-panels]
+- 20: Appendix 4: Full list of tier 3 cities  [table]
+- 21: Appendix 4: Full list of tier 4 cities  [table]
+- 22: Preliminary screen Further assessment Results  [table]
+- 23: Preliminary screen  [table]
+- 24: Standard store of CSS  [evidence-panels]
+- 25: Appendix 6: Financial key assumptions  [table]
+- 26: Appendix 6: Financial key assumptions  [table]
+- 27: Appendix 7: Offline expansion roadmap—Base case  [table]
+- 28: Appendix 7: Offline expansion roadmap—Optimistic case  [table]
+- 29: Appendix 7: Offline expansion roadmap—Crush case  [table]
+- 30: Appendix 8: Offline store ramp-up—base case  [table]
+- 31: Appendix 8: Offline store ramp-up—optimistic case  [table]
+- 32: Appendix 8: Offline store ramp-up—crush case  [table]
+- 33: (team page)  [meta]
+
+## Case-2019-Polaris  (Case-2019-Polaris.pptx)
+
+- 1: (cover)  [meta]
+- 2: Executive Summary: Pandora’s growth strategy in Mainland China jewelry market by store expansion, sales per store improvement and omni-channel strategy  [exec-summary-tree]
+- 3: Agenda  [tracker]
+- 4: China entry luxury jewelry market shows growth potential and online sales is increasing, driven by both demand and supply sides  [stacked-chart]
+- 5: Target customers of entry luxury jewelry are young and well-paid who prioritize brand and design as their key purchasing criteria  [persona-cards]
+- 6: Pandora faces direct competition from Swarovski and APM Monaco, compared with whom Pandora should improve branding and design competence  [scoring-table]
+- 7: Agenda  [tracker]
+- 8: In order to regain a healthy growth, Pandora should take corresponding actions to increase sales based on its brand position of “a warm jewelry brand”  [driver-tree]
+- 9: Pandora identified 10 pre-occupied cities and 26 white spaces as prioritized cities to open new stores according to key selection criteria  [map]
+- 10: In addition to existing Pandora concept stores, Pandora can also establish theme stores and digital stores to provide different customer experience  [scoring-table]
+- 11: Pandora can utilize ordinary person advertisement and charity series to strengthen its image as a “warm jewelry brand”  [initiative-matrix]
+- 12: Pandora should enhance its design by highlighting “customization” and improving design competence  [column-chart]
+- 13: To boost online sales, Pandora should enter JD and RED and optimize online operations in terms of SKU selection, pricing and promotion  [scoring-table]
+- 14: By consolidating user data of all channels, Pandora can improve products, customer experience and brand reputation through omni-channel  [chevron-process]
+- 15: Market Strategy Design  [tracker]
+- 16: During strategy implementation, Pandora should take initiative to mitigate challenges  [gantt]
+- 17: The financial analysis of channel expansion and optimization strategy indicates a promising future  [waterfall]
+- 18: THANK YOU  [meta]
+- 19: Backup: Prioritized pre-occupied cities  [table]
+- 20: Backup: Prioritized white spaces (1/2)  [table]
+- 21: Backup: Prioritized white spaces (2/2)  [table]
+- 22: Backup: Key assumptions for financial analysis  [table]
+
+## Case-2020-Vaccine-rebuilt  (Case-2020-Vaccine-rebuilt.pptx)
+
+- 1: (cover)  [meta]
+- 2: Executive summary  [exec-summary-tree]
+- 3: Rapid growth of Chinese fitness market is expected to continue, driven by both supply side  [column-chart]
+- 4: Innovative specialty gyms have disrupted gym industry, and will bea prevalent force in the  [stacked-chart]
+- 5: Target customers of specialty gyms are young and well-paid urban residents, who seek new e  [persona-cards]
+- 6: The impact of COVID-19 remains uncertain, yet offline fitness industry is expected to reco  [column-chart]
+- 7: COVID-19 shaped customers’ behavior patterns in 3 ways  [evidence-panels]
+- 8: Customer trends pose 2 key questions to Supermonkey’s future strategy  [text-columns]
+- 9: Agenda  [tracker]
+- 10: We propose a new strategy that re-define Supermonkey’s position in the value chain and re-  [column-chart]
+- 11: Transform into content leader in the industry, supported by a new store strategy with stea  [map]
+- 12: Activate highly-tightened user community, through building a customer- centric ecosystem  [text-columns]
+- 13: Actions can be prioritized and phased in over time to achieve greater impact  [gantt]
+- 14: Prepared actions are required to mitigate potential risks  [risk-matrix]
+- 15: We foresee Supermonkey could reach 173 million RMB EBIT by 2025 and licensing accounts for  [waterfall]
+- 16: Actions can be prioritized and phased in over time to achieve greater impact  [gantt]
+- 17: Appendix: Supermonkey capability analysis  [scoring-table]
+
+## Case-2020-TNT-rebuilt  (Case-2020-TNT-rebuilt.pptx)
+
+- 1: (cover)  [meta]
+- 2: Executive Summary: Super Monkey can offset the negative effect of COV-19 and achieve healt  [exec-summary-tree]
+- 3: 一  [tracker]
+- 4: China specialty fitness market illustrates growth potential and shows short-term, long-ter  [stacked-chart]
+- 5: In specialty fitness market, young white collars are target customers, which can be divide  [heat-grid]
+- 6: By comparison, Super Monkey needs improvement in course supply, users’ health record servi  [bubble-portfolio]
+- 7: Agenda  [tracker]
+- 8: Super Monkey would achieve a 53.4% revenue growth in five years through online strategy, n  [driver-tree]
+- 9: Super Monkey should accelerate online strategy to enhance brand reputation, mitigate tempo  [chevron-process]
+- 10: Super Monkey should open 224 new stores of 4 types in Tier-1&1.5 cities in future 5 years  [driver-tree]
+- 11: Launch SUPER Store: Super Monkey should launch a new SUPER store in BJ to express its heal  [evidence-panels]
+- 12: 四 Upgrade Existing Stores: Super Monkey should upgrade existing stores in terms of  [chevron-process]
+- 13: Based on customer health and consumption big data, Super Monkey can achieve customer loyal  [column-chart]
+- 14: By precise store management, online and offline channel integration, cross-border cooperat  [evidence-panels]
+- 15: TNT  [tracker]
+- 16: During the strategy implementation timeline, Super Monkey should take some actions to miti  [gantt]
+- 17: The financial forecast of three strategies indicates a promising future  [waterfall]
+- 18: TNT  [meta]
+
+## Case-2020-Baincraft-rebuilt  (Case-2020-Baincraft-rebuilt.pptx)
+
+- 1: (cover)  [meta]
+- 2: Executive Summary Super Monkey 5-year growth strategy under the COVID-19  [exec-summary-tree]
+- 3: (no title)  [tracker]
+- 4: Market Overview  [scoring-table]
+- 5: Market Overview  [bubble-portfolio]
+- 6: Market Overview  [persona-cards]
+- 7: (no title)  [tracker]
+- 8: Strategy Design  [initiative-matrix]
+- 9: Product Offering  [bubble-portfolio]
+- 10: Strategy Design  [customer-journey]
+- 11: Strategy Design Omni-channel Customer experience  [customer-journey]
+- 12: Strategy Design Geographic Expansion  [bubble-portfolio]
+- 13: Strategy Design  [driver-tree]
+- 14: (no title)  [tracker]
+- 15: Implementation  [stacked-chart]
+- 16: Implementation  [stacked-chart]
+- 17: Implementation Risk  [risk-matrix]
+- 18: BAINCRAFT  [meta]
+- 19: Appendix: Implementation timeline  [gantt]
+- 20: Appendix: Overall fitness market size  [driver-tree]
+- 21: Appendix: ~11.1 Bn Specialty Fitness new market by 2024  [table]
+- 22: Appendix: Key purchasing criteria  [table]
+- 23: Appendix: Super Monkey value proposition  [chevron-process]
+- 24: Appendix: City evaluation system  [driver-tree]
+- 25: Appendix: City scores  [stacked-chart]
+- 26: Appendix: Store site selection  [map]
+- 27: Appendix: A standardized and duplicable model to open new stores is the KSF to unlock the  [text-columns]
+- 28: Appendix: Financial projection-single store model (basic level)  [table]
+- 29: Appendix: Financial projection-single store model (optimistic level)  [table]
+- 30: Appendix: Financial projection-single store model (negative level)  [table]
+- 31: Appendix: Financial projection Total revenue  [table]
+
+## Case-2020-Gym-case-brief-rebuilt  (Case-2020-Gym-case-brief-rebuilt.pptx)
+
+- 1: Py  [text-columns]
+
+## Case-2020-DoubleClick-rebuilt  (Case-2020-DoubleClick-rebuilt.pptx)
+
+- 1: (cover)  [meta]
+- 2: Agenda  [tracker]
+- 3: Executive Summary: Supermonkey should focus on store expansion, service improvement and cu  [exec-summary-tree]
+- 4: Q  [driver-tree]
+- 5: Q  [persona-cards]
+- 6: Q  [column-chart]
+- 7: Q  [initiative-matrix]
+- 8: Q  [bubble-portfolio]
+- 9: Q  [map]
+- 10: Q  [column-chart]
+- 11: Q  [column-chart]
+- 12: Q  [map]
+- 13: Q  [waterfall]
+- 14: Q  [risk-matrix]
+- 15: Agenda  [tracker]
+- 16: Q  [table]
+- 17: Q  [table]
+- 18: Q  [persona-cards]
+- 19: Q  [persona-cards]
+- 20: Q  [persona-cards]
+- 21: Q  [persona-cards]
+- 22: Q  [persona-cards]
+- 23: Q  [persona-cards]
+- 24: Q  [column-chart]
+- 25: Q  [stacked-chart]
+- 26: Q  [waterfall]
+- 27: Q  [column-chart]
+- 28: Q  [column-chart]
+- 29: Q  [table]
+- 30: Q  [table]
+- 31: Q  [table]
+- 32: Q  [table]
+- 33: Q  [stacked-chart]
+- 34: Q  [stacked-chart]
+- 35: Q  [table]
+- 36: Q  [table]
+- 37: Q  [table]
+- 38: Q  [table]
+- 39: Thanks for your attention!  [meta]
+

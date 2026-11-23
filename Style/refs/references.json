@@ -279,6 +279,193 @@
    ],
    "rebuilt_from": "pdf/images",
    "ocr_reviewed": "2026-11-23: 1,281 number lines + 133 suspect lines + 54 missed-number candidates checked; 160 lines fixed or removed, 51 numbers added (by eye, review/case20-doubleclick/ocr-corrections.json); 2026-11-23: 80 missed-word candidates checked, 74 added (review/case20-doubleclick/ocr-missing-words-candidates.json)"
+  },
+  {
+   "key": "case21-brief",
+   "name": "Case-2021-FruitCo-case-brief-rebuilt",
+   "template": "Case-2021-FruitCo-case-brief-rebuilt.pptx",
+   "original": "Case-2021-FruitCo-case-brief-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 9 number lines + 1 suspect lines + 0 missed-number and 1 missed-word candidates checked by eye (one-page brief: every line checked); 10 lines fixed or removed, 0 numbers and 0 words added; later rounds fixed 0 lines that the corrected rebuild read differently (review/case21-brief/ocr-corrections*.json, ocr-review-notes.md)",
+   "parts_checked": "2026-11-24: one-page text brief, no diagrams to split (auto-split parts were logo strips and text, dropped)",
+   "vector_checked": "2026-11-24: no graphic pictures besides organiser logos (not stored)"
+  },
+  {
+   "key": "case21-truenorth",
+   "name": "Case-2021-TrueNorth-Xianfeng-rebuilt",
+   "template": "Case-2021-TrueNorth-Xianfeng-rebuilt.pptx",
+   "original": "Case-2021-TrueNorth-Xianfeng-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 1081 number lines + 89 suspect lines + 36 missed-number and 119 missed-word candidates checked by eye; 150 lines fixed or removed, 29 numbers and 105 words added; later rounds fixed 3 lines that the corrected rebuild read differently (review/case21-truenorth/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case21-chillchili",
+   "name": "Case-2021-ChillChili-Xianfeng-rebuilt",
+   "template": "Case-2021-ChillChili-Xianfeng-rebuilt.pptx",
+   "original": "Case-2021-ChillChili-Xianfeng-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 289 number lines + 71 suspect lines + 24 missed-number and 56 missed-word candidates checked by eye; 127 lines fixed or removed, 14 numbers and 50 words added; later rounds fixed 6 lines that the corrected rebuild read differently (review/case21-chillchili/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case21-starlight",
+   "name": "Case-2021-Starlight-FruitCo-rebuilt",
+   "template": "Case-2021-Starlight-FruitCo-rebuilt.pptx",
+   "original": "Case-2021-Starlight-FruitCo-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 377 number lines + 60 suspect lines + 15 missed-number and 58 missed-word candidates checked by eye; 82 lines fixed or removed, 10 numbers and 54 words added; later rounds fixed 7 lines that the corrected rebuild read differently (review/case21-starlight/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case21-whyconsulting",
+   "name": "Case-2021-WhyConsulting-Pagoda-rebuilt",
+   "template": "Case-2021-WhyConsulting-Pagoda-rebuilt.pptx",
+   "original": "Case-2021-WhyConsulting-Pagoda-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 861 number lines + 73 suspect lines + 41 missed-number and 178 missed-word candidates checked by eye; 146 lines fixed or removed, 30 numbers and 175 words added; later rounds fixed 6 lines that the corrected rebuild read differently (review/case21-whyconsulting/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case22-brief",
+   "name": "Case-2022-Carbonated-case-brief-rebuilt",
+   "template": "Case-2022-Carbonated-case-brief-rebuilt.pptx",
+   "original": "Case-2022-Carbonated-case-brief-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 11 number lines + 7 suspect lines + 0 missed-number and 1 missed-word candidates checked by eye (one-page brief: every line checked); 16 lines fixed or removed, 0 numbers and 0 words added; later rounds fixed 0 lines that the corrected rebuild read differently (review/case22-brief/ocr-corrections*.json, ocr-review-notes.md)",
+   "parts_checked": "2026-11-24: one-page text brief, no diagrams to split (auto-split parts were logo strips and text, dropped)",
+   "vector_checked": "2026-11-24: no graphic pictures besides organiser logos (not stored)"
+  },
+  {
+   "key": "case22-fusion",
+   "name": "Case-2022-Fusion-GenkiForest-rebuilt",
+   "template": "Case-2022-Fusion-GenkiForest-rebuilt.pptx",
+   "original": "Case-2022-Fusion-GenkiForest-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 237 number lines + 64 suspect lines + 24 missed-number and 88 missed-word candidates checked by eye; 79 lines fixed or removed, 20 numbers and 77 words added; later rounds fixed 3 lines that the corrected rebuild read differently (review/case22-fusion/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case22-iiva",
+   "name": "Case-2022-IIVA-GenkiForest-rebuilt",
+   "template": "Case-2022-IIVA-GenkiForest-rebuilt.pptx",
+   "original": "Case-2022-IIVA-GenkiForest-original.pptx",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 499 number lines + 73 suspect lines + 41 missed-number and 106 missed-word candidates checked by eye; 133 lines fixed or removed, 33 numbers and 96 words added; later rounds fixed 18 lines that the corrected rebuild read differently (review/case22-iiva/ocr-corrections*.json, ocr-review-notes.md)",
+   "original_note": "the .pptx holds one screenshot per slide (no editable shapes), so it was rebuilt from the screenshots like an image PDF"
+  },
+  {
+   "key": "case22-shibaco",
+   "name": "Case-2022-Shibaco-GenkiForest-rebuilt",
+   "template": "Case-2022-Shibaco-GenkiForest-rebuilt.pptx",
+   "original": "Case-2022-Shibaco-GenkiForest-original.pptx",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 251 number lines + 61 suspect lines + 5 missed-number and 47 missed-word candidates checked by eye; 81 lines fixed or removed, 2 numbers and 39 words added; later rounds fixed 5 lines that the corrected rebuild read differently (review/case22-shibaco/ocr-corrections*.json, ocr-review-notes.md)",
+   "original_note": "the .pptx holds one screenshot per slide (no editable shapes), so it was rebuilt from the screenshots like an image PDF"
+  },
+  {
+   "key": "case22-wxyz",
+   "name": "Case-2022-WXYZ-NongfuSpring-rebuilt",
+   "template": "Case-2022-WXYZ-NongfuSpring-rebuilt.pptx",
+   "original": "Case-2022-WXYZ-NongfuSpring-original.pptx",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 207 number lines + 39 suspect lines + 8 missed-number and 56 missed-word candidates checked by eye; 69 lines fixed or removed, 7 numbers and 54 words added; later rounds fixed 16 lines that the corrected rebuild read differently (review/case22-wxyz/ocr-corrections*.json, ocr-review-notes.md)",
+   "original_note": "the .pptx holds one screenshot per slide (no editable shapes), so it was rebuilt from the screenshots like an image PDF"
+  },
+  {
+   "key": "case22-beaninnovator",
+   "name": "Case-2022-BeAnInnovator-GenkiForest-rebuilt",
+   "template": "Case-2022-BeAnInnovator-GenkiForest-rebuilt.pptx",
+   "original": "Case-2022-BeAnInnovator-GenkiForest-original.pptx",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 253 number lines + 67 suspect lines + 38 missed-number and 90 missed-word candidates checked by eye; 115 lines fixed or removed, 26 numbers and 80 words added; later rounds fixed 23 lines that the corrected rebuild read differently (review/case22-beaninnovator/ocr-corrections*.json, ocr-review-notes.md)",
+   "original_note": "the .pptx holds one screenshot per slide (no editable shapes), so it was rebuilt from the screenshots like an image PDF"
+  },
+  {
+   "key": "case24-brief",
+   "name": "Case-2024-SeniorLiving-case-brief-rebuilt",
+   "template": "Case-2024-SeniorLiving-case-brief-rebuilt.pptx",
+   "original": "Case-2024-SeniorLiving-case-brief-original.jpg",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 3 number lines + 5 suspect lines + 0 missed-number and 1 missed-word candidates checked by eye (one-page brief: every line checked); 11 lines fixed or removed, 0 numbers and 0 words added; later rounds fixed 0 lines that the corrected rebuild read differently (review/case24-brief/ocr-corrections*.json, ocr-review-notes.md)",
+   "parts_checked": "2026-11-24: one-page text brief, no diagrams to split (auto-split parts were logo strips and text, dropped)",
+   "vector_checked": "2026-11-24: no graphic pictures besides organiser logos (not stored)",
+   "original_note": "screenshot of the brief (cropped from the attached image)"
+  },
+  {
+   "key": "case24-cvcj",
+   "name": "Case-2024-CVCJ-JORU-rebuilt",
+   "template": "Case-2024-CVCJ-JORU-rebuilt.pptx",
+   "original": "Case-2024-CVCJ-JORU-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 778 number lines + 69 suspect lines + 12 missed-number and 231 missed-word candidates checked by eye; 122 lines fixed or removed, 6 numbers and 221 words added; later rounds fixed 33 lines that the corrected rebuild read differently (review/case24-cvcj/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case24-basil",
+   "name": "Case-2024-BASIL-Taikang-rebuilt",
+   "template": "Case-2024-BASIL-Taikang-rebuilt.pptx",
+   "original": "Case-2024-BASIL-Taikang-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 208 number lines + 33 suspect lines + 11 missed-number and 51 missed-word candidates checked by eye; 54 lines fixed or removed, 7 numbers and 49 words added; later rounds fixed 0 lines that the corrected rebuild read differently (review/case24-basil/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case24-bstorm",
+   "name": "Case-2024-BSTORM-DAJIA-rebuilt",
+   "template": "Case-2024-BSTORM-DAJIA-rebuilt.pptx",
+   "original": "Case-2024-BSTORM-DAJIA-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 217 number lines + 41 suspect lines + 11 missed-number and 86 missed-word candidates checked by eye; 69 lines fixed or removed, 7 numbers and 78 words added; later rounds fixed 4 lines that the corrected rebuild read differently (review/case24-bstorm/ocr-corrections*.json, ocr-review-notes.md)"
+  },
+  {
+   "key": "case24-yess",
+   "name": "Case-2024-YESS-Vanke-rebuilt",
+   "template": "Case-2024-YESS-Vanke-rebuilt.pptx",
+   "original": "Case-2024-YESS-Vanke-original.pdf",
+   "study": [
+    "Style/refs/case-competitions-2021-2024.md"
+   ],
+   "rebuilt_from": "pdf/images",
+   "ocr_reviewed": "2026-11-24: 573 number lines + 98 suspect lines + 30 missed-number and 189 missed-word candidates checked by eye; 129 lines fixed or removed, 27 numbers and 187 words added; later rounds fixed 23 lines that the corrected rebuild read differently (review/case24-yess/ocr-corrections*.json, ocr-review-notes.md)"
   }
  ]
 }

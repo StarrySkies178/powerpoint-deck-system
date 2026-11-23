@@ -1,0 +1,956 @@
+{
+"p3-b58-l0": "",
+"p1-b2-l0": "",
+"p2-b10-l0": "Issues: GF performs worse in M&P¹",
+"p2-b10-l2": "covers fewer POS² in T3-T5 cities",
+"p3-b18-l0": "18%",
+"p3-b25-l0": "481",
+"p3-b28-l0": "12% Others",
+"p3-b53-l0": "醇), ~80 times more costly",
+"p4-b20-l0": "Top 4:",
+"p4-b39-l0": "≤¥4",
+"p4-b53-l0": "≤Tier 3",
+"p4-b59-l0": "2",
+"p5-b19-l0": "Convenience 37%",
+"p6-b1-l2": "1",
+"p6-b7-l0": "≤T3 cities",
+"p6-b7-l1": "<30%",
+"p6-b17-l0": "≤T3 cities",
+"p6-b26-l0": "≤T3 cities",
+"p7-b1-l0": "To achieve RMB 21 Bn revenue in 2026, GF should win “Pioneering war” and",
+"p8-b19-l0": "101 Clients (Count",
+"p8-b23-l0": "",
+"p8-b29-l0": "",
+"p8-b30-l0": "",
+"p8-b32-l1": "2.",
+"p8-b32-l2": "3.",
+"p8-b32-l3": "4.",
+"p10-b4-l0": "“1+2+N” strategy: Develop through three dimensions",
+"p10-b36-l0": "4.0",
+"p12-b21-l0": "",
+"p12-b46-l0": "",
+"p12-b47-l0": "",
+"p13-b5-l0": "1 Launch 0 calorie sparkling aloe drink",
+"p13-b10-l0": "1. Identifying customers’ needs",
+"p13-b16-l1": "",
+"p13-b49-l0": "of RMB 30 billion and the segment ‘aloe drinks’",
+"p15-b4-l0": "",
+"p16-b0-l0": "Appendix 7: Break through industry giants’ intervention by short-term",
+"p16-b10-l0": "",
+"p14-b53-l0": "12",
+"p16-b20-l0": "19",
+"p2-b20-l0": "“Pioneering War (开拓战)”",
+"p2-b21-l0": "“Defensive War (保卫战)”",
+"p3-b11-l0": "CAGR",
+"p3-b13-l0": "Non-cola without sugar",
+"p3-b44-l0": "",
+"p3-b51-l0": "• The use of Erythritol",
+"p4-b6-l0": "The two potential lower-tier city segments have stronger preferences",
+"p5-b11-l0": "",
+"p6-b32-l0": "Groceries M&P stores",
+"p6-b35-l0": "",
+"p6-b40-l0": "",
+"p7-b5-l0": "“Defensive War (保卫战)”",
+"p7-b6-l0": "“Pioneering War (开拓战)”",
+"p7-b19-l0": "",
+"p8-b12-l0": "",
+"p8-b13-l0": "",
+"p9-b6-l0": "",
+"p9-b14-l0": "Jinyan",
+"p9-b28-l0": "Business Center (BC)",
+"p10-b29-l0": "",
+"p10-b30-l0": "",
+"p10-b31-l0": "",
+"p10-b37-l0": "",
+"p10-b38-l0": "",
+"p11-b13-l0": "",
+"p11-b23-l0": "Nightclub/KTV",
+"p11-b46-l0": "",
+"p12-b15-l0": "",
+"p12-b21-l1": "",
+"p12-b34-l0": "C. Potential product",
+"p12-b37-l0": "",
+"p12-b39-l0": "Market Attractiveness¹",
+"p13-b16-l0": "",
+"p13-b48-l1": "• A – short term: ‘plant-based drinks’ has a size",
+"p14-b13-l0": "%share¹",
+"p14-b16-l0": "Base case",
+"p15-b9-l0": "",
+"_missing": {
+"m3-0": {
+"page": 2,
+"text": "58%",
+"x": 917,
+"y": 341,
+"w": 40,
+"h": 17,
+"conf": 94.0
+},
+"m3-1": {
+"page": 2,
+"text": "22%",
+"x": 1186,
+"y": 351,
+"w": 39,
+"h": 16,
+"conf": 96.0
+},
+"m3-2": {
+"page": 2,
+"text": "8%",
+"x": 1325,
+"y": 411,
+"w": 27,
+"h": 16,
+"conf": 96.0
+},
+"m3-3": {
+"page": 2,
+"text": "7%",
+"x": 1326,
+"y": 446,
+"w": 27,
+"h": 15,
+"conf": 94.0
+},
+"m3-4": {
+"page": 2,
+"text": "380",
+"x": 182,
+"y": 460,
+"w": 38,
+"h": 18,
+"conf": 96.0
+},
+"m5-5": {
+"page": 4,
+"text": "41%",
+"x": 1187,
+"y": 469,
+"w": 45,
+"h": 18,
+"conf": 96.0
+},
+"m5-6": {
+"page": 4,
+"text": "22%",
+"x": 1313,
+"y": 469,
+"w": 46,
+"h": 18,
+"conf": 96.0
+},
+"m5-7": {
+"page": 4,
+"text": "55%",
+"x": 1467,
+"y": 469,
+"w": 45,
+"h": 18,
+"conf": 96.0
+},
+"m5-8": {
+"page": 4,
+"text": "28%",
+"x": 471,
+"y": 668,
+"w": 45,
+"h": 18,
+"conf": 96.0
+},
+"m14-10": {
+"page": 13,
+"text": "19",
+"x": 1160,
+"y": 385,
+"w": 23,
+"h": 18,
+"conf": 96.0
+},
+"m14-11": {
+"page": 13,
+"text": "19",
+"x": 1293,
+"y": 383,
+"w": 24,
+"h": 17,
+"conf": 96.0
+},
+"m14-13": {
+"page": 13,
+"text": "11",
+"x": 974,
+"y": 431,
+"w": 18,
+"h": 18,
+"conf": 95.0
+},
+"m14-16": {
+"page": 13,
+"text": "11",
+"x": 1086,
+"y": 488,
+"w": 19,
+"h": 18,
+"conf": 96.0
+},
+"m14-17": {
+"page": 13,
+"text": "13",
+"x": 1176,
+"y": 475,
+"w": 23,
+"h": 18,
+"conf": 96.0
+},
+"m14-18": {
+"page": 13,
+"text": "15",
+"x": 1267,
+"y": 483,
+"w": 24,
+"h": 18,
+"conf": 96.0
+},
+"m15-19": {
+"page": 14,
+"text": "10.",
+"x": 999,
+"y": 605,
+"w": 26,
+"h": 20,
+"conf": 96.0
+},
+"m15-20": {
+"page": 14,
+"text": "11.",
+"x": 999,
+"y": 653,
+"w": 23,
+"h": 20,
+"conf": 95.0
+},
+"m15-21": {
+"page": 14,
+"text": "12.",
+"x": 999,
+"y": 703,
+"w": 26,
+"h": 20,
+"conf": 96.0
+},
+"m15-22": {
+"page": 14,
+"text": "14.",
+"x": 999,
+"y": 799,
+"w": 25,
+"h": 20,
+"conf": 96.0
+},
+"m15-23": {
+"page": 14,
+"text": "15.",
+"x": 999,
+"y": 848,
+"w": 26,
+"h": 20,
+"conf": 96.0
+},
+"w1-0": {
+"page": 0,
+"text": "Growth Strategy",
+"x": 336,
+"y": 560,
+"w": 468,
+"h": 57,
+"conf": 96.0
+},
+"w1-1": {
+"page": 0,
+"text": "Five-year",
+"x": 54,
+"y": 561,
+"w": 263,
+"h": 56,
+"conf": 96.0
+},
+"w1-2": {
+"page": 0,
+"text": "for Genki Forest",
+"x": 50,
+"y": 632,
+"w": 468,
+"h": 46,
+"conf": 95.0
+},
+"w2-3": {
+"page": 1,
+"text": "Overview",
+"x": 353,
+"y": 13,
+"w": 79,
+"h": 13,
+"conf": 96.0
+},
+"w2-4": {
+"page": 1,
+"text": "Implementation",
+"x": 666,
+"y": 13,
+"w": 146,
+"h": 18,
+"conf": 95.0
+},
+"w2-5": {
+"page": 1,
+"text": "Market",
+"x": 300,
+"y": 14,
+"w": 45,
+"h": 12,
+"conf": 96.0
+},
+"w2-6": {
+"page": 1,
+"text": "Appendix",
+"x": 853,
+"y": 14,
+"w": 76,
+"h": 17,
+"conf": 91.0
+},
+"w3-7": {
+"page": 2,
+"text": "Overview",
+"x": 352,
+"y": 9,
+"w": 89,
+"h": 15,
+"conf": 95.0
+},
+"w3-8": {
+"page": 2,
+"text": "Market",
+"x": 282,
+"y": 10,
+"w": 63,
+"h": 14,
+"conf": 96.0
+},
+"w3-9": {
+"page": 2,
+"text": "Appendix",
+"x": 851,
+"y": 10,
+"w": 89,
+"h": 18,
+"conf": 94.0
+},
+"w3-10": {
+"page": 2,
+"text": "Executive",
+"x": 56,
+"y": 11,
+"w": 91,
+"h": 12,
+"conf": 96.0
+},
+"w3-11": {
+"page": 2,
+"text": "The",
+"x": 53,
+"y": 42,
+"w": 74,
+"h": 33,
+"conf": 93.0
+},
+"w4-12": {
+"page": 3,
+"text": "customers",
+"x": 452,
+"y": 34,
+"w": 200,
+"h": 32,
+"conf": 96.0
+},
+"w4-14": {
+"page": 3,
+"text": "customers under",
+"x": 192,
+"y": 746,
+"w": 172,
+"h": 18,
+"conf": 94.0
+},
+"w4-15": {
+"page": 3,
+"text": "≤Tier",
+"x": 515,
+"y": 746,
+"w": 52,
+"h": 17,
+"conf": 92.0
+},
+"w4-17": {
+"page": 3,
+"text": "old,",
+"x": 472,
+"y": 747,
+"w": 34,
+"h": 17,
+"conf": 86.0
+},
+"w4-18": {
+"page": 3,
+"text": "years",
+"x": 408,
+"y": 751,
+"w": 54,
+"h": 16,
+"conf": 90.0
+},
+"w4-19": {
+"page": 3,
+"text": "growth driver for",
+"x": 443,
+"y": 779,
+"w": 168,
+"h": 24,
+"conf": 83.0
+},
+"w4-20": {
+"page": 3,
+"text": "customers can",
+"x": 121,
+"y": 781,
+"w": 150,
+"h": 16,
+"conf": 95.0
+},
+"w4-21": {
+"page": 3,
+"text": "significant",
+"x": 334,
+"y": 781,
+"w": 101,
+"h": 20,
+"conf": 83.0
+},
+"w4-22": {
+"page": 3,
+"text": "Genki Forest",
+"x": 120,
+"y": 813,
+"w": 135,
+"h": 19,
+"conf": 96.0
+},
+"w5-23": {
+"page": 4,
+"text": "Appendix",
+"x": 850,
+"y": 9,
+"w": 90,
+"h": 18,
+"conf": 96.0
+},
+"w5-24": {
+"page": 4,
+"text": "Urban",
+"x": 113,
+"y": 333,
+"w": 62,
+"h": 18,
+"conf": 96.0
+},
+"w5-26": {
+"page": 4,
+"text": "White Collar",
+"x": 112,
+"y": 362,
+"w": 129,
+"h": 18,
+"conf": 95.0
+},
+"w6-27": {
+"page": 5,
+"text": "Summary",
+"x": 156,
+"y": 7,
+"w": 89,
+"h": 18,
+"conf": 96.0
+},
+"w6-28": {
+"page": 5,
+"text": "Strategy Design",
+"x": 478,
+"y": 7,
+"w": 150,
+"h": 18,
+"conf": 96.0
+},
+"w6-29": {
+"page": 5,
+"text": "Implementation",
+"x": 666,
+"y": 7,
+"w": 147,
+"h": 18,
+"conf": 95.0
+},
+"w6-30": {
+"page": 5,
+"text": "Appendix",
+"x": 850,
+"y": 7,
+"w": 90,
+"h": 17,
+"conf": 95.0
+},
+"w6-31": {
+"page": 5,
+"text": "Executive",
+"x": 56,
+"y": 8,
+"w": 91,
+"h": 13,
+"conf": 96.0
+},
+"w8-35": {
+"page": 7,
+"text": "Executive Summary",
+"x": 56,
+"y": 8,
+"w": 189,
+"h": 18,
+"conf": 95.0
+},
+"w8-36": {
+"page": 7,
+"text": "Market Overview",
+"x": 283,
+"y": 8,
+"w": 157,
+"h": 14,
+"conf": 96.0
+},
+"w8-37": {
+"page": 7,
+"text": "Implementation",
+"x": 666,
+"y": 8,
+"w": 147,
+"h": 18,
+"conf": 94.0
+},
+"w8-38": {
+"page": 7,
+"text": "Appendix",
+"x": 850,
+"y": 8,
+"w": 90,
+"h": 18,
+"conf": 96.0
+},
+"w8-39": {
+"page": 7,
+"text": "Dealer",
+"x": 387,
+"y": 266,
+"w": 74,
+"h": 21,
+"conf": 96.0
+},
+"w9-41": {
+"page": 8,
+"text": "Summary",
+"x": 156,
+"y": 8,
+"w": 89,
+"h": 18,
+"conf": 96.0
+},
+"w9-42": {
+"page": 8,
+"text": "Market Overview",
+"x": 283,
+"y": 8,
+"w": 157,
+"h": 13,
+"conf": 96.0
+},
+"w9-43": {
+"page": 8,
+"text": "Implementation",
+"x": 666,
+"y": 8,
+"w": 146,
+"h": 18,
+"conf": 96.0
+},
+"w9-44": {
+"page": 8,
+"text": "Appendix",
+"x": 851,
+"y": 9,
+"w": 89,
+"h": 17,
+"conf": 95.0
+},
+"w9-45": {
+"page": 8,
+"text": "retail sales",
+"x": 1346,
+"y": 704,
+"w": 108,
+"h": 17,
+"conf": 96.0
+},
+"w9-46": {
+"page": 8,
+"text": "Per capita social",
+"x": 1169,
+"y": 705,
+"w": 167,
+"h": 21,
+"conf": 96.0
+},
+"w9-47": {
+"page": 8,
+"text": "Coca-Cola POS",
+"x": 1253,
+"y": 766,
+"w": 164,
+"h": 17,
+"conf": 95.0
+},
+"w9-48": {
+"page": 8,
+"text": "with",
+"x": 1323,
+"y": 800,
+"w": 40,
+"h": 17,
+"conf": 93.0
+},
+"w9-49": {
+"page": 8,
+"text": "Coca-Cola POS",
+"x": 1392,
+"y": 800,
+"w": 165,
+"h": 17,
+"conf": 95.0
+},
+"w9-50": {
+"page": 8,
+"text": "gap",
+"x": 1278,
+"y": 805,
+"w": 37,
+"h": 17,
+"conf": 92.0
+},
+"w10-52": {
+"page": 9,
+"text": "Overview",
+"x": 353,
+"y": 7,
+"w": 88,
+"h": 13,
+"conf": 96.0
+},
+"w10-53": {
+"page": 9,
+"text": "Implementation",
+"x": 666,
+"y": 7,
+"w": 146,
+"h": 18,
+"conf": 95.0
+},
+"w10-54": {
+"page": 9,
+"text": "Appendix",
+"x": 851,
+"y": 7,
+"w": 89,
+"h": 17,
+"conf": 96.0
+},
+"w10-56": {
+"page": 9,
+"text": "NEW",
+"x": 272,
+"y": 353,
+"w": 56,
+"h": 17,
+"conf": 96.0
+},
+"w10-57": {
+"page": 9,
+"text": "Step",
+"x": 594,
+"y": 397,
+"w": 50,
+"h": 28,
+"conf": 80.0
+},
+"w11-58": {
+"page": 10,
+"text": "Executive Summary",
+"x": 57,
+"y": 10,
+"w": 188,
+"h": 18,
+"conf": 95.0
+},
+"w11-59": {
+"page": 10,
+"text": "Market Overview",
+"x": 283,
+"y": 10,
+"w": 158,
+"h": 13,
+"conf": 95.0
+},
+"w11-60": {
+"page": 10,
+"text": "Implementation",
+"x": 666,
+"y": 10,
+"w": 146,
+"h": 18,
+"conf": 95.0
+},
+"w11-61": {
+"page": 10,
+"text": "Appendix",
+"x": 851,
+"y": 11,
+"w": 89,
+"h": 17,
+"conf": 96.0
+},
+"w11-62": {
+"page": 10,
+"text": "specialty",
+"x": 644,
+"y": 41,
+"w": 187,
+"h": 42,
+"conf": 96.0
+},
+"w13-65": {
+"page": 12,
+"text": "Market Overview",
+"x": 283,
+"y": 9,
+"w": 148,
+"h": 13,
+"conf": 95.0
+},
+"w13-66": {
+"page": 12,
+"text": "Implementation",
+"x": 666,
+"y": 9,
+"w": 146,
+"h": 17,
+"conf": 91.0
+},
+"w13-67": {
+"page": 12,
+"text": "Summary",
+"x": 156,
+"y": 10,
+"w": 89,
+"h": 12,
+"conf": 96.0
+},
+"w13-68": {
+"page": 12,
+"text": "Appendix",
+"x": 851,
+"y": 10,
+"w": 78,
+"h": 17,
+"conf": 89.0
+},
+"w13-69": {
+"page": 12,
+"text": "Executive",
+"x": 59,
+"y": 13,
+"w": 77,
+"h": 8,
+"conf": 95.0
+},
+"w13-70": {
+"page": 12,
+"text": "Meal replacements",
+"x": 334,
+"y": 438,
+"w": 169,
+"h": 20,
+"conf": 96.0
+},
+"w13-71": {
+"page": 12,
+"text": "Preserves",
+"x": 325,
+"y": 465,
+"w": 89,
+"h": 16,
+"conf": 92.0
+},
+"w14-72": {
+"page": 13,
+"text": "Executive Summary",
+"x": 56,
+"y": 10,
+"w": 189,
+"h": 18,
+"conf": 96.0
+},
+"w14-73": {
+"page": 13,
+"text": "Market Overview",
+"x": 283,
+"y": 10,
+"w": 158,
+"h": 13,
+"conf": 96.0
+},
+"w14-74": {
+"page": 13,
+"text": "Strategy Design",
+"x": 477,
+"y": 10,
+"w": 151,
+"h": 18,
+"conf": 96.0
+},
+"w14-75": {
+"page": 13,
+"text": "Low-tier",
+"x": 62,
+"y": 682,
+"w": 91,
+"h": 18,
+"conf": 93.0
+},
+"w14-76": {
+"page": 13,
+"text": "Low",
+"x": 572,
+"y": 811,
+"w": 48,
+"h": 18,
+"conf": 96.0
+},
+"w15-77": {
+"page": 14,
+"text": "Model",
+"x": 1268,
+"y": 391,
+"w": 72,
+"h": 44,
+"conf": 76.0
+},
+"w15-78": {
+"page": 14,
+"text": "Product Portfolio Analysis",
+"x": 1042,
+"y": 605,
+"w": 304,
+"h": 25,
+"conf": 96.0
+},
+"w15-79": {
+"page": 14,
+"text": "New Product launch Analysis",
+"x": 1042,
+"y": 653,
+"w": 346,
+"h": 26,
+"conf": 95.0
+},
+"w15-80": {
+"page": 14,
+"text": "Analysis",
+"x": 1104,
+"y": 703,
+"w": 100,
+"h": 25,
+"conf": 96.0
+},
+"w15-81": {
+"page": 14,
+"text": "Expert Call List",
+"x": 1041,
+"y": 799,
+"w": 181,
+"h": 25,
+"conf": 81.0
+},
+"w15-82": {
+"page": 14,
+"text": "Customer Survey",
+"x": 1043,
+"y": 848,
+"w": 206,
+"h": 25,
+"conf": 95.0
+},
+"w16-83": {
+"page": 15,
+"text": "Executive Summary",
+"x": 56,
+"y": 9,
+"w": 189,
+"h": 18,
+"conf": 95.0
+},
+"w16-84": {
+"page": 15,
+"text": "Market Overview",
+"x": 283,
+"y": 9,
+"w": 158,
+"h": 14,
+"conf": 95.0
+},
+"w16-85": {
+"page": 15,
+"text": "Strategy Design",
+"x": 477,
+"y": 9,
+"w": 151,
+"h": 18,
+"conf": 95.0
+},
+"w16-86": {
+"page": 15,
+"text": "Implementation",
+"x": 666,
+"y": 9,
+"w": 147,
+"h": 18,
+"conf": 95.0
+},
+"w16-87": {
+"page": 15,
+"text": "Appendix",
+"x": 850,
+"y": 9,
+"w": 89,
+"h": 18,
+"conf": 96.0
+}
+},
+"p5-b41-l0": "% of customers nominating the factor as their purchasing criteria",
+"p5-b43-l0": "% of customers nominating the brand as top 3 in the dimension"
+}
