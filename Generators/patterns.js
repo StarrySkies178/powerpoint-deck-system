@@ -37,11 +37,16 @@ function fitSize(text, wIn, hIn, max = 16, min = 10) {
   }
   return min;
 }
+// Text-safe green: the accent at 60% luminance (theme slot accent3, lumMod 60%), 5.7:1 on white.
+// Green TEXT on light backgrounds uses it automatically; green fills, lines and text on dark slides keep C.accent.
+const ACCENT_TEXT = "4D7100";
+const textGreen = (c, o) => (c === C.accent && !o.onDark ? ACCENT_TEXT : c);
 function txt(slide, text, x, y, w, h, o = {}) {
+  if (Array.isArray(text)) text = text.map((r) => (r.options && r.options.color === C.accent && !o.onDark ? { ...r, options: { ...r.options, color: ACCENT_TEXT } } : r));
   const plain = Array.isArray(text) ? text.map((r) => r.text).join("") : text;
   const size = o.fontSize || fitSize(plain, w - 0.1, h - 0.06, o.max || 14, o.min || 10);
   slide.addText(text, {
-    x, y, w, h, fontFace: THEME.bodyFontFace, fontSize: size, color: o.color || C.text,
+    x, y, w, h, fontFace: THEME.bodyFontFace, fontSize: size, color: textGreen(o.color || C.text, o),
     bold: !!o.bold, align: o.align || "left", valign: o.valign || "top", margin: o.margin ?? 0.04,
     isTextBox: true, paraSpaceAfter: o.paraSpaceAfter || 0, rotate: o.rotate, objectName: o.name,
   });
@@ -593,6 +598,6 @@ function puzzleGrid(slide, spec, box = BODY) {
     txt(slide, it.label, x + 0.1, y, s - 0.2, s, { max: 14, min: 8, bold: true, color: C.white, align: "center", valign: "middle" }); });
 }
 
-module.exports = { gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
+module.exports = { ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
   chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
   pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };

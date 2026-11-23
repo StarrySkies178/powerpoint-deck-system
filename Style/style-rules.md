@@ -63,6 +63,7 @@ Before Stage 2, study the reference thoroughly and write down its standards. Nev
 | Main | `002776` navy | Primary shapes, the series that matters, title rule, dark slides |
 | Secondary | `00A1DE` cyan | Second series, supporting shapes, links |
 | **Accent** | `81BC00` green | **Only the key point** on a slide: a highlighted bar, a callout. At most one or two uses per slide |
+| Accent as text | `4D7100` dark green (accent at 60% luminance, theme-linked) | Green **text** on white or light panels (labels, highlighted headers). `81BC00` is only for fills, and for text on navy |
 | Text | `313131` dark grey | All body text and titles |
 | Grey 1 | `575757` | Secondary text, axis labels |
 | Grey 2 | `8C8C8C` | "Others" series, muted shapes |

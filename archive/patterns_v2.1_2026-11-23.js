@@ -1,0 +1,598 @@
+// patterns.js — parametric slide patterns learned from the 11 template decks.
+// Every generator takes a content spec of ANY count and recomputes the geometry,
+// so "4 arrows -> 5 arrows" is a parameter, not a redesign.
+// Rules encoded here: grey does the work, ONE accent makes the point (spec.highlight);
+// text beside graphics, never behind; numbers in squares; flat shapes, no borders on boxes.
+
+const HOUSE = require("./house.js");
+const R = (k) => HOUSE.ROLES[k].hex;
+// Role colours (exact house hex; finalize() turns them into theme slots so they follow any colour scheme)
+const C = {
+  navy: R("main"), cyan: R("secondary"), accent: R("accent"), text: R("text"), white: R("white"),
+  g1: "F0F0F0",            // light panel (tint of grey4)
+  g2: R("grey4"), g3: R("grey3"), g4: R("grey2"), g5: R("grey1"),
+  hiBand: "CCECF8",        // light secondary tint for highlighted rows/boxes
+};
+const THEME = { headFontFace: "Arial", bodyFontFace: "Arial" };
+const W = HOUSE.W, H = HOUSE.H;
+const BODY = HOUSE.GRID.body; // content area under title (measured grid)
+
+// ---------- text helpers ----------
+// Rough Arial fit: avg char width ≈ 0.5em; line height ≈ 1.2em.
+function fitSize(text, wIn, hIn, max = 16, min = 10) {
+  const t = String(text || "");
+  const longest = Math.max(1, ...t.split(/\s+/).map((w) => w.length));
+  max = Math.min(max, Math.max(min, (wIn * 72) / (longest * 0.6)));
+  for (let s = max; s >= min; s -= 0.5) {
+    const cpl = Math.max(1, Math.floor((wIn * 72) / (s * 0.52)));
+    const lines = t.split("\n").reduce((a, para) => {
+      let n = 0, cur = 0;
+      for (const word of para.split(/\s+/)) {
+        const L = word.length + 1;
+        if (cur + L > cpl) { n++; cur = L; } else cur += L;
+      }
+      return a + n + 1;
+    }, 0);
+    if (lines * s * 1.22 <= hIn * 72) return s;
+  }
+  return min;
+}
+function txt(slide, text, x, y, w, h, o = {}) {
+  const plain = Array.isArray(text) ? text.map((r) => r.text).join("") : text;
+  const size = o.fontSize || fitSize(plain, w - 0.1, h - 0.06, o.max || 14, o.min || 10);
+  slide.addText(text, {
+    x, y, w, h, fontFace: THEME.bodyFontFace, fontSize: size, color: o.color || C.text,
+    bold: !!o.bold, align: o.align || "left", valign: o.valign || "top", margin: o.margin ?? 0.04,
+    isTextBox: true, paraSpaceAfter: o.paraSpaceAfter || 0, rotate: o.rotate, objectName: o.name,
+  });
+}
+// label (bold, coloured) + body as separate paragraphs so alignment holds on every line
+const rich = (label, body, color = C.navy, bodyColor) => body
+  ? [{ text: label, options: { bold: true, color, breakLine: true } }, { text: body, options: bodyColor ? { color: bodyColor } : {} }]
+  : [{ text: label, options: { bold: true, color } }];
+const fillFor = (i, spec, base = C.g2, hi = C.accent) => (spec.highlight === i ? hi : base);
+const textOn = (fill) => ([C.navy, C.cyan, C.accent, C.g5, C.g4].includes(fill) ? C.white : C.text);
+const rad = (d) => (d * Math.PI) / 180;
+
+// ---------- slide frame (same position on every slide) ----------
+function frame(pres, slide, { title, subtitle, source, page, tracker, onLayout = true }) {
+  const G = HOUSE.GRID;
+  if (onLayout) { // slide was added with masterName "04 Title only" (or similar): fill the placeholders
+    slide.addText(title, { placeholder: "title" });
+    if (subtitle) slide.addText(subtitle, { placeholder: "subtitle" });
+    if (source) slide.addText(source, { placeholder: "source" });
+  } else {
+    txt(slide, title, G.left, G.titleTop, G.contentW - 2, G.titleH, { fontSize: HOUSE.TYPE.title, bold: true, color: C.navy, valign: "bottom", name: "title" });
+    if (subtitle) txt(slide, subtitle, G.left, G.subY, G.contentW - 2, 0.34, { fontSize: 14, color: C.g5, name: "subtitle" });
+    if (source) txt(slide, source, G.left, G.footY, 9.5, G.footH, { fontSize: 9, color: C.g5, valign: "bottom", name: "source" });
+  }
+  if (tracker) trackerBar(slide, tracker);
+}
+// numbered-square tracker top-right (RB rule: navigators are numbered squares)
+function trackerBar(slide, { n, current }) {
+  const s = 0.26, g = 0.05, x0 = W - 0.6 - n * s - (n - 1) * g;
+  for (let i = 0; i < n; i++) {
+    const on = i === current;
+    slide.addShape("rect", { x: x0 + i * (s + g), y: 0.22, w: s, h: s, fill: { color: on ? C.accent : C.g2 }, line: { type: "none" } });
+    txt(slide, String(i + 1), x0 + i * (s + g), 0.22, s, s, { fontSize: 9, bold: true, color: on ? C.white : C.g5, align: "center", valign: "middle", margin: 0 });
+  }
+}
+function takeaway(slide, text) { // "tombstone" / so-what bar
+  const b = BODY, y = b.y + b.h - 0.52;
+  slide.addShape("rect", { x: b.x, y, w: b.w, h: 0.52, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, text, b.x + 0.15, y, b.w - 0.3, 0.52, { fontSize: 14, bold: true, color: C.white, valign: "middle" });
+}
+const numSquare = (slide, n, x, y, s = 0.34, fill = C.navy) => {
+  slide.addShape("rect", { x, y, w: s, h: s, fill: { color: fill }, line: { type: "none" } });
+  txt(slide, String(n), x, y, s, s, { fontSize: 12, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
+};
+
+// =====================================================================
+// ENGINE: row  — chevron-process, staircase, text-columns, timeline
+// =====================================================================
+function chevronProcess(slide, spec, box = BODY) {
+  // spec.items:[{label,text}], spec.highlight, spec.rowLabels? (not used), spec.result?
+  const n = spec.items.length, hH = 0.62, point = hH * 0.38, gap = 0.06;
+  const resW = spec.result ? Math.min(2.4, box.w * 0.2) : 0;
+  const avail = box.w - resW - (spec.result ? 0.25 : 0);
+  const w = (avail + (n - 1) * (point - gap)) / n; // chevrons overlap by point depth
+  spec.items.forEach((it, i) => {
+    const x = box.x + i * (w - point + gap);
+    const fill = spec.highlight === i ? C.accent : (spec.highlight != null && i < spec.highlight ? C.g4 : C.navy);
+    slide.addShape(i === 0 ? "homePlate" : "chevron", { x, y: box.y, w, h: hH, fill: { color: fill }, line: { type: "none" }, objectName: `step${i + 1}` });
+    txt(slide, it.label, x + (i === 0 ? 0.12 : point * 0.9), box.y, w - point * 1.6, hH, { max: 14, min: 10, bold: true, color: C.white, valign: "middle", align: "center" });
+    if (it.text) txt(slide, it.text, x + 0.08, box.y + hH + 0.2, w - point - 0.05, box.h - hH - 0.3, { max: 14, min: 10 });
+  });
+  if (spec.result) {
+    const x = box.x + box.w - resW;
+    slide.addShape("rect", { x, y: box.y, w: resW, h: box.h - 0.1, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, spec.result.label, x + 0.12, box.y + 0.1, resW - 0.24, 0.5, { fontSize: 14, bold: true, color: C.accent });
+    txt(slide, spec.result.text, x + 0.12, box.y + 0.65, resW - 0.24, box.h - 0.9, { max: 14 });
+  }
+}
+
+function staircase(slide, spec, box = BODY) {
+  const n = spec.items.length, gap = 0.08;
+  const w = (box.w - (n - 1) * gap) / n, h0 = 0.6, rise = (box.h * 0.6 - h0) / Math.max(1, n - 1), base = box.y + box.h;
+  spec.items.forEach((it, i) => {
+    const h = h0 + rise * i, x = box.x + i * (w + gap), y = base - h;
+    const fill = spec.highlight === i ? C.accent : [C.g2, C.g3, C.g4, C.g5, C.navy][Math.min(4, Math.round((i / Math.max(1, n - 1)) * 4))];
+    slide.addShape("rect", { x, y, w, h, fill: { color: fill }, line: { type: "none" } });
+    txt(slide, it.label, x + 0.08, y + 0.06, w - 0.16, Math.min(0.6, h - 0.08), { max: 14, bold: true, color: textOn(fill) });
+    if (it.text) txt(slide, it.text, x + 0.04, box.y, w - 0.08, base - h - box.y - 0.12, { max: 13, min: 10, valign: "bottom" });
+  });
+}
+
+function textColumns(slide, spec, box = BODY) {
+  const n = spec.items.length, gap = 0.3;
+  if (n > 6) { // wrap to two rows
+    const half = Math.ceil(n / 2), hh = (box.h - gap) / 2;
+    textColumns(slide, { ...spec, items: spec.items.slice(0, half) }, { ...box, h: hh });
+    textColumns(slide, { ...spec, items: spec.items.slice(half), highlight: spec.highlight != null ? spec.highlight - half : null }, { ...box, y: box.y + hh + gap, h: hh });
+    return;
+  }
+  const w = (box.w - (n - 1) * gap) / n;
+  spec.items.forEach((it, i) => {
+    const x = box.x + i * (w + gap), hi = spec.highlight === i;
+    slide.addShape("rect", { x, y: box.y, w, h: 0.5, fill: { color: hi ? C.accent : C.navy }, line: { type: "none" } });
+    txt(slide, it.label, x + 0.1, box.y, w - 0.2, 0.5, { max: 14, bold: true, color: C.white, valign: "middle" });
+    const lines = String(it.text).split("\n").reduce((a, p) => a + Math.ceil((p.length * 14 * 0.52) / ((w - 0.24) * 72) || 1), 0);
+    const ph = Math.min(box.h - 0.5, Math.max(1.6, lines * 14 * 1.3 / 72 + 0.45));
+    slide.addShape("rect", { x, y: box.y + 0.5, w, h: ph, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, it.text, x + 0.12, box.y + 0.62, w - 0.24, ph - 0.2, { max: 14, paraSpaceAfter: 6 });
+  });
+}
+
+function timeline(slide, spec, box = BODY) {
+  const n = spec.items.length, y = box.y + box.h / 2, pad = 0.4;
+  slide.addShape("line", { x: box.x, y, w: box.w, h: 0, line: { color: C.g4, width: 2, endArrowType: "triangle" } });
+  const step = (box.w - 2 * pad) / Math.max(1, n - 1), cw = Math.min(2.6, step * 1.85);
+  spec.items.forEach((it, i) => {
+    const x = box.x + pad + i * step, up = i % 2 === 0, hi = spec.highlight === i;
+    slide.addShape("ellipse", { x: x - 0.11, y: y - 0.11, w: 0.22, h: 0.22, fill: { color: hi ? C.accent : C.navy }, line: { color: C.white, width: 1.5 } });
+    txt(slide, it.date, x - 0.8, up ? y + 0.15 : y - 0.47, 1.6, 0.32, { fontSize: 13, bold: true, color: hi ? C.accent : C.navy, align: "center" });
+    const th = box.h / 2 - 0.75;
+    slide.addShape("line", { x, y: up ? y - 0.6 : y + 0.12, w: 0, h: 0.48, line: { color: C.g3, width: 1 } });
+    const cx0 = Math.max(box.x, Math.min(box.x + box.w - cw, x - cw / 2));
+    txt(slide, it.text, cx0, up ? box.y : y + 0.62, cw, th, { max: 13, min: 10, align: "center", valign: up ? "bottom" : "top" });
+  });
+}
+
+// =====================================================================
+// ENGINE: column — labelled rows
+// =====================================================================
+function labelledRows(slide, spec, box = BODY) {
+  const n = spec.items.length, gap = 0.14, h = (box.h - (n - 1) * gap) / n, lw = box.w * 0.27;
+  spec.items.forEach((it, i) => {
+    const y = box.y + i * (h + gap), hi = spec.highlight === i;
+    numSquare(slide, i + 1, box.x, y + (h - 0.4) / 2, 0.4, hi ? C.accent : C.navy);
+    txt(slide, it.label, box.x + 0.55, y, lw - 0.6, h, { max: 16, bold: true, color: hi ? C.accent : C.navy, valign: "middle" });
+    slide.addShape("rect", { x: box.x + lw, y, w: box.w - lw, h, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, it.text, box.x + lw + 0.15, y, box.w - lw - 0.3, h, { max: 14, valign: "middle" });
+  });
+}
+
+// =====================================================================
+// ENGINE: ring — cycle, wedges
+// =====================================================================
+function cycle(slide, spec, box = BODY) {
+  const n = spec.items.length;
+  const D = Math.min(box.h, box.w * 0.42), cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+  const R = D / 2, thick = 0.3, gapDeg = n <= 3 ? 10 : 7, seg = 360 / n;
+  const rMid = R * (1 - thick / 2);
+  spec.items.forEach((it, i) => {
+    const a0 = 270 + i * seg + gapDeg / 2, a1 = 270 + (i + 1) * seg - gapDeg / 2 - 4;
+    const fill = fillFor(i, spec, i % 2 ? C.g4 : C.g5);
+    slide.addShape("blockArc", { x: cx - R, y: cy - R, w: D, h: D, angleRange: [a0 % 360, a1 % 360], arcThicknessRatio: thick, fill: { color: fill }, line: { type: "none" }, objectName: `segment${i + 1}` });
+    // arrowhead at segment end, tangent clockwise
+    const ae = rad(a1), hx = cx + rMid * Math.cos(ae), hy = cy + rMid * Math.sin(ae), s = R * thick * 1.25;
+    slide.addShape("triangle", { x: hx - s / 2, y: hy - s / 2, w: s, h: s * 0.8, fill: { color: fill }, line: { type: "none" }, rotate: (a1 + 180) % 360 });
+    // label: number inside the ring band, text outside at mid-angle
+    const am = rad(270 + (i + 0.5) * seg);
+    const lx = cx + rMid * Math.cos(am), ly = cy + rMid * Math.sin(am);
+    txt(slide, String(i + 1), lx - 0.22, ly - 0.2, 0.44, 0.4, { fontSize: 14, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
+    const ox = cx + (R + 0.25) * Math.cos(am), oy = cy + (R + 0.25) * Math.sin(am);
+    const right = Math.cos(am) >= -0.05, cw = Math.min(3.4, (box.w - D) / 2 - 0.2), ch = Math.min(1.3, (box.h / Math.ceil(n / 2)) - 0.05);
+    const tx = Math.abs(Math.cos(am)) < 0.2 ? ox - cw / 2 : right ? ox : ox - cw;
+    const ty = Math.abs(Math.cos(am)) < 0.2 ? (Math.sin(am) < 0 ? oy - ch : oy) : oy - ch / 2;
+    txt(slide, rich(it.label, it.text, spec.highlight === i ? C.accent : C.navy),
+      tx, ty, cw, ch, { fontSize: n > 6 ? 11 : 12, align: Math.abs(Math.cos(am)) < 0.2 ? "center" : right ? "left" : "right",
+        valign: Math.abs(Math.cos(am)) < 0.2 ? (Math.sin(am) < 0 ? "bottom" : "top") : "middle" });
+  });
+  if (spec.centre) txt(slide, spec.centre, cx - R * 0.6, cy - 0.5, R * 1.2, 1.0, { max: 16, bold: true, color: C.navy, align: "center", valign: "middle" });
+}
+
+// =====================================================================
+// ENGINE: radial — hub-spoke, forces-in
+// =====================================================================
+function hubSpoke(slide, spec, box = BODY) {
+  const n = spec.items.length, cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+  const R = Math.min(box.h / 2 - 0.62, box.w * 0.22);
+  const d = Math.min(1.2, 2 * R * Math.sin(Math.PI / n) - 0.15);       // satellites never touch each other
+  const cD = Math.min(1.9, 2 * (R - d / 2 - 0.15));                     // ...or the centre
+  spec.items.forEach((it, i) => {
+    const a = rad(-90 + (i * 360) / n), x = cx + R * Math.cos(a), y = cy + R * Math.sin(a);
+    slide.addShape("line", { x: Math.min(cx, x), y: Math.min(cy, y), w: Math.abs(x - cx) || 0.001, h: Math.abs(y - cy) || 0.001, flipH: (x < cx) !== (y < cy) ? true : false, line: { color: C.g3, width: 1.25 } });
+  });
+  slide.addShape("ellipse", { x: cx - cD / 2, y: cy - cD / 2, w: cD, h: cD, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, spec.centre, cx - cD / 2 + 0.1, cy - cD / 2, cD - 0.2, cD, { max: 16, bold: true, color: C.white, align: "center", valign: "middle" });
+  spec.items.forEach((it, i) => {
+    const a = rad(-90 + (i * 360) / n), x = cx + R * Math.cos(a), y = cy + R * Math.sin(a), hi = spec.highlight === i;
+    slide.addShape("ellipse", { x: x - d / 2, y: y - d / 2, w: d, h: d, fill: { color: hi ? C.accent : C.g2 }, line: { color: C.white, width: 2 } });
+    txt(slide, it.label, x - d / 2 + 0.05, y - d / 2, d - 0.1, d, { max: 13, min: 9, bold: true, color: hi ? C.white : C.navy, align: "center", valign: "middle", margin: 0 });
+    if (it.text) {
+      const right = Math.cos(a) > 0.15, left = Math.cos(a) < -0.15, cw = Math.min(3.0, box.w / 2 - R - d / 2 - 0.25), ch = 0.95;
+      const tx = right ? x + d / 2 + 0.12 : left ? x - d / 2 - 0.12 - cw : x + d / 2 + 0.12;
+      txt(slide, it.text, tx, y - ch / 2, cw, ch, { max: 12, min: 9, align: left ? "right" : "left", valign: "middle" });
+    }
+  });
+}
+
+function forcesIn(slide, spec, box = BODY) {
+  const n = spec.items.length, cx = box.x + box.w / 2, cy = box.y + box.h / 2;
+  const cw = Math.min(2.5, box.w * 0.3), ch = 1.2;
+  slide.addShape("roundRect", { x: cx - cw / 2, y: cy - ch / 2, w: cw, h: ch, rectRadius: 0.5, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, spec.centre, cx - cw / 2 + 0.1, cy - ch / 2, cw - 0.2, ch, { max: 16, bold: true, color: C.white, align: "center", valign: "middle" });
+  const rx = cw / 2 + 0.2, ry = ch / 2 + 0.2;           // ellipse just outside the centre box
+  const tw = Math.max(1.4, Math.min(2.9, box.w / 2 - rx - 1.05));      // label width that fits beside the arrows
+  const ax = rx + 0.95, ay = Math.min(box.h / 2 - 0.75, ry + 0.75);     // arrow ring
+  spec.items.forEach((it, i) => {
+    const deg = -90 + (i * 360) / n, a = rad(deg), hi = spec.highlight === i, ca = Math.cos(a), sa = Math.sin(a);
+    const L = 0.8, T = 0.42;
+    const mx = cx + (rx + (ax - rx) / 2 + 0.1) * ca, my = cy + (ry + (ay - ry) / 2 + 0.05) * sa;
+    slide.addShape("rightArrow", { x: mx - L / 2, y: my - T / 2, w: L, h: T, rotate: (deg + 180 + 360) % 360, fill: { color: hi ? C.accent : C.g4 }, line: { type: "none" } });
+    const px = cx + (ax + 0.15) * ca, py = cy + (ay + 0.2) * sa, th = 0.9;
+    let side = Math.abs(ca) < 0.3 ? "c" : ca > 0 ? "r" : "l";
+    let x0 = side === "r" ? px : side === "l" ? px - tw : px - tw / 2;
+    let y0 = side === "c" ? (sa < 0 ? py - th : py) : py - th / 2;
+    if (side !== "c" && box.w / 2 - ax - 0.15 < 1.4) { // too narrow beside the arrow: label above it
+      side = "c"; x0 = mx - tw / 2; y0 = my - T / 2 - th - 0.02; }
+    x0 = Math.max(box.x, Math.min(box.x + box.w - tw, x0)); y0 = Math.max(box.y - 0.1, Math.min(box.y + box.h - th, y0));
+    txt(slide, rich(it.label, it.text, hi ? C.accent : C.navy),
+      x0, y0, tw, th, { max: 13, min: 9, align: side === "r" ? "left" : side === "l" ? "right" : "center", valign: side === "c" ? (sa < 0 || Math.abs(ca) >= 0.3 ? "bottom" : "top") : "middle" });
+  });
+}
+
+// =====================================================================
+// ENGINE: layers — pyramid, funnel
+// =====================================================================
+function layers(slide, spec, box, inverted) {
+  const n = spec.items.length, gap = 0.06, tw = Math.min(box.w * 0.45, box.h * 1.25), th = box.h;
+  const x0 = box.x, bh = (th - (n - 1) * gap) / n;
+  const halfAt = (yy) => (inverted ? (1 - yy / th) : yy / th) * tw / 2; // half-width at depth yy
+  spec.items.forEach((it, i) => {
+    const yT = i * (bh + gap), yB = yT + bh, cxp = tw / 2;
+    const wT = Math.max(inverted ? 0.35 : 0.0, halfAt(yT)), wB = Math.max(inverted ? 0.35 : 0.0, halfAt(yB));
+    const hi = spec.highlight === i;
+    const fill = hi ? C.accent : [C.navy, C.g5, C.g4, C.g3, C.g2][Math.min(4, Math.round((i / Math.max(1, n - 1)) * 4))];
+    slide.addShape("custGeom", { x: x0, y: box.y + yT, w: tw, h: bh, fill: { color: fill }, line: { type: "none" },
+      points: [{ x: cxp - wT, y: 0 }, { x: cxp + wT, y: 0 }, { x: cxp + wB, y: bh }, { x: cxp - wB, y: bh }, { close: true }] });
+    if ((wT + wB) > 0.9) txt(slide, it.label, x0 + cxp - (wT + wB) / 2 + 0.05, box.y + yT, wT + wB - 0.1, bh, { max: 14, min: 9, bold: true, color: textOn(fill), align: "center", valign: "middle" });
+    // callout beside (never behind)
+    const lx = x0 + tw + 0.35, mid = box.y + yT + bh / 2;
+    slide.addShape("line", { x: x0 + cxp + (wT + wB) / 2 + 0.05, y: mid, w: lx - (x0 + cxp + (wT + wB) / 2) - 0.1, h: 0, line: { color: C.g3, width: 1, dashType: "dash" } });
+    const rich = [];
+    if ((wT + wB) <= 0.9) rich.push({ text: it.label + (it.text ? "  " : ""), options: { bold: true, color: hi ? C.accent : C.navy } });
+    if (it.text) rich.push({ text: it.text, options: {} });
+    if (rich.length) txt(slide, rich, lx, box.y + yT, box.x + box.w - lx, bh, { max: 14, min: 9, valign: "middle" });
+  });
+}
+const pyramid = (slide, spec, box = BODY) => layers(slide, spec, box, false);
+const funnel = (slide, spec, box = BODY) => layers(slide, spec, box, true);
+
+// =====================================================================
+// ENGINE: grid — matrix
+// =====================================================================
+function matrix(slide, spec, box = BODY) {
+  // spec: rows (top->bottom labels), cols (left->right), cells[r][c] text, xTitle, yTitle, highlight:[r,c]
+  const R = spec.rows.length, Cn = spec.cols.length, ax = 1.2, gap = 0.08;
+  const gx = box.x + ax, gy = box.y, gw = Math.min(box.w - ax, box.h * 1.55) - 0.1, gh = box.h - 0.75;
+  const cw = (gw - (Cn - 1) * gap) / Cn, chh = (gh - (R - 1) * gap) / R;
+  for (let r = 0; r < R; r++) for (let c = 0; c < Cn; c++) {
+    const hi = spec.highlight && spec.highlight[0] === r && spec.highlight[1] === c;
+    const x = gx + c * (cw + gap), y = gy + r * (chh + gap);
+    slide.addShape("rect", { x, y, w: cw, h: chh, fill: { color: hi ? C.accent : C.g1 }, line: { type: "none" } });
+    const t = spec.cells?.[r]?.[c]; if (t) txt(slide, t, x + 0.12, y + 0.08, cw - 0.24, chh - 0.16, { max: 14, min: 9, color: hi ? C.white : C.text, bold: hi });
+  }
+  // axes with arrows
+  slide.addShape("line", { x: gx - 0.15, y: gy + gh + 0.12, w: gw + 0.1, h: 0, line: { color: C.g5, width: 1.5, endArrowType: "triangle" } });
+  slide.addShape("line", { x: gx - 0.15, y: gy - 0.05, w: 0, h: gh + 0.17, line: { color: C.g5, width: 1.5, beginArrowType: "triangle" } });
+  spec.cols.forEach((t, c) => txt(slide, t, gx + c * (cw + gap), gy + gh + 0.17, cw, 0.3, { fontSize: 11, color: C.g5, align: "center" }));
+  spec.rows.forEach((t, r) => txt(slide, t, box.x + 0.3, gy + r * (chh + gap), ax - 0.5, chh, { max: 11, min: 8, color: C.g5, align: "right", valign: "middle", margin: 0 }));
+  txt(slide, spec.xTitle, gx, gy + gh + 0.45, gw, 0.3, { fontSize: 12, bold: true, color: C.navy, align: "center" });
+  txt(slide, spec.yTitle, box.x - 1.15, gy + gh / 2 - 0.15, 2.6, 0.3, { fontSize: 12, bold: true, color: C.navy, align: "center", rotate: 270 });
+  if (spec.side) txt(slide, spec.side, gx + gw + 0.35, gy, box.x + box.w - (gx + gw + 0.35), gh, { max: 14 });
+}
+
+// =====================================================================
+// ENGINE: converge — synthesis / converge
+// =====================================================================
+function converge(slide, spec, box = BODY) {
+  const n = spec.items.length, gap = 0.12, iw = box.w * 0.42, ih = (box.h - (n - 1) * gap) / n;
+  const gx = box.x + box.w * 0.68, gw = box.w - box.w * 0.68, gh = Math.min(box.h * 0.6, 2.6), gy = box.y + (box.h - gh) / 2;
+  spec.items.forEach((it, i) => {
+    const y = box.y + i * (ih + gap), hi = spec.highlight === i;
+    slide.addShape("rect", { x: box.x, y, w: iw, h: ih, fill: { color: hi ? C.accent : C.g1 }, line: { type: "none" } });
+    txt(slide, [{ text: it.label + (it.text ? ": " : ""), options: { bold: true, color: hi ? C.white : C.navy } }, { text: it.text || "", options: { color: hi ? C.white : C.text } }],
+      box.x + 0.12, y, iw - 0.24, ih, { max: 14, min: 9, valign: "middle" });
+    const y1 = y + ih / 2, y2 = gy + gh / 2 + ((i - (n - 1) / 2) * gh * 0.5) / Math.max(1, n - 1);
+    slide.addShape("line", { x: box.x + iw + 0.05, y: Math.min(y1, y2), w: gx - box.x - iw - 0.15, h: Math.abs(y2 - y1) || 0.001, flipV: y2 < y1, line: { color: C.g3, width: 1.25, endArrowType: "triangle" } });
+  });
+  slide.addShape("rect", { x: gx, y: gy, w: gw, h: gh, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, rich(spec.goal.label || "", spec.goal.text, C.white, C.white),
+    gx + 0.2, gy + 0.1, gw - 0.4, gh - 0.2, { max: 15, valign: "middle" });
+}
+
+// =====================================================================
+// ENGINE: venn
+// =====================================================================
+function venn(slide, spec, box = BODY) {
+  const n = spec.items.length, cy = box.y + box.h / 2;
+  const dd = Math.min(box.h * (n === 2 ? 0.8 : 0.62), 3.6, (box.w * 0.6) / (n === 2 ? 1.72 : 1.75)), cx = box.x + dd * 0.36 + dd / 2 + 0.05;
+  const d = Math.min(box.h * (n === 2 ? 0.8 : 0.62), 3.6, (box.w * 0.6) / (n === 2 ? 1.72 : 1.75)), off = d * 0.36;
+  const pos = n === 2 ? [[-off, 0], [off, 0]] : [[0, -off * 0.95], [-off, off * 0.6], [off, off * 0.6]];
+  const cols = [C.navy, C.g4, C.accent];
+  pos.slice(0, n).forEach(([dx, dy], i) => {
+    slide.addShape("ellipse", { x: cx + dx - d / 2, y: cy + dy - d / 2, w: d, h: d, fill: { color: cols[i], transparency: 30 }, line: { color: C.white, width: 2 } });
+    const lx = cx + dx * 1.2 - 0.9, ly = cy + dy * 1.25 - 0.35;
+    txt(slide, spec.items[i].label, lx, ly, 1.8, 0.7, { max: 14, bold: true, color: C.white, align: "center", valign: "middle" });
+  });
+  if (spec.intersection) {
+    slide.addShape("ellipse", { x: cx - 0.17, y: cy - 0.17 + (n === 3 ? off * 0.08 : 0), w: 0.34, h: 0.34, fill: { color: C.white }, line: { color: C.accent, width: 2 } });
+    const tx = cx + off + d / 2 + 0.3;
+    slide.addShape("line", { x: cx + 0.2, y: cy, w: tx - cx - 0.3, h: 0, line: { color: C.accent, width: 1.25, dashType: "dash" } });
+    txt(slide, rich(spec.intersection.label, spec.intersection.text, C.accent),
+      tx, box.y + box.h * 0.2, box.x + box.w - tx, box.h * 0.6, { max: 14, valign: "middle" });
+  }
+}
+
+// =====================================================================
+// ENGINE: tree — issue tree (left->right, 2-3 levels)
+// =====================================================================
+function issueTree(slide, spec, box = BODY) {
+  const leaves = []; spec.children.forEach((c, ci) => (c.children && c.children.length ? c.children : [null]).forEach((l) => leaves.push({ ci, l })));
+  const gx = 0.45, comW = spec.comments ? Math.min(3.0, box.w * 0.22) : 0, avail = box.w - 2 * gx - (comW ? comW + 0.3 : 0);
+  const L = leaves.length, colW = [avail * 0.24, avail * 0.32, avail * 0.44], lh = Math.min(0.62, (box.h - (L - 1) * 0.1) / L), lg = (box.h - L * lh) / Math.max(1, L - 1);
+  const xs = [box.x, box.x + colW[0] + gx, box.x + colW[0] + colW[1] + 2 * gx];
+  const leafY = (k) => box.y + k * (lh + lg);
+  let k = 0; const midY = [];
+  spec.children.forEach((c, ci) => {
+    const kids = c.children && c.children.length ? c.children : [];
+    const k0 = k; k += Math.max(1, kids.length);
+    const yTop = leafY(k0), yBot = leafY(k - 1) + lh, ym = (yTop + yBot) / 2; midY.push(ym);
+    const hi = spec.highlight === ci;
+    slide.addShape("rect", { x: xs[1], y: ym - lh / 2, w: colW[1], h: lh, fill: { color: hi ? C.accent : C.g5 }, line: { type: "none" } });
+    txt(slide, c.label, xs[1] + 0.08, ym - lh / 2, colW[1] - 0.16, lh, { max: 13, min: 9, bold: true, color: C.white, valign: "middle" });
+    kids.forEach((leaf, j) => {
+      const y = leafY(k0 + j);
+      slide.addShape("rect", { x: xs[2], y, w: colW[2], h: lh, fill: { color: hi ? C.hiBand : C.g1 }, line: { type: "none" } });
+      txt(slide, leaf, xs[2] + 0.08, y, colW[2] - 0.16, lh, { max: 12, min: 9, valign: "middle" });
+      elbow(slide, xs[1] + colW[1], ym, xs[2], y + lh / 2);
+    });
+    if (spec.comments && spec.comments[ci]) txt(slide, spec.comments[ci], xs[2] + colW[2] + 0.3, yTop, box.x + box.w - xs[2] - colW[2] - 0.3, yBot - yTop, { max: 12, min: 9, valign: "middle", color: hi ? C.accent : C.g5 });
+  });
+  const rh = Math.min(1.4, box.h * 0.3), ry = box.y + box.h / 2 - rh / 2;
+  slide.addShape("rect", { x: xs[0], y: ry, w: colW[0], h: rh, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, spec.root, xs[0] + 0.1, ry, colW[0] - 0.2, rh, { max: 15, bold: true, color: C.white, valign: "middle" });
+  midY.forEach((ym) => elbow(slide, xs[0] + colW[0], ry + rh / 2, xs[1], ym));
+}
+function elbow(slide, x1, y1, x2, y2) {
+  const xm = x1 + (x2 - x1) / 2, c = { color: C.g3, width: 1.25 };
+  slide.addShape("line", { x: x1, y: y1, w: xm - x1, h: 0, line: c });
+  slide.addShape("line", { x: xm, y: Math.min(y1, y2), w: 0, h: Math.abs(y2 - y1) || 0.001, line: c });
+  slide.addShape("line", { x: xm, y: y2, w: x2 - xm, h: 0, line: c });
+}
+
+// =====================================================================
+// free compositions — temple, balance, before-after
+// =====================================================================
+function temple(slide, spec, box = BODY) {
+  const n = spec.pillars.length, roofH = 0.85, baseH = 0.6, gap = 0.18, inset = 0.3;
+  slide.addShape("custGeom", { x: box.x, y: box.y, w: box.w, h: roofH, fill: { color: C.navy }, line: { type: "none" },
+    points: [{ x: box.w / 2, y: 0 }, { x: box.w, y: roofH }, { x: 0, y: roofH }, { close: true }] });
+  txt(slide, spec.roof, box.x + box.w * 0.25, box.y + roofH * 0.35, box.w * 0.5, roofH * 0.62, { max: 16, bold: true, color: C.white, align: "center", valign: "middle" });
+  const pw = (box.w - 2 * inset - (n - 1) * gap) / n, py = box.y + roofH + 0.12, ph = box.h - roofH - baseH - 0.24;
+  spec.pillars.forEach((p, i) => {
+    const x = box.x + inset + i * (pw + gap), hi = spec.highlight === i;
+    slide.addShape("rect", { x, y: py, w: pw, h: 0.5, fill: { color: hi ? C.accent : C.g5 }, line: { type: "none" } });
+    txt(slide, p.label, x + 0.08, py, pw - 0.16, 0.5, { max: 14, bold: true, color: C.white, align: "center", valign: "middle" });
+    slide.addShape("rect", { x, y: py + 0.5, w: pw, h: ph - 0.5, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, p.text, x + 0.1, py + 0.6, pw - 0.2, ph - 0.7, { max: 13, min: 9 });
+  });
+  slide.addShape("rect", { x: box.x, y: box.y + box.h - baseH, w: box.w, h: baseH, fill: { color: C.g4 }, line: { type: "none" } });
+  txt(slide, spec.base, box.x + 0.2, box.y + box.h - baseH, box.w - 0.4, baseH, { max: 14, bold: true, color: C.white, align: "center", valign: "middle" });
+}
+
+function beforeAfter(slide, spec, box = BODY) {
+  // spec.rows: [{from, to}] ; spec.fromTitle, spec.toTitle
+  const n = spec.rows.length, gap = 0.12, hh = 0.5, rh = (box.h - hh - 0.1 - (n - 1) * gap) / n, aw = 0.6, cw = (box.w - aw - 0.3) / 2;
+  txt(slide, spec.fromTitle, box.x, box.y, cw, hh, { fontSize: 16, bold: true, color: C.g5, valign: "bottom" });
+  txt(slide, spec.toTitle, box.x + cw + aw + 0.3, box.y, cw, hh, { fontSize: 16, bold: true, color: C.accent, valign: "bottom" });
+  spec.rows.forEach((r, i) => {
+    const y = box.y + hh + 0.1 + i * (rh + gap);
+    slide.addShape("rect", { x: box.x, y, w: cw, h: rh, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, r.from, box.x + 0.12, y, cw - 0.24, rh, { max: 14, valign: "middle", color: C.g5 });
+    slide.addShape("chevron", { x: box.x + cw + 0.15, y: y + rh / 2 - 0.2, w: aw - 0.1, h: 0.4, fill: { color: C.g3 }, line: { type: "none" } });
+    slide.addShape("rect", { x: box.x + cw + aw + 0.3, y, w: cw, h: rh, fill: { color: C.hiBand }, line: { type: "none" } });
+    txt(slide, r.to, box.x + cw + aw + 0.42, y, cw - 0.24, rh, { max: 14, valign: "middle", bold: !!r.key });
+  });
+}
+
+// =====================================================================
+// DATA — native charts with "one highlighted" rule
+// =====================================================================
+function barRanking(pres, slide, spec, box = BODY) {
+  // spec.data:[{label,value}], spec.highlightLabel ; sorted desc, highlight via 2 stacked series
+  const d = [...spec.data].sort((a, b) => a.value - b.value); // bottom->top in bar charts
+  const labels = d.map((x) => x.label);
+  const others = d.map((x) => (x.label === spec.highlightLabel ? 0 : x.value));
+  const hi = d.map((x) => (x.label === spec.highlightLabel ? x.value : 0));
+  slide.addChart(pres.ChartType.bar, [{ name: "Others", labels, values: others }, { name: spec.highlightLabel, labels, values: hi }], {
+    ...box, barDir: "bar", barGrouping: "stacked", chartColors: [C.g3, C.navy], showLegend: false,
+    showValue: true, dataLabelPosition: "inBase", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: '#,##0;;;',
+    catAxisLabelColor: C.text, catAxisLabelFontSize: 12, catAxisLabelFontFace: "Arial", valAxisHidden: true,
+    valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 45, catAxisLineShow: false,
+  });
+}
+function waterfall(pres, slide, spec, box = BODY) {
+  // spec.steps: [{label, value, total?}] first and last are totals
+  let run = 0; const labels = [], base = [], up = [], down = [], tot = [];
+  spec.steps.forEach((s) => {
+    labels.push(s.label);
+    if (s.total) { base.push(0); up.push(0); down.push(0); tot.push(s.value); run = s.value; }
+    else if (s.value >= 0) { base.push(run); up.push(s.value); down.push(0); tot.push(0); run += s.value; }
+    else { run += s.value; base.push(run); up.push(0); down.push(-s.value); tot.push(0); }
+  });
+  slide.addChart(pres.ChartType.bar, [
+    { name: "base", labels, values: base }, { name: "Total", labels, values: tot },
+    { name: "Increase", labels, values: up }, { name: "Decrease", labels, values: down }], {
+    ...box, barDir: "col", barGrouping: "stacked", chartColors: ["FFFFFF", C.navy, C.cyan, C.g4], showLegend: false,
+    showValue: true, dataLabelPosition: "ctr", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: '#,##0;;;',
+    catAxisLabelColor: C.text, catAxisLabelFontSize: 11, valAxisHidden: true, valGridLine: { style: "none" }, barGapWidthPct: 40,
+  });
+}
+
+
+// =====================================================================
+// small objects — KPI cards, Harvey balls, stickers, column with highlight
+// =====================================================================
+function kpiRow(slide, spec, box = BODY) {
+  // spec.items:[{value, label, note}], spec.highlight
+  const n = spec.items.length, gap = 0.3, w = (box.w - (n - 1) * gap) / n, h = Math.min(box.h, 2.6);
+  spec.items.forEach((it, i) => {
+    const x = box.x + i * (w + gap), hi = spec.highlight === i;
+    slide.addShape("rect", { x, y: box.y, w, h, fill: { color: hi ? C.navy : C.g1 }, line: { type: "none" } });
+    if (hi) slide.addShape("rect", { x, y: box.y, w: 0.09, h, fill: { color: C.accent }, line: { type: "none" } });
+    txt(slide, it.value, x + 0.3, box.y + 0.25, w - 0.5, 1.15, { fontSize: fitSize(it.value, w - 0.5, 1.1, 60, 28), bold: true, color: hi ? C.white : C.navy, valign: "bottom", margin: 0 });
+    txt(slide, it.label, x + 0.3, box.y + 1.45, w - 0.5, 0.5, { max: 16, bold: true, color: hi ? C.white : C.text, margin: 0 });
+    if (it.note) txt(slide, it.note, x + 0.3, box.y + 1.95, w - 0.5, h - 2.05, { max: 12, min: 9, color: hi ? C.white : C.g5, margin: 0 });
+  });
+}
+function harveyBall(slide, x, y, d, quarters) { // 0..4
+  slide.addShape("ellipse", { x, y, w: d, h: d, fill: { color: C.white }, line: { color: C.navy, width: 1 } });
+  if (quarters >= 4) slide.addShape("ellipse", { x, y, w: d, h: d, fill: { color: C.navy }, line: { color: C.navy, width: 1 } });
+  else if (quarters > 0) slide.addShape("pie", { x, y, w: d, h: d, angleRange: [270, (270 + quarters * 90) % 360], fill: { color: C.navy }, line: { type: "none" } });
+}
+function scoringTable(slide, spec, box = BODY) {
+  // spec.criteria:[..], spec.options:[{label, scores:[0..4]}], spec.highlight (option index)
+  const nc = spec.criteria.length, no = spec.options.length, lw = 2.6, cw = (box.w - lw) / nc, hh = 0.55, rh = Math.min(0.75, (box.h - hh - 0.5) / no);
+  spec.criteria.forEach((c, j) => txt(slide, c, box.x + lw + j * cw, box.y, cw, hh, { max: 12, min: 9, bold: true, color: C.navy, align: "center", valign: "bottom" }));
+  slide.addShape("line", { x: box.x, y: box.y + hh + 0.05, w: box.w, h: 0, line: { color: C.navy, width: 1 } });
+  spec.options.forEach((o, i) => {
+    const y = box.y + hh + 0.12 + i * rh, hi = spec.highlight === i;
+    if (hi) slide.addShape("rect", { x: box.x, y, w: box.w, h: rh - 0.04, fill: { color: C.hiBand }, line: { type: "none" } });
+    txt(slide, o.label, box.x + 0.1, y, lw - 0.2, rh - 0.04, { max: 14, bold: hi, valign: "middle" });
+    o.scores.forEach((q, j) => harveyBall(slide, box.x + lw + j * cw + cw / 2 - 0.15, y + (rh - 0.04) / 2 - 0.15, 0.3, q));
+    slide.addShape("line", { x: box.x, y: y + rh - 0.02, w: box.w, h: 0, line: { color: C.g3, width: 0.75 } });
+  });
+  const ly = box.y + hh + 0.2 + no * rh;
+  [0, 1, 2, 3, 4].forEach((q, k) => { harveyBall(slide, box.x + k * 1.25, ly, 0.2, q); txt(slide, ["None", "Low", "Medium", "High", "Full"][k], box.x + k * 1.25 + 0.26, ly - 0.03, 0.9, 0.26, { fontSize: 10, color: C.g5 }); });
+}
+function sticker(slide, text) { // status tag top-right, upper case (RB/McK)
+  txt(slide, String(text).toUpperCase(), W - HOUSE.GRID.right - 1.9, 0.62, 1.9, 0.3, { fontSize: 10, bold: true, color: C.g5, align: "right", valign: "middle" });
+  slide.addShape("line", { x: W - HOUSE.GRID.right - 1.9, y: 0.92, w: 1.9, h: 0, line: { color: C.g3, width: 0.75 } });
+}
+function columnHighlight(pres, slide, spec, box = BODY) {
+  // spec.data:[{label,value}], spec.highlightLabel, spec.format
+  const labels = spec.data.map((d) => d.label);
+  const others = spec.data.map((d) => (d.label === spec.highlightLabel ? 0 : d.value));
+  const hi = spec.data.map((d) => (d.label === spec.highlightLabel ? d.value : 0));
+  slide.addChart(pres.ChartType.bar, [{ name: "Others", labels, values: others }, { name: spec.highlightLabel || "Key", labels, values: hi }], {
+    ...box, barDir: "col", barGrouping: "stacked", chartColors: [C.g3, C.navy], showLegend: false,
+    showValue: true, dataLabelPosition: "inEnd", dataLabelColor: C.white, dataLabelFontSize: 11, dataLabelFormatCode: spec.format || "#,##0;;;",
+    catAxisLabelColor: C.text, catAxisLabelFontSize: 11, catAxisLabelFontFace: "Arial", valAxisHidden: true,
+    valGridLine: { style: "none" }, catGridLine: { style: "none" }, barGapWidthPct: 50,
+  });
+}
+
+
+// =====================================================================
+// more generators: gantt, org chart, target/onion, phase matrix / swimlanes, table, puzzle grid, icon list
+// =====================================================================
+function gantt(slide, spec, box = BODY) {
+  // spec.periods:[...], spec.rows:[{label, start, end, milestone?}] (0-based period indexes), spec.highlight
+  const P = spec.periods.length, lw = Math.min(3.2, box.w * 0.28), cw = (box.w - lw) / P, hh = 0.38;
+  const rh = Math.min(0.5, (box.h - hh - 0.1) / spec.rows.length);
+  spec.periods.forEach((p, j) => { const x = box.x + lw + j * cw;
+    slide.addShape("rect", { x, y: box.y, w: cw - 0.02, h: hh, fill: { color: C.navy }, line: { type: "none" } });
+    txt(slide, p, x, box.y, cw - 0.02, hh, { max: 11, min: 8, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 }); });
+  spec.rows.forEach((r, i) => { const y = box.y + hh + 0.1 + i * rh, hi = spec.highlight === i;
+    if (i % 2 === 0) slide.addShape("rect", { x: box.x, y, w: box.w, h: rh, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, r.label, box.x + 0.08, y, lw - 0.16, rh, { max: 12, min: 8, bold: hi, valign: "middle" });
+    if (r.end != null) slide.addShape("rect", { x: box.x + lw + r.start * cw + 0.04, y: y + rh * 0.22, w: (r.end - r.start + 1) * cw - 0.08, h: rh * 0.56, fill: { color: hi ? C.accent : C.cyan }, line: { type: "none" } });
+    if (r.milestone != null) { const mx = box.x + lw + (r.milestone + 0.5) * cw;
+      slide.addShape("diamond", { x: mx - 0.12, y: y + rh / 2 - 0.12, w: 0.24, h: 0.24, fill: { color: C.navy }, line: { type: "none" } }); } });
+}
+function orgChart(slide, spec, box = BODY) {
+  // spec: {label, sub?, children:[{label, sub?, children:[...] }]}  (3 levels max), spec.highlight (child index)
+  const kids = spec.children || [], n = Math.max(1, kids.length), gap = 0.18;
+  const w = Math.min(2.4, (box.w - (n - 1) * gap) / n), h = 0.62, rowGap = 0.45;
+  const box2 = (x, y, node, fill) => { slide.addShape("rect", { x, y, w, h, fill: { color: fill }, line: { type: "none" } });
+    txt(slide, [{ text: node.label, options: { bold: true, color: textOn(fill), breakLine: !!node.sub } }, ...(node.sub ? [{ text: node.sub, options: { color: textOn(fill) } }] : [])], x + 0.06, y, w - 0.12, h, { max: 12, min: 8, align: "center", valign: "middle", margin: 0 }); };
+  const total = n * w + (n - 1) * gap, x0 = box.x + (box.w - total) / 2, cx = box.x + box.w / 2;
+  box2(cx - w / 2, box.y, spec, C.navy);
+  const y1 = box.y + h + rowGap, ym = box.y + h + rowGap / 2, ln = { color: C.g3, width: 1 };
+  slide.addShape("line", { x: cx, y: box.y + h, w: 0, h: rowGap / 2, line: ln });
+  if (n > 1) slide.addShape("line", { x: x0 + w / 2, y: ym, w: total - w, h: 0, line: ln });
+  kids.forEach((k, i) => { const x = x0 + i * (w + gap); slide.addShape("line", { x: x + w / 2, y: ym, w: 0, h: rowGap / 2, line: ln });
+    box2(x, y1, k, spec.highlight === i ? C.accent : C.g5);
+    (k.children || []).forEach((g, j) => { const y = y1 + h + 0.15 + j * (h * 0.8 + 0.1);
+      slide.addShape("line", { x: x + 0.12, y: y1 + h, w: 0, h: y - y1 - h + h * 0.4, line: ln });
+      slide.addShape("line", { x: x + 0.12, y: y + h * 0.4, w: 0.12, h: 0, line: ln });
+      slide.addShape("rect", { x: x + 0.24, y, w: w - 0.24, h: h * 0.8, fill: { color: C.g1 }, line: { type: "none" } });
+      txt(slide, g.label, x + 0.3, y, w - 0.36, h * 0.8, { max: 11, min: 8, valign: "middle", margin: 0 }); }); });
+}
+function targetOnion(slide, spec, box = BODY) {
+  // spec.items: outer -> inner [{label, text}], spec.highlight
+  const n = spec.items.length, D = Math.min(box.h, box.w * 0.5), cx = box.x + D / 2, cy = box.y + box.h / 2;
+  spec.items.forEach((it, i) => { const d = D * (n - i) / n, hi = spec.highlight === i;
+    const fill = hi ? C.accent : [C.g2, C.g3, C.g4, C.g5, C.navy][Math.min(4, Math.round((i / Math.max(1, n - 1)) * 4))];
+    slide.addShape("ellipse", { x: cx - d / 2, y: cy - d / 2, w: d, h: d, fill: { color: fill }, line: { color: C.white, width: 1.5 } });
+    const ly = cy - d / 2 + (D / n) * 0.25;
+    if (i < n - 1) txt(slide, it.label, cx - 1.1, ly, 2.2, 0.32, { max: 12, min: 8, bold: true, color: textOn(fill), align: "center", margin: 0 });
+    else txt(slide, it.label, cx - d / 2, cy - 0.3, d, 0.6, { max: 13, min: 8, bold: true, color: textOn(fill), align: "center", valign: "middle", margin: 0 });
+    const tx = box.x + D + 0.5, th = box.h / n;
+    slide.addShape("line", { x: cx, y: ly + 0.16, w: tx - cx - 0.1, h: 0, line: { color: C.g3, width: 0.75, dashType: "dash" } });
+    txt(slide, rich(it.label, it.text, hi ? C.accent : C.navy), tx, ly - 0.1, box.x + box.w - tx, Math.min(th, 0.9), { max: 13, min: 9 }); });
+}
+function phaseMatrix(slide, spec, box = BODY) {
+  // spec.phases:[...], spec.streams:[...], spec.cells[stream][phase], spec.highlight:[s,p] ; also used for swimlanes
+  const P = spec.phases.length, S = spec.streams.length, lw = Math.min(2.4, box.w * 0.2), hh = 0.55, gap = 0.06;
+  const cw = (box.w - lw) / P, rh = (box.h - hh - 0.1 - (S - 1) * gap) / S, pt = hh * 0.35;
+  spec.phases.forEach((p, j) => { const x = box.x + lw + j * cw - (j ? pt * 0.6 : 0), w = cw + (j ? pt * 0.6 : 0);
+    slide.addShape(j === 0 ? "homePlate" : "chevron", { x, y: box.y, w, h: hh, fill: { color: C.navy }, line: { type: "none" } });
+    txt(slide, p, x + (j ? pt : 0.1), box.y, w - pt * 1.6, hh, { max: 12, min: 8, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 }); });
+  spec.streams.forEach((st, i) => { const y = box.y + hh + 0.1 + i * (rh + gap);
+    slide.addShape("rect", { x: box.x, y, w: lw - 0.08, h: rh, fill: { color: C.g5 }, line: { type: "none" } });
+    txt(slide, st, box.x + 0.08, y, lw - 0.24, rh, { max: 12, min: 8, bold: true, color: C.white, valign: "middle" });
+    spec.phases.forEach((_, j) => { const x = box.x + lw + j * cw, hi = spec.highlight && spec.highlight[0] === i && spec.highlight[1] === j;
+      slide.addShape("rect", { x: x + 0.03, y, w: cw - 0.06, h: rh, fill: { color: hi ? C.hiBand : C.g1 }, line: { type: "none" } });
+      const t = spec.cells?.[i]?.[j]; if (t) txt(slide, t, x + 0.1, y + 0.05, cw - 0.2, rh - 0.1, { max: 12, min: 8, valign: "middle" }); }); });
+}
+function dataTable(slide, spec, box = BODY) {
+  // spec.header:[...], spec.rows:[[...]], spec.highlightRow ; native, editable PowerPoint table
+  const rows = [spec.header.map((h) => ({ text: h, options: { bold: true, color: C.white, fill: { color: C.navy } } })),
+    ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || j === 0, fill: { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) }, align: j && typeof c === "number" ? "right" : "left" } })))];
+  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, fontFace: "Arial", fontSize: 12, color: C.text, border: { type: "solid", color: C.g3, pt: 0.5 }, rowH: Math.min(0.42, box.h / (spec.rows.length + 1)), valign: "middle", margin: 0.06 });
+}
+function iconList(slide, spec, box = BODY) {
+  // spec.items:[{label, text, icon?: base64 png}], numbered circles if no icon
+  labelledRows(slide, spec, box);
+}
+function puzzleGrid(slide, spec, box = BODY) {
+  // spec.items:[{label}], spec.highlight — rounded tiles with connector knobs (grid that reads as a puzzle)
+  const n = spec.items.length, cols = Math.ceil(Math.sqrt(n)), rows = Math.ceil(n / cols), g = 0.12;
+  const s = Math.min((box.w * 0.6 - (cols - 1) * g) / cols, (box.h - (rows - 1) * g) / rows), x0 = box.x + (box.w - cols * s - (cols - 1) * g) / 2;
+  spec.items.forEach((it, i) => { const r = Math.floor(i / cols), c = i % cols, x = x0 + c * (s + g), y = box.y + r * (s + g), hi = spec.highlight === i;
+    const fill = hi ? C.accent : (i % 2 ? C.g4 : C.g5);
+    slide.addShape("roundRect", { x, y, w: s, h: s, rectRadius: 0.08, fill: { color: fill }, line: { type: "none" } }); });
+  spec.items.forEach((it, i) => { const r = Math.floor(i / cols), c = i % cols, x = x0 + c * (s + g), y = box.y + r * (s + g), hi = spec.highlight === i;
+    const fill = hi ? C.accent : (i % 2 ? C.g4 : C.g5);
+    if (c < cols - 1 && i + 1 < n) slide.addShape("ellipse", { x: x + s - 0.02, y: y + s / 2 - s * 0.11, w: s * 0.22, h: s * 0.22, fill: { color: fill }, line: { type: "none" } });
+    if (r < rows - 1 && i + cols < n) slide.addShape("ellipse", { x: x + s / 2 - s * 0.11, y: y + s - 0.02, w: s * 0.22, h: s * 0.22, fill: { color: fill }, line: { type: "none" } });
+    txt(slide, it.label, x + 0.1, y, s - 0.2, s, { max: 14, min: 8, bold: true, color: C.white, align: "center", valign: "middle" }); });
+}
+
+module.exports = { gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
+  chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
+  pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };

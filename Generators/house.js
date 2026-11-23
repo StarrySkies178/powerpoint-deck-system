@@ -27,6 +27,7 @@ const TINTS = {
   CCD4E4: { slot: "accent1", lumMod: 20000, lumOff: 80000 },  // light main
   CCECF8: { slot: "accent2", lumMod: 20000, lumOff: 80000 },  // light secondary (highlight band)
   E6F2CC: { slot: "accent3", lumMod: 20000, lumOff: 80000 },  // light accent
+  "4D7100": { slot: "accent3", lumMod: 60000, lumOff: 0 },     // text-safe accent (green text on light backgrounds, 5.7:1)
 };
 const THEME_COLORS = { dk1: "313131", lt1: "FFFFFF", dk2: "002776", lt2: "DCDCDC",
   accent1: "002776", accent2: "00A1DE", accent3: "81BC00", accent4: "8C8C8C", accent5: "575757", accent6: "B4B4B4",
