@@ -210,8 +210,8 @@
  },
  "lastChange": {
   "by": "Mike N",
-  "at": "2026-11-23T17:40:20Z",
+  "at": "2026-11-23T17:55:11Z",
   "via": "Claude chat",
-  "note": "folder 2.24: version stamp only (roadmap Phase 0 signed off, Phase 1 opened); nothing in the design system changed"
+  "note": "folder 2.25: version stamp only (roadmap Phase 1 steps 1.1 and 1.2: benchmark suites and noise band); nothing in the design system changed"
  }
 }

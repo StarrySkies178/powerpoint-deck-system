@@ -1,0 +1,74 @@
+{
+ "size_in": [
+  13.333,
+  7.5
+ ],
+ "title": {
+  "text": "Resilientgrowthperformanceisexpectedunderscenarioanalysis, affordablecapexindicatesagoodfinancialfeasibility",
+  "left_in": 0.387,
+  "top_in": 0.29,
+  "box": [
+   0.387,
+   0.276,
+   12.069,
+   0.895
+  ],
+  "above": 0.314,
+  "pt": 26.0,
+  "bold": false,
+  "font": "Verdana",
+  "colour": "000000"
+ },
+ "body": {
+  "median_pt": 14.0,
+  "min_pt": 12.0
+ },
+ "margins": {
+  "left_in": 0.367,
+  "right_in": 0.277
+ },
+ "fonts": {
+  "latin": [
+   "Microsoft YaHei",
+   "Verdana"
+  ],
+  "ea": [],
+  "cjk": true
+ },
+ "source": {
+  "pt": 10.0,
+  "top_in": 6.873
+ },
+ "theme_colours": [
+  "000000",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "5C5C5C",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "0C0C0C",
+  "3C3C3C",
+  "545454",
+  "6C5454",
+  "6C6C6C",
+  "6CB43C",
+  "848484",
+  "9C9C9C",
+  "9CB49C",
+  "B49C9C",
+  "B4B4B4",
+  "CC0C0C",
+  "CCCCCC",
+  "E48484",
+  "E4CCCC",
+  "E4E4E4"
+ ]
+}

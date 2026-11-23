@@ -1,0 +1,30 @@
+{
+ "case": "D08-text-and-chart",
+ "scored": "2026-11-24 01:52",
+ "runs": [
+  {
+   "run": "run1",
+   "passed": true,
+   "layout": 0.86,
+   "visual": 0.92,
+   "std": "11/11",
+   "failed": []
+  },
+  {
+   "run": "run2",
+   "passed": true,
+   "layout": 0.86,
+   "visual": 0.92,
+   "std": "11/11",
+   "failed": []
+  },
+  {
+   "run": "run3",
+   "passed": true,
+   "layout": 0.86,
+   "visual": 0.92,
+   "std": "11/11",
+   "failed": []
+  }
+ ]
+}

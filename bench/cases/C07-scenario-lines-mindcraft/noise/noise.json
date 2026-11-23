@@ -1,0 +1,39 @@
+{
+ "case": "C07-scenario-lines-mindcraft",
+ "scored": "2026-11-24 01:52",
+ "runs": [
+  {
+   "run": "run1",
+   "passed": false,
+   "layout": 0.38,
+   "visual": 0.44,
+   "std": "9/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  {
+   "run": "run2",
+   "passed": false,
+   "layout": 0.38,
+   "visual": 0.44,
+   "std": "9/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 10.0 pt)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  {
+   "run": "run3",
+   "passed": false,
+   "layout": 0.48,
+   "visual": 0.52,
+   "std": "9/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 10.0 pt)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  }
+ ]
+}

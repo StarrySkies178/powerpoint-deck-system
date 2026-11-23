@@ -24,6 +24,7 @@ Each `cases/<id>/` holds:
 | `prompt.md` | Person or Claude, once | What a user would type: content, data, and the reference deck. Never positions, sizes or colours |
 | `build.js` | The builder, following DECK-SYSTEM from `prompt.md` only | Makes `candidate.pptx` |
 | `result.json`, `compare.png` | `scripts/bench_run.py` | Score, and original next to candidate |
+| `noise/run1` … `run3/` | Fresh builders, then `scripts/bench_noise.py` | Rebuilds from `prompt.md` for the noise band, each with its own build, candidate and result |
 
 ## Scoring (`scripts/bench_score.py`)
 
@@ -51,6 +52,42 @@ Each `cases/<id>/` holds:
 
 **All applicable standards checks pass, layout ≥ 0.60, and visual ≥ 0.50.** Translated cases are scored on standards and layout only.
 
+## Two suites (since v2.25, roadmap step 1.1)
+
+Each case in `cases.json` carries `"suite"`:
+
+| Suite | Cases (at v2.25) | What a run must show |
+|---|---|---|
+| **Regression** | D01–D08, Z01 (the 9 that passed at the baseline) | Stays 9 of 9. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
+| **Capability** | C01–C10, Z02 (the 11 that failed) | Measures progress. Expected to start near 0 |
+
+`bench_run.py` prints and writes both counts and the 20-case total; `results-log.md` keeps all three on each line. `bench_run.py regression` or `capability` runs one suite. Same bar and same scorer for both. A capability case **graduates** into regression only when it passes 3 of 3 fresh rebuilds (next section), never on one run of its stored build; changing its `suite` is then logged in the changelog.
+
+## Noise band (since v2.25, roadmap step 1.2)
+
+**Rule: a case counts as passing only if 3 of 3 rebuilds pass.** A rebuild is a `build.js` written again from `prompt.md` alone by a fresh builder (a new chat or subagent that has not seen the case's own build, its result, the original render or the other rebuilds). Scoring the same stored build twice gives the same numbers (checked 2026-11-24), so the spread comes from the builder, not the scorer.
+
+- Rebuilds live in `cases/<id>/noise/run1` … `run3`; the case's own `build.js`, `candidate.pptx` and `result.json` are not touched. `python3 bench/scripts/bench_noise.py <case ids>` builds and scores them with the unchanged scorer and writes `noise.md`.
+- The regular run (`bench_run.py`) still runs the stored builds once: it checks that a change to the builders did not break a known-good build. The 3-of-3 rule applies whenever a claim is made that a case passes or got better (graduation, Phase 4 of the roadmap).
+- Why 3 of 3: a case that truly passes 70% of the time passes 3 of 3 only 34% of the time, so the rule accepts few false improvements (roadmap 1.2).
+
+**First measurement (2026-11-24, v2.25; table in `noise.md`).** Five cases, three fresh rebuilds each, every rebuild written by its own fresh subagent from `prompt.md` (same model, Claude Opus 5.5, and the same instruction text for all 15). Stored = the case's own build.
+
+| Case | Suite | Stored (layout / visual) | Rebuilds (layout / visual) | Passes | Spread layout / visual |
+|---|---|---|---|---|---|
+| D03 chevrons | regression | pass · 0.65 / 0.73 | 0.69 / 0.80, 0.69 / 0.83, 0.69 / 0.80 | 3 of 3 | 0.00 / 0.03 |
+| D04 issue tree | regression | pass · 0.71 / 0.69 | 0.87 / 0.85, 0.87 / 0.85, 0.88 / 0.85 | 3 of 3 | 0.01 / 0.00 |
+| D08 text + chart | regression | pass · 0.65 / 0.70 | 0.86 / 0.92 three times | 3 of 3 | 0.00 / 0.00 |
+| C04 two charts | capability | fail · 0.30 / 0.26 | 0.13 / 0.24, 0.26 / 0.30, 0.27 / 0.27 | 0 of 3 | 0.14 / 0.06 |
+| C07 scenario lines | capability | fail · 0.17 / 0.26 | 0.38 / 0.44, 0.38 / 0.44, 0.48 / 0.52 | 0 of 3 | 0.10 / 0.08 |
+
+What it shows, and its limits:
+- **No verdict changed.** Every rebuild landed on the same side of the bar as the stored build, so the 3-of-3 rule keeps D03, D04 and D08 in regression and C04, C07 in capability.
+- **Spread between fresh rebuilds is small:** at most 0.03 on named slides (D), at most 0.14 layout and 0.08 visual on deck-as-reference slides (C). Treat a change in a C case's layout below about 0.15, or visual below about 0.10, as possibly noise; on D cases below about 0.05.
+- **The stored builds are not typical draws.** Rebuilds beat the stored build by up to 0.21 layout on D (D04, D08) and 0.24 on C07, and fell below it on C04. The 15 rebuilds shared one model and one instruction text, while the stored builds were written days earlier under other instructions, so the spread above is a lower bound on real builder noise. The D rebuilds also copied bullet indents and spacing from the named reference slide, which they were allowed to look at.
+- **Standards can flip between builds:** C04's stored build passes all 11 standards, but all three rebuilds fail body text size (12 to 13 pt against the reference's 15).
+- **Leave-one-out leak (not fixed; Style/ is frozen):** `Style/slide-map.csv` has a one-line description of every reference slide, the C target slides included, and the 2019–20 study notes name some of them as examples. All six C rebuilders came across their target's line while looking up the deck's layouts. So the C rebuilds were not fully blind to their target's layout, and the stored C builds may have had the same exposure. Until it is fixed, C builders are told not to look up their target slide there (honesty rules above).
+
 **Self-check:** scoring the original slide against itself gives 1.00 / 1.00 and a pass. Scoring an unrelated slide of the same deck fails.
 
 ## Two modes, two honesty rules
@@ -58,7 +95,7 @@ Each `cases/<id>/` holds:
 | Mode | Cases | What the builder may use |
 |---|---|---|
 | **Named slide** ("make it like slide 62") | D, Z | The reference's style profile, and that slide's own stored object (`Objects/store`), placed with its original colours and refilled (`bench/lib/place_named.py`) |
-| **Deck as reference** ("in the style of this deck") | C | The deck's style profile and the generators. **Leave-one-out:** the target slide's own objects may not be reused (in real use that slide doesn't exist yet) |
+| **Deck as reference** ("in the style of this deck") | C | The deck's style profile and the generators. **Leave-one-out:** the target slide's own objects may not be reused (in real use that slide doesn't exist yet), and its descriptions may not be looked up: its row in `Style/slide-map.csv` and any study note that names it (added v2.25, see "Noise band") |
 
 Every build uses only what its `prompt.md` says, plus the framework (`Generators/`, `Style/refs/<deck>.profile.json`, `Objects/store`).
 
@@ -66,7 +103,8 @@ Every build uses only what its `prompt.md` says, plus the framework (`Generators
 
 ```
 python3 bench/scripts/bench_setup.py Templates <dir of the decks rendered to PDF>   # once, or after adding cases
-python3 bench/scripts/bench_run.py --label "what changed" [D|C|Z|case ids]          # build + score, writes results.md
+python3 bench/scripts/bench_run.py --label "what changed" [D|C|Z|case ids|regression|capability]   # build + score, writes results.md
+python3 bench/scripts/bench_noise.py <case ids>                                    # score the fresh rebuilds in cases/<id>/noise/, writes noise.md
 ```
 
 Every run is added to `bench/results-log.md`, which keeps the history. Needs LibreOffice, poppler (`pdftoppm`), Node with pptxgenjs, and Python with python-pptx, Pillow and numpy.

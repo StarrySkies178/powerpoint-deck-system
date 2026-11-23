@@ -1,0 +1,36 @@
+{
+ "case": "C04-two-charts-ecluster",
+ "scored": "2026-11-24 01:52",
+ "runs": [
+  {
+   "run": "run1",
+   "passed": false,
+   "layout": 0.13,
+   "visual": 0.24,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 15.0 / min 10.0 pt; got 13.0 / 10.0 pt)"
+   ]
+  },
+  {
+   "run": "run2",
+   "passed": false,
+   "layout": 0.26,
+   "visual": 0.3,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 15.0 / min 10.0 pt; got 12.0 / 10.0 pt)"
+   ]
+  },
+  {
+   "run": "run3",
+   "passed": false,
+   "layout": 0.27,
+   "visual": 0.27,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 15.0 / min 10.0 pt; got 12.0 / 10.0 pt)"
+   ]
+  }
+ ]
+}

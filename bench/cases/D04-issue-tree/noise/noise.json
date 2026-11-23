@@ -1,0 +1,30 @@
+{
+ "case": "D04-issue-tree",
+ "scored": "2026-11-24 01:52",
+ "runs": [
+  {
+   "run": "run1",
+   "passed": true,
+   "layout": 0.87,
+   "visual": 0.85,
+   "std": "10/10",
+   "failed": []
+  },
+  {
+   "run": "run2",
+   "passed": true,
+   "layout": 0.87,
+   "visual": 0.85,
+   "std": "10/10",
+   "failed": []
+  },
+  {
+   "run": "run3",
+   "passed": true,
+   "layout": 0.88,
+   "visual": 0.85,
+   "std": "10/10",
+   "failed": []
+  }
+ ]
+}

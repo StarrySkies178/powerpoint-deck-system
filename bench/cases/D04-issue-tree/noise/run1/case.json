@@ -1,0 +1,53 @@
+{
+ "id": "D04-issue-tree",
+ "deck": "Deloitte-timesaver",
+ "slide": 38,
+ "kind": "framework",
+ "palette": "slide",
+ "floor": {
+  "layout": 0.317,
+  "visual": 0.55,
+  "others": [
+   220,
+   224,
+   57,
+   35,
+   192,
+   242,
+   196,
+   24
+  ],
+  "deck_colours": [
+   "0C246C",
+   "0C3C84",
+   "0C549C",
+   "0C9CE4",
+   "242424",
+   "243C84",
+   "245484",
+   "24B4E4",
+   "3C3C3C",
+   "3C549C",
+   "3C8424",
+   "545454",
+   "546C9C",
+   "6C84B4",
+   "6CCCE4",
+   "848484",
+   "849CB4",
+   "84B40C",
+   "84CCE4",
+   "9C9C9C",
+   "9CB4CC",
+   "B4B4B4",
+   "B4B4CC",
+   "B4CC0C",
+   "B4E4FC",
+   "CCCCCC",
+   "CCE4FC",
+   "E4E4E4",
+   "E4FCE4"
+  ]
+ },
+ "skip_checks": []
+}
