@@ -54,7 +54,7 @@ Before Stage 2, study the reference thoroughly and write down its standards. Nev
 ## 3. Slide anatomy (same position on every slide)
 
 - Title top-left, an action title of at most 2 lines, with clear space or a thin rule below it.
-- Optional unit or subtitle line under the title (e.g. "US$ m, 2020–24").
+- No subtitle line under the title on analysis slides: the unit line sits over each exhibit (`unit:` on a panel, e.g. "US$ m, 2020–24"), and the section breadcrumb sits above the title. A subtitle line is kept only where a reference style profile has one.
 - One body area.
 - Optional takeaway box at the bottom for the "so what".
 - Footer: source and footnotes bottom-left, page number bottom-right.
@@ -83,7 +83,7 @@ Before Stage 2, study the reference thoroughly and write down its standards. Nev
 - **Chinese text: Microsoft YaHei (微软雅黑)**, approved 2026-11-22. Set it as the theme's East Asian font for headings and body in **every** deck, so any Chinese character renders correctly even in an English deck. Latin letters and numbers inside Chinese text stay in Arial. *Why: YaHei is the standard screen font on Chinese corporate Windows machines and pairs cleanly with Arial. 宋体 (SimSun) is thin and serif on screen.*
 - **When the deck is in Chinese** (the user says so, or the brief or content is Chinese):
   - Use full-width Chinese punctuation (，。：；「」) in Chinese sentences, and half-width numbers, units and % (e.g. 增长32%, 1.2亿元).
-  - Text limits: a body of at most ~80 Chinese characters per slide (instead of ~40 words), and an action title of at most ~40 characters over 2 lines.
+  - Text amounts: about 240 to 400 Chinese characters of body text on an analysis slide (two characters count as one English word against the 120 to 200 word range), and an action title of at most ~40 characters over 2 lines.
   - Same size scale as English. YaHei runs slightly larger than Arial, so leave ~10% spare room in text boxes.
   - Bold for emphasis only. Never fake italics on Chinese text.
 - **A reference sets its own Chinese font:** use the font from its card. If the reference has none and the deck is Chinese, use YaHei.

@@ -3,7 +3,7 @@
 Asked by the user: "look at everything you do; I see more, I'm just not telling you; I want you to find it."
 Method: 14 reference content slides looked at one by one (Baincraft 1/5/8/13, DoubleClick 4/7/12, TNT 5/8/13, Vaccine 6/9,
 E-Cluster 1, Mindcraft, TrueNorth, Polaris 16) plus numbers measured with python-pptx on 7 reference decks and on
-`samples/sample-deck-v0.4.pptx`. Status of every item: **open** unless marked fixed.
+`samples/sample-deck-v0.4.pptx`. Status of every item: see **Status after v2.16** at the end (all 11 addressed on 2026-11-24).
 
 ## Measured (median per content slide)
 
@@ -55,3 +55,44 @@ a priority zone, lettered risks, mitigation list: DoubleClick 12); the summary's
   boxes; charts through the annotated builders.
 - Sample v0.5: same story, each exhibit with its reading bullets, icons on panel heads, at least four table or
   diagram slides, breadcrumb, photo cover and agenda (photos per `Objects/images.md`, after approval).
+
+## Status after v2.16 (2026-11-24)
+
+The user: "yes to all, follow references, make sure you do everything." Sample rebuilt as `samples/sample-deck-v0.5.pptx`
+(16 slides) and the Slides test deck rebuilt (15 slides). Measured with the new `scripts/deck_measure.py`:
+
+| | Sample v0.4 | Sample v0.5 | 7 reference decks |
+|---|---|---|---|
+| Body words | 78 | 149 | 140 to 211 |
+| Shapes | 32 | 54 | 51 to 82 |
+| Content slides with a picture or icon | 0% | 83% (10 of 12), plus photo cover and agenda | 85 to 100% in 6 of 7 decks |
+| Native tables in the deck | 0 | 2 | 2 to 15 |
+| Title words | 11 | 18 | 11 to 18 |
+
+1. **Text: fixed.** The 40-word rule is gone from `DECK-SYSTEM.md`, `Style/style-rules.md` and the design system README;
+   the rule is now about 120 to 200 words on an analysis slide. Lint warns under 90 (thin) and over 260 (wordy). Every
+   panel has a `unit` line and a `reading` box (grey, 2 to 4 bullets, key words bold in the main colour).
+2. **Pictures: fixed, one gap.** 218 Tabler line icons (MIT) in `Objects/Visual/icons/`, drawn as editable shapes by
+   `icon()`; on every panel head of the sample and in the label points. Cover and agenda carry a CC0 photo at its
+   original 8000 x 3579 px. Gap: the summary and the risk slide have no icon (83%, the references 85% or more); company
+   logos stay out by rule (only the user's official files).
+3. **Bare charts: fixed.** `growthBars` (CAGR per period), `stackedCagr` (CAGR table, circled row) and `growthPairs`
+   (growth bubble per pair) are in the sample; every chart has a unit line and one highlight; multi-series charts
+   have a legend. Found on the way: `growthBars` computed growth per label step, not per year (two-year steps showed
+   18% instead of 8.7%); fixed.
+4. **Chart after chart: fixed.** The sample now has 2 native tables, 4 Harvey-ball scoring tables, a hub diagram,
+   a before / after diagram, a chevron process, a map, icon points and a risk matrix beside 14 charts.
+5. **Elements per slide: fixed at the low end** (median 54, range 51 to 82).
+6. **Breadcrumb: fixed.** `frame({ crumb })` now draws on the house master too (it only drew with a reference style);
+   current section bold in the main colour. No "A1:" in titles.
+7. **Subtitle and short titles: fixed.** No subtitle line; full two-line titles of 16 to 23 words (median 18).
+8. **Accent-bar boxes: fixed.** Panel takeaway and reading are grey filled boxes, the so-what is a full-colour bar;
+   the bar is also gone from `chartTakeaway` and from the cards of `buildingExplode`, and from the Slides kit
+   (`.hs-ptake`, `.hs-sowhat`, `.hs-pair.key`, `.hs-cell.key`). The KPI row keeps its rule (a different form).
+9. **Cover and agenda: fixed, one gap.** `photoCover` and `photoAgenda`. Gap: one photo is used for both; the second
+   one chosen (night skyline) could not be fetched, see the changelog. No client logo (none supplied).
+10. **Evaluation marks: fixed.** The Slides kit draws Harvey balls (`.hs-heat.hb`); the PowerPoint route already did.
+11. **Key words in the main colour: fixed.** `**…**` is bold and main colour in readings, insights and icon points.
+
+Not verified: the Slides deck was checked by rendering its files locally (no overflow, nothing under 24 px), not in
+the live Slides page; the PowerPoint sample was rendered with LibreOffice, not opened in PowerPoint.

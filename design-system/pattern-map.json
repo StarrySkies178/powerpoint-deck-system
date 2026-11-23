@@ -182,9 +182,30 @@
   "siteCallouts": {},
   "geoZoom": {},
   "buildingExplode": {},
-  "floorPlan": {}
+  "floorPlan": {},
+  "readingBox": {
+   "slides": "compose",
+   "note": "the reading of an exhibit: .hs-read (under it) or .hs-xr (beside it)"
+  },
+  "iconPoints": {
+   "slides": "compose",
+   "note": "icon + label + text columns in a grey box: .hs-points"
+  },
+  "icon": {
+   "slides": "compose",
+   "note": "Tabler line icon as inline svg .hs-ico (same set as Objects/Visual/icons)"
+  },
+  "photoCover": {
+   "slides": "compose",
+   "note": "section.hs-photo with img.bg and .card"
+  },
+  "photoAgenda": {
+   "slides": "compose",
+   "note": "section.hs-photo.hs-agenda with .side and .hs-ag rows"
+  }
  },
  "helpers": [
+  "ICONS",
   "chartStyle",
   "chip",
   "cityLL",
@@ -195,6 +216,8 @@
   "geo",
   "harvey",
   "harveyBall",
+  "insightBox",
+  "keyRuns",
   "label",
   "layoutBoxes",
   "legend",
@@ -203,14 +226,13 @@
   "pointIn",
   "project",
   "regionShape",
+  "soWhat",
+  "sticker",
+  "subhead",
   "tint",
   "txt",
   "useStyle",
   "vlabel",
-  "writeObjectSlots",
-  "subhead",
-  "soWhat",
-  "insightBox",
-  "sticker"
+  "writeObjectSlots"
  ]
 }

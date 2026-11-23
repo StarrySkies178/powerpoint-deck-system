@@ -95,6 +95,15 @@ Don't open `maintenance/` files during a normal build. They are for changing the
 
 Also check the **slide rules** from `Style/storytelling.md` §8:
 - Analysis slides: at most 3 numbered panels, each with a sentence sub-headline; together they prove the title (`evidencePanels`).
+- **Every exhibit is read on the slide (rules from the 2026-11-23 self-audit, `review/self-audit-2026-11-23.md`):**
+  - Each panel has a `unit` line (what the figure shows and its unit) and a `reading` of 2 to 4 bullets in a grey box under or beside it (`readingSide: "right"` keeps a chart tall in a half-height panel). Key words are bold in the main colour (`**…**`).
+  - Charts are annotated, not bare: a CAGR callout over a trend (`growthBars`), a growth bubble per pair (`growthPairs`), a CAGR table beside a stack (`stackedCagr`), one highlighted series or point, a legend when there are several series. A plain `chartIn` is for the simple cases only.
+  - Mix the forms: not chart after chart. Across a deck use tables (`dataTable`, `scoringTable` with Harvey balls), diagrams (`hubSpoke`, `beforeAfter`, `chevronProcess`, `valueTree`), maps and matrices beside the charts; at least one content slide in three carries a table or diagram.
+  - **Title block:** a full action title on two lines, no grey subtitle line under it (the unit belongs to each exhibit). Above the title sits the section breadcrumb (`frame({ crumb: { items, current } })`), the current section bold in the main colour. Do not type "A1:" into the title.
+  - **Boxes:** readings and takeaways are grey filled boxes; the so-what is a full-colour bar with white bold text. Never a box with an accent bar on its left edge and never an outlined takeaway: no reference has them.
+  - **Pictures:** an icon marks each panel head or label point (`icon:` on a panel, `points:` with icons; set in `Objects/Visual/icons/`, see `Objects/images.md`). The cover is a full-bleed photo with a colour panel (`photoCover`), the agenda a photo beside the lettered sections with the current one boxed (`photoAgenda`).
+  - **Evaluation marks:** Harvey balls, ticks and crosses or plus / minus circles with a legend, never digits in tinted cells.
+  - After building, run `python3 scripts/deck_measure.py <deck.pptx>` and compare with the reference range printed in its help: body words 140 to 211, shapes 51 to 82, a picture or icon on most content slides, 2 or more native tables.
 - The so-what sits in the same fixed place on every analysis slide (`soWhat()` box or takeaway bar).
 - Choose each figure from the message → figure table (`Style/refs/case-competitions.md` §5); one highlight makes the point.
 - **Slide layout:** analysis slides normally combine 2–4 figures using a layout from `Style/refs/case-competitions.md` §4b (HALF2, GRID4I, BAND2, T2B1, T1B2, T3B1, GRID4, EXI, L2R1, R2L1, COL3, COL4/COLN, FLOW with 2–4 blocks, CHAIN, EXB), built with `composeSlide()`; add `takeaway` to a panel when each panel has its own so-what; a panel can be a native chart, any generator, or a reused store object (`object:` + `Generators/fill_objects.py`). One-figure slides are for the exec summary, frameworks, roadmaps and big single charts. Vary layouts across the deck (never the same layout three slides running).
@@ -203,7 +212,7 @@ Each archetype has a spec in `catalogue/`, in the format set out in `catalogue/R
 - **Structure:** title → executive summary → 2–4 sections → next steps → appendix.
 - **Language:** match the brief and keep terminology consistent. Chinese decks follow the Chinese rules in `Style/style-rules.md` (Microsoft YaHei, full-width punctuation, ~80 characters of body text).
 - **Numbers:** round sensibly (at most 1 decimal on percentages), and always state units and the source.
-- **Text:** at most ~40 words (English) or ~80 characters (Chinese) of body text per slide.
+- **Text:** an analysis slide carries about **120 to 200 words** of body text (240 to 400 Chinese characters), as the reference decks do (140 to 211 on their median content slide, measured with `scripts/deck_measure.py`). The words are the reading of the exhibits: a unit line over each figure and 2 to 4 bullets beside or under it, key words bold in the main colour, at 10 to 12 pt inside panels. `scripts/deck_lint.py` warns under 90 words (thin: figures without their reading) and over 260 (a document page). Covers, agendas, statement and divider slides stay short. The rule until v2.15 was "at most ~40 words"; it produced figures with one line each and was replaced on 2026-11-24 because the references do not work that way.
 - **Motion:** none, or a subtle Morph between related slides only.
 
 ---

@@ -18,10 +18,20 @@ Rules it keeps (Objects/images.md):
   people, no logos or brand as the subject, no watermark. Photos of real people are never fetched.
 - Downloads follow the approved slide plan: list the candidates in the plan's "assets needed", fetch after approval.
 """
-import json, os, re, sys, urllib.parse, urllib.request
+import json, os, re, sys, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.getcwd(); OUT = os.path.join(ROOT, "Objects", "Visual", "photos"); CREDITS = os.path.join(ROOT, "Objects", "credits.md")
-API = "https://commons.wikimedia.org/w/api.php"; UA = {"User-Agent": "deck-system/1.0 (personal slide tool; Wikimedia Commons API)"}
+API = "https://commons.wikimedia.org/w/api.php"
+# Wikimedia serves search and thumbnails to any tool, but answers 429 on ORIGINAL files when the User-Agent names no contact
+# (seen 2026-11-24: same minute, same machine, with a contact the original came, without it 429). The contact is the user's to
+# give: one line (an email address or a page of theirs) in Objects/photo-contact.txt, or the DECK_PHOTO_CONTACT variable.
+# The file is listed in .gitignore, and the tool never invents a contact.
+def _contact():
+    c = os.environ.get("DECK_PHOTO_CONTACT", "").strip(); f = os.path.join(os.getcwd(), "Objects", "photo-contact.txt")
+    if not c and os.path.exists(f): c = open(f, encoding="utf-8").read().strip().splitlines()[0].strip() if open(f, encoding="utf-8").read().strip() else ""
+    return c
+CONTACT = _contact()
+UA = {"User-Agent": f"deck-system/1.0 (personal slide tool; {CONTACT})" if CONTACT else "deck-system/1.0 (personal slide tool; Wikimedia Commons API)"}
 RANK = [("cc0", 0), ("public domain", 0), ("pd", 0), ("cc by-sa", 2), ("cc-by-sa", 2), ("cc by", 1), ("cc-by", 1)]   # lower is better
 BAD = re.compile(r"\bnc\b|non-?commercial|\bnd\b|no ?deriv|fair use|copyrighted|all rights", re.I)
 PEOPLE = re.compile(r"portrait|headshot|selfie|\bceo\b|president|minister|actor|actress|singer|politician|athlete|player|人像|肖像", re.I)
@@ -67,11 +77,19 @@ def fetch(title, name, deck=""):
     ext = os.path.splitext(x["url"])[1].lower() or ".jpg"; slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
     os.makedirs(OUT, exist_ok=True); dest = os.path.join(OUT, slug + ext)
     if os.path.exists(dest): sys.exit(f"not fetched: {dest} already exists; choose another --name")
-    with urllib.request.urlopen(urllib.request.Request(x["url"], headers=UA), timeout=180) as r, open(dest, "wb") as f:   # the original bytes, untouched
-        while True:
-            b = r.read(1 << 20)
-            if not b: break
-            f.write(b)
+    try:
+        with urllib.request.urlopen(urllib.request.Request(x["url"], headers=UA), timeout=180) as r, open(dest, "wb") as f:   # the original bytes, untouched
+            while True:
+                b = r.read(1 << 20)
+                if not b: break
+                f.write(b)
+    except urllib.error.HTTPError as e:
+        if os.path.exists(dest): os.remove(dest) if os.access(os.path.dirname(dest), os.W_OK) else None
+        if e.code == 429:
+            sys.exit("not fetched (nothing saved): Wikimedia answered 429 for the original file. It does this when the tool names no contact.\n"
+                     "Put one line with an email address or a page of yours in Objects/photo-contact.txt (or set DECK_PHOTO_CONTACT) and run the same command again.\n"
+                     f"Or open the file page and save the original by hand into Objects/Visual/photos/: {x['page']}")
+        raise
     row = f"| Visual/photos/{slug}{ext} | {x['page']} | {x['licence']} | {'Yes' if x['credit'] else 'No'} (author: {x['author']}) | {deck or 'none yet'}; original {x['w']} x {x['h']} px |\n"
     with open(CREDITS, "a", encoding="utf-8") as f: f.write(row)
     print(f"saved {dest} ({os.path.getsize(dest) / 1e6:.1f} MB, {x['w']} x {x['h']} px, original file)\ncredit logged in Objects/credits.md" +

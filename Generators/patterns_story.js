@@ -12,19 +12,19 @@ function chip(slide, label, x, y, s = 0.3, fill = C.navy) {           // numbere
   slide.addShape("rect", { x, y, w: s, h: s, fill: { color: fill }, line: { type: "none" } });
   txt(slide, String(label), x, y, s, s, { fontSize: s > 0.4 ? 16 : 11, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
 }
-function subhead(slide, n, text, x, y, w) {                            // [n] sub-headline sentence + rule (the panel's point); returns its height
+function subhead(slide, n, text, x, y, w, rpad = 0) {             // rpad: room kept free at the right end for the panel's icon                            // [n] sub-headline sentence + rule (the panel's point); returns its height
   const ps = G.HOUSE.STYLE && G.HOUSE.STYLE.panel;
   if (ps) {                                                             // the reference deck's own sub-headline: chip shape/colour, headline size/colour, rule
     const s = Math.max(0.24, Math.min(0.4, ps.size || 0.3)), hh = Math.max(0.4, (ps.pt * 1.25) / 72 + 0.08);
     slide.addShape(ps.chip === "ellipse" ? "ellipse" : "rect", { x, y: y + (hh - s) / 2, w: s, h: s, fill: { color: ps.fill || C.navy }, line: { type: "none" } });
     txt(slide, String(n), x, y + (hh - s) / 2, s, s, { fontSize: Math.min(ps.chip_pt || 12, s * 72 * 0.6), noScale: true, bold: true, color: ps.text || C.white, align: "center", valign: "middle", margin: 0 });
-    txt(slide, text, x + s + 0.1, y, w - s - 0.1, hh, { max: ps.pt, min: Math.max(9, ps.pt - 3), noScale: true, bold: ps.bold !== false, color: ps.colour || C.text, valign: "middle", margin: 0 });
+    txt(slide, text, x + s + 0.1, y, w - s - 0.1 - rpad, hh, { max: ps.pt, min: Math.max(9, ps.pt - 3), noScale: true, bold: ps.bold !== false, color: ps.colour || C.text, valign: "middle", margin: 0 });
     const ry = y + Math.max(hh + 0.02, ps.rule ? ps.rule[2] : 0);
     if (ps.rule) slide.addShape("line", { x, y: ry, w, h: 0, line: { color: ps.rule[0], width: ps.rule[1] } });
     return ry - y + 0.12;
   }
   chip(slide, n, x, y + 0.02, 0.28);
-  txt(slide, text, x + 0.36, y, w - 0.36, 0.5, { max: 13, min: 10, bold: true, color: C.text, valign: "middle" });
+  txt(slide, text, x + 0.36, y, w - 0.36 - rpad, 0.5, { max: 13, min: 10, bold: true, color: C.text, valign: "middle" });
   slide.addShape("line", { x, y: y + 0.52, w, h: 0, line: { color: C.navy, width: 1 } });
   return 0.62;
 }
@@ -33,23 +33,52 @@ function insightBox(slide, spec, box) {                                // "Insig
   slide.addShape("line", { x: box.x, y: box.y + 0.36, w: box.w, h: 0, line: { color: C.navy, width: 1 } });
   const items = spec.bullets || [], n = Math.max(1, items.length);
   const plainAll = items.map((b) => String(b).replace(/\*\*/g, "")).join(" ");
-  const size = fitSize(plainAll, box.w - 0.4, (box.h - 0.5) * 0.85, 13, 10);
+  let size = fitSize(plainAll, box.w - 0.4, (box.h - 0.5) * 0.85, 13, 10);
+  const need = (sz) => items.reduce((a, b) => a + Math.max(1, Math.ceil(String(b).replace(/\*\*/g, "").length * sz * 0.52 / ((box.w - 0.3) * 72))) * sz * 1.25 / 72, 0);
+  while (size > 10 && need(size) + 0.06 * n > box.h - 0.5) size -= 0.5;
   // one text box per bullet, so bold runs stay inside their paragraph; the marker is a small square shape
   const lines = items.map((b) => Math.max(1, Math.ceil(String(b).replace(/\*\*/g, "").length * size * 0.52 / ((box.w - 0.3) * 72))));
-  const tot = lines.reduce((a, c) => a + c, 0), avail = box.h - 0.5;
+  const tot = lines.reduce((a, c) => a + c, 0), avail = box.h - 0.5 - 0.06 * n;
   let y = box.y + 0.46;
   items.forEach((b, i) => {
     const h = Math.min(avail * lines[i] / tot, lines[i] * size * 1.3 / 72 + 0.12);
     slide.addShape("rect", { x: box.x + 0.02, y: y + size / 72 * 0.45, w: 0.07, h: 0.07, fill: { color: C.navy }, line: { type: "none" } });
-    const runs = String(b).split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((p) => ({ text: p.startsWith("**") ? p.slice(2, -2) : p, options: { bold: p.startsWith("**") } }));
-    slide.addText(runs, { x: box.x + 0.18, y, w: box.w - 0.18, h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: "top", margin: 0, isTextBox: true });
+    slide.addText(keyRuns(b), { x: box.x + 0.18, y, w: box.w - 0.18, h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: "top", margin: 0, isTextBox: true });
     y += h + 0.06;
   });
 }
+// **key words** are bold and in the main colour, as the references mark them (2026-11-24 audit: bold alone was not their habit)
+const keyRuns = (b) => String(b).split(/(\*\*[^*]+\*\*)/).filter(Boolean).map((p) => (p.startsWith("**") ? { text: p.slice(2, -2), options: { bold: true, color: C.navy } } : { text: p, options: {} }));
+// the reading of an exhibit: a grey filled box with 2-4 bullets, under or beside the figure (reference form: Mindcraft
+// financial slides, Baincraft 5, E-Cluster 1). Returns nothing; box is the grey box itself.
+function readingBox(slide, bullets, box, o = {}) {
+  slide.addShape("rect", { ...box, fill: { color: C.g1 }, line: { type: "none" } });
+  const items = [].concat(bullets), inner = { x: box.x + 0.12, y: box.y + 0.07, w: box.w - 0.24, h: box.h - 0.14 };
+  const plain = items.map((t) => String(t).replace(/\*\*/g, "")).join(" "), size = o.size || fitSize(plain, inner.w - 0.25, inner.h * 0.8, o.bold ? 12 : 11, 10);   // 11 pt on every panel, so the readings look alike across a slide
+  const lines = items.map((t) => Math.max(1, Math.ceil(String(t).replace(/\*\*/g, "").length * size * 0.52 / ((inner.w - 0.2) * 72)))), tot = lines.reduce((a, c) => a + c, 0);
+  let y = inner.y; const lh = Math.min(size * 1.28 / 72, inner.h / tot);
+  items.forEach((t, i) => { const h = lines[i] * lh;
+    if (items.length > 1 || o.bullet) slide.addShape("rect", { x: inner.x, y: y + size / 72 * 0.42, w: 0.06, h: 0.06, fill: { color: C.navy }, line: { type: "none" } });
+    slide.addText(o.bold ? [{ text: String(t).replace(/\*\*/g, ""), options: { bold: true, color: C.navy } }] : keyRuns(t), { x: inner.x + (items.length > 1 || o.bullet ? 0.15 : 0), y, w: inner.w - (items.length > 1 || o.bullet ? 0.15 : 0), h, fontFace: G.THEME.bodyFontFace, fontSize: size, color: C.text, valign: items.length > 1 ? "top" : "middle", margin: 0, isTextBox: true });
+    y += h + Math.max(0, (inner.h - tot * lh) / Math.max(1, items.length)) * 0.5; });
+}
+const readingHeight = (bullets, w, size = 11) => { const items = [].concat(bullets); return 0.2 + items.reduce((a, t) => a + Math.max(1, Math.ceil(String(t).replace(/\*\*/g, "").length * size * 0.56 / ((w - 0.44) * 72))), 0) * size * 1.3 / 72; };
+// icon columns in a grey box: icon + bold label + one or two lines (reference form: E-Cluster 1 panel 3, TNT 13)
+function iconPoints(slide, items, box) {
+  slide.addShape("rect", { ...box, fill: { color: C.g1 }, line: { type: "none" } });
+  const n = items.length, w = box.w / n;
+  items.forEach((it, i) => { const x = box.x + i * w + 0.15, s = Math.min(0.36, box.h * 0.3);
+    if (i) slide.addShape("line", { x: box.x + i * w, y: box.y + 0.12, w: 0, h: box.h - 0.24, line: { color: C.g3, width: 0.75 } });
+    const has = it.icon && G.icon(slide, it.icon, x, box.y + 0.12, s, { color: C.navy });
+    txt(slide, it.label, x + (has ? s + 0.1 : 0), box.y + 0.1, w - 0.3 - (has ? s + 0.1 : 0), s + 0.04, { max: 12, min: 10, bold: true, color: C.navy, valign: "middle", margin: 0 });
+    slide.addText(keyRuns(it.text), { x, y: box.y + 0.2 + s, w: w - 0.3, h: box.h - s - 0.3, fontFace: G.THEME.bodyFontFace, fontSize: fitSize(String(it.text), w - 0.35, (box.h - s - 0.3) * 0.9, 12, 10), color: C.text, valign: "top", margin: 0, isTextBox: true });
+  });
+}
 function soWhat(slide, text, box) {                                     // fixed-place recommendation box (bottom right)
-  slide.addShape("roundRect", { ...box, rectRadius: 0.08, fill: { color: C.hiBand }, line: { type: "none" } });
-  slide.addShape("rect", { x: box.x, y: box.y + 0.12, w: 0.07, h: box.h - 0.24, fill: { color: C.navy }, line: { type: "none" } });
-  txt(slide, text, box.x + 0.2, box.y + 0.06, box.w - 0.3, box.h - 0.12, { max: 14, min: 10, bold: true, color: C.navy, valign: "middle" });
+  // a full-colour bar with the recommendation in white (reference form: the goal bar, Polaris 2, DoubleClick 3). The box with
+  // an accent bar on its left edge that stood here until v2.15 is in no reference.
+  slide.addShape("rect", { ...box, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, text, box.x + 0.15, box.y + 0.04, box.w - 0.3, box.h - 0.08, { max: 14, min: 10, bold: true, color: C.white, onDark: true, valign: "middle" });
 }
 
 // ---------- charts (native, editable data) ----------
@@ -87,7 +116,9 @@ function chartIn(pres, slide, c, box) {
 // stacked columns + CAGR table on the right; the highlighted segment is navy and its CAGR row is circled
 function stackedCagr(pres, slide, spec, box = BODY) {
   // spec.periods:[..], spec.series:[{name, values}] (bottom→top), spec.cagr:{headers:[..], rows:[[..]] per series}, spec.highlight, spec.unit
-  const tw = Math.min(3.4, box.w * 0.4), cw = box.w - tw - 0.15, n = spec.series.length;
+  // in a narrow panel the CAGR columns shrink and the table takes a larger share, so the series names still fit on two lines
+  const K = box.w < 5 ? 0.55 : 0.8, nH = (spec.cagr?.headers || []).length;
+  const tw = Math.min(box.w * 0.55, Math.max(Math.min(3.4, box.w * 0.4), 1.15 + nH * K)), cw = box.w - tw - 0.15, n = spec.series.length;
   const greys = [C.g4, C.g5, C.g3, C.g4, C.g5];
   const colors = spec.series.map((_, i) => (spec.highlight === i ? C.navy : greys[i % greys.length]));
   if (spec.unit) txt(slide, spec.unit, box.x, box.y, 2.5, 0.3, { fontSize: 10, color: C.g5 });
@@ -98,15 +129,15 @@ function stackedCagr(pres, slide, spec, box = BODY) {
     ...(({ dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace }) => (dataLabelFontSize ? { dataLabelFontSize, catAxisLabelFontSize, catAxisLabelFontFace, dataLabelFontFace } : {}))(G.chartStyle()) });
   // legend + CAGR table, rows in the same top→bottom order as the stack
   const hdr = spec.cagr?.headers || [], x0 = box.x + cw + 0.15, rowH = Math.min(0.42, (box.h - 0.7) / n);
-  const nameW = tw - hdr.length * 0.8;
-  txt(slide, "CAGR", x0 + nameW, box.y + 0.05, hdr.length * 0.8, 0.28, { fontSize: 11, bold: true, color: C.navy, align: "center" });
-  hdr.forEach((h, j) => txt(slide, h, x0 + nameW + j * 0.8, box.y + 0.32, 0.8, 0.28, { fontSize: 9, color: C.g5, align: "center" }));
+  const nameW = tw - hdr.length * K;
+  txt(slide, "CAGR", x0 + nameW, box.y + 0.05, hdr.length * K, 0.28, { fontSize: 11, bold: true, color: C.navy, align: "center" });
+  hdr.forEach((h, j) => txt(slide, h, x0 + nameW + j * K, box.y + 0.32, K, 0.28, { fontSize: 9, color: C.g5, align: "center" }));
   [...spec.series].map((s, i) => [s, i]).reverse().forEach(([s, i], k) => {
     const y = box.y + 0.7 + k * rowH, hi = spec.highlight === i;
     slide.addShape("rect", { x: x0, y: y + rowH / 2 - 0.08, w: 0.16, h: 0.16, fill: { color: colors[i] }, line: { type: "none" } });
     txt(slide, s.name, x0 + 0.22, y, nameW - 0.25, rowH, { max: 11, min: 8, bold: hi, color: C.text, valign: "middle" });
-    (spec.cagr?.rows?.[i] || []).forEach((v, j) => txt(slide, v, x0 + nameW + j * 0.8, y, 0.8, rowH, { fontSize: 11, bold: hi, color: hi ? C.navy : C.text, align: "center", valign: "middle" }));
-    if (hi) slide.addShape("ellipse", { x: x0 + nameW + 0.02, y: y + 0.02, w: hdr.length * 0.8 - 0.04, h: rowH - 0.04, fill: { type: "none" }, line: { color: C.accent, width: 1.75 } });
+    (spec.cagr?.rows?.[i] || []).forEach((v, j) => txt(slide, v, x0 + nameW + j * K, y, K, rowH, { fontSize: 11, bold: hi, color: hi ? C.navy : C.text, align: "center", valign: "middle" }));
+    if (hi) slide.addShape("ellipse", { x: x0 + nameW + 0.02, y: y + 0.02, w: hdr.length * K - 0.04, h: rowH - 0.04, fill: { type: "none" }, line: { color: C.accent, width: 1.75 } });
   });
 }
 
@@ -142,11 +173,15 @@ function growthBars(pres, slide, spec, box = BODY) {
   const pw = box.w * 0.98 / n, cx = (i) => box.x + box.w * 0.01 + i * pw + pw / 2;
   const seg = [[0, Math.min(ff, n) - 1, C.navy, "Actual"], [Math.max(ff - 1, 0), n - 1, C.cyan, "Forecast"]].filter((s) => s[1] > s[0]);
   seg.forEach(([i0, i1, col, lab]) => {
-    const g = cagr(spec.values[i0], spec.values[i1], i1 - i0); if (g == null) return;
+    // years between the two labels when they are years ("2020" … "2030F"): a label step is not always one year (fixed 2026-11-24:
+    // two-year steps were read as one year, which doubled the growth rate shown)
+    const yr = (l) => { const m = String(l).match(/(19|20)\d\d/); return m ? +m[0] : null; }, y0 = yr(spec.labels[i0]), y1 = yr(spec.labels[i1]);
+    const g = cagr(spec.values[i0], spec.values[i1], y0 != null && y1 != null && y1 > y0 ? y1 - y0 : i1 - i0); if (g == null) return;
     const x0 = cx(i0), x1 = cx(i1), y = box.y + 0.42;
     slide.addShape("line", { x: x0, y, w: x1 - x0, h: 0, line: { color: col, width: 1.5, endArrowType: "triangle" } });
-    slide.addShape("roundRect", { x: (x0 + x1) / 2 - 0.85, y: box.y, w: 1.7, h: 0.34, rectRadius: 0.17, fill: { color: C.white }, line: { color: col, width: 1.25 } });
-    txt(slide, `CAGR ${spec.labels[i0]}–${spec.labels[i1]}: ${g}%`, (x0 + x1) / 2 - 0.85, box.y, 1.7, 0.34, { fontSize: 10, bold: true, color: col === C.cyan ? C.navy : col, align: "center", valign: "middle", margin: 0 });
+    const pwid = Math.min(1.9, Math.max(1.0, box.w / seg.length - 0.3)), long = pwid >= 1.9;   // narrow panel: the arrow shows the period, the pill only the rate
+    slide.addShape("roundRect", { x: (x0 + x1) / 2 - pwid / 2, y: box.y, w: pwid, h: 0.34, rectRadius: 0.17, fill: { color: C.white }, line: { color: col, width: 1.25 } });
+    txt(slide, long ? `CAGR ${spec.labels[i0]}–${spec.labels[i1]}: ${g}%` : `${g}% a year`, (x0 + x1) / 2 - pwid / 2, box.y, pwid, 0.34, { fontSize: 10, bold: true, color: col === C.cyan ? C.navy : col, align: "center", valign: "middle", margin: 0 });
   });
 }
 
@@ -269,8 +304,7 @@ function chartTakeaway(pres, slide, spec, box = BODY) {
   const t = Array.isArray(spec.takeaway) ? spec.takeaway.map((b) => "• " + b).join("\n") : spec.takeaway;
   const n_ = Array.isArray(spec.takeaway) ? spec.takeaway.length : 2, th = Math.min(h - 0.2, 0.6 + n_ * 0.55);
   slide.addShape("rect", { x: box.x + cw + 0.55, y: y + (h - th) / 2, w: tw, h: th, fill: { color: C.g1 }, line: { type: "none" } });
-  slide.addShape("rect", { x: box.x + cw + 0.55, y: y + (h - th) / 2, w: 0.07, h: th, fill: { color: C.navy }, line: { type: "none" } });
-  txt(slide, t, box.x + cw + 0.75, y + (h - th) / 2 + 0.1, tw - 0.3, th - 0.2, { max: 15, min: 10, valign: "middle" });
+  txt(slide, t, box.x + cw + 0.7, y + (h - th) / 2 + 0.1, tw - 0.3, th - 0.2, { max: 15, min: 10, valign: "middle" });   // a plain grey box: the bar on its left edge (until v2.15) is in no reference
 }
 
 // ---------- strategy overview: issue (question) → goal → strategy ----------
@@ -393,7 +427,7 @@ function pyramidSummary(slide, spec, box = BODY) {
     txt(slide, spec.plan, box.x + 0.2, py, box.w - 0.4, 0.6, { max: 14, min: 10, bold: true, color: C.navy, align: "center", valign: "middle" }); }
 }
 
-module.exports = { chip, subhead, insightBox, soWhat, chartIn, stackedCagr, growthPairs, growthBars, donutKpis, positioningMap,
+module.exports = { photoCover, photoAgenda,  readingBox, iconPoints, keyRuns,  chip, subhead, insightBox, soWhat, chartIn, stackedCagr, growthPairs, growthBars, donutKpis, positioningMap,
   personaCards, customerJourney, evidencePanels, chartTakeaway, issueGoalStrategy, letteredSummary, decisionFramework, storyDiagram, pyramidSummary };
 
 // =====================================================================
@@ -448,14 +482,22 @@ function fillPanel(pres, slide, p, box, i, numbered, boxed) {
     txt(slide, p.headline, box.x + 0.12, box.y, box.w - 0.24, 0.5, { max: 13, min: 10, bold: true, color: C.white, valign: "middle", align: "center" });
     box = { x: box.x + 0.12, y: box.y + 0.6, w: box.w - 0.24, h: box.h - 0.7 }; p = { ...p, headline: null }; y = box.y;
   }
-  if (p.headline) { if (numbered) y += subhead(slide, p.number || i + 1, p.headline, box.x, y, box.w); else { txt(slide, p.headline, box.x, y, box.w, 0.5, { max: 13, min: 10, bold: true, valign: "middle" }); y += 0.62; } }
-  const tk = p.takeaway ? Math.min(0.85, Math.max(0.55, box.h * 0.2)) : 0;   // panel takeaway box under its exhibit (2019-20 decks)
-  const inner = { x: box.x, y, w: box.w, h: box.y + box.h - y - (p.note ? 0.25 : 0) - (tk ? tk + 0.1 : 0) };
-  if (tk) { const ty = inner.y + inner.h + 0.1;
-    slide.addShape("rect", { x: box.x, y: ty, w: box.w, h: tk, fill: { color: C.white }, line: { color: C.navy, width: 1 } });
-    slide.addShape("rect", { x: box.x, y: ty, w: 0.07, h: tk, fill: { color: C.accent }, line: { type: "none" } });
-    txt(slide, p.takeaway, box.x + 0.17, ty + 0.03, box.w - 0.25, tk - 0.06, { max: 12, min: 9, bold: true, color: C.navy, valign: "middle" }); }
-  if (p.chart) chartIn(pres, slide, p.chart, inner);
+  // p.icon: a line icon from Objects/Visual/icons at the right end of the panel's headline (the references mark their panels with one)
+  const hasIcon = p.headline && numbered && p.icon && G.icon(slide, p.icon, box.x + box.w - 0.36, y + 0.06, 0.34, { color: C.navy });
+  if (p.headline) { if (numbered) y += subhead(slide, p.number || i + 1, p.headline, box.x, y, box.w, hasIcon ? 0.45 : 0); else { txt(slide, p.headline, box.x, y, box.w, 0.5, { max: 13, min: 10, bold: true, valign: "middle" }); y += 0.62; } }
+  // p.unit: what the exhibit shows and its unit, in small grey type above it ("Market size, US$ bn"), as every reference chart has
+  if (p.unit) { txt(slide, p.unit, box.x, y, box.w, 0.24, { fontSize: 10, color: C.g5, valign: "middle", margin: 0 }); y += 0.26; }
+  // p.reading: 2-4 bullets that read the exhibit, in a grey box under it (or beside it: p.readingSide "right"); p.takeaway: one
+  // bold line in the same grey box. No outline, no accent bar on the left: those are in no reference.
+  const side = p.reading && p.readingSide === "right", rw = side ? box.w * (p.readingShare || 0.4) : box.w;
+  const rd = p.reading ? (side ? 0 : Math.min(box.h * 0.42, readingHeight(p.reading, rw))) : 0;
+  const tkNeed = p.takeaway ? readingHeight(p.takeaway, box.w, 12) + 0.05 : 0, tk = p.takeaway ? Math.min(box.h * 0.25, Math.max(0.45, tkNeed)) : 0;   // as tall as its text at 12 pt
+  const inner = { x: box.x, y, w: box.w - (side ? rw + 0.15 : 0), h: box.y + box.h - y - (p.note ? 0.25 : 0) - (tk ? tk + 0.08 : 0) - (rd ? rd + 0.08 : 0) };
+  if (side) readingBox(slide, p.reading, { x: box.x + box.w - rw, y, w: rw, h: inner.h });
+  if (rd) readingBox(slide, p.reading, { x: box.x, y: inner.y + inner.h + 0.08, w: box.w, h: rd });
+  if (tk) readingBox(slide, p.takeaway, { x: box.x, y: box.y + box.h - (p.note ? 0.25 : 0) - tk, w: box.w, h: tk }, { bold: true, size: tkNeed <= box.h * 0.25 ? 12 : undefined });
+  if (p.points) iconPoints(slide, p.points, inner);
+  else if (p.chart) chartIn(pres, slide, p.chart, inner);
   else if (p.draw) p.draw(slide, inner);
   else if (p.map) require("./patterns_place.js").mapRegions(pres, slide, p.map, inner);   // a map panel: any mapRegions spec
   else if (p.bullets) { slide.addShape("rect", { ...inner, fill: { color: C.g1 }, line: { type: "none" } });
@@ -476,8 +518,10 @@ function composeSlide(pres, slide, spec, box = BODY) {
       insightBox(slide, { bullets: spec.insights || [] }, { x: I.x + 0.15, y: I.y + 0.08, w: I.w * (spec.soWhat ? 0.6 : 1) - 0.3, h: I.h - 0.16 });
       if (spec.soWhat) soWhat(slide, spec.soWhat, { x: I.x + I.w * 0.62, y: I.y + 0.15, w: I.w * 0.38 - 0.15, h: I.h - 0.3 });
     } else {
-      const sh = spec.soWhat ? Math.min(1.4, I.h * (L.insightCol ? 0.3 : 0.45)) : 0;
-      if (spec.insights) insightBox(slide, { bullets: spec.insights }, { x: I.x, y: I.y, w: I.w, h: I.h - sh - (sh ? 0.15 : 0) });
+      const sh = spec.soWhat ? Math.min(1.4, I.h * (L.insightCol ? 0.25 : 0.3)) : 0;
+      if (spec.insights) { const ib = { x: I.x, y: I.y, w: I.w, h: I.h - sh - (sh ? 0.1 : 0) };
+        slide.addShape("rect", { ...ib, fill: { color: C.g1 }, line: { type: "none" } });   // the conclusion cell is a grey box, as in the references
+        insightBox(slide, { bullets: spec.insights, label: spec.insightsLabel }, { x: ib.x + 0.12, y: ib.y + 0.05, w: ib.w - 0.24, h: ib.h - 0.1 }); }
       if (spec.soWhat) soWhat(slide, spec.soWhat, { x: I.x, y: I.y + I.h - sh, w: I.w, h: sh });
     }
   }
@@ -502,6 +546,42 @@ function composeSlide(pres, slide, spec, box = BODY) {
     });
   }
   return L;
+}
+// ---------- photo cover and photo agenda (reference form: Baincraft 1, Vaccine agenda): a full-bleed photo, a colour panel
+// over part of it with the title, and the agenda with the current section boxed. The photo is placed at its original
+// pixels and cropped by the frame ("cover"), never resampled. photo = {path, w, h} (pixel size, for the crop).
+function coverCrop(photo, bw, bh) {            // pptxgenjs "cover" crop from the picture's own aspect ratio
+  const ar = photo.w / photo.h, br = bw / bh;  // image box that covers bw x bh, then crop the overflow evenly
+  const iw = ar > br ? bh * ar : bw, ih = ar > br ? bh : bw / ar;
+  return { w: iw, h: ih, sizing: { type: "crop", x: (iw - bw) * (photo.focusX ?? 0.5), y: (ih - bh) * (photo.focusY ?? 0.5), w: bw, h: bh } };
+}
+function photoCover(pres, spec) {
+  const s = pres.addSlide({ masterName: G.HOUSE.LAYOUT.blank || G.HOUSE.LAYOUT.titleOnly }), W = G.HOUSE.W, H = G.HOUSE.H;
+  const c = coverCrop(spec.photo, W, H); s.addImage({ path: spec.photo.path, x: 0, y: 0, w: c.w, h: c.h, sizing: c.sizing, altText: spec.photo.alt || "Cover photo" });
+  const px = 0.6, pw = W * 0.56, py = H * 0.34, ph = H * 0.44;
+  s.addShape("rect", { x: px, y: py, w: pw, h: ph, fill: { color: C.navy, transparency: 12 }, line: { type: "none" } });
+  txt(s, spec.title, px + 0.4, py + 0.3, pw - 0.8, ph * 0.5, { max: 32, min: 22, bold: true, color: C.white, onDark: true, valign: "middle", margin: 0 });
+  s.addShape("rect", { x: px + 0.4, y: py + ph * 0.5 + 0.38, w: 1.0, h: 0.06, fill: { color: C.accent }, line: { type: "none" } });
+  txt(s, spec.subtitle || "", px + 0.4, py + ph * 0.5 + 0.55, pw - 0.8, 0.4, { fontSize: 14, color: C.white, onDark: true, valign: "middle", margin: 0 });
+  txt(s, spec.date || "", px + 0.4, py + ph - 0.55, pw - 0.8, 0.35, { fontSize: 12, color: C.white, onDark: true, valign: "middle", margin: 0 });
+  if (spec.credit) txt(s, spec.credit, W - 5.2, H - 0.36, 5.0, 0.26, { fontSize: 9, color: C.white, onDark: true, align: "right", valign: "middle", margin: 0 });
+  return s;
+}
+function photoAgenda(pres, spec) {             // spec: {photo, title, sections:[..], current (index or null), credit}
+  const s = pres.addSlide({ masterName: G.HOUSE.LAYOUT.blank || G.HOUSE.LAYOUT.titleOnly }), W = G.HOUSE.W, H = G.HOUSE.H, pw = W * 0.56;
+  const c = coverCrop(spec.photo, pw, H); s.addImage({ path: spec.photo.path, x: 0, y: 0, w: c.w, h: c.h, sizing: c.sizing, altText: spec.photo.alt || "Agenda photo" });
+  s.addShape("rect", { x: pw, y: 0, w: W - pw, h: H, fill: { color: C.navy }, line: { type: "none" } });
+  const x = pw + 0.6, w = W - pw - 1.0;
+  txt(s, spec.title || "Agenda", x, 1.2, w, 0.7, { fontSize: 28, bold: true, color: C.white, onDark: true, valign: "middle", margin: 0 });
+  s.addShape("rect", { x, y: 1.95, w: 1.0, h: 0.06, fill: { color: C.accent }, line: { type: "none" } });
+  const n = spec.sections.length, rh = Math.min(0.8, (H - 3.4) / n);
+  spec.sections.forEach((t, i) => { const y = 2.5 + i * rh, cur = spec.current === i;
+    if (cur) s.addShape("rect", { x: x - 0.15, y: y + 0.06, w: w + 0.15, h: rh - 0.12, fill: { type: "none" }, line: { color: C.white, width: 1.5 } });
+    s.addShape("rect", { x, y: y + (rh - 0.4) / 2, w: 0.4, h: 0.4, fill: { color: cur ? C.accent : C.white }, line: { type: "none" } });
+    txt(s, String.fromCharCode(65 + i), x, y + (rh - 0.4) / 2, 0.4, 0.4, { fontSize: 14, bold: true, color: C.navy, align: "center", valign: "middle", margin: 0 });
+    txt(s, t, x + 0.55, y, w - 0.6, rh, { fontSize: 16, bold: cur, color: C.white, onDark: true, valign: "middle", margin: 0 }); });
+  if (spec.credit) txt(s, spec.credit, 0.2, H - 0.36, pw - 0.4, 0.26, { fontSize: 9, color: C.white, onDark: true, valign: "middle", margin: 0 });
+  return s;
 }
 // live presenting: a fade-out cover greys out panels not yet discussed (QPT "fade-outs and cover-ups");
 // put copies of the slide in sequence, each revealing one more panel.

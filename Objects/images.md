@@ -9,7 +9,7 @@ Objects/
 ├── Brand/logos/      ← official logo files you supply, named <company>.svg / .png
 ├── Visual/people/    ← headshots you supply (e.g. your team), named <first-last>.jpg
 ├── Visual/photos/    ← photos you own or that are free-licensed (with a credits line)
-├── Visual/icons/     ← icon set (one consistent style)
+├── Visual/icons/     ← icon set: 218 Tabler line icons (MIT), drawn by Generators icon()
 ├── store/            ← template object store (see Objects/README.md)
 └── credits.md        ← source + licence for every image not made by you
 ```
@@ -19,7 +19,7 @@ Objects/
 1. **This folder.** Your own assets come first.
 2. **Files you attach in the chat**: save them here so they can be reused next time.
 3. **Free-licensed stock** (Unsplash, Pexels, or Wikimedia Commons with a licence that allows commercial use), only for **generic scenes**: a city skyline, a factory floor, a product category, a landscape. Log each one in `credits.md`. Network access is on (2026-11-22). First photo: `Visual/photos/pudong-skyline-bund.jpg` (CC0).
-   - **How:** `python3 scripts/get_photo.py search "<words>"` on the Mac (`device_bash`; the cloud workspace gets rate-limited with error 429) lists candidates with pixel size, licence and author, and downloads nothing. Look at each candidate before choosing. `python3 scripts/get_photo.py fetch "File:<title>" --name <slug> --deck "<deck>"` saves the **original file** to `Visual/photos/` and writes the line in `credits.md`.
+   - **How:** `python3 scripts/get_photo.py search "<words>"` on the Mac (`device_bash`; the cloud workspace gets rate-limited with error 429) lists candidates with pixel size, licence and author, and downloads nothing. Look at each candidate before choosing. `python3 scripts/get_photo.py fetch "File:<title>" --name <slug> --deck "<deck>"` saves the **original file** to `Visual/photos/` and writes the line in `credits.md`. Wikimedia gives the original only to a tool that names a contact: put one line (an email address or a page of yours) in `Objects/photo-contact.txt` first, otherwise `fetch` stops with error 429 and says so (search and previews work without it).
    - **Full resolution, always (user rule, 2026-11-23):** the original is kept as it is, never resized or recompressed, here and when it is placed on a slide (crop with the picture frame, don't resample). Candidates under 2400 px wide are not listed. `scripts/deck_lint.py` warns when a placed picture has under 150 pixels per inch. *This replaces the earlier "resize to 2400 px, JPEG quality 85" rule; `pudong-skyline-bund.jpg` was saved under the old rule at 2400 px (original: 8192 x 3645 px).*
    - **Licence preference:** CC0 / public domain first (no credit needed), then CC BY (credit on the slide's source line), then CC BY-SA (credit, and note share-alike). Skip anything with no licence, "fair use" or NC (non-commercial).
    - **When to look:** at Stage 3, for every cover, section divider and any slide about a place, a site, a product or an industry, ask whether one photo would make the point land faster than shapes alone. If yes, search and propose it; if no, leave it. A photo is never decoration on a data slide.
@@ -42,3 +42,6 @@ Claude's image search (the images it shows in chat) is only for finding ideas or
 - **Photos:** crop to the layout's frame, never stretch. Use at most one hero photo per slide. On full-bleed photos, put text on a dark overlay with at least 4.5:1 contrast.
 - **Headshots:** the same crop (head and shoulders), the same size and the same shape (circle or square) across a slide.
 - **Icons:** one style per deck (line or filled, never mixed), coloured with the active style's main colour or grey.
+  - **The set (since v2.16):** `Objects/Visual/icons/` holds 218 line icons from **Tabler Icons 3.52.0** (MIT licence, https://github.com/tabler/tabler-icons, no attribution required; licence text in `Objects/Visual/icons/LICENSE`). They cover people, buildings, transport, money, charts, direction, checks and warnings, tools, nature, technology, communication, structure, health, education, food.
+  - **How they get on a slide:** `G.icon(slide, "truck-delivery", x, y, size, { color })` draws the icon as one editable PowerPoint line shape (no picture, so it scales and recolours cleanly). In `composeSlide`: `icon: "<name>"` on a panel puts it at the right end of the panel head; `points: [{ icon, label, text }]` makes an icon row in a grey box. The names are the file names without `.svg`; `Generators/icons.json` is the drawing data built from the SVG files by `Generators/build_icons.js` (run it again after adding SVG files; it needs `npm i @tabler/icons svgpath`).
+  - Company logos are not icons: they come only from the user's official files (rule above).

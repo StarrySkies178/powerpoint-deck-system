@@ -23,7 +23,10 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
   W covered        part of a text sits under a shape drawn on top of it
   W low-res image  a picture with under 150 pixels per inch at the size it is shown (it will look soft on a large screen)
   W contrast       words under 12 pt on a fill with less than 3 : 1 contrast (white on the accent green or on light grey is the usual case)
-  W wordy          body text over twice the default limit (~40 words / ~80 Chinese characters); an executive summary gets 200 words
+  W wordy          over 260 body words on a slide (320 on an executive summary): a document page, not a slide
+  W thin           under 90 body words on an analysis slide: figures without their reading. The reference case decks
+                   carry 140-211 body words on their median content slide (scripts/deck_measure.py); two Chinese
+                   characters count as one word
   W empty          a content slide that leaves a large part of its body unused: under 70% of the body carries content,
                    or one empty block takes over 18% of it. Measured on 11 reference case decks (197 content slides,
                    2026-11-23): the median slide fills 93-98% of its body and its largest empty block is 1-4%; they
@@ -38,6 +41,7 @@ import os, re, sys, json, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "bench", "scripts")); sys.path.insert(0, HERE)
 from bench_score import Ctx, walk, run_props, count_lines, insets, inherited_anchor, de, EMU, SRC, CJK, _font
+WORDS = re.compile(r"[A-Za-z0-9%$€£¥'’\-]+")
 from make_style_profile import fill_hex, line_hex
 from pptx import Presentation
 from pptx.oxml.ns import qn
@@ -162,6 +166,13 @@ def lint_slide(prs, slide, n, st):
     ctx = Ctx(prs, slide); W, H = prs.slide_width / EMU, prs.slide_height / EMU
     E, Wn = [], []; fill_stats = None
     items = list(walk(slide.shapes)); texts = []; accent_fills = 0; has_chart = False; off_pal = collections.Counter(); fonts_bad = collections.Counter()
+    # a native table is as tall as its rows: generators often leave the frame at its default height (1 in), which made a
+    # full-height table read as a strip with an empty block under it (2026-11-24)
+    table_words = 0
+    for k, (sh, (x, y, w, h)) in enumerate(items):
+        if getattr(sh, "has_table", False) and sh.has_table:
+            items[k] = (sh, (x, y, w, max(h, sum((r.height or 0) for r in sh.table.rows) / 914400)))
+            table_words += sum(len(WORDS.findall(c.text)) + len(CJK.findall(c.text)) // 2 for r in sh.table.rows for c in r.cells)
     painted = []   # (z, kind, points, box, fill as seen (None for a picture), opacity) of every filled shape
     for z, (sh, (x, y, w, h)) in enumerate(items):
         full = w > 0.95 * W and h > 0.95 * H
@@ -273,11 +284,17 @@ def lint_slide(prs, slide, n, st):
                 Wn.append(f"empty: {bf[0]:.0%} of the body carries content; the largest empty block is {ew:.1f} x {eh:.1f} in ({bf[1]:.0%} of the body) at x {ex:.1f}, y {ey:.1f}. Add the missing proof (second exhibit, numbers, so-what)")
             fill_stats = bf
 
-        # body text = sentences (boxes of 6+ words), not labels; the default limit is ~40 words / ~80 Chinese characters (DECK-SYSTEM §8)
-        body = [t["text"] for t in texts if t is not title and not SRC.match(t["text"])]
-        words = sum(n for n in (len(re.findall(r"[A-Za-z0-9%$€£¥'’-]+", b)) for b in body) if n >= 6); cjk = sum(len(CJK.findall(b)) for b in body)
-        summary = bool(title and re.match(r"\s*(executive\s+)?summary|\s*(执行)?摘要|\s*概要", title["text"], re.I))   # a summary page is text by nature: double the room
-        if words > (200 if summary else 80) or cjk > (400 if summary else 160): Wn.append(f"wordy: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (default limit ~40 / ~80; split the slide or cut)")
+        # body words = every word outside the title, the source line, the page number and the breadcrumb, tables included
+        # (the count scripts/deck_measure.py reports). The reference case decks carry 140-211 on their median content slide
+        # (7 decks, 2026-11-23): each exhibit sits with 2-4 bullets that read it. So an analysis slide under 90 words is
+        # thin (figures without their reading) and one over 260 is a document page. Until v2.15 the rule was "at most ~40,
+        # warn above 80", which produced figures with one line each; the user asked for the references' density instead.
+        body = [t["text"] for t in texts if t is not title and not SRC.match(t["text"]) and not (t["y"] < 0.04 * H and t["h"] < 0.06 * H) and t["y"] < 0.93 * H]
+        words = sum(len(WORDS.findall(b)) for b in body) + table_words; cjk = sum(len(CJK.findall(b)) for b in body)
+        summary = bool(title and re.match(r"\s*(executive\s+)?summary|\s*(执行)?摘要|\s*概要", title["text"], re.I))
+        units = words + cjk // 2                               # two Chinese characters read as about one English word
+        if units > (320 if summary else 260): Wn.append(f"wordy: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (the references carry 140-211; over 260 is a document page: split the slide or move detail to the appendix)")
+        elif fill_stats and not summary and units < 90: Wn.append(f"thin: {words} words" + (f" + {cjk} Chinese characters" if cjk else "") + " of body text (the references carry 140-211 on an analysis slide: give each exhibit its unit line and 2-4 bullets that read it)")
     return dict(slide=n, layout=layout, title=(title["text"].strip().replace("\n", " ")[:70] if title else ""), errors=E, warnings=Wn,
                 fill=(round(fill_stats[0], 2), round(fill_stats[1], 2)) if fill_stats else None)
 

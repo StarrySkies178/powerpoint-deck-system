@@ -105,6 +105,7 @@ function frame(pres, slide, { title, subtitle, source, page, tracker, crumb, onL
     slide.addText(title, { placeholder: "title" });
     if (subtitle) slide.addText(subtitle, { placeholder: "subtitle" });
     if (source) slide.addText(source, { placeholder: "source" });
+    if (crumb) crumbLine(slide, crumb);        // section breadcrumb above the title (house default too, not only with a reference style)
   } else {
     txt(slide, title, G.left, G.titleTop, G.contentW - 2, G.titleH, { fontSize: HOUSE.TYPE.title, bold: true, color: C.navy, valign: "bottom", name: "title" });
     if (subtitle) txt(slide, subtitle, G.left, G.subY, G.contentW - 2, 0.34, { fontSize: 14, color: C.g5, name: "subtitle" });
@@ -114,11 +115,11 @@ function frame(pres, slide, { title, subtitle, source, page, tracker, crumb, onL
 }
 // breadcrumb / section tracker line (case decks): crumb = { items:[...], current: i }, in the reference's crumb style
 function crumbLine(slide, crumb) {
-  const S = HOUSE.STYLE, cs = (S && S.crumb) || { x: HOUSE.GRID.left, y: 0.08, pt: 12, bold: false, colours: [C.g3, C.navy] };
+  const S = HOUSE.STYLE, cs = (S && S.crumb) || { x: HOUSE.GRID.left, y: 0.1, pt: 10, bold: false, colours: [C.navy, C.g5], boldCurrent: true, sep: "  \u203A  " };
   const on = cs.colours.find((c) => c !== "BEBEBE" && c !== "CCCCCC" && c !== "A6A6A6") || C.navy, off = cs.colours.find((c) => c !== on) || C.g3;
-  const sep = crumb.sep || " \u25B6 ";
+  const sep = crumb.sep || cs.sep || " \u25B6 ";
   const runs = [];
-  crumb.items.forEach((it, i) => { if (i) runs.push({ text: sep, options: { color: on === C.navy ? C.g3 : on } }); runs.push({ text: it, options: { color: i === crumb.current ? on : off, bold: !!cs.bold } }); });
+  crumb.items.forEach((it, i) => { if (i) runs.push({ text: sep, options: { color: on === C.navy ? C.g3 : on } }); runs.push({ text: it, options: { color: i === crumb.current ? on : off, bold: !!cs.bold || (!!cs.boldCurrent && i === crumb.current) } }); });
   slide.addText(runs, { x: cs.x, y: cs.y, w: W - cs.x - 1.8, h: 0.3, fontFace: THEME.bodyFontFace, fontSize: cs.pt, margin: 0, valign: "top", isTextBox: true });
 }
 // numbered-square tracker top-right (RB rule: navigators are numbered squares)
@@ -129,6 +130,24 @@ function trackerBar(slide, { n, current }) {
     slide.addShape("rect", { x: x0 + i * (s + g), y: 0.22, w: s, h: s, fill: { color: on ? C.accent : C.g2 }, line: { type: "none" } });
     txt(slide, String(i + 1), x0 + i * (s + g), 0.22, s, s, { fontSize: 9, bold: true, color: on ? C.white : C.g5, align: "center", valign: "middle", margin: 0 });
   }
+}
+// ---------- icons: Tabler outline set (MIT), each drawn as ONE editable line shape, so it recolours and scales like any shape.
+// icon(slide, "truck", x, y, size, {color, width}); returns false when the name is not in Generators/icons.json
+// (218 business icons; the SVG files are in Objects/Visual/icons/; add more with Generators/build_icons.js).
+// The references put an icon beside a heading or a short label, one style per deck, in the main colour or grey: never as decoration.
+const ICONS = (() => { try { return require("./icons.json").icons; } catch (e) { return {}; } })();
+function icon(slide, name, x, y, size = 0.36, o = {}) {
+  const cmds = ICONS[name]; if (!cmds) return false;
+  const k = size / 24, pts = [];
+  for (const c of cmds) {
+    if (c[0] === "M") pts.push({ x: c[1] * k, y: c[2] * k, moveTo: true });
+    else if (c[0] === "L") pts.push({ x: c[1] * k, y: c[2] * k });
+    else if (c[0] === "C") pts.push({ x: c[5] * k, y: c[6] * k, curve: { type: "cubic", x1: c[1] * k, y1: c[2] * k, x2: c[3] * k, y2: c[4] * k } });
+    else if (c[0] === "Q") pts.push({ x: c[3] * k, y: c[4] * k, curve: { type: "quadratic", x1: c[1] * k, y1: c[2] * k } });
+    else pts.push({ close: true });
+  }
+  slide.addShape("custGeom", { x, y, w: size, h: size, points: pts, fill: { type: "none" }, line: { color: o.color || C.navy, width: o.width || Math.max(0.75, (size * 72 * 1.5) / 24) }, objectName: "icon " + name });
+  return true;
 }
 function takeaway(slide, text) { // "tombstone" / so-what bar
   const b = BODY, y = b.y + b.h - 0.52;
@@ -678,10 +697,11 @@ function dataTable(slide, spec, box = BODY) {
       border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: hr[0], pt: hr[1] }, { type: "none" }] : undefined } })),
     ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || (j === 0 && spec.boldFirst !== false && !lines),
       fill: lines ? undefined : { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) },
-      align: j && (typeof c === "number" || /^[\d.,%+\-–$¥€x ]+$/.test(String(c))) ? "right" : "left",
+      align: spec.alignRight !== false && j && (typeof c === "number" || /^[\d.,%+\-–$¥€x ]+$/.test(String(c))) ? "right" : "left",
       border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: rr[0], pt: rr[1] }, { type: "none" }] : undefined } })))];
-  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, colW: spec.colW, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, border: lines ? undefined : { type: "solid", color: C.g3, pt: 0.5 },
-    rowH: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)), valign: "middle", margin: 0.04 });
+  const colW = spec.colW && spec.colW.reduce((x, y) => x + y, 0) <= 1.01 ? spec.colW.map((f) => f * box.w) : spec.colW;   // shares of the box width, or inches
+  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, colW, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, border: lines ? undefined : { type: "solid", color: C.g3, pt: 0.5 },
+    rowH: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)), h: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)) * (spec.rows.length + 1), valign: "middle", margin: 0.04 });   // h: the frame's real height (pptxgenjs writes 1 in otherwise, and the lint then reads the table as a strip)
 }
 function iconList(slide, spec, box = BODY) {
   // spec.items:[{label, text, icon?: base64 png}], numbered circles if no icon
@@ -701,6 +721,6 @@ function puzzleGrid(slide, spec, box = BODY) {
     txt(slide, it.label, x + 0.1, y, s - 0.2, s, { max: 14, min: 8, bold: true, color: C.white, align: "center", valign: "middle" }); });
 }
 
-module.exports = { treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
+module.exports = { icon, ICONS, treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
   chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
   pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };

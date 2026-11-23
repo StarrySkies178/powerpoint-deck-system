@@ -23,7 +23,7 @@ Layouts (from the folder's `Style/refs/case-competitions.md` §4b), all built fr
 
 | Layout | Build | Use |
 |---|---|---|
-| HALF2 | one `.hs-row.fill` with two `.hs-p`, a `.hs-ptake` under each | two facts that together prove the title |
+| HALF2 | one `.hs-row.fill` with two `.hs-p`, a `.hs-read` under each | two facts that together prove the title |
 | GRID4I | two `.hs-row.fill`; the last cell is the insights panel | market and customer analysis |
 | T2B1 | row of two `.hs-p`, then a row with one wide `.hs-p` | two drivers, then the combined effect |
 | T1B2 | row with one wide `.hs-p`, then exhibit + insights | one big picture, then its detail and reading |
@@ -45,8 +45,8 @@ Layouts (from the folder's `Style/refs/case-competitions.md` §4b), all built fr
 
 ```html
 <section id="ID">
-<div class="hs-head"><h2>Action title: the point of the slide as one sentence, at most two lines</h2></div>
-<p class="hs-sub">What the exhibit shows, unit</p>
+<p class="hs-crumb">Why now  ›  <b>Where to play</b>  ›  How to enter  ›  Plan and value</p>
+<div class="hs-head"><h2>Action title: the point of the slide as a full sentence on two lines</h2></div>
 <div class="hs-body">
   …one recipe below…
 </div>
@@ -54,7 +54,7 @@ Layouts (from the folder's `Style/refs/case-competitions.md` §4b), all built fr
 </section>
 ```
 
-The title sits bottom-anchored in a two-line box, so one- and two-line titles end on the same line. Keep `<p class="hs-sub">` on every content slide (it holds the body's top edge). The page number is automatic. `hs-grow` is an empty spacer that pushes what follows to the bottom, e.g. the takeaway bar.
+The breadcrumb names the deck's sections, the current one in `<b>` (main colour); it sits above the title on every content slide (on the summary it reads "Executive summary"). The title sits bottom-anchored in a two-line box, so one- and two-line titles end on the same line. **No subtitle line** (since v2.16): the unit belongs to each exhibit as `<p class="hs-unit">` under the panel head, as the reference decks have it. `.hs-sub` stays in the kit only for decks that follow a reference style with a subtitle. The page number is automatic. `hs-grow` is an empty spacer that pushes what follows to the bottom, e.g. the takeaway bar.
 
 ## Recipes
 
@@ -76,8 +76,8 @@ Divider: `<section class="hs-dark"><p class="no">02</p><h1>Where to play in SE A
 ```html
 <section id="summary">
 <div class="hs-head"><h2>Executive summary: enter SE Asia via a JV, starting with Vietnam</h2></div>
-<p class="hs-sub">The argument in five lines</p>
 <div class="hs-body">
+<p class="hs-unit">The argument in five lines</p>
 <div class="hs-exec">
 <div class="r"><p class="l">Home market</p><p class="t">Margins fell 3 points in two years, mostly from price; growth headroom is limited</p></div>
 <div class="r"><p class="l">Opportunity</p><p class="t">SE Asia snacks grow 9% a year; premium chilled grows 14%</p></div>
@@ -94,8 +94,8 @@ Divider: `<section class="hs-dark"><p class="no">02</p><h1>Where to play in SE A
 ```html
 <section id="kpis">
 <div class="hs-head"><h2>Home-market profit is under pressure on every key measure</h2></div>
-<p class="hs-sub">Home market, FY25 vs FY23</p>
 <div class="hs-body">
+<p class="hs-unit">Home market, FY25 vs FY23</p>
 <div class="hs-row" style="margin-top:60px">
 <div class="hs-kpi key"><p class="num">−3 pts</p><p class="lab">EBIT margin</p><p class="note">from 14% to 11%</p></div>
 <div class="hs-kpi"><p class="num">+1.2%</p><p class="lab">Volume growth p.a.</p><p class="note">below inflation</p></div>
@@ -116,8 +116,8 @@ Each floating bar is the bar plus an empty spacer `<div>` under it: spacer px = 
 ```html
 <section id="bridge">
 <div class="hs-head"><h2>Price, not volume, explains most of the margin decline</h2></div>
-<p class="hs-sub">EBIT bridge FY23 → FY25, US$ m</p>
 <div class="hs-body">
+<p class="hs-unit">EBIT bridge FY23 → FY25, US$ m</p>
 <div class="hs-row hs-grow">
 <div class="hs-col" style="flex:1.7; gap:0">
 <div class="hs-bars" style="height:560px">
@@ -146,8 +146,8 @@ Each floating bar is the bar plus an empty spacer `<div>` under it: spacer px = 
 ```html
 <section id="market">
 <div class="hs-head"><h2>SE Asia snacks will grow 9% a year to US$ 38 bn by 2030</h2></div>
-<p class="hs-sub">SE Asia packaged snacks market, US$ bn</p>
 <div class="hs-body">
+<p class="hs-unit">SE Asia packaged snacks market, US$ bn</p>
 <div class="hs-row hs-grow">
 <div class="hs-col" style="flex:1.9; gap:0">
 <div class="hs-bars" style="height:560px">
@@ -180,8 +180,8 @@ Stacked columns: several `.b` in one `.hs-bar`, the series that matters `style="
 ```html
 <section id="options">
 <div class="hs-head"><h2>A joint venture beats building alone or acquiring on four of five criteria</h2></div>
-<p class="hs-sub">Entry options scored against board criteria (4 = best)</p>
 <div class="hs-body">
+<p class="hs-unit">Entry options scored against board criteria (4 = best)</p>
 <div class="hs-grid">
 <div class="r th"><p class="c0">Option</p><div class="c"><p>Speed to market</p></div><div class="c"><p>Capital needed</p></div><div class="c"><p>Control</p></div><div class="c"><p>Risk</p></div><div class="c"><p>Local know-how</p></div></div>
 <div class="r"><p class="c0">Build alone</p><div class="c"><div class="hs-dot on"></div><div class="hs-dot"></div><div class="hs-dot"></div><div class="hs-dot"></div><p>1 of 4</p></div><div class="c"><div class="hs-dot on"></div><div class="hs-dot on"></div><div class="hs-dot on"></div><div class="hs-dot"></div><p>3 of 4</p></div><div class="c"><div class="hs-dot on"></div><div class="hs-dot on"></div><div class="hs-dot on"></div><div class="hs-dot on"></div><p>4 of 4</p></div><div class="c"><div class="hs-dot on"></div><div class="hs-dot on"></div><div class="hs-dot"></div><div class="hs-dot"></div><p>2 of 4</p></div><div class="c"><div class="hs-dot on"></div><div class="hs-dot"></div><div class="hs-dot"></div><div class="hs-dot"></div><p>1 of 4</p></div></div>
@@ -202,8 +202,8 @@ Plain data table: `<table class="hs-table"><tr class="th"><th>…</th></tr><tr><
 ```html
 <section id="model">
 <div class="hs-head"><h2>The JV model shifts us from exporting to building a local business</h2></div>
-<p class="hs-sub">Today vs JV operating model</p>
 <div class="hs-body">
+<p class="hs-unit">Today vs JV operating model</p>
 <div class="hs-pairs">
 <div class="hs-pair"><div class="hs-card old"><div class="hd"><p>Today: export</p></div></div><div style="width:56px"></div><div class="hs-card"><div class="hd"><p>Target: JV</p></div></div></div>
 <div class="hs-pair key"><div class="from"><p>Products shipped from home plants, 6-week lead time</p></div><x-shape kind="arrow-right" class="hs-arrow"></x-shape><div class="to"><p><b>Local co-packing, 1-week lead time</b></p></div></div>
@@ -222,8 +222,8 @@ Plain data table: `<table class="hs-table"><tr class="th"><th>…</th></tr><tr><
 ```html
 <section id="plan">
 <div class="hs-head"><h2>A five-phase programme gets us to first revenue in 14 months</h2></div>
-<p class="hs-sub">Entry programme, phases and key activities</p>
 <div class="hs-body">
+<p class="hs-unit">Entry programme, phases and key activities</p>
 <div class="hs-steps" style="height:480px; margin-top:20px">
 <div class="hs-step done"><div class="hd"><p>1 Select</p></div><div class="bd"><p>Confirm Vietnam; deep-dive Indonesia</p></div></div>
 <div class="hs-step key"><div class="hd"><p>2 Partner (now)</p></div><div class="bd"><p>Shortlist 3, sign term sheet</p></div></div>
@@ -266,32 +266,42 @@ Plain data table: `<table class="hs-table"><tr class="th"><th>…</th></tr><tr><
 ```html
 <div class="hs-row fill">
 <div class="hs-p">
-  <div class="hs-subhead"><div class="hs-chip"><p>1</p></div><p>The panel's point as a sentence</p></div>
+  <div class="hs-subhead"><div class="hs-chip"><p>1</p></div><p>The panel's point as a sentence</p><svg class="hs-ico" …one Tabler icon…></svg></div>
+  <p class="hs-unit">What the figure shows, unit</p>
   <div class="hs-x bottom"> …columns: .hs-bars + .hs-cats… </div>
+  <div class="hs-read"><ul><li>What the figure says, <b>key words</b> bold</li><li>Second reading</li></ul></div>
 </div>
 <div class="hs-p">
   <div class="hs-subhead"><div class="hs-chip"><p>2</p></div><p>…</p></div>
-  <div class="hs-x"> …ranking: .hs-hbars, or a heat grid: .hs-heat… </div>
-  <div class="hs-ptake"><p>What this panel means, in one line</p></div>
+  <p class="hs-unit">…</p>
+  <div class="hs-xr"> <div class="hs-x bottom">…chart…</div> <div class="hs-read"><ul><li>…</li><li>…</li></ul></div> </div>
 </div>
 </div>
 <div class="hs-row fill">
 <div class="hs-p"> …third exhibit… </div>
 <div class="hs-p">
   <div class="hs-ins"><p class="t">Insights</p><ul><li>One finding with its <b>key words</b> in bold</li><li>…</li></ul></div>
-  <div class="hs-grow"></div>
   <div class="hs-sowhat"><p>So what: the recommendation this slide leads to</p></div>
 </div>
 </div>
 ```
 
+**Density (since v2.16, from the self-audit of 2026-11-23):** the reference decks carry 140 to 211 body words on their median content slide; a Slides deck cannot go under 24 px, so aim for **110 to 160 words** on an analysis slide. They come from the reading of each exhibit, never from filler:
+- **Every panel:** numbered sentence head, a `.hs-unit` line, the exhibit, and a `.hs-read` box with 2 or 3 bullets. Under the exhibit by default; in a half-height panel put chart and reading side by side in `.hs-xr` so the chart keeps its height.
+- **Grey boxes and colour bars only:** `.hs-read`, `.hs-ptake` and `.hs-ins` are grey filled boxes, `.hs-sowhat` and `.hs-takeaway` are full-colour bars with white bold text. No outlined boxes and no bar on a box's left edge (no reference has them).
+- **Icons:** one line icon at the right end of a panel head, and in `.hs-points` (icon + label + text columns in a grey box: `.hs-point`, the first one `.first`). Use the folder's set (`Objects/Visual/icons/`, Tabler, MIT) as inline `<svg class="hs-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#002776" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">` + the file's `<path d=…>` elements, so both routes show the same icons; `<x-icon>` has only about 30 names.
+- **Annotated charts:** `.hs-pills` over a column chart carries the growth rates (`.hs-pill`, `.f` for the forecast period, `.key` for the highlighted pair, `.plain` for the rest); `.hs-bar2` holds a before / after pair of columns.
+- **Evaluation marks:** Harvey balls, not digits: `.hs-heat.hb` with one inline svg per cell (`<svg class="hs-hb" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFFFFF" stroke="#575757" stroke-width="1.5"/>` + a quarter, half or three-quarter `<path>`, or a full `<circle>`), main colour in the chosen column (`.c.own`), a verdict row `.r.th.ft` below.
+- **Tables:** a native `<table class="hs-table">` (`tr.th` header, `tr.key` highlighted row, `tr.alt` banding, widths in % on the header cells) inside `.hs-x.top`. At least one content slide in three is a table or diagram, not a chart.
+- **Cover and agenda:** `section.hs-photo` with the photo first (`<img class="bg">`, uploaded at its original pixels, never resampled), a `.card` colour panel with the title, and the credit line; `section.hs-photo.hs-agenda` shows the photo on the left and `.side` with the lettered sections (`.hs-ag`). Photos follow `Objects/images.md`.
+
 - `.hs-p` = one panel (sub-headline, exhibit, optional takeaway). `.hs-p.w2` is twice as wide; `.hs-p.side` is a 520 px insight column. A `.hs-p` can hold two stacked `.hs-p` (give the outer one `style="gap:24px"`).
 - `.hs-x` is the exhibit's room: it centres its content; `.hs-x.bottom` sits columns on the baseline.
 - **Bar heights in panels:** two rows of panels: tallest bar 200 px; one row of panels: 400 px. Waterfall spacer = level before the step ÷ max × that height.
 - `.hs-hbars` and `.hs-heat` stretch over the panel's height by themselves. Set a ranking's label width with `style="width:…px"` on `.c` when labels are long.
-- **Heat grid** (scores, risks, shortlists): `.hs-heat` > `.r` > `.c0` (row label) + `.c` cells with the score as text; `.c.s4` best (main colour), `.c.s3` good (tint), plain = weak; `.r.th` header row; `.c.own` marks the chosen column. One box per cell keeps the slide light (a 5 × 5 grid of dots is 100+ elements; this is 30).
+- **Scoring grid** (scores, risks, shortlists): `.hs-heat.hb` > `.r` > `.c0` (row label) + `.c` cells, each holding one Harvey ball svg (one box per cell, so a 5 × 5 grid stays near 30 boxes); `.r.th` header row; `.c.own` marks the chosen column. The older form with the score as a digit in a tinted cell (`.c.s4`, `.c.s3`) is not in the references; use it only for a true heat map of numbers.
 - **Lettered summary:** `.hs-let` rows (`.k` letter box, `.t` with `<h3>` conclusion + `<p>` points; `.hs-let.key` for the decision) in a `.hs-p`, and beside it an optional `.hs-proj` column: `<div class="bar"><p>Projection</p></div>`, then `.fig` blocks (`<p class="lab">` label, `<p class="num">` number), then `<div class="bar"><p>Risks</p></div>` and a `<ul>`.
 
 ## Before handing over
 
-**Fill first:** every analysis slide has 2–4 panels and no large empty block; at most one content slide in four carries a single exhibit; the summary uses a reference form. Then, every slide: title is a sentence and fits two lines; nothing runs past the body (bottom edge 960 px); no text under 24 px; one `key` at most twice; a source line on every slide with numbers. Then check the same list as the PowerPoint route (`DECK-SYSTEM.md` §7) for the storyline.
+**Fill first:** every analysis slide has 2–4 panels and no large empty block; every exhibit has its unit line and its reading (110 to 160 body words on the slide); the breadcrumb is on every content slide and no subtitle line is left; at most one content slide in four carries a single exhibit; the summary uses a reference form. Then, every slide: title is a sentence and fits two lines; nothing runs past the body (bottom edge 960 px); no text under 24 px; one `key` at most twice; a source line on every slide with numbers. Then check the same list as the PowerPoint route (`DECK-SYSTEM.md` §7) for the storyline.

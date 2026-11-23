@@ -14,3 +14,5 @@ _to_delete/
 /Objects/store/media.zip
 /archive/media_v2.8_2026-11-23.zip
 # <<< big files
+# the contact line get_photo.py sends to Wikimedia (the user's own address: never in the repo)
+Objects/photo-contact.txt

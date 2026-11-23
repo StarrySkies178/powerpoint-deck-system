@@ -1,11 +1,11 @@
 {
- "checked_at": "2026-11-23T15:58",
- "folder_version_checked": "2.13",
+ "checked_at": "2026-11-23T16:26",
+ "folder_version_checked": "2.16",
  "needs_publish": false,
  "new_generators": [],
- "published_hash": "ba2eab05ca08179448a63b7bbb9e6af131e8a120c2b609978be4f7f8ad174afb",
+ "published_hash": "510094c2261c4ed59cd7244dc4d94af7275c56d34b36b0e330936e362f28a3b1",
  "published_files": {
-  "README.md": "6f49c0d5d86dc1bc5745b50b5ed646df0cbd0ad6da6f813393f208c7ca0bc370",
+  "README.md": "76a915562baaaf3469361478e81a9f2e983a820971a788102c81e50bd729e878",
   "assets/Maps/README.md": "e07cf06ba439cea72a013dbdb681aa3a2f3cb5f844508c4171e8dbc234d039e9",
   "assets/Photos/README.md": "9461879d00e56c53b6f962cfb2fc985f2024978b464eef171c31c4622ed20751",
   "assets/Real output/README.md": "b716744e3040ffa6fcff7fc7bc351e82ad6b455a9af2df8fcc2546e608bd3523",
@@ -89,12 +89,12 @@
   "components/bundle.css": "6316297499d44116a3158b3ce666efddc77fc3806b7d7f059f81bccd145faf30",
   "components/bundle.js": "f465393cb7db80219f87c5b203bafe7b045f073aafba64de9afb22e1679dee0b",
   "components/index.d.ts": "b7ec5db4c538279e6076202038d6e8b8c15e052884bf95fa5a1d7df0a6dc6fc5",
-  "design-system.json": "f05e05508a63af9b23fb66d63d4a52a03cb9798d216877ed0db9e8493018b236",
-  "slides-kit/deck.css": "91b7fbb38b15ac0b8b5073bf5007963fda8aeccc47c30ad7451bae00f7c08209",
-  "slides-kit/patterns.md": "69db7db422baae22f5435e03bc3afd10f84e2d1dcc8a05771f16f9de8dda6556",
+  "design-system.json": "1a3be5b5d3b37227d27fd2bb623b45457fdfb4b02cd409506bea1ab16638588a",
+  "slides-kit/deck.css": "0b46b115c06429608e52c67057724dbf8f4a2bd4d6b8544de05b87a01ab1871f",
+  "slides-kit/patterns.md": "72a77404cfacfd6d02eebd90606d81d1537af8d90e9ecd4b216d150276480f27",
   "tokens.json": "bf03c1c5f338fa1b01cd9fb91b742a44752a15d2e7dc031a0a1c1786b8299179"
  },
- "published_version": "1795449516-6ba5",
- "published_at": "2026-11-23T15:58",
- "folder_version": "2.13"
+ "published_version": "1795451197-ff85",
+ "published_at": "2026-11-23T16:26",
+ "folder_version": "2.16"
 }

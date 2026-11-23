@@ -12,7 +12,7 @@ Consulting-grade 16:9 slides: one message per slide, an action title that states
 | A deck inside Claude (Slides: a link to share, edit and present; exports to .pptx or PDF) | This design system | `project/slides-kit/deck.css` + `project/slides-kit/patterns.md` |
 | A one-page visual inside Claude (Design: poster, one-pager, mock slide) | This design system | The React components below |
 
-**In step with folder version 2.13** (kept in step automatically by the folder's `scripts/sync_design_system.py`; the folder wins if they ever differ).
+**In step with folder version 2.16** (kept in step automatically by the folder's `scripts/sync_design_system.py`; the folder wins if they ever differ).
 
 ## Consuming this system
 
@@ -38,8 +38,8 @@ Consulting-grade 16:9 slides: one message per slide, an action title that states
 
 - **Title test:** reading only the titles tells the whole story. Answer first (pyramid principle); open with Situation → Complication → Question → Answer; the executive summary (`ExecSummary`) is the storyline in five lines.
 - **One message per slide.** The body proves the title and nothing else; a slide that needs two titles is two slides.
-- **Length:** body text ≤ ~40 words (≤ ~80 characters in Chinese); detail goes to the appendix.
-- **Numbers:** units in the subtitle line ("US$ m, 2020–24"), source bottom-left on every data slide, at most 1 decimal on percentages, true minus signs (−29).
+- **Length:** an analysis slide carries about 120 to 200 words of body text (110 to 160 in a Slides deck, where nothing goes under 24 px; 240 to 400 characters in Chinese): a unit line and 2 to 4 reading bullets for each exhibit, key words bold in the main colour. Under 90 words the figures stand without their reading; over 260 it is a document page. Detail beyond that goes to the appendix.
+- **Numbers:** units in the unit line over each exhibit ("US$ m, 2020–24"; no subtitle line under the title), source bottom-left on every data slide, at most 1 decimal on percentages, true minus signs (−29).
 - **Chinese decks:** full-width punctuation in Chinese sentences (，。：；「」), half-width numbers and units (增长32%, 1.2亿元); YaHei runs larger, so leave ~10% spare room; bold for emphasis, never fake italics.
 - **Tone:** plain, specific, declarative. No exclamation marks, no hype, no italics or underlines in body text.
 

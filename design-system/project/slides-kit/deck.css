@@ -72,7 +72,7 @@ section h3 { font-size: var(--t-body); font-weight: 700; color: var(--ink); }
 .hs-pair { display: flex; flex-direction: row; align-items: center; gap: 20px; }
 .hs-pair .from { flex: 1; background: var(--panel); padding: 16px 20px; }
 .hs-pair .to { flex: 1; background: var(--main-tint); padding: 16px 20px; }
-.hs-pair.key .to { background: var(--accent-tint); border-left: 10px solid var(--accent); }
+.hs-pair.key .to { background: var(--secondary-tint); }
 .hs-arrow { width: 56px; height: 30px; background: var(--rule); }
 
 /* ---- steps (process) ---- */
@@ -122,7 +122,7 @@ table.hs-table tr.key { background: var(--secondary-tint); }
 /* ---- 2x2 matrix ---- */
 .hs-matrix { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; }
 .hs-cell { background: var(--panel); padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; }
-.hs-cell.key { background: var(--accent-tint); border-left: 10px solid var(--accent); }
+.hs-cell.key { background: var(--accent-tint); }
 
 /* ---- executive summary / agenda rows ---- */
 .hs-exec { display: flex; flex-direction: column; }
@@ -170,14 +170,14 @@ section.hs-dark h1 span { color: var(--accent); }
 .hs-p .hs-hbar .c { width: 250px; }
 .hs-p .hs-hbar .b { height: 38px; }
 .hs-p .hs-hbar .v { width: 150px; white-space: nowrap; }
-.hs-ptake { border: 2px solid var(--main); border-left: 10px solid var(--accent); padding: 12px 18px; }    /* takeaway under a panel */
+.hs-ptake { background: var(--panel); padding: 12px 18px; }    /* takeaway under a panel: a grey filled box, as in the references (no outline, no accent bar) */
 .hs-ptake p { font-size: var(--t-label); font-weight: 700; color: var(--main); }
-.hs-ins { display: flex; flex-direction: column; gap: 10px; }                                             /* the conclusion cell: always last */
+.hs-ins { flex: 1; display: flex; flex-direction: column; gap: 10px; background: var(--panel); padding: 14px 18px; }   /* the conclusion cell: a grey box, always last */
 .hs-ins .t { font-size: var(--t-label); font-weight: 700; color: var(--main); border-bottom: 2px solid var(--main); padding-bottom: 8px; }
 .hs-ins ul { padding-left: 30px; display: flex; flex-direction: column; gap: 8px; }
 .hs-ins li { font-size: var(--t-label); }
-.hs-sowhat { background: var(--secondary-tint); border-left: 10px solid var(--main); padding: 16px 20px; }
-.hs-sowhat p { font-size: var(--t-label); font-weight: 700; color: var(--main); }
+.hs-sowhat { background: var(--main); padding: 16px 20px; }                                              /* the so-what: a full-colour bar, white bold text */
+.hs-sowhat p { font-size: var(--t-label); font-weight: 700; color: var(--paper); }
 /* heat grid: a score per cell, darkest = best (one box per cell, so it stays editable and light) */
 .hs-heat { flex: 1; display: flex; flex-direction: column; gap: 6px; max-height: 470px; }
 .hs-heat .r { flex: 1; display: flex; flex-direction: row; gap: 6px; align-items: stretch; max-height: 76px; }
@@ -213,3 +213,67 @@ section.hs-dark h1 span { color: var(--accent); }
 .hs-p .hs-pair { flex: 1; align-items: stretch; max-height: 96px; }
 .hs-p .hs-pair .from, .hs-p .hs-pair .to { display: flex; align-items: center; }
 .hs-p .hs-pair .hs-arrow { align-self: center; }
+
+/* ---- v2.16: the reference decks' density (self-audit 2026-11-23). Breadcrumb over the title, no subtitle line; a unit line
+   and a reading under or beside every exhibit; icons on panel heads; Harvey balls; native tables; photo cover and agenda. ---- */
+.hs-crumb { height: 36px; font-size: var(--t-label); color: var(--muted); }
+.hs-crumb b { color: var(--main); }
+.hs-head.two { margin-bottom: 0; }
+.hs-unit { font-size: var(--t-label); color: var(--muted); }
+.hs-subhead p { flex: 1; }
+.hs-ico { flex: none; width: 40px; height: 40px; }
+.hs-read { background: var(--panel); padding: 12px 18px 12px 46px; }                                      /* the reading of an exhibit: grey box, 2-4 bullets */
+.hs-read ul { display: flex; flex-direction: column; gap: 6px; }
+.hs-read li { font-size: var(--t-label); }
+.hs-read b, .hs-ins b, .hs-point b { color: var(--main); }
+.hs-xr { flex: 1; display: flex; flex-direction: row; gap: 20px; min-height: 0; }                         /* an exhibit with its reading beside it */
+.hs-xr .hs-read { flex: none; width: 40%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
+.hs-pills { display: flex; flex-direction: row; gap: 14px; }
+.hs-pill { flex: 1; text-align: center; font-size: var(--t-label); font-weight: 700; color: var(--main); border: 2px solid var(--main); border-radius: 22px; padding: 4px 10px; }
+.hs-pill.f { border: 2px solid var(--secondary); }
+.hs-pill.key { background: var(--accent); border: 2px solid var(--accent); color: var(--ink); }
+.hs-pill.plain { border: 2px solid var(--rule); color: var(--ink); }
+.hs-bar2 { flex: 1; display: flex; flex-direction: row; align-items: flex-end; gap: 4px; }               /* a pair of columns (before / after) */
+.hs-bar2 .hs-bar .b { background: var(--rule); }
+.hs-bar2 .hs-bar.b2 .b { background: var(--main); }
+.hs-hb { flex: none; width: 36px; height: 36px; }                                                         /* Harvey ball (inline svg) */
+.hs-heat.hb .c { background: var(--panel); }
+.hs-heat.hb .r.th .c { background: var(--panel); }
+.hs-heat.hb .r.th .c.own { background: var(--main); }
+.hs-heat.hb .r.th .c.own p { color: var(--paper); }
+.hs-heat.hb .c.own { border-bottom: none; background: var(--main-tint); }
+.hs-heat.hb .r.ft .c { background: var(--paper); }
+.hs-heat.hb .r.ft .c p { font-weight: 700; }
+.hs-heat.hb .r.ft .c.own p { color: var(--main); }
+.hs-points { flex: 1; display: flex; flex-direction: row; background: var(--panel); }                     /* icon + label + text columns in a grey box */
+.hs-point { flex: 1; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; border-left: 2px solid var(--rule); }
+.hs-point.first { border-left: 2px solid var(--panel); }
+.hs-point .h { display: flex; flex-direction: row; gap: 12px; align-items: center; }
+.hs-point .h p { font-weight: 700; color: var(--main); font-size: var(--t-label); }
+.hs-point p { font-size: var(--t-label); }
+table.hs-table { width: 100%; font-size: var(--t-label); color: var(--ink); }
+table.hs-table tr.th { background: var(--main); }
+table.hs-table tr.th th { color: var(--paper); text-align: left; }
+table.hs-table tr.key { background: var(--secondary-tint); }
+table.hs-table tr.alt { background: var(--panel); }
+/* photo cover and agenda: the picture is listed first, full bleed, at its original pixels (never resampled) */
+section.hs-photo { padding: 0; }
+section.hs-photo img.bg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; }
+section.hs-photo .card { position: absolute; left: 86px; top: 367px; width: 1075px; height: 475px; box-sizing: border-box; background: rgba(0,39,118,0.88); padding: 40px 58px; display: flex; flex-direction: column; justify-content: center; }
+section.hs-photo .card h1 { font-size: 60px; font-weight: 700; color: var(--paper); line-height: 1.12; }
+section.hs-photo .card .hs-rule { width: 144px; height: 9px; background: var(--accent); margin: 24px 0 20px; }
+section.hs-photo .card p { color: var(--paper); font-size: var(--t-body); }
+section.hs-photo .credit { position: absolute; left: 1100px; top: 1020px; width: 762px; height: 34px; text-align: right; font-size: var(--t-foot); color: var(--paper); }
+section.hs-agenda img.bg { width: 1075px; }
+section.hs-agenda .side { position: absolute; left: 1075px; top: 0; width: 845px; height: 1080px; box-sizing: border-box; background: var(--main); padding: 170px 86px 0; display: flex; flex-direction: column; gap: 34px; }
+section.hs-agenda .side h1 { font-size: 56px; font-weight: 700; color: var(--paper); }
+section.hs-agenda .side .hs-rule { width: 144px; height: 9px; background: var(--accent); margin: -10px 0 26px; }
+.hs-ag { display: flex; flex-direction: row; gap: 24px; align-items: center; }
+.hs-ag .k { flex: none; width: 58px; height: 58px; background: var(--paper); display: flex; align-items: center; justify-content: center; }
+.hs-ag .k p { color: var(--main); font-weight: 700; }
+.hs-ag p { color: var(--paper); font-size: 30px; }
+section.hs-agenda .credit { left: 20px; width: 1000px; text-align: left; }
+.hs-heat.hb .r.ft .c.own { background: var(--paper); }
+.hs-chip { flex: none; }
+.hs-x.top { justify-content: flex-start; }
+table.hs-table th, table.hs-table td { padding: 15px 12px; }

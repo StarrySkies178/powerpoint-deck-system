@@ -478,7 +478,6 @@ function buildingExplode(pres, slide, spec, box = BODY) {
       slide.addShape("line", { x: mx, y: ey, w: cx0 - mx, h: 0, line: { color: hi ? C.accent : C.g4, width: 1, endArrowType: "triangle" } });
     }
     slide.addShape("rect", { x: cx0, y, w: cw, h: ch, fill: { color: hi ? C.hiBand : C.white }, line: { color: hi ? C.navy : C.g3, width: 0.75 } });
-    slide.addShape("rect", { x: cx0, y, w: 0.07, h: ch, fill: { color: hi ? C.accent : C.navy }, line: { type: "none" } });
     txt(slide, cd.title || (fi >= 0 ? F[fi].name : ""), cx0 + 0.15, y + 0.03, cw - 0.2 - (cd.tag ? 1.2 : 0), 0.32, { max: 12, min: 9, bold: true, color: C.navy, valign: "middle" });
     if (cd.tag) txt(slide, cd.tag, cx0 + cw - 1.25, y + 0.03, 1.18, 0.32, { fontSize: 9, color: C.g5, align: "right", valign: "middle" });
     const zl = fi >= 0 && numbered[fi] ? [(F[fi].zones || []).map((z, zi) => `${zi + 1} ${z.name}`).join("   ")] : [];
