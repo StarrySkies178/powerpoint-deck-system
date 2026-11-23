@@ -1,0 +1,31 @@
+{
+ "case": "C01-exec-summary-polaris",
+ "scored": "2026-11-23 19:15",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.37,
+   "visual": 0.37,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 12.0 pt)"
+   ]
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.53,
+   "visual": 0.46,
+   "std": "11/11",
+   "failed": []
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.3,
+   "visual": 0.26,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 12.0 pt)"
+   ]
+  }
+ }
+}

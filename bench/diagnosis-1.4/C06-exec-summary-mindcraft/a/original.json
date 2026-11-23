@@ -1,0 +1,78 @@
+{
+ "size_in": [
+  13.333,
+  7.5
+ ],
+ "title": {
+  "text": "ExecutiveSummary",
+  "left_in": 0.387,
+  "top_in": 0.725,
+  "box": [
+   0.387,
+   0.71,
+   12.315,
+   0.462
+  ],
+  "above": 0,
+  "pt": 26.0,
+  "bold": true,
+  "font": "Verdana",
+  "colour": "FFFFFF"
+ },
+ "body": {
+  "median_pt": 14.0,
+  "min_pt": 14.0
+ },
+ "margins": {
+  "left_in": 0.387,
+  "right_in": 5.049
+ },
+ "fonts": {
+  "latin": [
+   "Verdana"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "theme_colours": [
+  "000000",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "5C5C5C",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "3C3C3C",
+  "3C546C",
+  "540C0C",
+  "545454",
+  "54546C",
+  "6C0C0C",
+  "6C2424",
+  "6C3C3C",
+  "6C5454",
+  "6C6C6C",
+  "6C849C",
+  "843C3C",
+  "846C6C",
+  "848484",
+  "9C6C6C",
+  "9C8484",
+  "9C9C9C",
+  "9CB49C",
+  "9CB4B4",
+  "B49C9C",
+  "B4B4B4",
+  "CCCCCC",
+  "CCCCE4",
+  "E48484",
+  "E4E4E4"
+ ]
+}

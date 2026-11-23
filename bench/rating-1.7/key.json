@@ -1,0 +1,600 @@
+{
+ "seed": 1724,
+ "note": "DO NOT SHOW TO THE RATER. Mapping of the 60 rating files to their sources (roadmap 1.7).",
+ "files": [
+  {
+   "file": "001.png",
+   "source": "reference",
+   "deck": "Case-2017-SSSR-GREE-online",
+   "slide": 28,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "002.png",
+   "source": "reference",
+   "deck": "Case-2020-Baincraft-original",
+   "slide": 22,
+   "repeat_of": null,
+   "native_aspect": 1.782,
+   "padded_from": [
+    1920,
+    1078
+   ]
+  },
+  {
+   "file": "003.png",
+   "source": "reference",
+   "deck": "Case-2019-Mindcraft",
+   "slide": 18,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "004.png",
+   "source": "reference",
+   "deck": "Case-2019-E-Cluster",
+   "slide": 7,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "005.png",
+   "source": "reference",
+   "deck": "Case-2019-Mindcraft",
+   "slide": 4,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "006.png",
+   "source": "reference",
+   "deck": "Case-2020-Baincraft-original",
+   "slide": 6,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "007.png",
+   "source": "reference",
+   "deck": "Case-2019-Mindcraft",
+   "slide": 12,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "008.png",
+   "source": "reference",
+   "deck": "Case-2020-DoubleClick-original",
+   "slide": 10,
+   "repeat_of": null,
+   "native_aspect": 1.805,
+   "padded_from": [
+    1920,
+    1064
+   ]
+  },
+  {
+   "file": "009.png",
+   "source": "system",
+   "deck": "1.4 diagnosis build C09-sensitivity-truenorth variant a (bench/diagnosis-1.4/C09-sensitivity-truenorth/a)",
+   "slide": 1,
+   "repeat_of": null,
+   "native_aspect": 1.333,
+   "padded_from": [
+    1440,
+    1080
+   ]
+  },
+  {
+   "file": "010.png",
+   "source": "reference",
+   "deck": "Case-2019-Polaris",
+   "slide": 8,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "011.png",
+   "source": "system",
+   "deck": "1.4 diagnosis build C10-strategy-table-truenorth variant b (bench/diagnosis-1.4/C10-strategy-table-truenorth/b)",
+   "slide": 1,
+   "repeat_of": null,
+   "native_aspect": 1.333,
+   "padded_from": [
+    1440,
+    1080
+   ]
+  },
+  {
+   "file": "012.png",
+   "source": "reference",
+   "deck": "Case-2019-E-Cluster",
+   "slide": 12,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "013.png",
+   "source": "system",
+   "deck": "1.5 test deck: Northwind (IC, English)",
+   "slide": 2,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "014.png",
+   "source": "system",
+   "deck": "1.4 diagnosis build C07-scenario-lines-mindcraft variant c (bench/diagnosis-1.4/C07-scenario-lines-mindcraft/c)",
+   "slide": 1,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "015.png",
+   "source": "system",
+   "deck": "1.5 test deck: 华拓精密 (management, Chinese)",
+   "slide": 7,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "016.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 6,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "017.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 13,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "018.png",
+   "source": "system",
+   "deck": "1.4 diagnosis build C08-risk-matrix-mindcraft variant a (bench/diagnosis-1.4/C08-risk-matrix-mindcraft/a)",
+   "slide": 1,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "019.png",
+   "source": "reference",
+   "deck": "Case-2017-SSSR-GREE-online",
+   "slide": 25,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "020.png",
+   "source": "reference",
+   "deck": "Case-2020-Baincraft-original",
+   "slide": 10,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "021.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 6,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "022.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 10,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "023.png",
+   "source": "reference",
+   "deck": "Case-2019-Polaris",
+   "slide": 8,
+   "repeat_of": "010.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "024.png",
+   "source": "reference",
+   "deck": "Case-2017-SSSR-GREE-online",
+   "slide": 7,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "025.png",
+   "source": "system",
+   "deck": "1.5 test deck: 华拓精密 (management, Chinese)",
+   "slide": 3,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "026.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 10,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "027.png",
+   "source": "reference",
+   "deck": "Case-2020-TNT-original",
+   "slide": 11,
+   "repeat_of": null,
+   "native_aspect": 1.799,
+   "padded_from": [
+    1920,
+    1068
+   ]
+  },
+  {
+   "file": "028.png",
+   "source": "reference",
+   "deck": "Case-2020-DoubleClick-original",
+   "slide": 22,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "029.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 7,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "030.png",
+   "source": "system",
+   "deck": "1.5 test deck: Northwind (IC, English)",
+   "slide": 4,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "031.png",
+   "source": "reference",
+   "deck": "Case-2019-Polaris",
+   "slide": 12,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "032.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 3,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "033.png",
+   "source": "reference",
+   "deck": "Case-2019-Bainology",
+   "slide": 13,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "034.png",
+   "source": "system",
+   "deck": "1.5 test deck: Northwind (IC, English)",
+   "slide": 5,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "035.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 4,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "036.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 4,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "037.png",
+   "source": "reference",
+   "deck": "Case-2020-DoubleClick-original",
+   "slide": 7,
+   "repeat_of": null,
+   "native_aspect": 1.782,
+   "padded_from": [
+    1920,
+    1078
+   ]
+  },
+  {
+   "file": "038.png",
+   "source": "reference",
+   "deck": "Case-2017-SSSR-GREE-online",
+   "slide": 28,
+   "repeat_of": "001.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "039.png",
+   "source": "reference",
+   "deck": "Case-2019-Polaris",
+   "slide": 17,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "040.png",
+   "source": "reference",
+   "deck": "Case-2019-E-Cluster",
+   "slide": 9,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "041.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 5,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "042.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 10,
+   "repeat_of": "026.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "043.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 7,
+   "repeat_of": "029.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "044.png",
+   "source": "reference",
+   "deck": "Case-2017-SSSR-GREE-online",
+   "slide": 25,
+   "repeat_of": "019.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "045.png",
+   "source": "system",
+   "deck": "1.5 test deck: 华拓精密 (management, Chinese)",
+   "slide": 4,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "046.png",
+   "source": "system",
+   "deck": "sample deck v0.6",
+   "slide": 9,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "047.png",
+   "source": "reference",
+   "deck": "Case-2020-DoubleClick-original",
+   "slide": 10,
+   "repeat_of": "008.png",
+   "native_aspect": 1.805,
+   "padded_from": [
+    1920,
+    1064
+   ]
+  },
+  {
+   "file": "048.png",
+   "source": "system",
+   "deck": "1.5 test deck: Northwind (IC, English)",
+   "slide": 3,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "049.png",
+   "source": "system",
+   "deck": "1.4 diagnosis build C04-two-charts-ecluster variant b (bench/diagnosis-1.4/C04-two-charts-ecluster/b)",
+   "slide": 1,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "050.png",
+   "source": "system",
+   "deck": "1.5 test deck: 华拓精密 (management, Chinese)",
+   "slide": 6,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "051.png",
+   "source": "reference",
+   "deck": "Case-2019-Bainology",
+   "slide": 8,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "052.png",
+   "source": "reference",
+   "deck": "Case-2020-TNT-original",
+   "slide": 6,
+   "repeat_of": null,
+   "native_aspect": 1.782,
+   "padded_from": [
+    1920,
+    1078
+   ]
+  },
+  {
+   "file": "053.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 3,
+   "repeat_of": "032.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "054.png",
+   "source": "reference",
+   "deck": "Case-2019-Mindcraft",
+   "slide": 11,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "055.png",
+   "source": "reference",
+   "deck": "Case-2020-TNT-original",
+   "slide": 8,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "056.png",
+   "source": "reference",
+   "deck": "Case-2019-Bainology",
+   "slide": 15,
+   "repeat_of": null,
+   "native_aspect": 1.777,
+   "padded_from": [
+    1920,
+    1081
+   ]
+  },
+  {
+   "file": "057.png",
+   "source": "reference",
+   "deck": "Case-2019-Polaris",
+   "slide": 17,
+   "repeat_of": "039.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "058.png",
+   "source": "system",
+   "deck": "1.5 test deck: Doi Sky Coffee (board, English)",
+   "slide": 9,
+   "repeat_of": null,
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "059.png",
+   "source": "system",
+   "deck": "1.5 test deck: 华拓精密 (management, Chinese)",
+   "slide": 4,
+   "repeat_of": "045.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  },
+  {
+   "file": "060.png",
+   "source": "system",
+   "deck": "1.5 test deck: Northwind (IC, English)",
+   "slide": 2,
+   "repeat_of": "013.png",
+   "native_aspect": 1.778,
+   "padded_from": null
+  }
+ ]
+}

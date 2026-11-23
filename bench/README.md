@@ -59,10 +59,22 @@ Each case in `cases.json` carries `"suite"`:
 
 | Suite | Cases (at v2.25) | What a run must show |
 |---|---|---|
-| **Regression** | D01–D08, Z01 (the 9 that passed at the baseline) | Stays 9 of 9. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
-| **Capability** | C01–C10, Z02 (the 11 that failed) | Measures progress. Expected to start near 0 |
+| **Regression** | D01–D08 (since v2.32; Z01 was in it from v2.25 to v2.31) | Stays 8 of 8. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
+| **Capability** | C01–C10, Z01, Z02 | Measures progress. Expected to start near 0 |
+
+**Z01 moved to capability in v2.32.** In the official environment (below) Z01 fails the colour check: the anti-aliased edges of its green Chinese title leave tints that are on no palette colour (196 px, 0.02% of the 320 x 180 shrink). That is a scorer issue, not a build error, but the scorer is frozen, so the case moved instead and regression is the 8 cases that pass in the official environment. The scorer change waits for Mike in `logs/proposals.md` (2026-11-24, `bench_score.py`, colour check). `cases.json` keeps the reason in Z01's `suite_note`.
 
 `bench_run.py` prints and writes both counts and the 20-case total; `results-log.md` keeps all three on each line. `bench_run.py regression` or `capability` runs one suite. Same bar and same scorer for both. A capability case **graduates** into regression only when it passes 3 of 3 fresh rebuilds (next section), never on one run of its stored build; changing its `suite` is then logged in the changelog.
+
+## Phase 1 working files (2026-11-24)
+
+| Path | Roadmap step | What |
+|---|---|---|
+| `diagnosis-1.4/` | 1.4 | 30 blind diagnosis builds of the C cases (a brief, b brief + layout in words, c edit of the closest other slide), scored by `scripts/bench_diag.py`; reading in `diagnosis-1.4/README.md` |
+| `error-analysis-1.6.md` | 1.6 | DRAFT list of failure kinds with one example each, for Mike to confirm before any judge is built |
+| `rating-1.7/` | 1.7 | 60 slide pictures for Mike to rate pass or fail; `key.json` is not for the rater |
+
+`scripts/heldout.py` also treats a slide that repeats a target as the target (`TWINS`: TrueNorth 18 repeats C10's slide 8, since v2.33).
 
 ## Noise band (since v2.25, roadmap step 1.2)
 

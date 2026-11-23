@@ -26,6 +26,9 @@ SLIDE_MAP = os.path.join(ROOT, "Style", "slide-map.csv")
 SHORT = {"Case-2019-Polaris": ["Polaris"], "Case-2019-E-Cluster": ["E-Cluster", "ECluster", "E Cluster"],
          "Case-2019-Mindcraft": ["Mindcraft", "MindCraft"], "Case-2016-TrueNorth-Pola-China-growth": ["TrueNorth", "True North", "Pola"]}
 WORD = re.compile(r"[a-z0-9]+")
+# slides of the reference deck that repeat a target slide (found 2026-11-24 in roadmap 1.4: TrueNorth slide 18 is a
+# recap that repeats slide 8 almost pixel for pixel); citing one of them is citing the target
+TWINS = {"C10-strategy-table-truenorth": [18]}
 
 def is_deck_case(cid): return CASES[cid].get("palette", "deck" if cid.startswith("C") else "slide") == "deck" or cid.startswith("C")
 
@@ -52,6 +55,10 @@ def patterns(cid):
     pats.append(("target slide number", re.compile(rf"\bslides?\s*(?:no\.?|number|#)?\s*0*{n}\b(?!\s*[-–]\s*\d)", re.I)))
     pats.append(("target slide index", re.compile(rf"slides\s*\[\s*{n - 1}\s*\]|slides\.item\(\s*{n - 1}\s*\)", re.I)))
     for s in SHORT.get(c["deck"], []): pats.append((f"study-note citation '{s} {n}'", re.compile(rf"\b{re.escape(s)}\s+0*{n}\b(?!\s*[-–.]\s*\d)", re.I)))
+    for t in TWINS.get(cid, []):
+        if key: pats.append((f"stored object of slide {t}, which repeats the target", re.compile(rf"\b{re.escape(key)}-0*{t}(?:p\d+)?\b", re.I)))
+        pats.append((f"slide {t}, which repeats the target", re.compile(rf"\bslides?\s*(?:no\.?|number|#)?\s*0*{t}\b(?!\s*[-–]\s*\d)", re.I)))
+        for s in SHORT.get(c["deck"], []): pats.append((f"study-note citation '{s} {t}' (repeats the target)", re.compile(rf"\b{re.escape(s)}\s+0*{t}\b(?!\s*[-–.]\s*\d)", re.I)))
     row = target_row(c)
     prompt = open(os.path.join(B, "cases", cid, "prompt.md"), encoding="utf-8").read()
     grams = (ngrams(row["what_the_slide_shows"] + " " + row.get("slide_title", "")) - ngrams(prompt)) if row else set()

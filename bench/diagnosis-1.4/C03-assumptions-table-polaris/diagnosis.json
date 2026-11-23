@@ -1,0 +1,27 @@
+{
+ "case": "C03-assumptions-table-polaris",
+ "scored": "2026-11-23 19:15",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.18,
+   "std": "10/10",
+   "failed": []
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.38,
+   "visual": 0.61,
+   "std": "10/10",
+   "failed": []
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.23,
+   "std": "10/10",
+   "failed": []
+  }
+ }
+}

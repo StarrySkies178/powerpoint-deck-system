@@ -1,0 +1,18 @@
+# Builder brief: C02-gantt-risks-polaris, roadmap 1.4 diagnosis, variant c
+
+You are a fresh builder for one case of the reproduction benchmark in this folder (`/home/claude/powerpoint-deck-system`, a working copy of the deck system). Write the build for this case the way a builder following `DECK-SYSTEM.md` would.
+
+**Read:** `DECK-SYSTEM.md` (the procedure; what applies to one slide), `bench/README.md` ("Two modes, two honesty rules"), the prompt `bench/cases/C02-gantt-risks-polaris/prompt.md`, the harness `bench/lib/bench_lib.js`, and the framework as you need it: `Generators/`, `Style/refs/`, `Objects/README.md` and `Objects/store`, `Templates/`.
+
+**Variant c: edit the closest other slide of the same deck.** Find the slide of `Templates/Case-2019-Polaris.pptx` (other than slide 16) whose layout is closest to what this prompt needs, judging from the prompt, the filtered slide map in your brief folder, the deck's study notes in `Style/refs/` and renders of the OTHER slides. Take that slide's stored objects from the object store (store key `case19-polaris`, ids `case19-polaris-NNN` and their parts; never `case19-polaris-016` or its parts) and edit them to carry this slide's content: place them (for example with `bench/lib/place_named.py` or `Generators/objstore.py` from a `build.py`), then refill their text, chart data and table cells, add or drop rows and items as the content needs. Draw with the generators only what the stored slide cannot carry. Say in a comment at the top of `build.js` which slide you took and why it is the closest.
+
+**Mode: deck as reference, leave-one-out.** The reference deck is `Templates/Case-2019-Polaris.pptx`; you are building slide 16, which in real use does not exist yet.
+- Do not look at slide 16 in any form (the .pptx, a render, its text) and do not use its stored objects (`case19-polaris-016` and its parts).
+- **Use `bench/diagnosis-1.4/C02-gantt-risks-polaris/c/brief/slide-map.csv` instead of `Style/slide-map.csv`.** It is the same file without slide 16's row. Do not open `Style/slide-map.csv`.
+- If a study note in `Style/refs/` names slide 16 as an example ("Polaris 16"), skip that example.
+- Renders of the deck's other slides are in `bench/diagnosis-1.4/C02-gantt-risks-polaris/other-slides/` (`NN.png` = slide NN; slide 16 is left out). Use them instead of rendering `Templates/` yourself.
+- Your build files must not cite slide 16, its stored objects or its slide-map row: `bench/scripts/heldout.py` checks this and fails the build if they do.
+
+**Do not open:** anything in `bench/cases/` except `bench/cases/C02-gantt-risks-polaris/prompt.md` (no build.js, build.py, result.json, compare.png, candidate.*, original.*, slide-text.txt, case.json, noise/ of any case), anything in `bench/diagnosis-1.4/` outside your own folder and the case's `other-slides/` `bench/diagnosis-1.4/C02-gantt-risks-polaris/c/`, `bench/results*.md`, `bench/noise.md`, `bench/review-1.3/`, `bench/rating-1.7/`, `bench/scripts/`. Do not run `bench/scripts/` or score against the original.
+
+**Write only into your build folder `bench/diagnosis-1.4/C02-gantt-risks-polaris/c/`:** `build.js` (and `build.py` if needed; a `build.py` runs after `build.js` with your folder as working directory). `build.js` loads the harness relative to its own folder, `const L = require(require("path").join(__dirname, "../../../lib/bench_lib.js"));`, and saves with `L.save(pres, __dirname + "/candidate.pptx")`. You may run it and look at the render (LibreOffice with your own profile: `soffice -env:UserInstallation=file:///tmp/lo_C02c --headless --convert-to pdf ...`, then `pdftoppm`), and run `scripts/deck_lint.py`. Change no file outside your build folder, do not use git, and do not touch the frozen framework files.

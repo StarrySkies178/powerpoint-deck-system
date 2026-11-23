@@ -1,0 +1,130 @@
+{
+ "id": "C04-two-charts-ecluster",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.00 top 0.55; got left 0.00 top 0.57 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 24.0 pt, got 24.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref True, got True"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #FFFFFF, got #FFFFFF (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Arial, got Arial"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 15.0 / min 10.0 pt; got 14.5 / 10.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial', 'Arial MT'], got ['Arial']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.27 R 0.25; got L 0.27 R 0.12 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  },
+  {
+   "check": "source line",
+   "ok": true,
+   "detail": "ref 10.0 pt at 7.28 in; got 10.0 pt at 7.28 in"
+  }
+ ],
+ "layout": 0.46,
+ "visual": 0.53,
+ "n_std": 11,
+ "n_std_ok": 11,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Chow Tai Fook is recommended to enter a new market given the customer changing preference, tightened policies and increa",
+   "left_in": 0.0,
+   "top_in": 0.573,
+   "box": [
+    0.0,
+    0.48,
+    13.33,
+    0.86
+   ],
+   "above": 0.39,
+   "pt": 24.0,
+   "bold": true,
+   "font": "Arial",
+   "colour": "FFFFFF"
+  },
+  "body": {
+   "median_pt": 14.5,
+   "min_pt": 10.0
+  },
+  "margins": {
+   "left_in": 0.27,
+   "right_in": 0.123
+  },
+  "fonts": {
+   "latin": [
+    "Arial"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "source": {
+   "pt": 10.0,
+   "top_in": 7.28
+  },
+  "theme_colours": [
+   "000000",
+   "00A1DE",
+   "08163B",
+   "253449",
+   "354B70",
+   "72C7E7",
+   "7E7E7E",
+   "A1C8DF",
+   "C3C6CA",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "E4E4E4",
+   "0C0C3C",
+   "CCE4E4",
+   "CCCCCC",
+   "B4B4B4",
+   "9C9C9C",
+   "0C243C",
+   "0C0C24",
+   "848484",
+   "0C3C6C"
+  ]
+ }
+}

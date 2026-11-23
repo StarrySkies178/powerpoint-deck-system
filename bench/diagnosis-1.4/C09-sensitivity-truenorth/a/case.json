@@ -1,0 +1,39 @@
+{
+ "id": "C09-sensitivity-truenorth",
+ "deck": "Case-2016-TrueNorth-Pola-China-growth",
+ "slide": 22,
+ "kind": "chart",
+ "suite": "capability",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.576,
+  "visual": 0.628,
+  "others": [
+   6,
+   9,
+   2,
+   16,
+   4,
+   13,
+   3,
+   15
+  ],
+  "deck_colours": [
+   "6C6C6C",
+   "848484",
+   "9C9C9C",
+   "B4B4B4",
+   "CC0C0C",
+   "CC240C",
+   "CC3C3C",
+   "CCCCCC",
+   "E43C3C",
+   "E46C6C",
+   "E48484",
+   "E49C9C",
+   "E4E4E4",
+   "FCE4E4"
+  ]
+ },
+ "skip_checks": []
+}

@@ -210,8 +210,8 @@
  },
  "lastChange": {
   "by": "Mike N",
-  "at": "2026-11-23T18:34:29Z",
+  "at": "2026-11-23T19:24:30Z",
   "via": "Claude chat",
-  "note": "folder 2.30: version stamp only (folder 2.28 to 2.30: official benchmark environment, leave-one-out check, three roadmap 1.5 test decks); nothing in the design system changed"
+  "note": "folder 2.35: version stamp only (folder 2.32 to 2.35: suites, roadmap 1.4 diagnosis builds, 1.6 draft error analysis, 1.7 rating set); nothing in the design system changed"
  }
 }

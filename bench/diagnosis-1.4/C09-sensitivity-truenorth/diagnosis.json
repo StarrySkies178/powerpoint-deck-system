@@ -1,0 +1,34 @@
+{
+ "case": "C09-sensitivity-truenorth",
+ "scored": "2026-11-23 19:16",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.65,
+   "visual": 0.58,
+   "std": "9/10",
+   "failed": [
+    "body text size (ref median 18.0 / min 18.0 pt; got 13.0 / 11.0 pt)"
+   ]
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.5,
+   "visual": 0.41,
+   "std": "9/10",
+   "failed": [
+    "body text size (ref median 18.0 / min 18.0 pt; got 12.0 / 12.0 pt)"
+   ]
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.45,
+   "visual": 0.34,
+   "std": "8/10",
+   "failed": [
+    "body text size (ref median 18.0 / min 18.0 pt; got 12.0 / 12.0 pt)",
+    "body margins (ref L 0.48 R 0.87; got L 0.30 R 1.48 in)"
+   ]
+  }
+ }
+}

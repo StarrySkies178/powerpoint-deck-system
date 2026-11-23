@@ -1,0 +1,34 @@
+{
+ "case": "C08-risk-matrix-mindcraft",
+ "scored": "2026-11-23 19:16",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.42,
+   "visual": 0.29,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 11.0 pt)"
+   ]
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.47,
+   "visual": 0.32,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 12.0 / 10.0 pt)"
+   ]
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.32,
+   "visual": 0.28,
+   "std": "10/11",
+   "failed": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 11.0 / 10.5 pt)",
+    "leave-one-out (build.js: words from the target's row in Style/slide-map.csv ('heat map likelihood x severity' and more))"
+   ]
+  }
+ }
+}

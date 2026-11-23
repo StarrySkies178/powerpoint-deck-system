@@ -1,0 +1,34 @@
+{
+ "case": "C05-timeline-ecluster",
+ "scored": "2026-11-23 19:16",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.11,
+   "visual": 0.09,
+   "std": "9/10",
+   "failed": [
+    "body margins (ref L 0.84 R 1.10; got L 0.27 R 0.26 in)"
+   ]
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.32,
+   "visual": 0.25,
+   "std": "9/10",
+   "failed": [
+    "body margins (ref L 0.84 R 1.10; got L 0.27 R 0.26 in)"
+   ]
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.01,
+   "std": "8/10",
+   "failed": [
+    "title position (ref left 0.00 top 0.78; got left 0.35 top 0.76 in)",
+    "body margins (ref L 0.84 R 1.10; got L 0.27 R 0.27 in)"
+   ]
+  }
+ }
+}

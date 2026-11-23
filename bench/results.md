@@ -1,14 +1,12 @@
-# Benchmark results: official environment (Mac VM): references re-rendered there, stored builds, current generators (2026-11-23 18:16)
+# Benchmark results: v2.32 suites: Z01 moved to capability (2026-11-23 18:51)
 
-**Regression 8 / 9** (must stay all-pass) · **Capability 0 / 11** · **Total 8 / 20 pass**
+**Regression 8 / 8** (must stay all-pass) · **Capability 0 / 12** · **Total 8 / 20 pass**
 
 Bar for every case: all standards, layout ≥ 0.6, visual ≥ 0.5. One run of the stored builds; a case counts as passing for good only after 3 of 3 fresh rebuilds pass (README, "Noise band").
 
 Environment: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Python 3.10.12 (the official one)
 
-**REGRESSION BROKEN:** Z01-columns-chinese
-
-## Regression suite: 8 / 9
+## Regression suite: 8 / 8
 
 | Case | Result | Standards | Layout | Visual | Failed checks |
 |---|---|---|---|---|---|
@@ -20,9 +18,8 @@ Environment: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Py
 | D06-paired-columns | **pass** | 11/11 | 0.89 | 0.90 |  |
 | D07-waterfall | **pass** | 11/11 | 0.85 | 0.91 |  |
 | D08-text-and-chart | **pass** | 11/11 | 0.64 | 0.70 |  |
-| Z01-columns-chinese | fail | 11/12 | 0.78 | – | colours (off-palette #CCE484) |
 
-## Capability suite: 0 / 11
+## Capability suite: 0 / 12
 
 | Case | Result | Standards | Layout | Visual | Failed checks |
 |---|---|---|---|---|---|
@@ -36,4 +33,5 @@ Environment: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Py
 | C08-risk-matrix-mindcraft | fail | 10/11 | 0.30 | 0.25 | body margins (ref L 0.29 R 0.55; got L 0.38 R 0.28 in) |
 | C09-sensitivity-truenorth | fail | 8/10 | 0.26 | 0.34 | body text size (ref median 18.0 / min 18.0 pt; got 14.0 / 11.0 pt); body margins (ref L 0.48 R 0.87; got L 0.60 R 0.62 in) |
 | C10-strategy-table-truenorth | fail | 9/11 | 0.00 | 0.04 | body text size (ref median 12.0 / min 12.0 pt; got 9.0 / 9.0 pt); colours (off-palette #3C3C3C) |
+| Z01-columns-chinese | fail | 11/12 | 0.78 | – | colours (off-palette #CCE484) |
 | Z02-chevrons-chinese | fail | 11/11 | 0.29 | – |  |

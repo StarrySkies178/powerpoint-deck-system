@@ -1,0 +1,44 @@
+{
+ "id": "C08-risk-matrix-mindcraft",
+ "deck": "Case-2019-Mindcraft",
+ "slide": 15,
+ "kind": "framework",
+ "suite": "capability",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.557,
+  "visual": 0.632,
+  "others": [
+   8,
+   2,
+   21,
+   28,
+   3,
+   7,
+   9,
+   32
+  ],
+  "deck_colours": [
+   "3C3C3C",
+   "540C0C",
+   "545454",
+   "6C0C0C",
+   "6C2424",
+   "6C3C3C",
+   "6C6C6C",
+   "843C3C",
+   "846C6C",
+   "848484",
+   "9C6C6C",
+   "9C8484",
+   "9C9C9C",
+   "B4B4B4",
+   "CC0C0C",
+   "CCCCCC",
+   "E48484",
+   "E4E4E4",
+   "FCE4E4"
+  ]
+ },
+ "skip_checks": []
+}

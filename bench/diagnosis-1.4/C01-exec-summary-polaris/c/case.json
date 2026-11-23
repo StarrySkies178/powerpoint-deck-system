@@ -1,0 +1,40 @@
+{
+ "id": "C01-exec-summary-polaris",
+ "deck": "Case-2019-Polaris",
+ "slide": 2,
+ "kind": "exec-summary",
+ "suite": "capability",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.506,
+  "visual": 0.613,
+  "others": [
+   5,
+   6,
+   21,
+   15,
+   17,
+   20,
+   19,
+   14
+  ],
+  "deck_colours": [
+   "545454",
+   "6C6C6C",
+   "848484",
+   "9C9C9C",
+   "B4B4B4",
+   "CC0C0C",
+   "CCCCCC",
+   "E45454",
+   "E48484",
+   "E4E4E4",
+   "FCB4B4",
+   "FCCCCC",
+   "FCE4E4",
+   "FCFCE4",
+   "FCFCFC"
+  ]
+ },
+ "skip_checks": []
+}

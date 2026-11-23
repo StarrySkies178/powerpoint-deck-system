@@ -1,0 +1,39 @@
+{
+ "id": "C02-gantt-risks-polaris",
+ "deck": "Case-2019-Polaris",
+ "slide": 16,
+ "kind": "plan",
+ "suite": "capability",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.609,
+  "visual": 0.615,
+  "others": [
+   13,
+   20,
+   21,
+   6,
+   8,
+   5,
+   9,
+   2
+  ],
+  "deck_colours": [
+   "545454",
+   "6C6C6C",
+   "848484",
+   "9C9C9C",
+   "B4B4B4",
+   "CC0C0C",
+   "CCCCCC",
+   "E43C3C",
+   "E45454",
+   "E48484",
+   "E4E4E4",
+   "FCB4B4",
+   "FCCCCC",
+   "FCE4E4"
+  ]
+ },
+ "skip_checks": []
+}

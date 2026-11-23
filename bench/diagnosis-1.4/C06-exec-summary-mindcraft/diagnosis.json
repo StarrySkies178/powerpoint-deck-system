@@ -1,0 +1,40 @@
+{
+ "case": "C06-exec-summary-mindcraft",
+ "scored": "2026-11-23 19:16",
+ "builds": {
+  "a": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.03,
+   "std": "6/10",
+   "failed": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.37 R 0.28 in)",
+    "colours (off-palette #FCCCCC)"
+   ]
+  },
+  "b": {
+   "passed": false,
+   "layout": 0.87,
+   "visual": 0.27,
+   "std": "7/10",
+   "failed": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.39 R 4.34 in)"
+   ]
+  },
+  "c": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.1,
+   "std": "7/10",
+   "failed": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.39 R 0.28 in)"
+   ]
+  }
+ }
+}
