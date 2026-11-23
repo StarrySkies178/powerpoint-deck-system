@@ -139,7 +139,7 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
     # 1. remove text so it doesn't become shapes
     tmask = np.zeros((h, w), np.uint8)
     for B in blocks:
-        for L in B["lines"]: cv2.rectangle(tmask, (L["x"] - 2, L["y"] - 2), (L["x"] + L["w"] + 2, L["y"] + L["h"] + 2), 255, -1)
+        for L in B["lines"]: cv2.rectangle(tmask, (L["x"] - 3, L["y"] - 3), (L["x"] + L["w"] + 3, L["y"] + L["h"] + 3), 255, -1)
     clean = cv2.inpaint(img, tmask, 5, cv2.INPAINT_TELEA) if blocks else img
     clean = cv2.bilateralFilter(clean, 5, 18, 5)
     # 2. palette + quantize
@@ -198,7 +198,13 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         sh.fill.solid(); sh.fill.fore_color.rgb = _hex(c); sh.line.fill.background(); sh.shadow.inherit = False
     # 5. pictures on top of shapes, under text
     for x, y, ww, hh in pics:
-        crop = Image.fromarray(img_rgb[int(y / scale):int((y + hh) / scale), int(x / scale):int((x + ww) / scale)])
+        y0, y1, x0, x1 = int(y / scale), int((y + hh) / scale), int(x / scale), int((x + ww) / scale)
+        sub = img_rgb[y0:y1, x0:x1].copy()
+        msub = cv2.resize(tmask[y:y + hh, x:x + ww], (sub.shape[1], sub.shape[0]), interpolation=cv2.INTER_NEAREST)
+        if msub.any():                                            # text inside a picture region is re-typed as a text box: remove it from the picture
+            msub = cv2.dilate(msub, np.ones((5, 5), np.uint8))
+            sub = cv2.inpaint(np.ascontiguousarray(sub), msub, 5, cv2.INPAINT_TELEA)
+        crop = Image.fromarray(sub)
         bio = io.BytesIO(); crop.save(bio, "PNG"); bio.seek(0)
         slide.shapes.add_picture(bio, Emu(int(left + x * sx)), Emu(int(top + y * sy)), Emu(int(ww * sx)), Emu(int(hh * sy)))
     # 6. text boxes
@@ -206,6 +212,9 @@ def rebuild_raster(slide, img_rgb, slide_w, slide_h, lang="eng+chi_sim", left=0,
         col, _bgc = _text_colour(img, B)
         lh = np.median([L["h"] for L in B["lines"]])
         size_pt = max(6, round(lh * sy / 12700 * 1.07 * 2) / 2)  # OCR line box ≈ 0.93 em (calibrated on known 24/14 pt text)
+        # width check: a line box made tall by an icon/number chip next to the words gives an oversized font; Arial averages ≈0.5 em per char
+        wcap = max((L["w"] * sx / 12700) / max(len(L["text"]), 1) / 0.47 for L in B["lines"])
+        if size_pt > wcap * 1.15: size_pt = max(6, round(wcap * 2) / 2)
         tb = slide.shapes.add_textbox(Emu(int(left + B["x"] * sx)), Emu(int(top + B["y"] * sy - size_pt * 12700 * 0.12)),
                                       Emu(int(B["w"] * sx * 1.04 + size_pt * 12700 * 0.6)), Emu(int(B["h"] * sy + size_pt * 12700 * 0.3)))
         # bold: thick strokes relative to line height (only trusted for text >= ~13 pt; small text is anti-aliased mush)

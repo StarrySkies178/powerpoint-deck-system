@@ -381,6 +381,10 @@ function layoutBoxes(code, box, n) {
     case "FULL": return { panels: [R(B.x, B.y, B.w, B.h)] };
     case "HALF2": return { panels: [R(B.x, B.y, half, B.h), R(B.x + half + g, B.y, half, B.h)] };
     case "COL3": { const w = (B.w - 2 * g) / 3; return { panels: [0, 1, 2].map((i) => R(B.x + i * (w + g), B.y, w, B.h)) }; }
+    case "COL4": case "COLN": { const k = code === "COL4" ? 4 : Math.max(2, n || 4), w = (B.w - (k - 1) * g) / k;   // N parallel initiative columns (2019-20 decks)
+      return { panels: Array.from({ length: k }, (_, i) => R(B.x + i * (w + g), B.y, w, B.h)) }; }
+    case "T3B1": { const th = B.h * 0.36, w = (B.w - 2 * g) / 3;                        // three situation boxes on top, one wide answer below
+      return { panels: [0, 1, 2].map((i) => R(B.x + i * (w + g), B.y, w, th)).concat([R(B.x, B.y + th + g + 0.25, B.w, B.h - th - g - 0.25)]), downArrow: R(B.x + B.w / 2 - 0.35, B.y + th + 0.04, 0.7, g + 0.17) }; }
     case "BAND2": return { panels: [R(B.x, B.y, B.w, hh), R(B.x, B.y + hh + g, B.w, hh)] };
     case "GRID4": return { panels: [R(B.x, B.y, half, hh), R(B.x + half + g, B.y, half, hh), R(B.x, B.y + hh + g, half, hh), R(B.x + half + g, B.y + hh + g, half, hh)] };
     case "GRID4I": return { panels: [R(B.x, B.y, half, hh), R(B.x + half + g, B.y, half, hh), R(B.x, B.y + hh + g, half, hh)], insight: R(B.x + half + g, B.y + hh + g, half, hh) };
@@ -395,7 +399,10 @@ function layoutBoxes(code, box, n) {
     case "MULTI": { const k = Math.max(2, n || 4), cols = k <= 3 ? k : Math.ceil(k / 2), rows = Math.ceil(k / cols), w = (B.w - (cols - 1) * g) / cols, h = (B.h - (rows - 1) * g) / rows;
       return { panels: Array.from({ length: k }, (_, i) => R(B.x + (i % cols) * (w + g), B.y + Math.floor(i / cols) * (h + g), w, h)) }; }
     case "TXC": { const tw = B.w * 0.4; return { panels: [R(B.x, B.y, tw, B.h), R(B.x + tw + g, B.y, B.w - tw - g, B.h)] }; }
-    case "FLOW": { const w = (B.w - 0.9) / 2; return { panels: [R(B.x, B.y, w, B.h), R(B.x + w + 0.9, B.y, w, B.h)], arrow: R(B.x + w + 0.15, B.y + B.h / 2 - 0.4, 0.6, 0.8) }; }
+    case "FLOW": { const k = Math.max(2, Math.min(4, n || 2)), a = 0.7, w = (B.w - (k - 1) * a) / k;      // 2-4 blocks joined by chevrons
+      const panels = Array.from({ length: k }, (_, i) => R(B.x + i * (w + a), B.y, w, B.h));
+      const arrows = panels.slice(0, -1).map((P) => R(P.x + w + 0.17, B.y + B.h / 2 - 0.4, 0.36, 0.8));
+      return { panels, arrow: arrows[0], arrows: arrows.slice(1) }; }
     default: throw new Error("unknown layout " + code);
   }
 }
@@ -408,7 +415,12 @@ function fillPanel(pres, slide, p, box, i, numbered, boxed) {
     box = { x: box.x + 0.12, y: box.y + 0.6, w: box.w - 0.24, h: box.h - 0.7 }; p = { ...p, headline: null }; y = box.y;
   }
   if (p.headline) { if (numbered) subhead(slide, i + 1, p.headline, box.x, y, box.w); else txt(slide, p.headline, box.x, y, box.w, 0.5, { max: 13, min: 10, bold: true, valign: "middle" }); y += 0.62; }
-  const inner = { x: box.x, y, w: box.w, h: box.y + box.h - y - (p.note ? 0.25 : 0) };
+  const tk = p.takeaway ? Math.min(0.85, Math.max(0.55, box.h * 0.2)) : 0;   // panel takeaway box under its exhibit (2019-20 decks)
+  const inner = { x: box.x, y, w: box.w, h: box.y + box.h - y - (p.note ? 0.25 : 0) - (tk ? tk + 0.1 : 0) };
+  if (tk) { const ty = inner.y + inner.h + 0.1;
+    slide.addShape("rect", { x: box.x, y: ty, w: box.w, h: tk, fill: { color: C.white }, line: { color: C.navy, width: 1 } });
+    slide.addShape("rect", { x: box.x, y: ty, w: 0.07, h: tk, fill: { color: C.accent }, line: { type: "none" } });
+    txt(slide, p.takeaway, box.x + 0.17, ty + 0.03, box.w - 0.25, tk - 0.06, { max: 12, min: 9, bold: true, color: C.navy, valign: "middle" }); }
   if (p.chart) chartIn(pres, slide, p.chart, inner);
   else if (p.draw) p.draw(slide, inner);
   else if (p.bullets) { slide.addShape("rect", { ...inner, fill: { color: C.g1 }, line: { type: "none" } });
@@ -434,7 +446,9 @@ function composeSlide(pres, slide, spec, box = BODY) {
     }
   }
   if (L.chevron) slide.addShape("chevron", { ...L.chevron, fill: { color: C.g3 }, line: { type: "none" } });
-  if (L.arrow) slide.addShape("rightArrow", { ...L.arrow, fill: { color: C.navy }, line: { type: "none" } });
+  if (L.arrow) slide.addShape(L.arrows ? "chevron" : "rightArrow", { ...L.arrow, fill: { color: C.navy }, line: { type: "none" } });
+  (L.arrows || []).forEach((a) => slide.addShape("chevron", { ...a, fill: { color: C.navy }, line: { type: "none" } }));
+  if (L.downArrow) slide.addShape("downArrow", { ...L.downArrow, fill: { color: C.g3 }, line: { type: "none" } });
   if (L.decision && spec.decision) {
     const D = L.decision;
     slide.addShape("rect", { ...D, fill: { color: C.white }, line: { color: C.accent, width: 2 } });
@@ -463,4 +477,233 @@ module.exports.layoutBoxes = layoutBoxes;
 module.exports.composeSlide = composeSlide;
 module.exports.writeObjectSlots = writeObjectSlots;
 module.exports.fadeOut = fadeOut;
-module.exports.LAYOUTS = ["FULL", "HALF2", "BAND2", "GRID4", "GRID4I", "T2B1", "T1B2", "L2R1", "R2L1", "COL3", "EXI", "EXB", "CHAIN", "FLOW", "MULTI", "TXC"];
+module.exports.LAYOUTS = ["FULL", "HALF2", "BAND2", "GRID4", "GRID4I", "T2B1", "T1B2", "T3B1", "L2R1", "R2L1", "COL3", "COL4", "COLN", "EXI", "EXB", "CHAIN", "FLOW", "MULTI", "TXC"];
+
+// =====================================================================
+// LEARNED FROM THE 2019–2020 CASE DECKS (Bain Cup jewellery + fitness cases, 238 slides, 2026-11-23)
+// riskMatrix, gantt, scoringTable, harvey, initiativeMatrix, explodedBar, heatGrid, agendaTracker, valueTree
+// Same rules: any count, grey does the work, one highlight, house colours only.
+// =====================================================================
+function harvey(slide, x, y, d, score, max = 4, color = C.navy) {     // Harvey ball 0..max (pie shape, starts at 12 o'clock)
+  slide.addShape("ellipse", { x, y, w: d, h: d, fill: { color: C.white }, line: { color, width: 1 } });
+  const f = Math.max(0, Math.min(1, score / max));
+  if (f >= 0.999) slide.addShape("ellipse", { x, y, w: d, h: d, fill: { color }, line: { color, width: 1 } });
+  else if (f > 0) slide.addShape("pie", { x, y, w: d, h: d, fill: { color }, line: { type: "none" }, angleRange: [270, (270 + 360 * f) % 360] });
+}
+function vlabel(slide, text, x, y, w, h, fill = C.navy) {               // vertical row-group label (rotated text in a band)
+  slide.addShape("rect", { x, y, w, h, fill: { color: fill }, line: { type: "none" } });
+  txt(slide, text, x + w / 2 - h / 2, y + h / 2 - w / 2, h, w, { max: 12, min: 9, bold: true, color: C.white, align: "center", valign: "middle", rotate: 270, margin: 0 });
+}
+
+// Risk heat map with numbered risks on likelihood × impact, a dashed priority zone, then the SAME numbers in a
+// risk → mitigation list (7 of 9 decks). spec.risks:[{id, name, x(0-1 impact), y(0-1 likelihood), mitigation:[..]}]
+function riskMatrix(slide, spec, box = BODY) {
+  const mw = spec.list === false ? box.w : box.w * 0.42, ax = box.x + 0.45, ay = box.y + 0.05, aw = mw - 0.55, ah = box.h - 0.55;
+  [[0, 0, C.g1], [0.5, 0, C.g2], [0, 0.5, C.g2], [0.5, 0.5, C.g3]].forEach(([qx, qy, col]) =>
+    slide.addShape("rect", { x: ax + qx * aw, y: ay + (0.5 - qy) * ah, w: aw / 2, h: ah / 2, fill: { color: col, transparency: 30 }, line: { color: C.white, width: 1 } }));
+  const z = spec.zone || { x0: 0.5, x1: 1, y0: 0.5, y1: 1, label: "Priority risks" };
+  slide.addShape("rect", { x: ax + z.x0 * aw, y: ay + (1 - z.y1) * ah, w: (z.x1 - z.x0) * aw, h: (z.y1 - z.y0) * ah, fill: { type: "none" }, line: { color: C.accent, width: 1.5, dashType: "dash" } });
+  if (z.label) txt(slide, z.label, ax + z.x0 * aw + 0.06, ay + (1 - z.y1) * ah + 0.04, (z.x1 - z.x0) * aw - 0.1, 0.28, { fontSize: 10, bold: true, color: C.accent });
+  slide.addShape("line", { x: ax, y: ay + ah, w: aw, h: 0, line: { color: C.g5, width: 1.25, endArrowType: "triangle" } });
+  slide.addShape("line", { x: ax, y: ay, w: 0, h: ah, line: { color: C.g5, width: 1.25, beginArrowType: "triangle" } });
+  txt(slide, (spec.x && spec.x.label) || "Impact", ax, ay + ah + 0.05, aw, 0.3, { fontSize: 11, bold: true, color: C.g5, align: "center" });
+  txt(slide, (spec.y && spec.y.label) || "Likelihood", box.x + 0.16 - ah / 2, ay + ah / 2 - 0.15, ah, 0.3, { fontSize: 11, bold: true, color: C.g5, align: "center", rotate: 270 });
+  const inZone = (r) => r.x >= z.x0 && r.x <= z.x1 && r.y >= z.y0 && r.y <= z.y1, d = 0.36;
+  spec.risks.forEach((r) => {
+    const cx = ax + r.x * aw, cy = ay + (1 - r.y) * ah, hot = r.hot ?? inZone(r);
+    slide.addShape("ellipse", { x: cx - d / 2, y: cy - d / 2, w: d, h: d, fill: { color: hot ? C.accent : C.g4 }, line: { color: C.white, width: 1 } });
+    txt(slide, String(r.id), cx - d / 2, cy - d / 2, d, d, { fontSize: 11, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
+    if (spec.list === false && r.name) txt(slide, r.name, cx + d / 2 + 0.04, cy - 0.15, 1.8, 0.3, { fontSize: 10, color: C.text });
+  });
+  if (spec.list === false) return;
+  slide.addShape("chevron", { x: box.x + mw + 0.08, y: box.y + box.h / 2 - 0.4, w: 0.3, h: 0.8, fill: { color: C.g3 }, line: { type: "none" } });
+  const lx = box.x + mw + 0.5, lw = box.w - mw - 0.5, nw = lw * 0.36, hh = 0.36, rows = spec.risks;
+  txt(slide, spec.riskHeader || "Risk", lx + 0.45, box.y, nw - 0.45, hh, { fontSize: 12, bold: true, color: C.navy, valign: "middle" });
+  txt(slide, spec.mitigationHeader || "Mitigation", lx + nw + 0.1, box.y, lw - nw - 0.1, hh, { fontSize: 12, bold: true, color: C.navy, valign: "middle" });
+  slide.addShape("line", { x: lx, y: box.y + hh, w: lw, h: 0, line: { color: C.navy, width: 1 } });
+  const rh = (box.h - hh - 0.05) / rows.length;
+  rows.forEach((r, i) => {
+    const y = box.y + hh + 0.05 + i * rh, hot = r.hot ?? inZone(r);
+    chip(slide, r.id, lx, y + 0.06, 0.32, hot ? C.accent : C.g4);
+    slide.addShape("rect", { x: lx + 0.42, y: y + 0.04, w: nw - 0.42, h: rh - 0.08, fill: { color: hot ? C.hiBand : C.g1 }, line: { type: "none" } });
+    txt(slide, r.name, lx + 0.5, y + 0.04, nw - 0.56, rh - 0.08, { max: 12, min: 9, bold: true, color: C.text, valign: "middle" });
+    txt(slide, (r.mitigation || []).map((m) => "• " + m).join("\n"), lx + nw + 0.1, y + 0.04, lw - nw - 0.1, rh - 0.08, { max: 12, min: 9, valign: "middle" });
+    if (i < rows.length - 1) slide.addShape("line", { x: lx + nw + 0.1, y: y + rh, w: lw - nw - 0.1, h: 0, line: { color: C.g3, width: 0.5, dashType: "dash" } });
+  });
+}
+
+// Gantt by workstream with an optional phase staircase on top (0-1 / 1-3 / 3-5 years: stabilise / revitalise / arise)
+// spec.periods:["2020",...], spec.phases:[{label, sub, from, to}], spec.groups:[{name, rows:[{label, from, to, milestone, hi}]}]
+// from/to are in period units (0 = start of first period). Priority bars (hi) in the main colour, the rest grey.
+function gantt(slide, spec, box = BODY) {
+  const lw = Math.min(2.8, box.w * 0.26), gx = box.x + lw, gw = box.w - lw, np = spec.periods.length, pw = gw / np;
+  let y = box.y;
+  if (spec.phases) {                                              // staircase: each later phase sits a step higher
+    const k = spec.phases.length, sh = 0.18, top = y;
+    spec.phases.forEach((ph, i) => {
+      const x = gx + ph.from * pw, w = (ph.to - ph.from) * pw, py = top + (k - 1 - i) * sh, last = i === k - 1;
+      slide.addShape("rect", { x: x + 0.02, y: py, w: w - 0.04, h: 0.34 + i * sh, fill: { color: last ? C.navy : i ? C.g5 : C.g3 }, line: { type: "none" } });
+      txt(slide, ph.label, x + 0.02, py, w - 0.04, 0.34, { max: 12, min: 9, bold: true, color: C.white, align: "center", valign: "middle" });
+      if (ph.sub) txt(slide, ph.sub, x, top + k * sh + 0.36, w, 0.26, { fontSize: 9, color: C.g5, align: "center" });
+    });
+    y = top + k * sh + 0.66;
+  }
+  spec.periods.forEach((p, i) => txt(slide, p, gx + i * pw, y, pw, 0.3, { fontSize: 11, bold: true, color: C.navy, align: "center", valign: "middle" }));
+  slide.addShape("line", { x: box.x, y: y + 0.32, w: box.w, h: 0, line: { color: C.navy, width: 1 } });
+  y += 0.38;
+  const nrows = spec.groups.reduce((a, g) => a + g.rows.length + 1, 0), rh = Math.min(0.42, (box.y + box.h - y - (spec.legend !== false ? 0.3 : 0)) / nrows);
+  for (let i = 1; i < np; i++) slide.addShape("line", { x: gx + i * pw, y: y - 0.06, w: 0, h: nrows * rh, line: { color: C.g3, width: 0.5, dashType: "dash" } });
+  spec.groups.forEach((g) => {
+    txt(slide, g.name, box.x, y, lw, rh, { max: 12, min: 9, bold: true, color: C.navy, valign: "middle" });
+    y += rh;
+    g.rows.forEach((r) => {
+      txt(slide, r.label, box.x + 0.15, y, lw - 0.15, rh, { max: 11, min: 8, color: C.text, valign: "middle" });
+      if (r.to > r.from) slide.addShape("rect", { x: gx + r.from * pw + 0.03, y: y + rh * 0.2, w: (r.to - r.from) * pw - 0.06, h: rh * 0.6, fill: { color: r.hi ? C.navy : C.g3 }, line: { type: "none" } });
+      if (r.milestone != null) { const mx = gx + r.milestone * pw;
+        slide.addShape("diamond", { x: mx - 0.11, y: y + rh / 2 - 0.11, w: 0.22, h: 0.22, fill: { color: C.accent }, line: { color: C.white, width: 0.75 } }); }
+      y += rh;
+    });
+  });
+  if (spec.legend !== false) txt(slide, "■ priority   ■ follow-on   ◆ milestone", box.x, box.y + box.h - 0.26, lw, 0.26, { fontSize: 9, color: C.g5 });
+}
+
+// Options/players × criteria scoring table: Harvey balls (0-4) or a verdict, own/chosen column in a dashed box.
+// spec.columns:[{name, own?}], spec.rows:[{label, group?, scores:[0-4 | "✓" | "✗" | text]}], spec.verdict:[..] optional per column
+function scoringTable(slide, spec, box = BODY) {
+  const groups = spec.rows.some((r) => r.group), gw = groups ? 0.38 : 0, lw = Math.min(2.6, box.w * 0.27), hh = 0.5;
+  const nc = spec.columns.length, cw = (box.w - gw - lw) / nc, hasV = !!spec.verdict, vh = hasV ? 0.5 : 0;
+  const rh = (box.h - hh - vh) / spec.rows.length, x0 = box.x + gw + lw;
+  spec.columns.forEach((c, j) => {
+    slide.addShape("rect", { x: x0 + j * cw + 0.03, y: box.y, w: cw - 0.06, h: hh - 0.06, fill: { color: c.own ? C.navy : C.g2 }, line: { type: "none" } });
+    txt(slide, c.name, x0 + j * cw + 0.03, box.y, cw - 0.06, hh - 0.06, { max: 12, min: 9, bold: true, color: c.own ? C.white : C.navy, align: "center", valign: "middle" });
+  });
+  let gStart = 0;
+  spec.rows.forEach((r, i) => {
+    const y = box.y + hh + i * rh;
+    if (i % 2 === 0) slide.addShape("rect", { x: box.x + gw, y, w: box.w - gw, h: rh, fill: { color: C.g1 }, line: { type: "none" } });
+    txt(slide, r.label, box.x + gw + 0.08, y, lw - 0.1, rh, { max: 12, min: 9, color: C.text, valign: "middle" });
+    r.scores.forEach((v, j) => {
+      const cx = x0 + j * cw + cw / 2;
+      if (typeof v === "number") { const d = Math.min(0.32, rh * 0.7); harvey(slide, cx - d / 2, y + rh / 2 - d / 2, d, v, spec.max || 4, spec.columns[j].own ? C.navy : C.g5); }
+      else txt(slide, String(v), x0 + j * cw + 0.05, y, cw - 0.1, rh, { max: 11, min: 8, fontSize: (v === "✓" || v === "✗") ? 16 : undefined, align: "center", valign: "middle", bold: v === "✓" || v === "✗",
+        color: v === "✓" ? C.navy : v === "✗" ? C.accent : C.text });
+    });
+    if (groups && (i === spec.rows.length - 1 || spec.rows[i + 1].group !== r.group)) {
+      vlabel(slide, r.group || "", box.x, box.y + hh + gStart * rh + 0.03, gw - 0.06, (i - gStart + 1) * rh - 0.06); gStart = i + 1; }
+  });
+  if (hasV) spec.verdict.forEach((v, j) => {
+    const y = box.y + box.h - vh + 0.06;
+    txt(slide, v, x0 + j * cw + 0.03, y, cw - 0.06, vh - 0.06, { max: 12, min: 9, bold: true, color: spec.columns[j].own ? C.navy : C.g5, align: "center", valign: "middle" });
+  });
+  const own = spec.columns.findIndex((c) => c.own);
+  if (own >= 0) slide.addShape("rect", { x: x0 + own * cw, y: box.y - 0.04, w: cw, h: box.h + 0.06, fill: { type: "none" }, line: { color: C.accent, width: 1.5, dashType: "dash" } });
+}
+
+// Initiatives as lettered columns × labelled row bands (Overview / Detail / Impact …), journey chain at the foot.
+// spec.rows:["Overview","Detail","Impact"], spec.columns:[{letter, title, cells:[string|[bullets]], foot?}], spec.highlight
+function initiativeMatrix(slide, spec, box = BODY) {
+  const lw = 1.05, nc = spec.columns.length, g = 0.15, cw = (box.w - lw - (nc - 1) * g) / nc, hh = 0.55;
+  const foot = spec.columns.some((c) => c.foot) ? 0.42 : 0, rh = (box.h - hh - foot - 0.1) / spec.rows.length;
+  spec.rows.forEach((r, k) => vlabel(slide, r, box.x, box.y + hh + 0.05 + k * rh + 0.03, lw - 0.15, rh - 0.06, k % 2 ? C.g5 : C.navy));
+  spec.columns.forEach((c, j) => {
+    const x = box.x + lw + j * (cw + g), hi = spec.highlight === j;
+    chip(slide, c.letter || String.fromCharCode(65 + j), x, box.y + 0.1, 0.34, hi ? C.accent : C.navy);
+    txt(slide, c.title, x + 0.42, box.y, cw - 0.42, hh, { max: 13, min: 10, bold: true, color: C.navy, valign: "middle" });
+    slide.addShape("line", { x, y: box.y + hh, w: cw, h: 0, line: { color: C.navy, width: 1 } });
+    spec.rows.forEach((_, k) => {
+      const y = box.y + hh + 0.05 + k * rh, v = c.cells[k];
+      slide.addShape("rect", { x, y: y + 0.03, w: cw, h: rh - 0.06, fill: { color: k % 2 ? C.white : (hi ? C.hiBand : C.g1) }, line: { color: C.g2, width: 0.5 } });
+      txt(slide, Array.isArray(v) ? v.map((b) => "• " + b).join("\n") : (v || ""), x + 0.08, y + 0.06, cw - 0.16, rh - 0.12, { max: 12, min: 9, bold: k === 0, valign: "middle" });
+    });
+    if (c.foot) { const fy = box.y + box.h - foot;
+      slide.addShape("homePlate", { x, y: fy, w: cw, h: foot - 0.04, fill: { color: C.g2 }, line: { type: "none" } });
+      txt(slide, c.foot, x + 0.08, fy, cw - 0.3, foot - 0.04, { max: 11, min: 8, bold: true, color: C.navy, valign: "middle" }); }
+  });
+}
+
+// One stacked column whose chosen segment is "exploded" (dashed bracket) into a breakdown bar chart — "of the 93% who…, why?"
+// spec.total:{label, parts:[{name, value}], explode: index}, spec.breakdown:{labels, values, highlight, format}, spec.unit
+function explodedBar(pres, slide, spec, box = BODY) {
+  const bw = Math.min(1.2, box.w * 0.18), bx = box.x + 0.9, by = box.y + 0.3, bh = box.h - 0.65, parts = spec.total.parts, sum = parts.reduce((a, p) => a + p.value, 0);
+  let y = by; const ex = spec.total.explode ?? parts.length - 1; let ey0 = by, ey1 = by;
+  parts.forEach((p, i) => {
+    const h = bh * p.value / sum, hi = i === ex;
+    slide.addShape("rect", { x: bx, y, w: bw, h, fill: { color: hi ? C.navy : C.g3 }, line: { color: C.white, width: 1 } });
+    txt(slide, (spec.unit === "%" ? p.value + "%" : p.value), bx, y, bw, h, { fontSize: 11, bold: true, color: C.white, align: "center", valign: "middle", margin: 0 });
+    txt(slide, p.name, box.x, y, 0.85, h, { max: 11, min: 8, color: C.text, align: "right", valign: "middle" });
+    if (hi) { ey0 = y; ey1 = y + h; } y += h;
+  });
+  if (spec.total.label) txt(slide, spec.total.label, bx - 0.2, by + bh + 0.05, bw + 0.4, 0.3, { fontSize: 10, color: C.g5, align: "center" });
+  const cx = bx + bw + 0.6, cw = box.x + box.w - cx;
+  slide.addShape("rect", { x: cx - 0.1, y: box.y + 0.05, w: cw + 0.1, h: box.h - 0.1, fill: { type: "none" }, line: { color: C.accent, width: 1.25, dashType: "dash" } });
+  slide.addShape("line", { x: bx + bw, y: ey0, w: cx - 0.1 - bx - bw, h: box.y + 0.05 - ey0, flipV: box.y + 0.05 < ey0, line: { color: C.accent, width: 1, dashType: "dash" } });
+  slide.addShape("line", { x: bx + bw, y: Math.min(ey1, box.y + box.h - 0.05), w: cx - 0.1 - bx - bw, h: Math.abs(box.y + box.h - 0.05 - ey1), flipV: box.y + box.h - 0.05 < ey1, line: { color: C.accent, width: 1, dashType: "dash" } });
+  if (spec.breakdown.title) txt(slide, spec.breakdown.title, cx, box.y + 0.08, cw - 0.1, 0.3, { fontSize: 11, bold: true, color: C.navy });
+  const b = spec.breakdown, k = b.labels.length;   // bar charts draw the first category at the bottom: reverse so the list reads top-down
+  chartIn(pres, slide, { type: "bar", labels: [...b.labels].reverse(), series: [{ name: b.name || "Share", values: [...b.values].reverse() }], highlight: b.highlight == null ? null : k - 1 - b.highlight, format: b.format }, { x: cx, y: box.y + (b.title ? 0.4 : 0.1), w: cw - 0.1, h: box.h - (b.title ? 0.5 : 0.2) });
+}
+
+// Segment × attribute heat grid: shading by value (grey → main colour), target cells boxed, optional vertical row groups.
+// spec.rows:[{label, group?}], spec.cols:[..], spec.values:[[..]], spec.target:[[r,c],…], spec.format(v)
+function heatGrid(slide, spec, box = BODY) {
+  const groups = spec.rows.some((r) => r.group), gw = groups ? 0.38 : 0, lw = Math.min(2.2, box.w * 0.22), hh = 0.5;
+  const nc = spec.cols.length, cw = (box.w - gw - lw) / nc, rh = (box.h - hh) / spec.rows.length, x0 = box.x + gw + lw;
+  const all = spec.values.flat(), lo = Math.min(...all), hi = Math.max(...all);
+  const mix = (a, b, t) => { const p = (h) => [0, 2, 4].map((i) => parseInt(h.substr(i, 2), 16)); const A = p(a), B = p(b);
+    return A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join("").toUpperCase(); };
+  spec.cols.forEach((c, j) => txt(slide, c, x0 + j * cw, box.y, cw, hh, { max: 12, min: 9, bold: true, color: C.navy, align: "center", valign: "bottom" }));
+  let gStart = 0;
+  spec.rows.forEach((r, i) => {
+    const y = box.y + hh + i * rh;
+    txt(slide, r.label, box.x + gw + 0.05, y, lw - 0.1, rh, { max: 12, min: 9, valign: "middle" });
+    spec.values[i].forEach((v, j) => {
+      const t = hi > lo ? (v - lo) / (hi - lo) : 0, fill = mix(C.g1, C.navy, t);
+      slide.addShape("rect", { x: x0 + j * cw + 0.02, y: y + 0.02, w: cw - 0.04, h: rh - 0.04, fill: { color: fill }, line: { type: "none" } });
+      txt(slide, spec.format ? spec.format(v) : String(v), x0 + j * cw, y, cw, rh, { fontSize: 11, bold: t > 0.6, color: t > 0.5 ? C.white : C.text, align: "center", valign: "middle", margin: 0 });
+    });
+    if (groups && (i === spec.rows.length - 1 || spec.rows[i + 1].group !== r.group)) {
+      vlabel(slide, r.group || "", box.x, box.y + hh + gStart * rh + 0.02, gw - 0.06, (i - gStart + 1) * rh - 0.04); gStart = i + 1; }
+  });
+  (spec.target || []).forEach(([r, c]) => slide.addShape("rect", { x: x0 + c * cw, y: box.y + hh + r * rh, w: cw, h: rh, fill: { type: "none" }, line: { color: C.accent, width: 2, dashType: "dash" } }));
+}
+
+// Agenda that tracks where we are: repeated before every section, current section highlighted, its sub-points shown.
+// spec.sections:[{title, items:[..]}], spec.current (index)
+function agendaTracker(slide, spec, box = BODY) {
+  const n = spec.sections.length, cur = spec.current ?? 0, items = (spec.sections[cur].items || []).length;
+  const sh = Math.min(0.62, box.h / (n + items * 0.6 + 0.5)), w = Math.min(7.5, box.w * 0.62);
+  let y = box.y + 0.1;
+  spec.sections.forEach((s, i) => {
+    const on = i === cur, done = i < cur;
+    if (on) slide.addShape("rect", { x: box.x, y, w, h: sh, fill: { color: C.navy }, line: { type: "none" } });
+    chip(slide, i + 1, box.x + 0.12, y + (sh - 0.36) / 2, 0.36, on ? C.accent : done ? C.g4 : C.g3);
+    txt(slide, s.title, box.x + 0.62, y, w - 0.7, sh, { max: 18, min: 12, bold: on, color: on ? C.white : done ? C.g4 : C.text, valign: "middle" });
+    y += sh + 0.08;
+    if (on) (s.items || []).forEach((it) => { txt(slide, "– " + it, box.x + 0.9, y, w - 1, sh * 0.6, { max: 14, min: 10, color: C.navy, valign: "middle" }); y += sh * 0.6; });
+  });
+}
+
+// Target number built as a multiplication/addition tree (stores = cities × density × fit; revenue = users × visits × spend),
+// each leaf tied to a lettered initiative and its value. spec.root:{label, value}, spec.op:"×"|"+", spec.leaves:[{label, value, letter?, initiative?, hi?}]
+function valueTree(slide, spec, box = BODY) {
+  const n = spec.leaves.length, rw = Math.min(2.4, box.w * 0.22), lw = Math.min(2.6, box.w * 0.25), hasI = spec.leaves.some((l) => l.initiative);
+  const rx = box.x, lx = box.x + rw + 0.7, ix = lx + lw + 0.5, iw = box.x + box.w - ix, lh = Math.min(1.0, (box.h - (n - 1) * 0.25) / n);
+  const tot = n * lh + (n - 1) * 0.25, y0 = box.y + (box.h - tot) / 2, cy = box.y + box.h / 2;
+  slide.addShape("rect", { x: rx, y: cy - 0.6, w: rw, h: 1.2, fill: { color: C.navy }, line: { type: "none" } });
+  txt(slide, [{ text: spec.root.value || "", options: { fontSize: 22, bold: true, breakLine: true } }, { text: spec.root.label, options: { fontSize: 11 } }], rx + 0.08, cy - 0.6, rw - 0.16, 1.2, { color: C.white, align: "center", valign: "middle" });
+  slide.addShape("line", { x: rx + rw, y: cy, w: 0.35, h: 0, line: { color: C.g5, width: 1 } });
+  slide.addShape("line", { x: rx + rw + 0.35, y: y0 + lh / 2, w: 0, h: tot - lh, line: { color: C.g5, width: 1 } });
+  spec.leaves.forEach((l, i) => {
+    const y = y0 + i * (lh + 0.25);
+    slide.addShape("line", { x: rx + rw + 0.35, y: y + lh / 2, w: 0.35, h: 0, line: { color: C.g5, width: 1 } });
+    slide.addShape("rect", { x: lx, y, w: lw, h: lh, fill: { color: l.hi ? C.hiBand : C.g1 }, line: { color: l.hi ? C.navy : C.g3, width: 1 } });
+    txt(slide, [{ text: l.label, options: { bold: true, breakLine: !!l.value } }].concat(l.value ? [{ text: l.value, options: { color: C.navy } }] : []), lx + 0.08, y, lw - 0.16, lh, { max: 12, min: 9, valign: "middle" });
+    if (i < n - 1) txt(slide, spec.op || "×", lx + lw / 2 - 0.2, y + lh - 0.02, 0.4, 0.29, { fontSize: 14, bold: true, color: C.g5, align: "center", valign: "middle", margin: 0 });
+    if (hasI && l.initiative) {
+      slide.addShape("line", { x: lx + lw, y: y + lh / 2, w: 0.5 - 0.06, h: 0, line: { color: C.g4, width: 1, endArrowType: "triangle" } });
+      chip(slide, l.letter || String.fromCharCode(65 + i), ix, y + lh / 2 - 0.17, 0.34, l.hi ? C.accent : C.navy);
+      txt(slide, l.initiative, ix + 0.42, y, iw - 0.42, lh, { max: 12, min: 9, valign: "middle", bold: !!l.hi });
+    }
+  });
+}
+Object.assign(module.exports, { harvey, vlabel, riskMatrix, gantt, scoringTable, initiativeMatrix, explodedBar, heatGrid, agendaTracker, valueTree });

@@ -76,6 +76,11 @@ def split(obj, gutter_in=0.14, min_w_in=1.6, min_h_in=0.9):
         x, y, w, h = bbs[i]
         return y + h < 0.15 * SH and (not _prsts(els[i]) or _kind(els[i]) == "pic" or h < 0.06 * SH)
     keep = [i for i in keep if not crumb(i)]
+    # long thin divider lines (vertical between panels, horizontal rules) separate panels: they must not block a cut
+    def divider(i):
+        x, y, w, h = bbs[i]
+        return (w < 0.03 * EMU / k and h > 0.4 * SH) or (h < 0.03 * EMU / k and w > 0.6 * SW)
+    keep = [i for i in keep if not divider(i)]
     if len(keep) < 3: return []
     X0 = min(bbs[i][0] for i in keep); Y0 = min(bbs[i][1] for i in keep)
     X1 = max(bbs[i][0] + bbs[i][2] for i in keep); Y1 = max(bbs[i][1] + bbs[i][3] for i in keep)
@@ -85,6 +90,29 @@ def split(obj, gutter_in=0.14, min_w_in=1.6, min_h_in=0.9):
     if len(rest) < 3: return []
     s = EMU / k
     leaves = _xycut(rest, bbs, gutter_in * s, min_w_in * s, min_h_in * s)
+    if len(leaves) < 2:
+        # second try: text-only boxes and label tables often straddle the gutter (axis-label tables, long captions);
+        # cut on the drawn elements only, then give each text element to the panel it overlaps most
+        def texty(i):
+            e = els[i]
+            if _kind(e) == "graphicFrame": return e.find(".//a:tbl", NS) is not None and bbs[i][3] < 0.8 * s
+            return _kind(e) == "sp" and not O._filled(e)
+        drawn_ix = [i for i in rest if not texty(i)]
+        if len(drawn_ix) >= 3:
+            sh = 0.05 * s                                                            # tolerate hairline overlaps between bands
+            tb = list(bbs)
+            for i in drawn_ix: x, y, w, h = bbs[i]; tb[i] = (x + sh, y + sh, max(1, w - 2 * sh), max(1, h - 2 * sh)) if w > 3 * sh and h > 3 * sh else bbs[i]
+            lv = _xycut(drawn_ix, tb, gutter_in * s, min_w_in * s, min_h_in * s)
+            if len(lv) >= 2:
+                box = lambda g: (min(bbs[i][0] for i in g), min(bbs[i][1] for i in g), max(bbs[i][0] + bbs[i][2] for i in g), max(bbs[i][1] + bbs[i][3] for i in g))
+                lb = [box(g) for g in lv]
+                for i in rest:
+                    if i in drawn_ix: continue
+                    x, y, w, h = bbs[i]
+                    ov = [max(0, min(x + w, b[2]) - max(x, b[0])) * max(0, min(y + h, b[3]) - max(y, b[1])) for b in lb]
+                    j = max(range(len(lb)), key=lambda q: ov[q])
+                    if ov[j] > 0.5 * w * h: lv[j].append(i)                         # straddlers that fit no panel are left out
+                leaves = lv
     if len(leaves) < 2: return []                                                  # the slide is one diagram already
     for b in big:                                                                  # a big box that wraps exactly one leaf is its frame
         bx, by, bw, bh = bbs[b]
@@ -120,7 +148,8 @@ def split_deck(store_dir, deck):
     objs = [json.loads(l) for l in gzip.open(fp, "rt", encoding="utf-8")]
     objs = [o for o in objs if "part_of" not in o]                                # idempotent
     allp = []
-    for o in objs: allp += split(o)
+    for o in objs:
+        if not o.get("vector_of"): allp += split(o)                               # vectorised objects are already single drawings
     with gzip.open(fp, "wt", encoding="utf-8") as f:
         for o in objs + allp: f.write(json.dumps(o, ensure_ascii=False) + "\n")
     O._CACHE.clear()

@@ -64,7 +64,7 @@ function frame(pres, slide, { title, subtitle, source, page, tracker, onLayout =
   } else {
     txt(slide, title, G.left, G.titleTop, G.contentW - 2, G.titleH, { fontSize: HOUSE.TYPE.title, bold: true, color: C.navy, valign: "bottom", name: "title" });
     if (subtitle) txt(slide, subtitle, G.left, G.subY, G.contentW - 2, 0.34, { fontSize: 14, color: C.g5, name: "subtitle" });
-    if (source) txt(slide, source, G.left, G.footY, 9.5, G.footH, { fontSize: 9, color: C.g4, valign: "bottom", name: "source" });
+    if (source) txt(slide, source, G.left, G.footY, 9.5, G.footH, { fontSize: 9, color: C.g5, valign: "bottom", name: "source" });
   }
   if (tracker) trackerBar(slide, tracker);
 }

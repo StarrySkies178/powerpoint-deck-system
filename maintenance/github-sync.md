@@ -20,3 +20,8 @@ The folder on the Mac is the source of truth. `github.com/StarrySkies178/powerpo
 - Keep the repo **private**: `Templates/` holds third-party decks.
 - Never commit secrets (tokens, `.env`, credentials).
 - GitHub rejects files over 100 MB. If one appears, leave it out and tell the user.
+
+## Lessons from real syncs (2026-11-23)
+- **Write a manifest first:** `find . -type f ! -name '.DS_Store' ! -name '~$*' ! -path './logs/sync-manifest.tsv' -printf '%P\t%s\n' | sort > logs/sync-manifest.tsv`, stage it, and use it as the checklist: every path must exist in the staged copy with the same size before committing.
+- **Stage only what changed** since the last sync (newer mtime, or missing/different size in the staged copy); copies made with `cp -p` keep old dates, so always finish with the size check.
+- **One staging call at a time, each ≤ ~35 MB and ≤ 45 files.** Several calls at once time out.

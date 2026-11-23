@@ -44,6 +44,8 @@ Recap  (the overview slide again)    Appendix: models, assumptions, extra data
 
 ## 2. Four ways they write the executive summary
 
+More forms (situation → pillars → outcome; label-block rows; situation · strategy · projection) in `case-competitions-2019-2020.md` §2.
+
 | Form | How it looks | Best for | Seen in |
 |---|---|---|---|
 | **Lettered conclusions** | A / B / C bold conclusions, each with 2–4 ➢ supporting points. The letters come back in later slide titles ("A Premium skin care…", "C2 Mid-tier colour…") | Readers who jump to a section; long decks | Harvester |
@@ -124,6 +126,8 @@ By deck: Neptune and Harvester build most analysis slides as **GRID4I**; Sparkle
 **Builder:** `composeSlide(pres, slide, {layout, panels, insights, soWhat, decision, tactics})` in `Generators/patterns_story.js` draws any of these layouts, plus MULTI (small multiples with the same categories and highlight) and TXC (text left, chart right) from the libraries, and `boxed:true` for the header-on-a-box panel style (see `Style/refs/template-libraries.md`, composition). `fadeOut()` greys out panels for live, step-by-step presenting. A panel can be a native chart (`chart`), bullets, any generator (`draw`), or a **reused object from the store** (`object: "<id>"`: a template drawing, a diagram part or a vectorised chart), placed afterwards by `Generators/fill_objects.py`. Test deck: `Generators/compose-demo.pptx`.
 
 ## 5. Message → figure: how they turn a point into a picture
+
+New rows from the 2019–20 decks (risk heat map, value tree, heat grid, scoring table, initiative matrix, exploded bar, phased Gantt, agenda tracker) are in `case-competitions-2019-2020.md` §5.
 
 This is the core of what the decks teach. The same kind of message gets the same kind of exhibit, and one highlight carries the point.
 

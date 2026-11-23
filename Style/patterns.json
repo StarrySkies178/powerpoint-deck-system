@@ -33,12 +33,13 @@
    "title_example": "We should enter the SE Asia market in 2026 through a JV",
    "engine": "tree",
    "keywords": "executive summary|hypothesis tree|storyline|report title",
-   "variants": "lettered conclusions (A/B/C); decision framework (stages x dimensions -> answer -> goal); story diagram (findings -> target -> strategies -> next steps); pyramid diagram",
+   "variants": "lettered conclusions (A/B/C); decision framework (stages x dimensions -> answer -> goal); story diagram (findings -> target -> strategies -> next steps); pyramid diagram; situation boxes -> pillars -> outcome (T3B1)",
    "source_slides": {
-    "Deloitte-timesaver": "40-41"
+    "Deloitte-timesaver": "40-41",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 2,
-   "generator": "Generators/patterns_story.js letteredSummary / decisionFramework / storyDiagram / pyramidSummary"
+   "generator": "Generators/patterns_story.js letteredSummary / decisionFramework / storyDiagram / pyramidSummary / composeSlide T3B1"
   },
   {
    "id": "issue-tree",
@@ -88,15 +89,16 @@
    "title_example": "ROE fell 3 pts because asset turnover dropped",
    "engine": "tree",
    "keywords": "driver tree|dupont|roic|cagr tree|productivity tree|kpi tree|value sources",
-   "variants": "",
+   "variants": "target = a x b x c with each leaf tied to a lettered initiative",
    "source_slides": {
     "Deloitte-timesaver": "42-46,91-92",
     "McKinsey-frequently-used": "116,118",
     "BearingPoint-diagrams": "150-151",
-    "Roland-Berger-modules": "347"
+    "Roland-Berger-modules": "347",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 12,
-   "generator": "issueTree"
+   "generator": "issueTree; Generators/patterns_story.js valueTree"
   },
   {
    "id": "text-columns",
@@ -231,13 +233,14 @@
    "title_example": "",
    "engine": "row",
    "keywords": "tracker|navigator|fade-outs|cover-ups|contents|agenda|index",
-   "variants": "",
+   "variants": "agenda repeated before each section with the current section highlighted",
    "source_slides": {
     "Deloitte-timesaver": "1-2,116",
-    "BCG-writing-clear-slides": "44-45"
+    "BCG-writing-clear-slides": "44-45",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 5,
-   "generator": "frame({tracker})"
+   "generator": "frame({tracker}); Generators/patterns_story.js agendaTracker"
   },
   {
    "id": "case-study",
@@ -455,7 +458,7 @@
    "title_example": "",
    "engine": "grid",
    "keywords": "gantt|workplan|timetable|schedule|measures plan|implementation plan|project plan|activity plan",
-   "variants": "",
+   "variants": "Gantt grouped by pillar under a phase staircase (0-1 / 1-3 / 3-5 years, named phases), priority bars in the main colour, milestones as diamonds",
    "source_slides": {
     "McKinsey-frequently-used": "119-120,251-266",
     "Quick-Presentation-Toolkit": "47-52,89,264-268,350-354",
@@ -464,10 +467,11 @@
     "EY-graphics": "188-194",
     "BearingPoint-diagrams": "80-82,121,126",
     "Concept-graphics-mono": "163-165",
-    "Bain-concept-diagrams": "141-142"
+    "Bain-concept-diagrams": "141-142",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 71,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js gantt"
   },
   {
    "id": "phase-matrix",
@@ -486,17 +490,18 @@
    "title_example": "",
    "engine": "grid",
    "keywords": "phase matrix|matrix 1|matrix 2|chevron header grid|workstreams|roadmap|multi-stream|swimlane|project phases|strategy development framework|competitive strategy",
-   "variants": "",
+   "variants": "named phases over the roadmap",
    "source_slides": {
     "Quick-Presentation-Toolkit": "262,313-318,348,400-401",
     "EY-graphics": "173-178",
     "BearingPoint-diagrams": "101-103,129",
     "Deloitte-timesaver": "138,140,161",
     "McKinsey-frequently-used": "242-243",
-    "Roland-Berger-modules": "265"
+    "Roland-Berger-modules": "265",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 26,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js gantt (phases)"
   },
   {
    "id": "swimlanes",
@@ -1287,7 +1292,7 @@
    "title_example": "Option B scores best on four of five criteria",
    "engine": "grid",
    "keywords": "scoring|harvey|moons|stars|traffic light|heat map|table with arrows|evaluation|assessment|rating|benchmark|capability",
-   "variants": "options x criteria with a verdict column (tick/cross, up/down); client-vs-peers diagnosis with the client column dashed",
+   "variants": "options x criteria with a verdict column (tick/cross, up/down); client-vs-peers diagnosis with the client column dashed; Harvey balls or ticks per player x criterion, own column in a dashed box, verdict row, vertical row-group labels",
    "source_slides": {
     "Quick-Presentation-Toolkit": "213-215,217,222-223",
     "Deloitte-timesaver": "165-169",
@@ -1295,10 +1300,11 @@
     "EY-graphics": "179-181",
     "AT-Kearney-charts": "49,173,232",
     "McKinsey-frequently-used": "155",
-    "Roland-Berger-modules": "403"
+    "Roland-Berger-modules": "403",
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
    },
    "source_count": 22,
-   "generator": "not yet — build on its engine when first needed"
+   "generator": "Generators/patterns_story.js scoringTable"
   },
   {
    "id": "table",
@@ -2226,6 +2232,102 @@
    },
    "source_count": 120,
    "generator": "Generators/patterns_story.js evidencePanels"
+  },
+  {
+   "id": "risk-matrix",
+   "category": "F. Forces & cause-effect",
+   "name": "Risk heat map with mitigations",
+   "story": "Which risks matter most and what we do about each.",
+   "use_when": "Risk section of a recommendation.",
+   "avoid_when": "One or two risks: use a short list.",
+   "parts": "likelihood x impact grid, numbered risk dots, dashed priority zone -> chevron -> risk | mitigation rows with the same numbers",
+   "count": [
+    3,
+    8
+   ],
+   "scaling": "rows share the height; >8 risks: group them",
+   "emphasis": "dots in the priority zone in the accent colour",
+   "title_example": "Four risks need action now; the rest we monitor",
+   "engine": "grid",
+   "keywords": "risk|mitigation|likelihood|impact|heat map",
+   "variants": "map only (labels beside dots); quadrant names (detect / prevent / monitor / low control)",
+   "source_slides": {
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
+   },
+   "source_count": 7,
+   "generator": "Generators/patterns_story.js riskMatrix"
+  },
+  {
+   "id": "heat-grid",
+   "category": "E. Compare & position",
+   "name": "Segment heat grid",
+   "story": "Where the demand concentrates across two dimensions.",
+   "use_when": "Choosing target segments or cells among many.",
+   "avoid_when": "Fewer than 6 cells: use bars.",
+   "parts": "rows (segments, optional vertical group labels) x columns (needs) cells shaded by value, target cells dashed",
+   "count": [
+    6,
+    40
+   ],
+   "scaling": "cell size from the grid; labels 9-12 pt",
+   "emphasis": "target cells boxed",
+   "title_example": "Young professionals in tier-1 cities are the core segment",
+   "engine": "grid",
+   "keywords": "heat map|segment|matrix|share by cell",
+   "variants": "customer-type mosaic with icons",
+   "source_slides": {
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
+   },
+   "source_count": 3,
+   "generator": "Generators/patterns_story.js heatGrid"
+  },
+  {
+   "id": "initiative-matrix",
+   "category": "A. Argument & storyline",
+   "name": "Initiative matrix",
+   "story": "The initiatives side by side, each read top-down from what to impact.",
+   "use_when": "Strategy overview; comparing 3-4 initiatives on the same rows.",
+   "avoid_when": "One initiative: use a card.",
+   "parts": "lettered column headers x labelled row bands (overview / detail / impact), optional journey chain at the foot",
+   "count": [
+    2,
+    5
+   ],
+   "scaling": "columns share the width",
+   "emphasis": "the pillar being discussed tinted",
+   "title_example": "Four initiatives improve every step of the customer journey",
+   "engine": "grid",
+   "keywords": "initiatives|pillars|overview detail impact",
+   "variants": "COL4/COLN layout of panels",
+   "source_slides": {
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
+   },
+   "source_count": 4,
+   "generator": "Generators/patterns_story.js initiativeMatrix"
+  },
+  {
+   "id": "exploded-bar",
+   "category": "G. Data",
+   "name": "Exploded bar (bar of bar)",
+   "story": "Of those who do X, why or how?",
+   "use_when": "A share whose sub-group needs a breakdown (survey results).",
+   "avoid_when": "The breakdown is of the whole: use one bar chart.",
+   "parts": "one stacked column -> dashed bracket from the chosen segment -> breakdown bar chart",
+   "count": [
+    3,
+    10
+   ],
+   "scaling": "breakdown bars share the height",
+   "emphasis": "chosen segment and top reason in the main colour",
+   "title_example": "Nine in ten work out, and most do it to keep in shape",
+   "engine": "chart",
+   "keywords": "survey|breakdown|of which|bar of bar",
+   "variants": "two-level explosion",
+   "source_slides": {
+    "Case-2019/2020 decks": "see Style/refs/case-competitions-2019-2020.md §5"
+   },
+   "source_count": 2,
+   "generator": "Generators/patterns_story.js explodedBar"
   }
  ]
 }

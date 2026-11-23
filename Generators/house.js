@@ -49,8 +49,8 @@ function defineLayouts(pres) {
   const t = (o) => ({ fontFace: FONT.latin, margin: 0, ...o });
   const titlePh = { placeholder: { options: t({ name: "title", type: "title", x: GRID.left, y: GRID.titleTop, w: GRID.contentW - 1.5, h: GRID.titleH, fontSize: TYPE.title, bold: true, color: R("main"), align: "left", valign: "bottom" }), text: "Action title: the point of the slide in one sentence" } };
   const subPh = { placeholder: { options: t({ name: "subtitle", type: "body", x: GRID.left, y: GRID.subY, w: GRID.contentW - 1.5, h: 0.34, fontSize: TYPE.subtitle, color: R("grey1"), align: "left" }), text: "What the exhibit shows, unit" } };
-  const srcPh = { placeholder: { options: t({ name: "source", type: "body", x: GRID.left, y: GRID.footY, w: 9.5, h: GRID.footH, fontSize: TYPE.foot, color: R("grey2"), valign: "bottom" }), text: "Source: …" } };
-  const num = { x: W - GRID.right - 0.8, y: GRID.footY, w: 0.8, h: GRID.footH, fontFace: FONT.latin, fontSize: TYPE.foot, color: R("grey2"), align: "right", valign: "bottom", margin: 0 };
+  const srcPh = { placeholder: { options: t({ name: "source", type: "body", x: GRID.left, y: GRID.footY, w: 9.5, h: GRID.footH, fontSize: TYPE.foot, color: R("grey1"), valign: "bottom" }), text: "Source: …" } };
+  const num = { x: W - GRID.right - 0.8, y: GRID.footY, w: 0.8, h: GRID.footH, fontFace: FONT.latin, fontSize: TYPE.foot, color: R("grey1"), align: "right", valign: "bottom", margin: 0 };
   const fullRect = (hex) => ({ rect: { x: 0, y: 0, w: W, h: H, fill: { color: hex }, line: { type: "none" } } });
   const B = GRID.body;
 

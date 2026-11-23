@@ -42,7 +42,7 @@ The style is fixed and the layout is chosen per slide, like a magazine: every pa
 | Start of every deck task | This file | n/a |
 | **The user gives a new reference** (deck, template, library, PDF, screenshot), now or in any future chat | `maintenance/new-reference.md`. Do it **before** using the reference: ingest, look at every slide, map patterns, save objects and single diagrams, measure formatting, inventory charts, apply lessons to every deck; finish with `scripts/audit_reference.py` (must be ALL PASS) | n/a: this step is never skipped |
 | Stage 1, and before every batch | `Style/style-rules.md` (Section 1 says reference vs house default). When matching a reference, read its card in `Style/refs/` before every batch | Use the "shared rules" in `Style/style-findings.md`. Anything marked *proposed* or *open* there: use it, but say so |
-| Stage 2–3 of **every** deck: storyline and choosing figures | `Style/storytelling.md` (§8 = case-study rules), then `Style/refs/case-competitions.md` §2 (exec-summary forms), §5 (message → figure), §6b (formatting) | Section 4 of this file |
+| Stage 2–3 of **every** deck: storyline and choosing figures | `Style/storytelling.md` (§8 = case-study rules), then `Style/refs/case-competitions.md` §2 (exec-summary forms), §5 (message → figure), §6b (formatting), and `Style/refs/case-competitions-2019-2020.md` §2 and §5 (more forms and figures) | Section 4 of this file |
 | Stage 3: choosing archetypes | Sections 4–5 of this file, then `catalogue/<message-type>.md` for each type used | Use Sections 4–5 only, and mark the slide "no spec yet" in the plan |
 | Stage 4: building a slide | `master/README.md` (layouts, colour slots), `Generators/patterns.js` (one function per pattern), `Style/pattern-catalogue.md` for the pattern's story and scaling rule. To reuse a template drawing: `Objects/README.md` + `Generators/objstore.py` | Build by hand in the house style on the master, and note it in the usage log |
 | Stage 3–4: any photo, logo, headshot or icon | `Objects/images.md` (sources, licences and image rules) | n/a |
@@ -66,13 +66,17 @@ Don't open `maintenance/` files during a normal build. They are for changing the
 - Every title is an **action title**: a full sentence of at most 2 lines that states the point ("Margin fell 3 pts, driven by freight costs"), not a topic ("Margin").
 - **Title test:** the titles alone must tell the full story.
 - **Always apply the storyline rules in `Style/storytelling.md` §8** (every deck, no exceptions):
-  - Executive summary in one of the four forms: lettered conclusions, decision framework, story diagram or pyramid (`patterns_story.js`).
+  - Executive summary in one of the forms: lettered conclusions, decision framework, story diagram, pyramid, or situation → pillars → outcome (`T3B1`) (`patterns_story.js`).
   - Title chain: connectives (*therefore, hence, meanwhile, furthermore, in the long term*) where a slide follows from the one before.
   - Each block of evidence ends in a "Therefore…" decision slide that shows the choice as a table or matrix.
   - In a recommendation, a problem slide comes before each strategy pillar.
   - Decks over 12 slides: role tags in titles ("Analysis n:", "Strategy n:", "S-term:", "L-term:", value-chain stage) or exec-summary letters (A, B, C1…) reused in section titles.
   - A deck with financials includes a value bridge: waterfall from today to the target, by initiative.
   - Personas and competitors are named once and reused with the same name, picture and colour.
+  - A key-questions slide sits between the analysis and the strategy; the strategy answers the questions by number.
+  - The strategy has a short name; its pillars are lettered (A/B/C, A1…) and the letter chip leads every title of that pillar.
+  - Risks are a numbered heat map with the same numbers in the mitigation list (`riskMatrix`).
+  - A headline target is shown as a value tree tied to the initiatives (`valueTree`); the roadmap is a Gantt under named phases (`gantt`).
   - Under the title list, write one line per rule: how it is met, or why it doesn't apply to this deck.
 
 ➡ **Show the storyline and carry on.** This is the cheapest point for the user to redirect, so make it easy to read; don't wait unless they asked to review first.
@@ -90,7 +94,7 @@ Also check the **slide rules** from `Style/storytelling.md` §8:
 - Analysis slides: at most 3 numbered panels, each with a sentence sub-headline; together they prove the title (`evidencePanels`).
 - The so-what sits in the same fixed place on every analysis slide (`soWhat()` box or takeaway bar).
 - Choose each figure from the message → figure table (`Style/refs/case-competitions.md` §5); one highlight makes the point.
-- **Slide layout:** analysis slides normally combine 2–4 figures using a layout from `Style/refs/case-competitions.md` §4b (HALF2, GRID4I, BAND2, T2B1, T1B2, GRID4, EXI, L2R1, COL3, FLOW, CHAIN, EXB), built with `composeSlide()`; a panel can be a native chart, any generator, or a reused store object (`object:` + `Generators/fill_objects.py`). One-figure slides are for the exec summary, frameworks, roadmaps and big single charts. Vary layouts across the deck (never the same layout three slides running).
+- **Slide layout:** analysis slides normally combine 2–4 figures using a layout from `Style/refs/case-competitions.md` §4b (HALF2, GRID4I, BAND2, T2B1, T1B2, T3B1, GRID4, EXI, L2R1, R2L1, COL3, COL4/COLN, FLOW with 2–4 blocks, CHAIN, EXB), built with `composeSlide()`; add `takeaway` to a panel when each panel has its own so-what; a panel can be a native chart, any generator, or a reused store object (`object:` + `Generators/fill_objects.py`). One-figure slides are for the exec summary, frameworks, roadmaps and big single charts. Vary layouts across the deck (never the same layout three slides running).
 
 Then check the **rhythm rules**:
 - The same archetype never appears twice in a row.
@@ -179,7 +183,7 @@ Each archetype has a spec in `catalogue/`, in the format set out in `catalogue/R
 - Is there enough white space, and are elements aligned to the grid?
 - Does the slide feel like part of the same deck as its neighbours?
 - Do the titles alone still tell the story?
-- Storyline rules (§8 of storytelling.md): exec-summary form used; connectives in the title chain; every evidence block ends in a "Therefore…" decision; problem before each strategy; role tags in long decks; value bridge if there are financials; personas/competitors consistent
+- Storyline rules (§8 of storytelling.md): exec-summary form used; connectives in the title chain; every evidence block ends in a "Therefore…" decision; problem before each strategy; role tags in long decks; value bridge if there are financials; personas/competitors consistent; key-questions slide; named strategy with lettered pillars; numbered risk heat map; value tree + phased roadmap
 - Slide rules: ≤ 4 numbered panels with sentence sub-headlines in a §4b layout; Z reading order with the conclusion in the last cell; same palette and categories across panels; so-what in the same place on every analysis slide; one highlight per figure
 
 ---
