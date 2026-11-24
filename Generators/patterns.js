@@ -687,22 +687,157 @@ function phaseMatrix(slide, spec, box = BODY) {
       slide.addShape("rect", { x: x + 0.03, y, w: cw - 0.06, h: rh, fill: { color: hi ? C.hiBand : C.g1 }, line: { type: "none" } });
       const t = spec.cells?.[i]?.[j]; if (t) txt(slide, t, x + 0.1, y + 0.05, cw - 0.2, rh - 0.1, { max: 12, min: 8, valign: "middle" }); }); });
 }
-function dataTable(slide, spec, box = BODY) {
-  // spec.header:[...], spec.rows:[[...]], spec.highlightRow ; native, editable PowerPoint table
-  const S = HOUSE.STYLE, ts = (S && S.table) || {}, style = spec.style || ts.style || "bands";
-  const hf = spec.headerFill !== undefined ? spec.headerFill : (style === "lines" && S ? null : (ts.header_fill || C.navy)), ht = spec.headerText || (hf && contrast(hf, "FFFFFF") >= 3 ? C.white : C.text);
-  const lines = style === "lines", pt = spec.fontSize || ts.pt || (S ? HOUSE.TYPE.label : 12);
-  const hr = ts.header_rule || [C.text, 1], rr = ts.row_rule || [C.g3, 0.75];
-  const rows = [spec.header.map((h, j) => ({ text: h, options: { bold: true, color: hf ? ht : C.text, fill: hf ? { color: hf } : undefined, align: j && spec.alignRight !== false ? "right" : "left",
-      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: hr[0], pt: hr[1] }, { type: "none" }] : undefined } })),
-    ...spec.rows.map((r, i) => r.map((c, j) => ({ text: String(c), options: { bold: spec.highlightRow === i || (j === 0 && spec.boldFirst !== false && !lines),
-      fill: lines ? undefined : { color: spec.highlightRow === i ? C.hiBand : (i % 2 ? C.g1 : C.white) },
-      align: spec.alignRight !== false && j && (typeof c === "number" || /^[\d.,%+\-–$¥€x ]+$/.test(String(c))) ? "right" : "left",
-      border: lines ? [{ type: "none" }, { type: "none" }, { type: "solid", color: rr[0], pt: rr[1] }, { type: "none" }] : undefined } })))];
-  const colW = spec.colW && spec.colW.reduce((x, y) => x + y, 0) <= 1.01 ? spec.colW.map((f) => f * box.w) : spec.colW;   // shares of the box width, or inches
-  slide.addTable(rows, { x: box.x, y: box.y, w: box.w, colW, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, border: lines ? undefined : { type: "solid", color: C.g3, pt: 0.5 },
-    rowH: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)), h: Math.min(spec.maxRowH || 0.42, box.h / (spec.rows.length + 1)) * (spec.rows.length + 1), valign: "middle", margin: 0.04 });   // h: the frame's real height (pptxgenjs writes 1 in otherwise, and the lint then reads the table as a strip)
+// ---- tables (v2.57, roadmap 4.2 Run 2a). The one house table (solid navy header band, white bold text, hairline rows,
+// one light-blue row, 11 pt) is gone: the user failed all 10 house slides that carried it ("i know its ai right away").
+// Five forms studied from the reference decks' own tables (Style/table-forms.md), picked by content unless spec.form says:
+//   "ruled"     ruled table, no header band: header text bold in the main colour over one heavier rule, thin grey row rules
+//               (Polaris 19, Mindcraft 20, InnoVision 11)
+//   "rowblocks" coloured row-label blocks: each row label (or a merged group label, spec.groups) in its own filled block
+//               (Sparkle 8, E-Cluster 23, Mindcraft 27)
+//   "panels"    column panels under header boxes: each option a separate panel under its own header box, white gaps between
+//               (TrueNorth 15, OnTheNeptune 7, Mindcraft 12)
+//   "marks"     a ruled table whose cells carry things: Harvey balls, dots, ticks/crosses, tinted chips, a circled value, bars
+//               (Polaris 10 and 19, InnoVision 11 and 16, SSSR 19, Harvester 7, BearingPoint traffic lights)
+//   "statement" plain ruled statement for financials: period columns, numbers right-aligned, section rows, totals over a rule
+//               (Mindcraft 25 and 27, SSSR 19)
+// Cells are strings/numbers, or objects {text, harvey:0..4, dot:0..2, tick:true|false, chip:true, circle:true, bar:0..1, bold}.
+// Text at the deck's body size (HOUSE.TYPE.body), never shrunk; rows sized to their text and grown to fill the box up to 0.75 in,
+// so a table is never a low full-width strip (deck_lint: "table strip").
+const TABLE_FORMS = ["ruled", "rowblocks", "panels", "marks", "statement"];
+const _isNum = (s) => /^[\s(]*[-–+]?[$¥€£]?\s?[\d.,]+\s?(%|x|×|pp|bn|m|k|M|B|K)?[)\s]*$/.test(String(s)) && /\d/.test(String(s));
+const _isPeriod = (s) => /^(FY|CY)?\s?'?(19|20)?\d{2}([AEFBP]|e|E)?$|^(Q|H)[1-4]|^Year\s?\d|^\d{4}\s?[-–]\s?\d{2,4}$|年$/.test(String(s).trim());
+const _ems = (t) => [...String(t)].reduce((s, ch) => s + (/[\u2e80-\u9fff\uff00-\uffef]/.test(ch) ? 1 : 0.5), 0);
+const _cellText = (c) => (c && typeof c === "object" ? (c.text == null ? "" : String(c.text)) : (c == null ? "" : String(c)));
+const _hasMark = (c) => !!c && typeof c === "object" && ["harvey", "dot", "tick", "chip", "circle", "bar"].some((k) => c[k] !== undefined);
+function tableForm(spec) {
+  if (spec.form) return spec.form;
+  const body = spec.rows || [];
+  if (body.some((r) => r.some(_hasMark))) return "marks";
+  if (spec.groups) return "rowblocks";
+  const hdr = (spec.header || []).slice(1), cells = body.flatMap((r) => r.slice(1).map(_cellText)).filter((t) => t.trim());
+  if (hdr.length >= 2 && hdr.filter(_isPeriod).length >= hdr.length * 0.6 && cells.filter(_isNum).length >= cells.length * 0.7) return "statement";
+  const avg = cells.length ? cells.reduce((a, t) => a + t.length, 0) / cells.length : 0;
+  if (hdr.length >= 2 && hdr.length <= 4 && body.length <= 7 && avg >= 18) return "panels";
+  return "ruled";
 }
+// lines a text needs in a column (Arial: Latin ~0.52 em a character, CJK 1 em), at pt
+function _lines(text, wIn, pt) {
+  const cap = Math.max(1, (wIn * 72) / pt);   // ems per line
+  return String(text).split("\n").reduce((a, para) => {
+    let n = 1, cur = 0;
+    for (const word of para.split(/(\s+)/)) {
+      const em = [...word].reduce((s, ch) => s + (/[⺀-鿿＀-￯]/.test(ch) ? 1 : 0.5), 0);
+      if (cur + em > cap && cur > 0) { n++; cur = em; } else cur += em;
+      while (cur > cap) { n++; cur -= cap; }
+    }
+    return a + n;
+  }, 0);
+}
+function table(slide, spec, box = BODY) {
+  const form = tableForm(spec); if (!TABLE_FORMS.includes(form)) throw new Error("table: unknown form " + form);
+  const S = HOUSE.STYLE, ts = (S && S.table) || {};
+  // text at the deck's own table size: a reference's measured table text (profile table.pt, else its label size), the house's
+  // body size; a build may ask for larger, never smaller (the house table was 11 pt)
+  const base = S ? (ts.pt || (S.body && S.body.label_pt) || HOUSE.TYPE.body) : HOUSE.TYPE.body, pt = Math.max(spec.fontSize || 0, base);
+  const hr = ts.header_rule || [C.text, 1.5], rr = ts.row_rule || [C.g3, 0.75];
+  const hiLine = S ? C.accent : C.navy;                                              // highlight = outline + bold, never a tinted band
+  const groups = form === "rowblocks" && spec.groups ? spec.groups : null;          // [{label, rows:n}] -> merged first column
+  const header = (groups ? [spec.groupHeader || ""] : []).concat(spec.header || []);
+  const nc = header.length, rows = spec.rows || [];
+  let colW = spec.colW && spec.colW.reduce((x, y) => x + y, 0) <= 1.01 ? spec.colW.map((f) => f * box.w) : spec.colW;
+  if (colW && groups && colW.length === nc - 1) { const g = Math.min(box.w * 0.3, Math.max(1.1, ...groups.map((q) => (_ems(q.label) * 1.08 * Math.max(spec.fontSize || 0, S ? (ts.pt || (S.body && S.body.label_pt) || HOUSE.TYPE.body) : HOUSE.TYPE.body)) / 72 + 0.3))), k = (box.w - g) / colW.reduce((a, b) => a + b, 0); colW = [g, ...colW.map((w) => w * k)]; }
+  if (!colW) {   // first column a little wider; others share the rest by their longest text
+    const need = header.map((h, j) => Math.max(_cellText(h).length, ...rows.map((r) => _cellText(r[j - (groups ? 1 : 0)]).length), 4) ** 0.6);
+    if (groups) need[0] = Math.max(...groups.map((q) => String(q.label).length), 6) ** 0.6;
+    const sum = need.reduce((a, b) => a + b, 0); colW = need.map((n) => (n / sum) * box.w);
+  }
+  const sx = box.w / colW.reduce((a, b) => a + b, 0); colW = colW.map((w) => w * sx);
+  const pad = 0.08, lh = (pt * 1.2) / 72;
+  const gap = form === "panels" || form === "rowblocks" ? 0.05 : 0;
+  const hText = header.map(_cellText), hLines = Math.max(1, ...hText.map((t, j) => (t ? _lines(t, (colW[j] - 2 * pad) / 1.08, pt) : 1)));
+  const hH = Math.max(0.38, hLines * lh + 0.14) + (form === "panels" ? 0.06 : 0);
+  // body row heights from their text, then grown to fill the box (up to 0.75 in a row)
+  const body = rows.map((r) => (groups ? [null, ...r] : r));
+  let rH = body.map((r) => { const n = Math.max(1, ...r.map((c, j) => (c == null ? 1 : _lines(_cellText(c), colW[j] - 2 * pad - (c && c.bar !== undefined ? colW[j] * 0.45 : 0), pt))));
+    return Math.max(0.34, n * lh + (n > 1 ? 0.1 : 0.14)); });
+  const legendH = spec.legend ? 0.36 : 0;
+  const room = box.h - hH - (spec.unit ? lh + 0.05 : 0) - legendH, used = rH.reduce((a, b) => a + b, 0);
+  if (used < room) { const add = Math.min((room - used) / rH.length, Math.max(0, 0.75 - Math.min(...rH))); rH = rH.map((h) => h + add); }
+  const isTotal = (i) => (spec.totalRows || []).includes(i), isSection = (i) => (spec.sectionRows || []).includes(i);
+  const hiRow = spec.highlightRow, hiCol = spec.highlightCol;
+  const none = { type: "none" }, line = (c, w) => ({ type: "solid", color: c, pt: w }), white = (w) => ({ type: "solid", color: "FFFFFF", pt: w });
+  const numCol = header.map((_, j) => { const cs = body.map((r) => r[j]).filter((c) => c != null && (_hasMark(c) || _cellText(c).trim()));
+    return cs.length > 0 && cs.filter((c) => _hasMark(c) || _isNum(_cellText(c)) || /^[✓✗–-]$/.test(_cellText(c))).length >= cs.length * 0.6; });
+  const align = (t, j) => (j === 0 || (groups && j === 1) ? "left" : form === "statement" ? "right" : form === "panels" ? "center" : numCol[j] ? "center" : "left");
+  // header row
+  const top = [];
+  let y0 = box.y;
+  if (spec.unit) { txt(slide, spec.unit, box.x, y0, box.w, lh + 0.05, { fontSize: pt, keepSize: true, noScale: true, color: C.g5, margin: 0, valign: "bottom" }); y0 += lh + 0.05; }
+  top.push(hText.map((t, j) => {
+    const o = { bold: true, align: align(t, j), valign: "bottom", color: C.navy };
+    if (form === "panels") {
+      if (j === 0) Object.assign(o, { color: C.text, border: [none, none, none, none] });
+      else Object.assign(o, { color: C.white, valign: "middle", align: "center", fill: { color: hiCol === j ? C.accent : C.navy }, border: [white(4), white(4), white(4), white(4)] });
+    } else if (form === "statement") Object.assign(o, { color: C.text, border: [none, none, line(C.text, 1), none] });
+    else Object.assign(o, { border: [none, none, line(hr[0], hr[1]), none] });
+    return { text: t, options: o };
+  }));
+  // body rows
+  const trs = body.map((r, i) => r.map((c, j) => {
+    const t = c == null ? "" : _cellText(c), first = j === (groups ? 1 : 0);
+    const o = { align: align(t, j), valign: "middle", bold: hiRow === i || (first && form !== "statement") || isTotal(i) || (c && typeof c === "object" && c.bold) || (form === "statement" && isSection(i)), color: C.text };
+    if (form === "statement") {
+      Object.assign(o, { italic: isSection(i), border: [none, none, isTotal(i) || (i === body.length - 1 && spec.ruleLast) ? line(C.text, 1) : none, none] });
+      if (isTotal(i)) o.border = [none, none, none, none];
+      if (first && !isSection(i) && (spec.sectionRows || []).length) o.margin = [0.04, 0.04, 0.04, 0.25];
+    } else if (form === "panels") {
+      if (j === 0) Object.assign(o, { border: [none, none, line(rr[0], rr[1]), none] });
+      else Object.assign(o, { fill: { color: C.g1 }, bold: o.bold || hiCol === j, border: [white(4), white(4), white(4), white(4)] });
+    } else if (form === "rowblocks" && first && !groups) {
+      Object.assign(o, { fill: { color: spec.blockFill === "main" ? C.navy : C.g1 }, color: spec.blockFill === "main" ? C.white : C.text, border: [none, white(4), white(4), none] });
+    } else if (form === "rowblocks" && groups && j === 0) {
+      Object.assign(o, { border: [none, white(4), white(4), none] });
+    } else Object.assign(o, { border: [none, none, line(rr[0], rr[1]), none] });
+    if (c && c.chip) Object.assign(o, { fill: { color: C.g2 }, bold: true, border: [white(3), white(3), white(3), white(3)] });
+    if (_hasMark(c) && !c.chip && !c.circle) return { text: c.bar !== undefined ? t : "", options: { ...o, align: c.bar !== undefined ? "right" : o.align } };
+    return { text: t, options: o };
+  }));
+  // merged group labels (rowblocks with groups)
+  if (groups) { let i = 0; groups.forEach((g, k) => { if (i < trs.length) { trs[i][0] = { text: g.label, options: { rowspan: g.rows, bold: true, valign: "middle", align: "left",
+      fill: { color: g.hi || spec.highlightGroup === k ? C.navy : C.g1 }, color: g.hi || spec.highlightGroup === k ? C.white : C.text, border: [none, white(4), white(4), none] } };
+    for (let m = 1; m < g.rows && i + m < trs.length; m++) trs[i + m].shift(); } i += g.rows; }); }
+  // statement totals: rule on top of the total row (= under the row before it)
+  if (form === "statement") (spec.totalRows || []).forEach((i) => { if (i > 0) trs[i - 1].forEach((cell) => { if (cell && cell.options) cell.options.border = [none, none, line(C.text, 1), none]; }); });
+  const allH = [hH, ...rH], tH = allH.reduce((a, b) => a + b, 0);
+  slide.addTable([...top, ...trs], { x: box.x, y: y0, w: box.w, colW, rowH: allH, h: tH, fontFace: THEME.bodyFontFace, fontSize: pt, color: C.text, margin: [0.04, pad, 0.04, pad], valign: "middle", autoPage: false });
+  // overlays: highlight outline, marks
+  const yOf = (i) => y0 + hH + rH.slice(0, i).reduce((a, b) => a + b, 0), xOf = (j) => box.x + colW.slice(0, j).reduce((a, b) => a + b, 0);
+  if (hiRow != null && form !== "statement") slide.addShape("rect", { x: box.x, y: yOf(hiRow) + 0.02, w: box.w, h: rH[hiRow] - 0.04, fill: { type: "none" }, line: { color: hiLine, width: 1.75 } });
+  body.forEach((r, i) => r.forEach((c, j) => {
+    if (!_hasMark(c)) return;
+    const x = xOf(j), w = colW[j], y = yOf(i), h = rH[i], d = Math.min(0.3, h * 0.6), al = align(_cellText(c), j), cy = y + h / 2;
+    const cx = al === "left" ? x + pad + d / 2 : al === "right" ? x + w - pad - d / 2 : x + w / 2;
+    if (c.harvey !== undefined) harveyBall(slide, cx - d / 2, cy - d / 2, d, c.harvey);
+    if (c.dot !== undefined) { const lv = Math.max(0, Math.min(2, c.dot)), dd = d * 0.8;
+      slide.addShape("ellipse", { x: cx - dd / 2, y: cy - dd / 2, w: dd, h: dd, fill: { color: lv === 2 ? C.navy : lv === 1 ? C.g3 : C.white }, line: { color: lv === 0 ? C.g4 : lv === 2 ? C.navy : C.g3, width: 1 } }); }
+    if (c.tick !== undefined) txt(slide, c.tick ? "✓" : "✗", x, y, w, h, { fontSize: pt + 2, keepSize: true, noScale: true, bold: true, color: c.tick ? C.navy : C.g5, align: "center", valign: "middle", margin: 0 });
+    if (c.circle) { const tw = Math.min(w - 0.06, Math.max(0.55, (_ems(_cellText(c)) * pt) / 72 + 0.25)), th = Math.min(h - 0.04, lh + 0.14);
+      const ex = al === "center" ? cx - tw / 2 : al === "right" ? x + w - tw - 0.02 : x + 0.02;
+      slide.addShape("ellipse", { x: ex, y: cy - th / 2, w: tw, h: th, fill: { type: "none" }, line: { color: C.accent, width: 1.5 } }); }
+    if (c.bar !== undefined) { const tw = (_ems(_cellText(c)) * pt) / 72 + 0.12, room = Math.max(0.2, w - 2 * pad - tw), bw = Math.max(0.02, room * Math.max(0, Math.min(1, c.bar)));
+      slide.addShape("rect", { x: x + pad, y: cy - Math.min(0.12, h * 0.25), w: bw, h: Math.min(0.24, h * 0.5), fill: { color: c.hi || hiRow === i ? C.navy : C.g3 }, line: { type: "none" } }); }
+  }));
+  if (spec.legend && body.some((r) => r.some((c) => c && c.harvey !== undefined))) {
+    // spec.legend: [{q, label}] (Harvey quarters and their words), or labels for 0 / 2 / 4 quarters
+    const lg = spec.legend.map((e, k) => (typeof e === "object" ? e : { q: [0, 2, 4][k], label: e })), ly = y0 + tH + 0.1;
+    lg.forEach((e, k) => { harveyBall(slide, box.x + k * 1.6, ly, 0.2, e.q); txt(slide, e.label, box.x + k * 1.6 + 0.26, ly - 0.04, 1.3, 0.28, { fontSize: Math.max(10, pt - 2), keepSize: true, noScale: true, color: C.g5, margin: 0 }); });
+  }
+  const over = y0 + tH + legendH - (box.y + box.h);
+  if (over > 0.05) console.warn(`table: ${form} table needs ${(tH + y0 - box.y).toFixed(2)} in, its box is ${box.h.toFixed(2)} in high (over by ${over.toFixed(2)} in). Text stays at ${pt} pt: cut rows or columns, split the table, or give it a taller box`);
+  return { form, overflow: over > 0.05 ? over : 0, h: tH + (spec.unit ? lh + 0.05 : 0), rowY: rH.map((_, i) => yOf(i)), rowH: rH, colX: colW.map((_, j) => xOf(j)), colW };
+}
+// dataTable keeps its name for existing builds; it now draws one of the forms above (spec.style "bands" is gone)
+function dataTable(slide, spec, box = BODY) { return table(slide, spec, box); }
 function iconList(slide, spec, box = BODY) {
   // spec.items:[{label, text, icon?: base64 png}], numbered circles if no icon
   labelledRows(slide, spec, box);
@@ -733,7 +868,7 @@ function tagForms(mod, names) {
         if (o && o.options && !String(o.options.objectName || "").startsWith("form:")) o.options.objectName = "form:" + n + " " + (o.options.objectName || ""); }
       return r; }; }
 }
-module.exports = { icon, ICONS, treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
+module.exports = { icon, ICONS, treeDown, useStyle, chartStyle, crumbLine, tint, contrast, ACCENT_TEXT, gantt, orgChart, targetOnion, phaseMatrix, dataTable, table, tableForm, TABLE_FORMS, iconList, puzzleGrid, HOUSE, kpiRow, harveyBall, scoringTable, sticker, columnHighlight, THEME, C, W, H, BODY, frame, takeaway, trackerBar, txt, fitSize,
   chevronProcess, staircase, textColumns, timeline, labelledRows, cycle, hubSpoke, forcesIn,
   pyramid, funnel, matrix, converge, venn, issueTree, temple, beforeAfter, barRanking, waterfall };
 module.exports.tagForms = tagForms;

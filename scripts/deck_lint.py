@@ -38,6 +38,7 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
                    cause. Fix by adding the missing proof (a second exhibit, the numbers behind the claim, the so-what),
                    never by enlarging what is there or adding decoration.
   DECK W empty     the median content slide fills under 85% of its body
+  E table strip    a native table of 3 or more rows across at least 85% of the slide width but under 1.6 in high
   DECK W repeat    the same signature form (scoring table, waterfall, process, map …) on neighbouring slides, or on more
                    than 2 slides of a deck (1 in 10 for long decks). Read from the "form:<builder>" names the generators
                    give their first object, so only decks built with the folder's generators are checked
@@ -181,6 +182,12 @@ def lint_slide(prs, slide, n, st):
         if getattr(sh, "has_table", False) and sh.has_table:
             items[k] = (sh, (x, y, w, max(h, sum((r.height or 0) for r in sh.table.rows) / 914400)))
             table_words += sum(len(WORDS.findall(c.text)) + len(CJK.findall(c.text)) // 2 for r in sh.table.rows for c in r.cells)
+            # roadmap 4.2 Run 2a (v2.57): the house table was often a low strip across the whole slide (12.5 in wide, 1.3 to 1.6 in
+            # high); the user failed every slide that had one. 5 of the references' 126 native tables are that low and wide, all with
+            # one or two rows. Give it its rows' room, a narrower panel or another form (Style/table-forms.md).
+            th = items[k][1][3]
+            if w >= 0.85 * W and th < 1.6 and len(sh.table.rows) >= 3:
+                E.append(f"table strip: {len(sh.table.rows)} rows across {w:.1f} of {W:.1f} in but only {th:.2f} in high. Give the rows room (>= 1.6 in), a narrower panel or another form (Style/table-forms.md)")
     painted = []   # (z, kind, points, box, fill as seen (None for a picture), opacity) of every filled shape
     for z, (sh, (x, y, w, h)) in enumerate(items):
         full = w > 0.95 * W and h > 0.95 * H

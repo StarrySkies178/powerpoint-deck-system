@@ -1,0 +1,47 @@
+{
+ "case": "C08-risk-matrix-mindcraft",
+ "run": "run2a",
+ "scored": "2026-11-24 05:03",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.39,
+   "visual": 0.36,
+   "std": "9/11",
+   "failed": [
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "body margins (ref L 0.29 R 0.55; got L 0.37 R 0.28 in)",
+    "colours (off-palette #E48484)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.42,
+   "visual": 0.37,
+   "std": "10/11",
+   "failed": [
+    "colours"
+   ],
+   "detail": [
+    "colours (off-palette #E48484)"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.41,
+   "visual": 0.36,
+   "std": "9/11",
+   "failed": [
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "body margins (ref L 0.29 R 0.55; got L 0.36 R 0.30 in)",
+    "colours (off-palette #E48484)"
+   ]
+  }
+ }
+}

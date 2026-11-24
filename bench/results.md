@@ -1,4 +1,4 @@
-# Benchmark results: v2.53 Run 2b: C04 prompt corrected to the original slide (measuring tool), stored builds (2026-11-24 04:42)
+# Benchmark results: v2.57 Run 2a: table forms (after, final code), stored builds (2026-11-24 05:03)
 
 **Regression 7 / 7** (must stay all-pass) · **Capability 1 / 13** · **Total 8 / 20 pass**
 
@@ -25,7 +25,7 @@ Environment: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Py
 | D02-numbered-columns | fail | 9/10 | 0.76 | 0.82 | colours (off-palette #B4E4FC) |
 | C01-exec-summary-polaris | fail | 10/11 | 0.00 | 0.24 | body text size (ref median 16.0 / min 14.0 pt; got 15.5 / 12.5 pt) |
 | C02-gantt-risks-polaris | fail | 10/11 | 0.04 | 0.19 | body text size (ref median 14.0 / min 12.0 pt; got 13.0 / 9.5 pt) |
-| C03-assumptions-table-polaris | fail | 10/10 | 0.03 | 0.32 |  |
+| C03-assumptions-table-polaris | fail | 10/10 | 0.00 | 0.28 |  |
 | C04-two-charts-ecluster | fail | 11/11 | 0.24 | 0.25 |  |
 | C05-timeline-ecluster | fail | 7/10 | 0.00 | 0.01 | body text size (ref median 14.0 / min 14.0 pt; got 10.0 / 9.5 pt); body margins (ref L 0.84 R 1.10; got L 0.27 R 0.26 in); colours (off-palette #9CCCE4) |
 | C06-exec-summary-mindcraft | fail | 5/10 | 0.27 | 0.16 | title bold (ref True, got False); title colour (ref #FFFFFF, got #000000 (ΔE 100)); body text size (ref median 14.0 / min 14.0 pt; got 18.0 / 18.0 pt); body margins (ref L 0.39 R 5.05; got L 0.37 R 2.82 in); colours (off-palette #E48484) |

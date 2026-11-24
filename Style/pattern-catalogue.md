@@ -530,7 +530,8 @@
 - **Avoid when:** Main message slides (BCG: tables in appendix).
 - **Parts:** header row, row labels, thin rules, totals bold, numbers right-aligned
 - **Count:** 2–12 · **Engine:** grid
-- **Generator:** not yet — build on its engine when first needed
+- **Forms (since v2.57):** `ruled`, `rowblocks`, `panels`, `marks`, `statement`, each taken from the reference decks' own tables; never a solid header band over a hairline grid, never a low strip across the slide. See `Style/table-forms.md`.
+- **Generator:** `table()` in `Generators/patterns.js` (`dataTable()` calls it; the form is picked by content unless `form` is given)
 - **Scaling:** auto column widths; max ~8 cols x 12 rows
 - **Emphasis:** key row/column shaded
 - **Sources (21 slides):** Roland-Berger-modules 101-103,229-234,426; McKinsey-frequently-used 160-164; Deloitte-timesaver 4-7; Concept-graphics-mono 182; Bain-concept-diagrams 136
