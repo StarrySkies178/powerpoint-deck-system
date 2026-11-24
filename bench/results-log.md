@@ -36,3 +36,5 @@
 | 2026-11-24 03:20 | v2.46 Run 0: originals and floors from the PowerPoint PDFs (new baseline) (20 cases) | 8/20 (regression 7/8, capability 1/12) | 194/212 | 0.41 | 0.47 |
 | 2026-11-24 03:21 | v2.46 Run 0: originals and floors from the PowerPoint PDFs; D02 moved to capability (new baseline) (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
 | 2026-11-24 03:47 | v2.47 Run 1 (body text size rule and lint check), stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
+| 2026-11-24 04:06 | v2.51 Run 2 (numbers from the prompt, now checked), stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
+| 2026-11-24 04:25 | v2.51 Run 2 not kept: restored v2.49 files, stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |

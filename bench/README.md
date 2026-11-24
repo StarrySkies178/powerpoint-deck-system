@@ -124,6 +124,11 @@ Every case's `original.png` and its floors are now drawn from the reference deck
 
 **Baseline after Run 0** (every later run is compared with it): regression 7 of 7 (D02 moved out, see above), capability 1 of 13 (Z01), total 8 of 20. Fresh blind rebuilds of the C cases for change control live in `phase4/<run>/<case>/r1..r3` (`scripts/rebuild_briefs.py`, `scripts/bench_rebuilds.py`).
 
+**Runs measured against it** (fresh rebuilds: 3 per C case, mean of the per-case means):
+
+- Run 1 (v2.49, body text size from the reference, kept): stored builds unchanged; rebuilds 0 of 30 pass, layout 0.262 to 0.281, visual 0.285 to 0.316.
+- Run 2 (v2.51, a check that every number comes from the prompt, not kept): stored builds unchanged and none failed the check; rebuilds 0 of 30 pass, layout 0.281 to 0.271, visual 0.316 to 0.319, none failed the check; C05 fell 0.17 to 0.00 layout, beyond the 0.14 band, so the v2.49 files were restored. The tried code is in `archive/*_tried-not-kept-run2_2026-11-24.*`. Comparison images: `review-run2/`.
+
 ## Official environment (since 2026-11-24, roadmap step 1.3)
 
 **All benchmark numbers come from one place: the Linux VM of the Claude desktop app on the user's Mac, working on the folder itself** (`device_bash`, `~/mnt/Powerpoint`). Its fingerprint is in `bench/environment.json`: LibreOffice 26.2.6.3, poppler 22.02.0, pptxgenjs 4.0.1, aarch64, Python 3.10.12, Ubuntu 22.04; Arial renders as Liberation Sans, Microsoft YaHei as Noto Sans CJK SC.
