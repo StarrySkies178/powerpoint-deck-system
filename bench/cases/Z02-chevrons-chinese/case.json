@@ -7,7 +7,7 @@
  "suite": "capability",
  "palette": "slide",
  "floor": {
-  "layout": 0.359,
+  "layout": 0.356,
   "visual": 0.574,
   "others": [
    59,
@@ -29,9 +29,9 @@
    "6CCCE4",
    "6CCCFC",
    "848484",
-   "84CCE4",
    "84CCFC",
    "9C9C9C",
+   "9CE4FC",
    "B4B4B4",
    "B4CC0C",
    "B4E4FC",

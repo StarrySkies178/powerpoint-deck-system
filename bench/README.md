@@ -59,8 +59,10 @@ Each case in `cases.json` carries `"suite"`:
 
 | Suite | Cases (at v2.25) | What a run must show |
 |---|---|---|
-| **Regression** | D01–D08 (since v2.32; Z01 was in it from v2.25 to v2.31) | Stays 8 of 8. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
-| **Capability** | C01–C10, Z01, Z02 | Measures progress. Expected to start near 0 |
+| **Regression** | D01, D03–D08 (since v2.46; D02 was in it until v2.43, Z01 from v2.25 to v2.31) | Stays 7 of 7. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
+| **Capability** | C01–C10, D02, Z01, Z02 | Measures progress. Expected to start near 0 |
+
+**D02 moved to capability in v2.46 (Run 0).** Scored against the original as PowerPoint draws it, its stored build fails the colour check (a light blue, #B4E4FC, that the PowerPoint picture of the original does not contain). Z01 passes against the PowerPoint pictures but stays in capability until it passes 3 of 3 fresh rebuilds.
 
 **Z01 moved to capability in v2.32.** In the official environment (below) Z01 fails the colour check: the anti-aliased edges of its green Chinese title leave tints that are on no palette colour (196 px, 0.02% of the 320 x 180 shrink). That is a scorer issue, not a build error, but the scorer is frozen, so the case moved instead and regression is the 8 cases that pass in the official environment. The scorer change waits for Mike in `logs/proposals.md` (2026-11-24, `bench_score.py`, colour check). `cases.json` keeps the reason in Z01's `suite_note`.
 
@@ -115,6 +117,12 @@ What it shows, and its limits:
 Every build uses only what its `prompt.md` says, plus the framework (`Generators/`, `Style/refs/<deck>.profile.json`, `Objects/store`).
 
 **Builder briefs and the leave-one-out check (since v2.29).** A fresh builder gets its instructions from `cases/<id>/brief/brief.md` (`python3 bench/scripts/heldout.py brief` writes them). For a deck-as-reference case the brief also holds `slide-map.csv`: `Style/slide-map.csv` without the target slide's row, to be used instead of the original, and says to skip study-note examples that name the target. `heldout.py check` reads a C build's own files (`build.js`, `build.py`, notes) and reports a finding when they cite the target slide: one of its stored-object ids, "slide N" or `slides[N-1]` for its number, the short deck name with it ("Mindcraft 14"), or five words in a row from its slide-map row that are not in the prompt. `bench_run.py` and `bench_noise.py` run the check after scoring and fail a case with a finding (check "leave-one-out"); a person reads the finding. It cannot see what a builder only read, so the filtered slide map in the brief is the main safeguard. First check (2026-11-24): every stored C build is clean; C07 noise rebuild 2 is a finding (its comment reuses its target's slide-map words, and its builder had reported seeing the row), so that rebuild now counts as failed. It failed already, so no verdict changed.
+
+## Reference pictures from PowerPoint (since v2.46, roadmap 4.2 Run 0)
+
+Every case's `original.png` and its floors are now drawn from the reference decks as Microsoft PowerPoint exported them on the Mac (`originals-powerpoint/<deck>-ppt.pdf`, all five decks), rendered by the benchmark's own `pdftoppm` step: `python3 scripts/bench_setup.py ../Templates <dir with the PDFs named <deck>.pdf>`. The pictures used up to v2.43 were LibreOffice renders with substitute fonts (broken labels, overlapping text); they are kept in `archive/bench-originals_before-run0_v2.46_2026-11-24.zip` with the case files of that time. `original.json` (the measured standards) still comes from the .pptx; only its `render_colours` follow the new picture. Scorer and pass bar unchanged.
+
+**Baseline after Run 0** (every later run is compared with it): regression 7 of 7 (D02 moved out, see above), capability 1 of 13 (Z01), total 8 of 20. Fresh blind rebuilds of the C cases for change control live in `phase4/<run>/<case>/r1..r3` (`scripts/rebuild_briefs.py`, `scripts/bench_rebuilds.py`).
 
 ## Official environment (since 2026-11-24, roadmap step 1.3)
 

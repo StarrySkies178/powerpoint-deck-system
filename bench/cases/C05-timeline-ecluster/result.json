@@ -10,7 +10,7 @@
   {
    "check": "title position",
    "ok": true,
-   "detail": "ref left 0.00 top 0.78; got left 0.00 top 0.66 in"
+   "detail": "ref left 0.00 top 0.76; got left 0.00 top 0.66 in"
   },
   {
    "check": "title size",
@@ -54,7 +54,7 @@
   }
  ],
  "layout": 0.0,
- "visual": 0.0,
+ "visual": 0.01,
  "n_std": 10,
  "n_std_ok": 7,
  "candidate": {

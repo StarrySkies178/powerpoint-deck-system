@@ -1,6 +1,6 @@
 {
  "id": "D02-numbered-columns",
- "passed": true,
+ "passed": false,
  "standards": [
   {
    "check": "slide size",
@@ -10,7 +10,7 @@
   {
    "check": "title position",
    "ok": true,
-   "detail": "ref left 0.51 top 0.52; got left 0.50 top 0.56 in"
+   "detail": "ref left 0.51 top 0.47; got left 0.50 top 0.56 in"
   },
   {
    "check": "title size",
@@ -49,14 +49,14 @@
   },
   {
    "check": "colours",
-   "ok": true,
-   "detail": "all colours in the reference palette"
+   "ok": false,
+   "detail": "off-palette #B4E4FC"
   }
  ],
  "layout": 0.76,
  "visual": 0.82,
  "n_std": 10,
- "n_std_ok": 10,
+ "n_std_ok": 9,
  "candidate": {
   "size_in": [
    10.0,

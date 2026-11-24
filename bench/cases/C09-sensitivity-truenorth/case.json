@@ -6,8 +6,8 @@
  "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.576,
-  "visual": 0.628,
+  "layout": 0.579,
+  "visual": 0.637,
   "others": [
    6,
    9,
@@ -27,11 +27,12 @@
    "CC240C",
    "CC3C3C",
    "CCCCCC",
-   "E43C3C",
+   "E45454",
    "E46C6C",
    "E48484",
    "E49C9C",
    "E4E4E4",
+   "FCCCCC",
    "FCE4E4"
   ]
  },

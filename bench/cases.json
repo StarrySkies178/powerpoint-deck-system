@@ -1,6 +1,6 @@
 [
  {"id":"D01-data-table","deck":"Deloitte-timesaver","slide":6,"kind":"table","suite":"regression"},
- {"id":"D02-numbered-columns","deck":"Deloitte-timesaver","slide":11,"kind":"text","suite":"regression"},
+ {"id":"D02-numbered-columns","deck":"Deloitte-timesaver","slide":11,"kind":"text","suite":"capability","suite_note":"Moved from regression in v2.46 (Run 0, 2026-11-24): scored against the original as PowerPoint draws it, the stored build fails the colour check (off-palette #B4E4FC, a light blue the PowerPoint render of the original does not contain). Scorer and pass bar unchanged. Graduates back by the usual rule: 3 of 3 fresh rebuilds pass."},
  {"id":"D03-chevrons-text","deck":"Deloitte-timesaver","slide":14,"kind":"process","suite":"regression"},
  {"id":"D04-issue-tree","deck":"Deloitte-timesaver","slide":38,"kind":"framework","suite":"regression"},
  {"id":"D05-org-chart","deck":"Deloitte-timesaver","slide":47,"kind":"framework","suite":"regression"},

@@ -6,8 +6,8 @@
  "suite": "regression",
  "palette": "slide",
  "floor": {
-  "layout": 0.244,
-  "visual": 0.523,
+  "layout": 0.248,
+  "visual": 0.525,
   "others": [
    93,
    35,
@@ -19,7 +19,6 @@
    100
   ],
   "deck_colours": [
-   "0C246C",
    "0C3C84",
    "0C549C",
    "0C9CE4",
@@ -48,7 +47,8 @@
    "E42424",
    "E4243C",
    "E4E4E4",
-   "E4FCE4"
+   "E4FCE4",
+   "FCE4E4"
   ]
  },
  "skip_checks": []

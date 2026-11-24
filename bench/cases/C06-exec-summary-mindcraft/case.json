@@ -6,8 +6,8 @@
  "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.461,
-  "visual": 0.218,
+  "layout": 0.465,
+  "visual": 0.214,
   "others": [
    12,
    23,
@@ -25,17 +25,15 @@
    "54546C",
    "6C5454",
    "6C6C6C",
-   "6C849C",
    "848484",
    "9C9C9C",
-   "9CB49C",
    "9CB4B4",
    "B49C9C",
    "B4B4B4",
+   "CC5454",
    "CCCCCC",
-   "CCCCE4",
-   "E48484",
-   "E4E4E4"
+   "E4E4E4",
+   "FCE4E4"
   ]
  },
  "skip_checks": []

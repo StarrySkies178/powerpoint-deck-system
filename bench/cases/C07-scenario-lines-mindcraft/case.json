@@ -6,8 +6,8 @@
  "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.505,
-  "visual": 0.665,
+  "layout": 0.511,
+  "visual": 0.648,
   "others": [
    5,
    24,
@@ -19,21 +19,21 @@
    10
   ],
   "deck_colours": [
-   "0C0C0C",
    "3C3C3C",
    "545454",
    "6C5454",
    "6C6C6C",
-   "6CB43C",
    "848484",
    "9C9C9C",
-   "9CB49C",
    "B49C9C",
    "B4B4B4",
    "CC0C0C",
+   "CC5454",
    "CCCCCC",
-   "E48484",
-   "E4E4E4"
+   "E45454",
+   "E4CCCC",
+   "E4E4E4",
+   "FCE4E4"
   ]
  },
  "skip_checks": []

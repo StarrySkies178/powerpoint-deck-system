@@ -7,7 +7,7 @@
  "palette": "slide",
  "floor": {
   "layout": 0.317,
-  "visual": 0.548,
+  "visual": 0.552,
   "others": [
    220,
    224,
@@ -30,6 +30,7 @@
    "3C3C3C",
    "3C549C",
    "3C8424",
+   "3CB4E4",
    "545454",
    "546C9C",
    "6C84B4",
@@ -47,7 +48,8 @@
    "CCCCCC",
    "CCE4FC",
    "E4E4E4",
-   "E4FCE4"
+   "E4FCE4",
+   "FCE4E4"
   ]
  },
  "skip_checks": []

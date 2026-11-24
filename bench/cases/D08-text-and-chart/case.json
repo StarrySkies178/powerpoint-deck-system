@@ -7,7 +7,7 @@
  "palette": "slide",
  "floor": {
   "layout": 0.364,
-  "visual": 0.611,
+  "visual": 0.606,
   "others": [
    119,
    45,
@@ -21,6 +21,7 @@
   "deck_colours": [
    "0C246C",
    "0C3C84",
+   "0C3C9C",
    "0C549C",
    "0C6CB4",
    "0C84B4",
@@ -43,7 +44,6 @@
    "CCCC0C",
    "CCCCCC",
    "CCE40C",
-   "CCE4FC",
    "E40C24",
    "E42424",
    "E4243C",

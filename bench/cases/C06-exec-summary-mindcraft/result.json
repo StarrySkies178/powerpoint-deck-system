@@ -50,11 +50,11 @@
   {
    "check": "colours",
    "ok": false,
-   "detail": "off-palette #FCCCCC"
+   "detail": "off-palette #E48484"
   }
  ],
- "layout": 0.28,
- "visual": 0.15,
+ "layout": 0.27,
+ "visual": 0.16,
  "n_std": 10,
  "n_std_ok": 5,
  "candidate": {

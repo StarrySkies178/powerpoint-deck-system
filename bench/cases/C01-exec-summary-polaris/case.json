@@ -6,8 +6,8 @@
  "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.506,
-  "visual": 0.613,
+  "layout": 0.509,
+  "visual": 0.618,
   "others": [
    5,
    6,

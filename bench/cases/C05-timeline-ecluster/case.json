@@ -6,8 +6,8 @@
  "suite": "capability",
  "palette": "deck",
  "floor": {
-  "layout": 0.764,
-  "visual": 0.675,
+  "layout": 0.763,
+  "visual": 0.666,
   "others": [
    21,
    15,
@@ -26,10 +26,10 @@
    "3C5454",
    "546C84",
    "848484",
+   "84849C",
    "849CB4",
    "9C9C9C",
    "9C9CB4",
-   "9CB4B4",
    "B4B4B4",
    "B4B4CC",
    "CCB49C",

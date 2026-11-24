@@ -6,8 +6,8 @@
  "suite": "regression",
  "palette": "slide",
  "floor": {
-  "layout": 0.457,
-  "visual": 0.576,
+  "layout": 0.459,
+  "visual": 0.577,
   "others": [
    185,
    34,

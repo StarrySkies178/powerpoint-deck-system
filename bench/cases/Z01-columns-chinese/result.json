@@ -1,6 +1,6 @@
 {
  "id": "Z01-columns-chinese",
- "passed": false,
+ "passed": true,
  "standards": [
   {
    "check": "slide size",
@@ -10,7 +10,7 @@
   {
    "check": "title position",
    "ok": true,
-   "detail": "ref left 0.51 top 0.48; got left 0.50 top 0.45 in"
+   "detail": "ref left 0.51 top 0.44; got left 0.50 top 0.45 in"
   },
   {
    "check": "title size",
@@ -54,8 +54,8 @@
   },
   {
    "check": "colours",
-   "ok": false,
-   "detail": "off-palette #CCE484"
+   "ok": true,
+   "detail": "all colours in the reference palette"
   },
   {
    "check": "source line",
@@ -63,10 +63,10 @@
    "detail": "ref 8.0 pt at 6.72 in; got 8.0 pt at 6.72 in"
   }
  ],
- "layout": 0.78,
+ "layout": 0.69,
  "visual": null,
  "n_std": 12,
- "n_std_ok": 11,
+ "n_std_ok": 12,
  "candidate": {
   "size_in": [
    10.0,

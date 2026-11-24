@@ -50,7 +50,7 @@
   {
    "check": "colours",
    "ok": false,
-   "detail": "off-palette #FCCCCC"
+   "detail": "off-palette #E48484"
   },
   {
    "check": "source line",
@@ -58,8 +58,8 @@
    "detail": "ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in"
   }
  ],
- "layout": 0.17,
- "visual": 0.24,
+ "layout": 0.14,
+ "visual": 0.29,
  "n_std": 11,
  "n_std_ok": 9,
  "candidate": {

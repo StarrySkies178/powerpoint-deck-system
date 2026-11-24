@@ -10,7 +10,7 @@
   {
    "check": "title position",
    "ok": true,
-   "detail": "ref left 0.51 top 0.52; got left 0.50 top 0.44 in"
+   "detail": "ref left 0.51 top 0.47; got left 0.50 top 0.44 in"
   },
   {
    "check": "title size",
@@ -58,7 +58,7 @@
    "detail": "all colours in the reference palette"
   }
  ],
- "layout": 0.29,
+ "layout": 0.3,
  "visual": null,
  "n_std": 11,
  "n_std_ok": 11,

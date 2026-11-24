@@ -3,11 +3,11 @@
  "deck": "Deloitte-timesaver",
  "slide": 11,
  "kind": "text",
- "suite": "regression",
+ "suite": "capability",
  "palette": "slide",
  "floor": {
-  "layout": 0.397,
-  "visual": 0.497,
+  "layout": 0.387,
+  "visual": 0.493,
   "others": [
    236,
    243,
@@ -25,6 +25,7 @@
    "3C8424",
    "3C843C",
    "545454",
+   "6C6C6C",
    "6C84B4",
    "6CCCE4",
    "848484",
@@ -33,7 +34,6 @@
    "84CCE4",
    "9C9C9C",
    "9CCC0C",
-   "9CCCE4",
    "B4B4B4",
    "B4CC0C",
    "B4CC6C",
@@ -41,8 +41,10 @@
    "CCCCCC",
    "CCE40C",
    "CCE4CC",
+   "CCE4FC",
    "E4E4E4"
   ]
  },
- "skip_checks": []
+ "skip_checks": [],
+ "suite_note": "Moved from regression in v2.46 (Run 0, 2026-11-24): scored against the original as PowerPoint draws it, the stored build fails the colour check (off-palette #B4E4FC, a light blue the PowerPoint render of the original does not contain). Scorer and pass bar unchanged. Graduates back by the usual rule: 3 of 3 fresh rebuilds pass."
 }
