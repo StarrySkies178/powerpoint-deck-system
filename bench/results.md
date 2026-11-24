@@ -1,4 +1,4 @@
-# Benchmark results: Store fix 1 (set_texts keeps formats, reaches cells): regression after (2026-11-24 11:34)
+# Benchmark results: Store fix 7 (table_size: even column indents, banded rows, clean id): regression after (2026-11-24 12:08)
 
 **Regression 7 / 7** (must stay all-pass) · **Named-slide capability 0 / 0** · **Deck-as-reference: 0 cases, no pass mark, 0 moved back by more than 0.05**
 

@@ -1,0 +1,1 @@
+Carried from bench/mimic-1/C06-exec-summary-mindcraft (no work-around for fix 6 in it); rebuilt with the tools of v2.81 for the review pictures after the third fix.

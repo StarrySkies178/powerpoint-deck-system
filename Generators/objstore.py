@@ -351,7 +351,14 @@ def element(obj, i):
     for j, el in enumerate(list(f)):
         if j != i: f.remove(el)
     obj["id"] += f".e{i}"
-    return _store(obj, f)
+    obj = _store(obj, f)
+    return _used_media(obj)
+
+def _used_media(obj):
+    """Keep in obj["media"] only the pictures its XML still refers to ("MEDIA:<name>")."""
+    if obj.get("media"):
+        x = obj["xml"]; obj["media"] = [m for m in obj["media"] if "MEDIA:" + m in x]
+    return obj
 
 def elements(obj):
     f = _frag(ungroup(obj))
@@ -762,9 +769,21 @@ def table_size(obj, rows=None, cols=None, which=0):
     def empty(el):
         for t in el.iter(A + "t"): t.text = ""
         return el
+    def fills(tr): return tuple(etree.tostring(f_) if f_ is not None else b"" for f_ in (tc.find("a:tcPr/a:solidFill", NS) for tc in tr.findall("a:tc", NS)))
     if rows is not None:
+        # banded rows (fills alternate): a new row copies the row two above, so the bands go on alternating
+        banded = len(trs) >= 3 and fills(trs[-1]) != fills(trs[-2]) and fills(trs[-1]) == fills(trs[-3])
         while len(trs) < rows:
-            nr = empty(copy.deepcopy(trs[-1])); tbl.insert(list(tbl).index(trs[-1]) + 1, nr); trs.append(nr)
+            src = trs[-2] if banded else trs[-1]
+            nr = empty(copy.deepcopy(src))
+            if banded:   # the copied row's own top rule belongs to its place; take the last row's top edge instead
+                for tc_new, tc_last in zip(nr.findall("a:tc", NS), trs[-1].findall("a:tc", NS)):
+                    pn, pl = tc_new.find("a:tcPr", NS), tc_last.find("a:tcPr", NS)
+                    if pn is None or pl is None: continue
+                    old = pn.find("a:lnT", NS); new = pl.find("a:lnT", NS)
+                    if old is not None: pn.remove(old)
+                    if new is not None: pn.insert(0, copy.deepcopy(new))
+            tbl.insert(list(tbl).index(trs[-1]) + 1, nr); trs.append(nr)
         while len(trs) > max(1, rows): tbl.remove(trs.pop())
     if cols is not None:
         gcs = grid.findall("a:gridCol", NS); total = sum(int(g.get("w")) for g in gcs)
@@ -777,9 +796,28 @@ def table_size(obj, rows=None, cols=None, which=0):
         first = int(gcs[0].get("w")) if len(gcs) > 2 else None
         rest = (total - (first or 0)) / (len(gcs) - (1 if first else 0))
         for i, g in enumerate(gcs): g.set("w", str(int(first if (first and i == 0) else rest)))
+        # The data columns now share one width, so their paragraph indents must match too: a source that placed its
+        # numbers with a right indent on some columns only (C03) would otherwise space them unevenly. Each data
+        # column's indents are set to the smallest found among them (per side), so the text keeps its alignment.
+        data = range(1 if first else 0, len(gcs))
+        def col_ppr(j):
+            return [p_.find("a:pPr", NS) for tr in tbl.findall("a:tr", NS) for p_ in tr.findall("a:tc", NS)[j].iter(A + "p")
+                    if p_.find(".//a:t", NS) is not None and _para_text(p_).strip() or tr is tbl.findall("a:tr", NS)[0]]
+        for side in ("marR", "marL"):
+            seen = [int(pp.get(side, 0)) if pp is not None else 0 for j in data for pp in col_ppr(j)]
+            low = min(seen) if seen else 0
+            for j in data:
+                for tr in tbl.findall("a:tr", NS):
+                    for p_ in tr.findall("a:tc", NS)[j].iter(A + "p"):
+                        pp = p_.find("a:pPr", NS)
+                        if pp is None:
+                            if not low: continue
+                            pp = etree.Element(A + "pPr"); p_.insert(0, pp)
+                        if low: pp.set(side, str(low))
+                        else: pp.attrib.pop(side, None)
     h = sum(int(tr.get("h", "370840")) for tr in tbl.findall("a:tr", NS))
     xf = gf.find("p:xfrm", NS); xf.find("a:ext", NS).set("cy", str(h))
-    obj["id"] += f".t{rows}x{cols}"
+    obj["id"] += ".t" + (f"r{rows}" if rows is not None else "") + (f"c{cols}" if cols is not None else "")
     return _store(obj, f)
 
 def circular_hint(f, idx):
@@ -868,20 +906,86 @@ def recolour_elements(obj, indices, role):
     return _store(obj, f)
 
 def slots(obj):
-    """Fillable text slots in reading order: [(index, hint)] (same order set_texts fills)."""
+    """Fillable text slots in reading order: [(index, hint)] (same order set_texts fills; table cells last, hint "cell r,c")."""
     marker = "\u2063"; o = set_texts(obj, [marker + str(i) for i in range(500)])
     f = _frag(o); found = []
-    for tb in f.iter(P + "txBody"):
+    for tb in f.iter(P + "txBody", A + "txBody"):
         t = "".join(x.text or "" for x in tb.iter(A + "t"))
         if t.startswith(marker):
-            c = tb.getparent().find("p:nvSpPr/p:cNvPr", NS)
-            found.append((int(t[1:]), (c.get("name", "")[6:] if c is not None else "")))
+            if tb.tag == A + "txBody":   # a table cell: "cell <row>,<column>"
+                tc = tb.getparent(); tr = tc.getparent()
+                hint = f"cell {list(tr.getparent().findall('a:tr', NS)).index(tr)},{list(tr.findall('a:tc', NS)).index(tc)}"
+            else:
+                c = tb.getparent().find("p:nvSpPr/p:cNvPr", NS); hint = c.get("name", "")[6:] if c is not None else ""
+            found.append((int(t[1:]), hint))
     return sorted(found)
 
+def _cell_bodies(f):
+    """Table cells' text bodies (a:tc/a:txBody), table by table in document order, each table row by row."""
+    out = []
+    for tbl in f.iter(A + "tbl"):
+        for tr in tbl.findall("a:tr", NS):
+            for tc in tr.findall("a:tc", NS):
+                if tc.get("hMerge") == "1" or tc.get("vMerge") == "1": continue   # covered by a merged cell
+                tb = tc.find("a:txBody", NS)
+                if tb is None: tb = etree.SubElement(tc, A + "txBody"); etree.SubElement(tb, A + "bodyPr"); etree.SubElement(tb, A + "lstStyle")
+                out.append(tb)
+    return out
+
+def _para_text(p_): return "".join(t.text or "" for t in p_.iter(A + "t"))
+
+def _run_groups(rs):
+    """Template runs grouped by format: consecutive runs whose rPr differ only in spacing/bookkeeping (PDF imports cut
+    text into one run per word) count as one run. Returns one representative rPr per group."""
+    def key(r):
+        rp = r.find("a:rPr", NS)
+        if rp is None: return ""
+        rp = copy.deepcopy(rp)
+        for a in ("spc", "dirty", "err", "lang", "noProof", "kern"): rp.attrib.pop(a, None)
+        return etree.tostring(rp)
+    groups = []
+    for r in rs:
+        k = key(r)
+        if not groups or groups[-1][0] != k: groups.append((k, r.find("a:rPr", NS)))
+    return [g[1] for g in groups]
+
+def _fill_para(tmpl, line, keep_marR=True):
+    """One paragraph from its template: the template's own pPr, and run k in the format of template run k
+    (runs of one format count as one; the last for any further run). `line` is a string (one run) or a list of
+    strings (runs). keep_marR=False drops the paragraph's right margin (a PDF import's line-break margin)."""
+    runs = line if isinstance(line, (list, tuple)) else [line]
+    np_ = copy.deepcopy(tmpl)
+    rprs = _run_groups([r for r in np_ if r.tag in (A + "r", A + "fld")])
+    for r in list(np_):
+        if r.tag in (A + "r", A + "fld", A + "br"): np_.remove(r)
+    if not keep_marR and np_.find("a:pPr", NS) is not None: np_.find("a:pPr", NS).attrib.pop("marR", None)
+    end = np_.find("a:endParaRPr", NS)
+    for k, text in enumerate(runs):
+        r = etree.Element(A + "r")
+        src = rprs[min(k, len(rprs) - 1)] if rprs else None
+        if src is None and end is not None: src = end
+        if src is not None:
+            rp = copy.deepcopy(src); rp.tag = A + "rPr"
+            if "spc" in rp.attrib: del rp.attrib["spc"]   # letter spacing fitted to the old words (PDF imports)
+            r.append(rp)
+        etree.SubElement(r, A + "t").text = text
+        if end is not None: end.addprevious(r)
+        else: np_.append(r)
+    return np_
+
 def set_texts(obj, texts):
-    """Fill text in reading order (top-to-bottom, left-to-right), keeping formatting.
-    Uses the object's SLOTS (former filler text) when it has them; otherwise all text boxes.
-    A list item may be a string or a list of strings (one per paragraph)."""
+    """Fill text in reading order (top-to-bottom, left-to-right), keeping each paragraph's and each run's own format.
+    Uses the object's SLOTS (former filler text) when it has them; otherwise all text boxes with text, then every
+    table cell (table by table, row by row), so a table is filled by passing one item per cell after the boxes.
+    An item is a string, or a list with one entry per paragraph. Paragraph i takes the format (level, bullet, spacing,
+    alignment) of the box's own paragraph i; further paragraphs repeat the last, or the last at level n when the entry is
+    a dict {"lvl": n, "runs": ...} (taken from another box of the object when this box has none at that level). A
+    paragraph entry is a string (one run) or a list of strings (runs): run k keeps the format of the original's k-th
+    run of a new format (bold lead, red "Mitigation:", superscript; runs of one format count as one). A paragraph whose
+    text is unchanged keeps its original runs exactly. Empty spacer paragraphs before and after the text stay. On new
+    text, letter spacing (spc) is dropped, and in text boxes (not table cells) the paragraph's right margin (marR, a
+    PDF import's line-break margin) too.
+    An item None leaves that box as it is."""
     obj = copy.deepcopy(obj); f = _frag(obj)
     bodies = []
     for tb in f.iter(P + "txBody"):
@@ -897,23 +1001,50 @@ def set_texts(obj, texts):
             bb = [int(o.get("x")) + (bb[0] - int(co.get("x"))) * sx, int(o.get("y")) + (bb[1] - int(co.get("y"))) * sy, bb[2] * sx, bb[3] * sy]
             par = par.getparent()
         return bb
+    slotted = bool(bodies)
     if not bodies:
         bodies = [tb for tb in f.iter(P + "txBody") if "".join(t.text or "" for t in tb.iter(A + "t")).strip()]
     def pos(tb):
         bb = abs_bb(tb)
         return (round(bb[1] / 200000), bb[0])
     bodies.sort(key=pos)
+    if not slotted: bodies += _cell_bodies(f)   # after the boxes: earlier indices do not move
+    lvl = lambda p_: int((p_.find("a:pPr", NS).get("lvl") if p_.find("a:pPr", NS) is not None else None) or 0)
+    has_t = lambda p_: p_.find(".//a:t", NS) is not None and _para_text(p_) != ""
+    all_paras = [p_ for p_ in f.iter(A + "p") if has_t(p_)]
     for tb, s_ in zip(bodies, texts):
+        if s_ is None: continue
         paras = tb.findall("a:p", NS); lines = s_ if isinstance(s_, list) else [s_]
-        tmpl = next((p_ for p_ in paras if p_.find(".//a:t", NS) is not None), paras[0])
+        if not paras: paras = [etree.SubElement(tb, A + "p")]
+        runs_in = lambda p_: any(r.tag in (A + "r", A + "fld") for r in p_)
+        tmpls = [p_ for p_ in paras if has_t(p_)] or [p_ for p_ in paras if runs_in(p_)] or paras[:1]
+        ti = [i for i, p_ in enumerate(paras) if runs_in(p_)]   # spacers: paragraphs with no run at all
+        lead = paras[:ti[0]] if ti else []                    # empty spacer paragraphs before the text stay
+        trail = paras[ti[-1] + 1:] if ti else []              # and after it
+        cell = tb.tag == A + "txBody"
         for p_ in paras: tb.remove(p_)
-        for line in lines:
-            np_ = copy.deepcopy(tmpl); ts = list(np_.iter(A + "t"))
-            if not ts:
-                r = etree.SubElement(np_, A + "r"); t = etree.SubElement(r, A + "t"); ts = [t]
-            ts[0].text = line
-            for t in ts[1:]: t.getparent().getparent().remove(t.getparent()) if t.getparent().getparent() is not None else None
+        for p_ in lead: tb.append(p_)
+        for i, line in enumerate(lines):
+            want = line.get("lvl") if isinstance(line, dict) else None
+            runs = line.get("runs", line.get("text", "")) if isinstance(line, dict) else line
+            if want is not None:
+                same = [t for t in tmpls if lvl(t) == want]
+                if i < len(tmpls) and lvl(tmpls[i]) == want: tmpl = tmpls[i]
+                elif same: tmpl = same[-1]
+                else:   # no paragraph at that level in this box: take one from another box of the object
+                    other = [t for t in all_paras if lvl(t) == want]
+                    tmpl = other[0] if other else tmpls[min(i, len(tmpls) - 1)]
+            else:
+                tmpl = tmpls[min(i, len(tmpls) - 1)]
+            text = "".join(runs) if isinstance(runs, (list, tuple)) else runs
+            if " ".join(text.split()) == " ".join(_para_text(tmpl).split()): np_ = copy.deepcopy(tmpl)   # unchanged text keeps its runs
+            else: np_ = _fill_para(tmpl, runs, keep_marR=cell)       # a text box's right margin was fitted to the old words
+            if want is not None and lvl(np_) != want:
+                pp = np_.find("a:pPr", NS)
+                if pp is None: pp = etree.Element(A + "pPr"); np_.insert(0, pp)
+                pp.set("lvl", str(want))
             tb.append(np_)
+        for p_ in trail: tb.append(p_)
     return _store(obj, f)
 
 def set_chart_data(obj, categories, series, chart=None):
@@ -1060,7 +1191,8 @@ def _move_labels_out(frag, bbox, k, warnings):
 
 def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="center", scale_text=True, out_path=None, texts=None, move_labels=True, colours="theme"):
     """Insert obj into slide `slide_no` (1-based) of a .pptx, fitted into box_in=(x,y,w,h) inches.
-    Vector scaling via a group; text sizes scaled with it (min 8 pt); media copied and linked."""
+    Vector scaling via a group; text sizes scaled with it (min 8 pt); media copied and linked.
+    At scale 1 (the object's own size) text is not scaled and not fitted: sizes stay as stored."""
     X, Y, W, H = obj["bbox"]
     bx, by, bw, bh = [v * EMU for v in box_in]
     s = min(bw / W, bh / H) if keep_aspect else None
@@ -1072,7 +1204,8 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
     frag = _frag(obj)
     k = s if keep_aspect else min(bw / W, bh / H)
     warnings = []
-    if scale_text:
+    unit = abs(tw / W - 1) < 0.005 and abs(th / H - 1) < 0.005   # placed at its own size: text is left exactly as stored
+    if scale_text and not unit:
         for tb in frag.iter(P + "txBody"):                 # make inherited sizes explicit so they can scale/fit
             d = tb.find("a:lstStyle/a:lvl1pPr/a:defRPr", NS)
             base = d.get("sz") if d is not None and d.get("sz") else "1800"
@@ -1084,7 +1217,8 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
             if rpr.get("sz"): rpr.set("sz", str(max(800, int(int(rpr.get("sz")) * k / 100) * 100)))
         warnings = _autofit(frag, (bw / W) if not keep_aspect else k, (bh / H) if not keep_aspect else k)
         if warnings and move_labels: warnings = _move_labels_out(frag, obj["bbox"], k, warnings)
-    for el in frag.iter(P + "sp"):            # short labels: never wrap mid-word when resized
+    for el in frag.iter(P + "sp"):            # short labels: never wrap mid-word when resized (also at scale 1: a
+                                              # stored box sized to its font can wrap under another font, see v2.80)
         if not _filled(el) and len(_text(el).split()) <= 3:
             bp = el.find("p:txBody/a:bodyPr", NS)
             if bp is not None: bp.set("wrap", "none")
@@ -1104,7 +1238,7 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
     rels = etree.fromstring(files[rpath])
     used = {r.get("Id") for r in rels}
     media_rid = {}
-    for m in obj.get("media", []):
+    for m in _used_media(copy.deepcopy(obj)).get("media", []):   # only pictures the placed shapes use
         target = f"ppt/media/obj_{m}"
         mp = os.path.join(store_dir, "media", m)
         files[target] = open(mp, "rb").read() if os.path.exists(mp) else zipfile.ZipFile(os.path.join(store_dir, "media.zip")).read(m)

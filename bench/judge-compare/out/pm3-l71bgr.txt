@@ -1,0 +1,2 @@
+NOT OK
+Both numbered section headers wrap onto two lines, cutting through the rule and jamming into the chart subtitles; rest is a close mimic

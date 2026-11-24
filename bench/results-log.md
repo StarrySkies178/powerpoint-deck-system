@@ -61,3 +61,9 @@ The old columns continue (Pass and Standards counted with the old bar for every 
 | 2026-11-24 08:36 | Run 7 restored (tried, not kept: C05 and C10 moved back) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
 | 2026-11-24 10:57 | Run 7 kept in part under rule 3 of v2.73 (S.shareColumn, S.lineEnds) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
 | 2026-11-24 11:34 | Store fix 1 (set_texts keeps formats, reaches cells): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:41 | Store fix 1 revised (set_texts: run groups, spacers, marR, levels from other boxes): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:42 | Store fix 1 revised (set_texts: run groups, spacers, marR, levels from other boxes): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:45 | Store fix 1 final (set_texts revision 3): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:50 | Store fix 5 (place: no text shrink at scale 1): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:53 | Store fix 6 (element/place carry only used media): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 12:08 | Store fix 7 (table_size: even column indents, banded rows, clean id): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |

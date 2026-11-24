@@ -1,0 +1,33 @@
+{
+ "title": "Four important potential risks are identified and preparation & mitigation solutions are provided for discussion",
+ "source": "Source: MindCraft Analysis",
+ "crumb": ["Market Analysis", "Growth Strategy", "Risk & Mitigation"],
+ "page": 12,
+ "panels": ["Risk mapping", "Solutions for important risks"],
+ "zone": {"box": [2.6975, 3.0175, 2.1201, 2.2188], "label": "Top priority"},
+ "risks": [
+  {"id": 1, "c": [4.3376, 3.4235], "col": "red"},
+  {"id": 2, "c": [3.8826, 4.0692], "col": "red"},
+  {"id": 3, "c": [3.2676, 4.4642], "col": "blue"},
+  {"id": 4, "c": [3.5876, 5.0285], "col": "blue"},
+  {"id": 5, "c": [3.3311, 5.8501], "col": "dark", "label": ["Customer", "information", "safety"], "at": [3.6087, 5.6354]},
+  {"id": 6, "c": [1.6695, 3.1945], "col": "dark", "label": ["Competitor’s", "response"], "at": [1.2798, 3.4185]},
+  {"id": 7, "c": [1.8361, 5.5601], "col": "dark", "label": ["Customer", "preference", "change"], "at": [2.1135, 5.3451]},
+  {"id": 8, "c": [1.3561, 4.8285], "col": "dark", "label": ["Cannibaliza-", "tion"], "at": [1.5588, 4.6127]}
+ ],
+ "table": {
+  "header": ["Risks", "Solutions"],
+  "normalise": false,
+  "rows": [
+   {"risk": "Internal resistance", "bullet": "Changes in functions and work relationships cause anger and panic", "col": "red",
+    "sol": [["[Avoid]", "Strengthen internal communication and provide employee training"], ["[Mitigate]", "Adjust KPI system accordingly; introduce experienced  management talent from outside when necessary"]]},
+   {"risk": "Talent management", "bullet": "Insufficient supply of trained salespersons for rapid expansion", "col": "red",
+    "sol": [["[Avoid]", "Make recruitment plan in advance"], ["[Mitigate]", "Reduce labor demand with technology"]]},
+   {"risk": "Supply chain mgmt.", "bullet": "Rapid store expansion requires agile logistics", "col": "blue",
+    "sol": [["[Avoid]", "Optimize logistics network"], ["[Mitigate]", "Find reliable third-party logistic partner"]]},
+   {"risk": "IT system upgrade", "bullet": "Low compatibility between old and new system may cause slow upgrade and delay implementation", "col": "blue",
+    "sol": [["[Avoid]", "Make upgrade plan in advance; careful selection of new system supplier"], ["[Mitigate]", "Hire external technology experts for help"]]}
+  ],
+  "circles": [[5.52, 2.5067], [5.52, 3.5], [5.52, 4.5817], [5.5383, 5.4917]]
+ }
+}

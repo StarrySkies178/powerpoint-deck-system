@@ -1,0 +1,16 @@
+{
+ "C03-assumptions-table-polaris": {
+  "layout_raw": 0.9839,
+  "v274": 0.9839,
+  "diff": 0.0,
+  "worse": false,
+  "std": "10/10"
+ },
+ "C08-risk-matrix-mindcraft": {
+  "layout_raw": 0.9474,
+  "v274": 0.9474,
+  "diff": 0.0,
+  "worse": false,
+  "std": "11/11"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "C01-exec-summary-polaris": {
+  "layout_raw": 0.9772,
+  "v274": 0.9772,
+  "diff": 0.0,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C02-gantt-risks-polaris": {
+  "layout_raw": 0.9145,
+  "v274": 0.9145,
+  "diff": 0.0,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C04-two-charts-ecluster": {
+  "layout_raw": 0.9904,
+  "v274": 0.9904,
+  "diff": 0.0,
+  "worse": false,
+  "std": "10/11"
+ },
+ "C08-risk-matrix-mindcraft": {
+  "layout_raw": 0.9474,
+  "v274": 0.9474,
+  "diff": 0.0,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C10-strategy-table-truenorth": {
+  "layout_raw": 0.9964,
+  "v274": 0.9982,
+  "diff": -0.0018,
+  "worse": false,
+  "std": "11/11"
+ }
+}
