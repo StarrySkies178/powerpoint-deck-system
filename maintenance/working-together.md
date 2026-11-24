@@ -6,33 +6,15 @@ More than one chat changes this folder at the same time (on 2026-11-23 three Cla
 
 **What to work on:** the shared plan is `maintenance/roadmap.md`. The user approved it on 2026-11-24. When you take one of its steps, name the phase and step in your sign-in.
 
-> **FREEZE in force since v2.23 (2026-11-24), until Phase 1 of the roadmap passes its test.** (Made specific in v2.27.)
+> **CHANGE CONTROL in force since v2.43 (2026-11-24).** The freeze of v2.23 ended when Phase 1 of the roadmap closed: the benchmark is now a trusted measure (two suites, noise band, blind builds, and the user's own verdict agreeing with it on all 10 deck-as-reference cases). Builders and rules may change again, but only like this:
 >
-> **The principle:** until the benchmark is a trustworthy measure, nothing may change that decides how a slide is *chosen, drawn or checked*. Adding reference *data* and building decks goes on as usual.
->
-> | Path | During the freeze |
-> |---|---|
-> | `DECK-SYSTEM.md`, `Style/style-rules.md`, `Style/storytelling.md`, `Style/style-findings.md`, `Style/patterns.json`, `Style/pattern-catalogue.md`, `catalogue/`, `master/` | **No change.** |
-> | `Generators/` deck builders: `house.js`, `patterns*.js`, `components.py`, `objstore.py`, `fill_objects.py`, `part_patterns.py`, `build_*.js`, `icons.json` | **No change.** A bug found here goes to `logs/proposals.md`. |
-> | `scripts/deck_lint.py`, `deck_measure.py`, `composition.py`, `layout_*.py`, `bench/scripts/bench_score.py` and the pass bar in `bench/README.md` | **No change** (they decide what passes). |
-> | `Style/slide-map.csv`, `Style/slide-index.md`, `Generators/ocr_autofix.json` | **Append only:** new rows or entries for a reference being learned. Never edit or remove an existing row. |
-> | `Templates/`, `Objects/store/`, `Objects/Visual/`, `Objects/maps/`, `review/`, `Style/refs/` (study files, profiles, `references.json`) | **Allowed.** This is how a reference is learned and stored. |
-> | Reference tools: `Generators/rebuild_slides.py`, `ocr_review.py`, `vectorize.py`, `scripts/ingest_reference.py`, `audit_reference.py`, `study_reference.py`, `make_style_profile.py`, `measure_type_scale.py` | **Bug fixes only**, when a reference cannot be learned without them. Say so in the changelog row. |
-> | `bench/` other than the scorer and the pass bar | **Allowed when a roadmap step asks for it.** |
-> | `logs/`, `samples/`, deck output folders, `design-system/`, `maintenance/` files of your own lane, `scripts/work.py`, `scripts/bigfiles.py` | **Allowed.** |
->
-> **What replaces the usual steps while the freeze is on:**
-> - *A lesson or rule you would apply straight away* (`maintenance/learning-loop.md`, the skill): write it in `logs/lessons-log.md` as usual, add one row to `logs/proposals.md`, do not apply it.
-> - *A new story pattern found in a reference* (`maintenance/new-reference.md`, "New patterns"): describe it in the reference's study file in `Style/refs/` and add one row to `logs/proposals.md`. No entry in `Style/patterns.json` or `pattern-catalogue.md`, no generator.
-> - *A deck needs a layout no builder draws:* draw it in that deck's own build script. Do not add it to `Generators/`. Log a proposal.
-> - *A slide flagged NEW:* same, a proposal, no catalogue entry and no generator.
-> - *The reference audit:* a reference may be reported as learned when `scripts/audit_reference.py` passes for it. The audit needs nothing from the frozen files beyond new rows in `Style/slide-map.csv`.
->
-> **The only exception:** a fix that a Phase 1 measuring step itself needs. Say so in your sign-in and in the changelog row.
->
-> **If you are not sure whether something is allowed, do not stop to ask the user,** who may be away. Take the safe route (the reference's own files in `Style/refs/`, or a row in `logs/proposals.md`), carry on with the rest of the job, and say in your reply what you left for later.
->
-> **Who lifts it:** the freeze ends when Phase 1's pass test in `maintenance/roadmap.md` is met. No chat lifts it early.
+> 1. **One chat changes builders, rules and checkers: the deck building chat** ("Combining markdown files for skills", the editor of roadmap step 2.1). That means `DECK-SYSTEM.md`, `Style/style-rules.md`, `Style/storytelling.md`, `Style/style-findings.md`, `Style/patterns.json`, `Style/pattern-catalogue.md`, `catalogue/`, `master/`, the deck builders in `Generators/` (`house.js`, `patterns*.js`, `components.py`, `objstore.py`, `fill_objects.py`, `part_patterns.py`, `build_*.js`, `icons.json`), `scripts/deck_lint.py`, `deck_measure.py`, `composition.py`, `layout_*.py`. Every other chat keeps adding a row to `logs/proposals.md` and does not apply it.
+> 2. **One change per run.** A change is one row of `logs/proposals.md` (or one named fix). Never two at once: otherwise nobody can tell which one helped.
+> 3. **Measured before it is kept.** Run both suites of the benchmark in the official environment before and after. For every case the change is meant to help, make 3 fresh blind rebuilds. Keep the change only if the regression suite stays all-pass and nothing gets worse beyond the noise band (0.03 on named-slide cases, 0.14 on deck-as-reference cases); otherwise restore the archived file and mark the proposal "tried, not kept" with the numbers.
+> 4. **The changelog row carries the numbers:** regression and capability counts and the mean layout and visual of the capability suite, before and after.
+> 5. **The scorer, the pass bar and the benchmark's reference pictures are not changed to make a run pass.** A change to them is its own run, with the reason, and a re-run of all cases.
+> 6. **Reference data stays as before:** `Style/slide-map.csv`, `Style/slide-index.md` and `Generators/ocr_autofix.json` are append-only for a reference being learned; `Templates/`, `Objects/store/`, `Objects/Visual/`, `Objects/maps/`, `review/`, `Style/refs/` are open to the references lane; the reference tools take bug fixes only.
+> 7. **If you are not sure whether something is allowed, do not stop to ask the user,** who may be away. Add a row to `logs/proposals.md`, carry on with the rest of the job, and say in your reply what you left for later.
 
 Read this before you change **any** file in the folder: rules, scripts, generators, style, the object store, the logs. Building a deck without changing the system needs no sign-in until Stage 6 (the logs).
 

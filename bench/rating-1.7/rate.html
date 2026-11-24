@@ -73,7 +73,7 @@ button.verdict.fail[aria-pressed="true"]{background:var(--fail);color:var(--pane
   </header>
   <p class="how">Would you accept this slide in a deck of yours? Choose Pass or Fail and write one line saying why. Judge each slide on its own. Some slides appear twice on purpose.</p>
 
-  <div class="stage"><img id="slide" alt="Slide to rate" src="001.png"></div>
+  <div class="stage"><img id="slide" alt="Slide to rate" src="001.png?v=2"></div>
 
   <div class="bar">
     <span class="which" id="which">1 of 60</span>
@@ -106,11 +106,11 @@ button.verdict.fail[aria-pressed="true"]{background:var(--fail);color:var(--pane
   "use strict";
   var N = 60, cur = 0, lsOk = true;
   var ratings = {};            // id -> {verdict, reason}
-  var LS = "slide-rating-round-1";
+  var LS = "slide-rating-round-1b";
   var $ = function(id){ return document.getElementById(id); };
   var img = $("slide"), reason = $("reason");
   function id(i){ return "s" + String(i + 1).padStart(3, "0"); }
-  function file(i){ return String(i + 1).padStart(3, "0") + ".png"; }
+  function file(i){ return String(i + 1).padStart(3, "0") + ".png?v=2"; }
   function rated(i){ var r = ratings[id(i)]; return !!(r && (r.verdict === "pass" || r.verdict === "fail")); }
 
   function setStatus(text, bad){ var s = $("status"); s.textContent = text; s.className = bad ? "status bad" : "status"; }
