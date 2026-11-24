@@ -41,3 +41,11 @@
 | 2026-11-24 04:42 | v2.53 Run 2b: C04 prompt corrected to the original slide (measuring tool), stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
 | 2026-11-24 04:54 | v2.57 Run 2a: table forms (after), stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
 | 2026-11-24 05:03 | v2.57 Run 2a: table forms (after, final code), stored builds (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 |
+
+## Since v2.62 (Run 2c step 4): deck-as-reference cases without a pass mark
+
+The old columns continue (Pass and Standards counted with the old bar for every case, mean layout and visual after the floor); the new columns are the regression and named-slide counts that now carry the pass mark, and the deck-as-reference cases' mean overlap before the floor with the number flagged.
+
+| When | Run | Pass, old bar (all cases) | Standards OK | Mean layout | Mean visual | Regression | Named-slide capability | C cases: mean layout_raw (flagged) |
+|---|---|---|---|---|---|---|---|---|
+| 2026-11-24 06:45 | v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds) (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 | 7/7 | 1/3 | 0.634 (0) |

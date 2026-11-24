@@ -60,13 +60,26 @@ Each case in `cases.json` carries `"suite"`:
 | Suite | Cases (at v2.25) | What a run must show |
 |---|---|---|
 | **Regression** | D01, D03–D08 (since v2.46; D02 was in it until v2.43, Z01 from v2.25 to v2.31) | Stays 7 of 7. One failing regression case means the change broke something, whatever else improved; `bench_run.py` prints `REGRESSION BROKEN` |
-| **Capability** | C01–C10, D02, Z01, Z02 | Measures progress. Expected to start near 0 |
+| **Capability** | C01–C10, D02, Z01, Z02 | Measures progress. D02, Z01, Z02 (named-slide) keep the pass bar. **C01–C10 carry no pass mark since v2.62**: they report the overlap with the original before the floor and its change (next paragraph and "Deck-as-reference cases") |
 
 **D02 moved to capability in v2.46 (Run 0).** Scored against the original as PowerPoint draws it, its stored build fails the colour check (a light blue, #B4E4FC, that the PowerPoint picture of the original does not contain). Z01 passes against the PowerPoint pictures but stays in capability until it passes 3 of 3 fresh rebuilds.
 
 **Z01 moved to capability in v2.32.** In the official environment (below) Z01 fails the colour check: the anti-aliased edges of its green Chinese title leave tints that are on no palette colour (196 px, 0.02% of the 320 x 180 shrink). That is a scorer issue, not a build error, but the scorer is frozen, so the case moved instead and regression is the 8 cases that pass in the official environment. The scorer change waits for Mike in `logs/proposals.md` (2026-11-24, `bench_score.py`, colour check). `cases.json` keeps the reason in Z01's `suite_note`.
 
 `bench_run.py` prints and writes both counts and the 20-case total; `results-log.md` keeps all three on each line. `bench_run.py regression` or `capability` runs one suite. Same bar and same scorer for both. A capability case **graduates** into regression only when it passes 3 of 3 fresh rebuilds (next section), never on one run of its stored build; changing its `suite` is then logged in the changelog.
+
+## Deck-as-reference cases: no pass mark (since v2.62, roadmap 4.2 Run 2c step 4)
+
+Decided with the user on 2026-11-24 14:40, after `calibration-2c.md` showed that no pixel measure predicts his own verdict on these cases (the best, the overlap before the floor, separates his ok from his not ok no better than chance on 20 labels; the floored layout sent three slides he accepted to 0.00). So:
+
+- **C01 to C10 carry no pass mark.** `bench_run.py` and `results.md` show, per case: `layout_raw` (the ink-grid overlap with the original *before* the floor, `bench_score.layout_raw`), the previous run's value (`results-raw.json`, updated only by a run of all ten), the change, and a **moved back** flag when it falls by more than 0.05. Standards are still listed, for information.
+- **Regression (D01, D03 to D08) and the named-slide capability cases (D02, Z01, Z02) keep the bar exactly as before.**
+- **Fresh rebuilds** (`bench_rebuilds.py <run> --report <previous run>`) compare each case's mean `layout_raw` over its 3 builds with the run before and flag a fall of more than 0.05. That is the change-control rule for these cases now (`maintenance/working-together.md`, rule 3).
+- **The noise band, 0.05:** over the 108 fresh builds of run0, run1, run2, run2a and run2a-final (36 case-runs of 3 builds), the pooled standard deviation of `layout_raw` between builds of the same case in the same run is 0.027; the mean of 3 builds then differs between two runs by up to 2 × 0.027 × √(2/3) = 0.045 by chance (about 95%), rounded to 0.05. The largest spread between 3 builds of one case was 0.125 (C01 in run0), median 0.042. Read against history: run1 → run2 moved C05 from 0.803 to 0.731 (−0.072, flagged), which is the run that was not kept; no other case-run move in those runs passes 0.05.
+- **Nothing in `bench_score.py` changed**: the same measures, the same floors; only what is reported as pass. The old pass/fail, layout and visual after the floor are still computed and shown beside the new numbers (`results.md` "Old bar, for comparison only", `results-log.md` columns since v2.62, `bench_rebuilds.py` reports). The old scripts are in `archive/*_before-run2c4_v2.61_2026-11-24.*`.
+- **Pass or fail for these cases** will come from the AI judge of roadmap step 1.8 (`judge-1.8/`), once the user has seen how often it agrees with him.
+
+**First run under the new reporting** (stored builds, v2.62): regression 7 of 7, named-slide capability 1 of 3 (Z01), C cases mean `layout_raw` 0.634, none moved back (the previous values were seeded from the same v2.57 pictures). Old bar for comparison: 8 of 20.
 
 ## Phase 1 working files (2026-11-24)
 

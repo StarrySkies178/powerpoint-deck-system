@@ -1,0 +1,52 @@
+{
+ "C01-exec-summary-polaris": {
+  "layout_raw": 0.5045,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C02-gantt-risks-polaris": {
+  "layout_raw": 0.6623,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C03-assumptions-table-polaris": {
+  "layout_raw": 0.4308,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C04-two-charts-ecluster": {
+  "layout_raw": 0.7569,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C05-timeline-ecluster": {
+  "layout_raw": 0.6492,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C06-exec-summary-mindcraft": {
+  "layout_raw": 0.6107,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C07-scenario-lines-mindcraft": {
+  "layout_raw": 0.5773,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C08-risk-matrix-mindcraft": {
+  "layout_raw": 0.7028,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C09-sensitivity-truenorth": {
+  "layout_raw": 0.6861,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ },
+ "C10-strategy-table-truenorth": {
+  "layout_raw": 0.7561,
+  "run": "v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds)",
+  "when": "2026-11-24 06:45"
+ }
+}
