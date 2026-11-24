@@ -1,0 +1,1 @@
+Carried from bench/mimic-6/C08-risk-matrix-mindcraft; rebuilt with the store tools after fix 4 (v2.87) for the twenty pictures.

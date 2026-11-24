@@ -1,0 +1,190 @@
+{
+ "content": {
+  "title": "Executive Summary: Lumière’s path to profitable growth in Southeast Asia skincare through hero products, social commerce and a loyalty program",
+  "source": "Source: Polaris Analysis; Euromonitor 2026",
+  "rowLabels": [
+   [
+    "Analysis",
+    "Modules"
+   ],
+   [
+    "Implications"
+   ]
+  ],
+  "columns": [
+   {
+    "head": "Market",
+    "items": [
+     [
+      "Market Sizing",
+      0
+     ],
+     [
+      "Category Growth",
+      1
+     ],
+     [
+      "Price Tiers",
+      1
+     ],
+     [
+      "Channel Mix",
+      0
+     ],
+     [
+      "Competitors",
+      0
+     ]
+    ]
+   },
+   {
+    "head": "Customer",
+    "items": [
+     [
+      "Segments",
+      0
+     ],
+     [
+      "Purchase Journey",
+      1
+     ],
+     [
+      "Discovery",
+      1
+     ],
+     [
+      "Repeat Buying",
+      1
+     ],
+     [
+      "Pain Points",
+      0
+     ]
+    ]
+   },
+   {
+    "head": "Strategy Design",
+    "items": [
+     [
+      "Product Focus",
+      0
+     ],
+     [
+      "Hero SKUs",
+      1
+     ],
+     [
+      "Bundles",
+      1
+     ],
+     [
+      "Channel Shift",
+      0
+     ],
+     [
+      "Social Commerce",
+      1
+     ],
+     [
+      "Pharmacy Chains",
+      1
+     ],
+     [
+      "Loyalty Program",
+      0
+     ]
+    ]
+   },
+   {
+    "head": "Roll-out",
+    "items": [
+     [
+      "Launch Waves",
+      0
+     ],
+     [
+      "Budget & ROI",
+      0
+     ],
+     [
+      "Risk Controls",
+      0
+     ]
+    ]
+   }
+  ],
+  "implications": [
+   {
+    "cols": [
+     0,
+     1
+    ],
+    "runs": [
+     [
+      "Lumière should target the mid-price tier, where young urban buyers switch brands most",
+      false
+     ]
+    ]
+   },
+   {
+    "cols": [
+     2,
+     3
+    ],
+    "runs": [
+     [
+      "As “",
+      false
+     ],
+     [
+      "clean science you can feel",
+      true
+     ],
+     [
+      "”, Lumière should lead with hero SKUs and social selling",
+      false
+     ]
+    ]
+   }
+  ],
+  "bar": "Reach US$120M revenue and break-even in Southeast Asia skincare by 2027"
+ },
+ "geo": {
+  "n": 4,
+  "wA": 2100136,
+  "arrows": [
+   2113026,
+   4661218,
+   7209410,
+   9757602
+  ],
+  "dividers": [
+   4437190,
+   6985382,
+   9533574
+  ],
+  "longDiv": [
+   6985382
+  ],
+  "spans": [
+   [
+    2113026,
+    6761354
+   ],
+   [
+    7209410,
+    11857738
+   ]
+  ],
+  "rules": [
+   [
+    2177795,
+    6684519
+   ],
+   [
+    7319138,
+    11746864
+   ]
+  ]
+ }
+}

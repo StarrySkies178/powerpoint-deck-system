@@ -1,4 +1,4 @@
-# Benchmark results: Store fix 3 (each stored colour keeps its original; four C decks re-extracted): regression after (2026-11-24 13:35)
+# Benchmark results: Store fix 4 (tags from the reviewed slide map; extend() checks the form): regression after (2026-11-24 13:37)
 
 **Regression 7 / 7** (must stay all-pass) · **Named-slide capability 0 / 0** · **Deck-as-reference: 0 cases, no pass mark, 0 moved back by more than 0.05**
 

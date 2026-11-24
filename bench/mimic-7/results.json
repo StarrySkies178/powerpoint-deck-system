@@ -1,0 +1,72 @@
+{
+ "C01-exec-summary-polaris": {
+  "layout_raw": 0.9974,
+  "v274": 0.9772,
+  "diff": 0.0202,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C02-gantt-risks-polaris": {
+  "layout_raw": 0.9167,
+  "v274": 0.9145,
+  "diff": 0.0022,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C03-assumptions-table-polaris": {
+  "layout_raw": 0.9839,
+  "v274": 0.9839,
+  "diff": 0.0,
+  "worse": false,
+  "std": "10/10"
+ },
+ "C04-two-charts-ecluster": {
+  "layout_raw": 0.9904,
+  "v274": 0.9904,
+  "diff": 0.0,
+  "worse": false,
+  "std": "10/11"
+ },
+ "C05-timeline-ecluster": {
+  "layout_raw": 0.9801,
+  "v274": 0.9801,
+  "diff": 0.0,
+  "worse": false,
+  "std": "7/10"
+ },
+ "C06-exec-summary-mindcraft": {
+  "layout_raw": 0.9811,
+  "v274": 0.9811,
+  "diff": 0.0,
+  "worse": false,
+  "std": "10/10"
+ },
+ "C07-scenario-lines-mindcraft": {
+  "layout_raw": 0.9428,
+  "v274": 0.9428,
+  "diff": 0.0,
+  "worse": false,
+  "std": "9/12"
+ },
+ "C08-risk-matrix-mindcraft": {
+  "layout_raw": 0.9474,
+  "v274": 0.9474,
+  "diff": 0.0,
+  "worse": false,
+  "std": "11/11"
+ },
+ "C09-sensitivity-truenorth": {
+  "layout_raw": 0.9879,
+  "v274": 0.9879,
+  "diff": 0.0,
+  "worse": false,
+  "std": "9/10"
+ },
+ "C10-strategy-table-truenorth": {
+  "layout_raw": 0.9964,
+  "v274": 0.9982,
+  "diff": -0.0018,
+  "worse": false,
+  "std": "11/11"
+ }
+}

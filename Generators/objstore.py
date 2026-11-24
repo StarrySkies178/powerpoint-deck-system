@@ -518,6 +518,70 @@ def _units(f, idx):
 class NeedsGenerator(ValueError):
     """The object's layout isn't regular enough to re-count safely; redraw it with the pattern's generator."""
 
+def _form_check(obj, gen):
+    """Does the object look like the form generator `gen` draws? (True, why) / (False, why) / (None, why) when not checked."""
+    try: f = _frag(ungroup(obj))
+    except Exception: return None, "could not read the object"
+    X, Y, W, H = obj["bbox"]; area = max(1, W * H)
+    tbls = [e for e in f if etree.QName(e).localname == "graphicFrame" and e.find(".//a:tbl", NS) is not None]
+    charts = [e for e in f if e.find(".//{http://schemas.openxmlformats.org/drawingml/2006/chart}chart") is not None]
+    big_tbl = any(_xfrm(t) and _xfrm(t)[2] * _xfrm(t)[3] > 0.4 * area for t in tbls)
+    boxes = [(_xfrm(e), e) for e in f if e.tag in (P + "sp",) and _filled(e) and _xfrm(e) and _xfrm(e)[2] * _xfrm(e)[3] > 0.004 * area]
+    conns = [e for e in f if etree.QName(e).localname == "cxnSp"]
+    ell = [b for b, e in boxes if _geom(e) == "ellipse"]
+    if big_tbl and gen not in ("dataTable", "scoringTable", "gantt", "phaseMatrix"): return False, "it is mainly a table"
+    if charts and gen not in ("stackedCagr", "growthBars", "growthPairs"): return False, "it holds a native chart"
+    def clusters(vals, tol):
+        out = []
+        for v in sorted(vals):
+            if not out or v - out[-1][-1] > tol: out.append([v])
+            else: out[-1].append(v)
+        return out
+    if gen == "matrix":
+        bb = sorted((b for b, _ in boxes), key=lambda b: -b[2] * b[3])[:4]
+        if len(bb) < 4: return False, "fewer than four boxes"
+        a = [b[2] * b[3] for b in bb]
+        if min(a) < 0.6 * max(a): return False, "its four largest boxes differ in size"
+        cx = clusters([b[0] + b[2] / 2 for b in bb], W * 0.1); cy = clusters([b[1] + b[3] / 2 for b in bb], H * 0.1)
+        return (len(cx) == 2 and len(cy) == 2), ("a 2 x 2 grid of boxes" if len(cx) == 2 and len(cy) == 2 else "its largest boxes are not a 2 x 2 grid")
+    if gen == "targetOnion":
+        for i, a in enumerate(ell):
+            for b in ell[i + 1:]:
+                if abs((a[0] + a[2] / 2) - (b[0] + b[2] / 2)) < 0.05 * W and abs((a[1] + a[3] / 2) - (b[1] + b[3] / 2)) < 0.05 * H and abs(a[2] - b[2]) > 0.1 * a[2]:
+                    return True, "nested ellipses"
+        return False, "no nested ellipses (rings around one centre)"
+    if gen == "issueTree":
+        cols = clusters([b[0] for b, _ in boxes], W * 0.05)
+        counts = [len(c) for c in cols]
+        branching = any(counts[i + 1] > counts[i] for i in range(len(counts) - 1))
+        if conns or branching: return True, "boxes branch from left to right"
+        return False, "no branching: its columns do not split into more boxes, and it has no connectors"
+    if gen == "labelledRows":
+        bb = [b for b, _ in boxes]
+        if len(bb) < 2: return False, "fewer than two boxes"
+        rows = clusters([b[1] + b[3] / 2 for b in bb], H * 0.06); cols = clusters([b[0] + b[2] / 2 for b in bb], W * 0.04)
+        tall = sum(1 for b in bb if b[3] > b[2]) > len(bb) / 2
+        if tall and len(cols) > len(rows): return False, "its boxes stand in columns (bars), not rows"
+        return (len(rows) >= 2), ("boxes in rows" if len(rows) >= 2 else "no rows of boxes")
+    if gen in ("cycle", "hubSpoke"):
+        cs = [(b[0] + b[2] / 2, b[1] + b[3] / 2) for b, _ in boxes]
+        if len(cs) < 3: return False, "fewer than three items"
+        mx = sum(c[0] for c in cs) / len(cs); my = sum(c[1] for c in cs) / len(cs)
+        r = [((c[0] - mx) ** 2 + (c[1] - my) ** 2) ** 0.5 for c in cs]; rm = sum(r) / len(r)
+        ring = sum(1 for v in r if abs(v - rm) < 0.25 * rm) >= 3
+        return ring, ("items around a centre" if ring else "its items do not sit around a centre")
+    return None, "form not checked"
+
+def _route(obj, why, default="build by hand"):
+    """The NeedsGenerator message: which generator the tag points to, and whether the object looks like that form."""
+    pat = obj.get("pattern") or "untagged"; gen = GEN_FOR.get(obj.get("pattern"))
+    if not gen: return f"{pat}: {why} -> {default} (no generator for this tag)"
+    ok, how = _form_check(obj, gen)
+    note = "" if "auto" not in (obj.get("note") or "") else "; the tag was set automatically and not reviewed"
+    if ok is False: return f"{pat}: {why}. The tag points to generator '{gen}', but the object does not look like that form ({how}{note}): re-tag it, or build by hand"
+    if ok is None: return f"{pat}: {why} -> generator '{gen}' if the slide really is a {pat} ({how}{note})"
+    return f"{pat}: {why} -> use generator '{gen}' ({how}{note})"
+
 GEN_FOR = {"cycle": "cycle", "virtuous-cycle": "cycle", "chevron-process": "chevronProcess", "value-chain": "chevronProcess",
     "staircase": "staircase", "timeline": "timeline", "text-columns": "textColumns", "labelled-rows": "labelledRows",
     "hub-spoke": "hubSpoke", "impact-out": "hubSpoke", "honeycomb": "hubSpoke", "forces-in": "forcesIn", "pyramid": "pyramid",
@@ -605,7 +669,7 @@ def extend(obj, n, indices=None, strict=True):
     except NeedsGenerator:
         raise
     except ValueError as e:
-        raise NeedsGenerator(f"{obj.get('pattern')}: {e} -> use generator '{GEN_FOR.get(obj.get('pattern'), 'build by hand')}'")
+        raise NeedsGenerator(_route(obj, str(e)))
 
 def _extend(obj, n, indices=None, strict=True):
     """Change how many times the object's repeated element appears (e.g. 4 arrows -> 5).
@@ -628,7 +692,7 @@ def _extend(obj, n, indices=None, strict=True):
                      and all(_xfrm(e)[0] <= _xfrm(kids_[i])[0] + _xfrm(kids_[i])[2] / 2 <= _xfrm(e)[0] + _xfrm(e)[2] and
                              _xfrm(e)[1] <= _xfrm(kids_[i])[1] + _xfrm(kids_[i])[3] / 2 <= _xfrm(e)[1] + _xfrm(e)[3] for i in idx)]
             if not hosts or sum(1 for e in kids_ if _filled(e)) > 2:
-                raise NeedsGenerator(f"{obj.get('pattern')}: only the labels repeat -> use generator '{GEN_FOR.get(obj.get('pattern'), 'build by hand')}'")
+                raise NeedsGenerator(_route(obj, "only the labels repeat"))
     kids = list(f)
     if not idx and indices is None and any(g.find(".//a:tbl", NS) is not None for g in f.iter(P + "graphicFrame")):
         rows = len(next(g for g in f.iter(P + "graphicFrame") if g.find(".//a:tbl", NS) is not None).findall(".//a:tr", NS))
@@ -661,7 +725,7 @@ def _extend(obj, n, indices=None, strict=True):
         Rr = max(math.dist((mx, my), p) for i in idx for p in _points(kids[i]))
         arcs = arcs and all(_is_arc_segment(kids[i], mx, my, Rr, len(idx)) for i in idx)
         if not (even and arcs and hole and tangential and not pointy):
-            raise NeedsGenerator(f"{obj.get('pattern')}: items are not ring segments -> use generator '{GEN_FOR.get(obj.get('pattern'), 'hubSpoke')}'")
+            raise NeedsGenerator(_route(obj, "items are not ring segments", "use generator 'hubSpoke'"))
     if circular: order = sorted(idx, key=lambda i: math.atan2(cs[i][1] - my, cs[i][0] - mx))
     else:
         horiz = spread_x >= spread_y
@@ -730,7 +794,7 @@ def _extend(obj, n, indices=None, strict=True):
                 new.append(l)
     else:
         if strict and not _gate_linear(bbs, order, horiz):
-            raise NeedsGenerator(f"{obj.get('pattern')}: layout not a regular row/column -> use generator '{GEN_FOR.get(obj.get('pattern'), 'build by hand')}'")
+            raise NeedsGenerator(_route(obj, "layout not a regular row/column"))
         key = (lambda b: b[0]) if horiz else (lambda b: b[1])
         size_of = (lambda b: b[2]) if horiz else (lambda b: b[3])
         first, last = bbs[order[0]], bbs[order[-1]]

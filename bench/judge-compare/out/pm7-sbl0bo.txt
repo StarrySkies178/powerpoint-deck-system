@@ -1,0 +1,2 @@
+OK
+near-identical polished mimic with all charts, break marks, callouts and constraint panel kept; only flaw is chart 1 subtitle wrapping so "growth" overlaps "CNY Billion"

@@ -1,0 +1,2 @@
+OK
+near-identical mimic; same three-case table, title rule, rows and footer, only the logo is drawn slightly differently
