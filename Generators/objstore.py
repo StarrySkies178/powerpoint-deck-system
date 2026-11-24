@@ -27,6 +27,7 @@ NS = {"a": "http://schemas.openxmlformats.org/drawingml/2006/main",
       "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships"}
 A, P, RNS = "{%s}" % NS["a"], "{%s}" % NS["p"], "{%s}" % NS["r"]
 EMU = 914400
+DS = "{urn:deck-system:src}"   # private attribute on a stored colour: the exact original colour (stripped by place())
 SHAPE_TAGS = {P + "sp", P + "grpSp", P + "cxnSp", P + "pic", P + "graphicFrame"}
 
 # ------------------------------------------------------------------ colour -> house role
@@ -228,7 +229,7 @@ def extract(deck_path, deck_key, store_dir, slide_meta=None):
                                 part["rels"].append({"id": r.get("Id"), "type": r.get("Type"), "ext": os.path.splitext(tgt)[1],
                                                      "data": base64.b64encode(z.read(tgt)).decode()})
                     chart_parts[key] = part; media[rid] = "CHART:" + key
-        frag = etree.Element(P + "spTree", nsmap={"a": NS["a"], "p": NS["p"], "r": NS["r"]})
+        frag = etree.Element(P + "spTree", nsmap={"a": NS["a"], "p": NS["p"], "r": NS["r"], "ds": DS[1:-1]})
         for el in keep: frag.append(copy.deepcopy(el))
         for e in frag.iter():
             for att in list(e.attrib):
@@ -273,12 +274,12 @@ def extract(deck_path, deck_key, store_dir, slide_meta=None):
         for k, ct in chart_trees.items():
             for c in list(ct.iter(A + "srgbClr")):
                 role = rm.get(c.get("val").upper())
-                if role: c.tag = A + "schemeClr"; c.set("val", role)
+                if role: c.set(DS + "c", c.get("val").upper()); c.tag = A + "schemeClr"; c.set("val", role)
             for t in ct.iter(A + "latin"): t.set("typeface", "+mn-lt")
             chart_parts[k]["xml"] = etree.tostring(ct, encoding="unicode")
         for c in list(frag.iter(A + "srgbClr")):
             role = rm.get(c.get("val").upper())
-            if role: c.tag = A + "schemeClr"; c.set("val", role)
+            if role: c.set(DS + "c", c.get("val").upper()); c.tag = A + "schemeClr"; c.set("val", role)
         # fonts -> theme fonts
         for t in frag.iter(A + "latin"): t.set("typeface", "+mn-lt")
         for t in frag.iter(A + "ea"): t.set("typeface", "+mn-ea")
@@ -325,13 +326,13 @@ def _store(obj, frag):
 def original_colours(obj):
     """Put back the colours the object had in its source slide (needs role_src, saved since 2026-11-23).
     Use when the user names that exact reference slide; otherwise objects follow the deck theme."""
-    src = obj.get("role_src")
-    if not src: return obj
+    src = obj.get("role_src") or {}
     obj = copy.deepcopy(obj)
-    def fix(tree):
+    def fix(tree):   # each colour's own original (kept per colour since v2.85), else the slot's most used original
         for c in list(tree.iter(A + "schemeClr")):
-            hx = src.get(c.get("val"))
+            hx = c.get(DS + "c") or src.get(c.get("val"))
             if hx: c.tag = A + "srgbClr"; c.set("val", hx)
+            c.attrib.pop(DS + "c", None)
     f = _frag(obj); fix(f)
     for k, part in obj.get("charts", {}).items():
         ct = etree.fromstring(part["xml"].encode("utf-8")); fix(ct); part["xml"] = etree.tostring(ct, encoding="unicode")
@@ -343,6 +344,7 @@ def recolour(obj, mapping):
     for c in f.iter(A + "schemeClr"):
         v = mapping.get(c.get("val"))
         if v is None: continue
+        c.attrib.pop(DS + "c", None)   # recoloured on purpose: no longer the original colour
         if v.startswith("#"): c.tag = A + "srgbClr"; c.set("val", v[1:].upper())
         else: c.set("val", v)
     return _store(obj, f)
@@ -771,7 +773,9 @@ def table_size(obj, rows=None, cols=None, which=0):
     def empty(el):
         for t in el.iter(A + "t"): t.text = ""
         return el
-    def fills(tr): return tuple(etree.tostring(f_) if f_ is not None else b"" for f_ in (tc.find("a:tcPr/a:solidFill", NS) for tc in tr.findall("a:tc", NS)))
+    def fills(tr):   # each cell's fill colour (the store's private attributes aside)
+        return tuple(tuple((etree.QName(c).localname, c.get("val")) for c in f_.iter()) if f_ is not None else ()
+                     for f_ in (tc.find("a:tcPr/a:solidFill", NS) for tc in tr.findall("a:tc", NS)))
     if rows is not None:
         # banded rows (fills alternate): a new row copies the row two above, so the bands go on alternating
         banded = len(trs) >= 3 and fills(trs[-1]) != fills(trs[-2]) and fills(trs[-1]) == fills(trs[-3])
@@ -1039,7 +1043,7 @@ def set_texts(obj, texts):
             else:
                 tmpl = tmpls[min(i, len(tmpls) - 1)]
             text = "".join(runs) if isinstance(runs, (list, tuple)) else runs
-            if " ".join(text.split()) == " ".join(_para_text(tmpl).split()): np_ = copy.deepcopy(tmpl)   # unchanged text keeps its runs
+            if re.sub(" +", " ", text.strip()) == re.sub(" +", " ", _para_text(tmpl).strip()): np_ = copy.deepcopy(tmpl)   # unchanged text keeps its runs (repeated spaces aside; a tab is not a space)
             else: np_ = _fill_para(tmpl, runs, keep_marR=cell)       # a text box's right margin was fitted to the old words
             if want is not None and lvl(np_) != want:
                 pp = np_.find("a:pPr", NS)
@@ -1191,6 +1195,13 @@ def _move_labels_out(frag, bbox, k, warnings):
             sf = etree.Element(A + "solidFill"); etree.SubElement(sf, A + "schemeClr", val="tx1"); rpr.insert(0, sf)
     return left
 
+def _strip_ds(tree):
+    """Take the store's private attributes off before XML goes into a deck."""
+    for e in tree.iter():
+        for a in [a for a in e.attrib if a.startswith(DS)]: del e.attrib[a]
+    etree.cleanup_namespaces(tree)
+    return tree
+
 def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="center", scale_text=True, out_path=None, texts=None, move_labels=True, colours="theme"):
     """Insert obj into slide `slide_no` (1-based) of a .pptx, fitted into box_in=(x,y,w,h) inches.
     Vector scaling via a group; text sizes scaled with it (min 8 pt); media copied and linked.
@@ -1203,7 +1214,7 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
     ay = by + (bh - th) / 2
     if texts is not None: obj = set_texts(obj, texts)
     if colours == "original": obj = original_colours(obj)
-    frag = _frag(obj)
+    frag = _strip_ds(_frag(obj))
     k = s if keep_aspect else min(bw / W, bh / H)
     warnings = []
     unit = abs(tw / W - 1) < 0.005 and abs(th / H - 1) < 0.005   # placed at its own size: text is left exactly as stored
@@ -1276,7 +1287,7 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
             else: continue
             files[tgt] = data
             etree.SubElement(crels, "{http://schemas.openxmlformats.org/package/2006/relationships}Relationship", Id=r["id"], Type=r["type"], Target="../" + tgt.split("ppt/", 1)[1])
-        files[cname] = part["xml"].encode("utf-8")
+        files[cname] = etree.tostring(_strip_ds(etree.fromstring(part["xml"].encode("utf-8"))), xml_declaration=True, encoding="UTF-8", standalone=True)
         files[os.path.dirname(cname) + "/_rels/" + os.path.basename(cname) + ".rels"] = etree.tostring(crels, xml_declaration=True, encoding="UTF-8", standalone=True)
         add_ct(cname, "application/vnd.openxmlformats-officedocument.drawingml.chart+xml")
         rid = next(f"rIdC{i}" for i in range(1, 9999) if f"rIdC{i}" not in used); used.add(rid)

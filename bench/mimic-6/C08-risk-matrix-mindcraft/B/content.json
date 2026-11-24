@@ -1,0 +1,223 @@
+{
+ "title": "Five priority risks threaten the European launch, and each has an avoid and a mitigate action ready for discussion",
+ "source": "Source: MindCraft analysis; distributor interviews",
+ "crumb": [
+  "Market Entry",
+  "Launch Plan",
+  "Risk & Mitigation"
+ ],
+ "page": 14,
+ "panels": [
+  "Risk heat map",
+  "Actions for the five priority risks"
+ ],
+ "zone": {
+  "box": [
+   2.6975,
+   3.0175,
+   2.1201,
+   2.2188
+  ],
+  "label": "Top priority"
+ },
+ "risks": [
+  {
+   "id": 1,
+   "c": [
+    4.437,
+    3.2772
+   ],
+   "col": "red"
+  },
+  {
+   "id": 2,
+   "c": [
+    3.8857,
+    3.8285
+   ],
+   "col": "red"
+  },
+  {
+   "id": 3,
+   "c": [
+    3.1376,
+    4.1829
+   ],
+   "col": "blue"
+  },
+  {
+   "id": 4,
+   "c": [
+    4.3976,
+    4.4979
+   ],
+   "col": "blue"
+  },
+  {
+   "id": 5,
+   "c": [
+    3.5707,
+    4.9704
+   ],
+   "col": "blue"
+  },
+  {
+   "id": 6,
+   "c": [
+    1.6807,
+    3.1591
+   ],
+   "col": "dark",
+   "label": [
+    "Price war",
+    "with local",
+    "brands"
+   ],
+   "at": [
+    1.28,
+    3.4
+   ]
+  },
+  {
+   "id": 7,
+   "c": [
+    1.3658,
+    4.3404
+   ],
+   "col": "dark",
+   "label": [
+    "Shipping",
+    "cost rise"
+   ],
+   "at": [
+    1.58,
+    4.13
+   ]
+  },
+  {
+   "id": 8,
+   "c": [
+    1.7595,
+    5.561
+   ],
+   "col": "dark",
+   "label": [
+    "Counterfeit",
+    "products"
+   ],
+   "at": [
+    1.98,
+    5.35
+   ]
+  },
+  {
+   "id": 9,
+   "c": [
+    3.4526,
+    5.7579
+   ],
+   "col": "dark",
+   "label": [
+    "Key staff",
+    "turnover"
+   ],
+   "at": [
+    3.68,
+    5.56
+   ]
+  }
+ ],
+ "table": {
+  "header": [
+   "Risks",
+   "Responses"
+  ],
+  "normalise": true,
+  "marT": 0.06,
+  "circle_dy": 0.02,
+  "row_h": [
+   0.84,
+   0.84,
+   0.84,
+   0.84,
+   0.84
+  ],
+  "rows": [
+   {
+    "risk": "Licence delay",
+    "bullet": "Product approvals may take 6+ months longer",
+    "col": "red",
+    "sol": [
+     [
+      "[Avoid]",
+      "Apply early via local advisors"
+     ],
+     [
+      "[Mitigate]",
+      "Start with approved SKUs"
+     ]
+    ]
+   },
+   {
+    "risk": "Currency swings",
+    "bullet": "A 10% weaker euro cuts margin by 4 pts",
+    "col": "red",
+    "sol": [
+     [
+      "[Avoid]",
+      "Price in euros, review quarterly"
+     ],
+     [
+      "[Mitigate]",
+      "Hedge 70% of FX exposure"
+     ]
+    ]
+   },
+   {
+    "risk": "Partner failure",
+    "bullet": "Distributor may miss targets or exit",
+    "col": "blue",
+    "sol": [
+     [
+      "[Avoid]",
+      "Pick partners on track record"
+     ],
+     [
+      "[Mitigate]",
+      "Keep a back-up distributor"
+     ]
+    ]
+   },
+   {
+    "risk": "Low awareness",
+    "bullet": "Only 8% of target buyers know the brand",
+    "col": "blue",
+    "sol": [
+     [
+      "[Avoid]",
+      "Pre-launch campaign with KOLs"
+     ],
+     [
+      "[Mitigate]",
+      "Move budget to top channels"
+     ]
+    ]
+   },
+   {
+    "risk": "Data compliance",
+    "bullet": "GDPR fines reach 4% of global revenue",
+    "col": "blue",
+    "sol": [
+     [
+      "[Avoid]",
+      "Keep EU customer data in the EU"
+     ],
+     [
+      "[Mitigate]",
+      "Appoint a data protection officer"
+     ]
+    ]
+   }
+  ]
+ }
+}
