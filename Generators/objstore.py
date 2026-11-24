@@ -193,7 +193,9 @@ def extract(deck_path, deck_key, store_dir, slide_meta=None):
                     el = pic
                 elif el.find(".//a:tbl", NS) is None: continue
             bb = _xfrm(el)
-            if bb is None or bb[2] <= 0 or bb[3] <= 0: continue
+            # a straight line or divider has zero width or zero height (PDF imports draw them so): keep it; only a shape
+            # with no size at all is dropped
+            if bb is None or bb[2] < 0 or bb[3] < 0 or (bb[2] == 0 and bb[3] == 0): continue
             x, y, w, h = bb
             if y > SH * 0.91: continue                                                      # footer zone
             if y + h < SH * 0.17 and etree.QName(el).localname == "sp" and _text(el) and w > SW * 0.3: continue  # title-like text box

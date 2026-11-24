@@ -1,0 +1,85 @@
+{
+ "size_in": [
+  13.333,
+  7.5
+ ],
+ "title": {
+  "text": "ChowTaiFookisrecommendedtoenteranewmarketgiventhecustomer changingpreference,tightenedpoliciesandincreasinglyfiercecompe",
+  "left_in": 0.0,
+  "top_in": 0.46,
+  "box": [
+   0.0,
+   0.446,
+   13.333,
+   0.858
+  ],
+  "above": 0.366,
+  "pt": 24.0,
+  "bold": true,
+  "font": "Arial",
+  "colour": "FFFFFF"
+ },
+ "body": {
+  "median_pt": 15.0,
+  "min_pt": 10.0
+ },
+ "margins": {
+  "left_in": 0.268,
+  "right_in": 0.247
+ },
+ "fonts": {
+  "latin": [
+   "Arial",
+   "Arial MT"
+  ],
+  "ea": [],
+  "cjk": false
+ },
+ "source": {
+  "pt": 10.0,
+  "top_in": 7.277
+ },
+ "theme_colours": [
+  "000000",
+  "0000FF",
+  "1F497D",
+  "4BACC6",
+  "4F81BD",
+  "800080",
+  "8064A2",
+  "9BBB59",
+  "C0504D",
+  "EEECE1",
+  "F79646",
+  "FFFFFF"
+ ],
+ "render_colours": [
+  "0C243C",
+  "0C3C6C",
+  "242454",
+  "243C54",
+  "3C5454",
+  "3C546C",
+  "546C84",
+  "6C6C6C",
+  "6C9CCC",
+  "848484",
+  "9C9C9C",
+  "9C9CB4",
+  "9CCCE4",
+  "B4B4B4",
+  "CCB49C",
+  "CCCCCC",
+  "CCCCE4",
+  "CCE4E4",
+  "E4CCB4",
+  "E4CCCC",
+  "E4E4CC",
+  "E4E4E4",
+  "E4E4FC",
+  "E4FCFC",
+  "FCE4CC",
+  "FCE4E4",
+  "FCFCFC"
+ ]
+}
