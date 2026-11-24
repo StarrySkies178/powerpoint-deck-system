@@ -1,0 +1,2 @@
+OK
+near-identical mimic; same three case tables, header rules, title band and footer, only the logo styling differs slightly

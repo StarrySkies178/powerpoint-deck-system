@@ -70,3 +70,4 @@ The old columns continue (Pass and Standards counted with the old bar for every 
 | 2026-11-24 13:33 | Store fix 2 (extract keeps lines; four C decks re-extracted): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
 | 2026-11-24 13:35 | Store fix 3 (each stored colour keeps its original; four C decks re-extracted): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
 | 2026-11-24 13:37 | Store fix 4 (tags from the reviewed slide map; extend() checks the form): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 13:50 | Store fix 8 (place keeps one-line labels on one line): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |

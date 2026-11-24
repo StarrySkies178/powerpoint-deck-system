@@ -1259,6 +1259,19 @@ def _move_labels_out(frag, bbox, k, warnings):
             sf = etree.Element(A + "solidFill"); etree.SubElement(sf, A + "schemeClr", val="tx1"); rpr.insert(0, sf)
     return left
 
+def _one_line(el):
+    """A label stored as ONE line (one paragraph with text, box no taller than one line of its largest size): its text
+    must stay on one line wherever it is drawn, as in its source (v2.88; C04 'China fine jewelry annual market size and
+    growth' wrapped under LibreOffice, which spaces PDF-imported runs a little wider)."""
+    tb = el.find("p:txBody", NS); bb = _xfrm(el)
+    if tb is None or not bb: return False
+    paras = [p_ for p_ in tb.findall("a:p", NS) if _para_text(p_).strip()]
+    if len(paras) != 1: return False
+    szs = [int(r.get("sz")) for r in tb.iter(A + "rPr") if r.get("sz")] or [1800]
+    bp = tb.find("a:bodyPr", NS); ins = lambda a, d: int(bp.get(a, d)) if bp is not None else d
+    inner = bb[3] - ins("tIns", 45720) - ins("bIns", 45720)
+    return inner <= max(szs) / 100 * 1.2 * 1.45 * 12700
+
 def _strip_ds(tree):
     """Take the store's private attributes off before XML goes into a deck."""
     for e in tree.iter():
@@ -1296,9 +1309,12 @@ def place(pptx_path, slide_no, obj, box_in, store_dir, keep_aspect=True, align="
         if warnings and move_labels: warnings = _move_labels_out(frag, obj["bbox"], k, warnings)
     for el in frag.iter(P + "sp"):            # short labels: never wrap mid-word when resized (also at scale 1: a
                                               # stored box sized to its font can wrap under another font, see v2.80)
-        if not _filled(el) and len(_text(el).split()) <= 3:
+        if not _filled(el) and (len(_text(el).split()) <= 3 or _one_line(el)):
             bp = el.find("p:txBody/a:bodyPr", NS)
             if bp is not None: bp.set("wrap", "none")
+    for bp in frag.iter(A + "bodyPr"):        # a box that must not wrap must not resize either: LibreOffice 26 wraps a
+        if bp.get("wrap") == "none":          # wrap="none" box that carries spAutoFit (C08 "Top priority", v2.88)
+            for af in bp.findall("a:spAutoFit", NS): bp.replace(af, etree.Element(A + "noAutofit"))
     tables = []
     for gf in [e for e in frag if etree.QName(e).localname == "graphicFrame" and e.find(".//a:tbl", NS) is not None]:
         frag.remove(gf); kx = tw / W; ky = th / H

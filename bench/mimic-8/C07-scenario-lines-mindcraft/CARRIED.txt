@@ -1,0 +1,1 @@
+Carried from bench/mimic-6/C07-scenario-lines-mindcraft; rebuilt for the review-mimic-8 pictures (v2.88).

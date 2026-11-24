@@ -1,4 +1,4 @@
-# Benchmark results: Store fix 4 (tags from the reviewed slide map; extend() checks the form): regression after (2026-11-24 13:37)
+# Benchmark results: Store fix 8 (place keeps one-line labels on one line): regression after (2026-11-24 13:50)
 
 **Regression 7 / 7** (must stay all-pass) · **Named-slide capability 0 / 0** · **Deck-as-reference: 0 cases, no pass mark, 0 moved back by more than 0.05**
 

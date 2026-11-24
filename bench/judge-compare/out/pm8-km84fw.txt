@@ -1,0 +1,2 @@
+OK
+Close mimic: same dark red to grey gradient, title and four italic paragraphs at the same size and placement; only line breaks differ.
