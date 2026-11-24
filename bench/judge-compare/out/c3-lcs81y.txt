@@ -1,0 +1,2 @@
+NOT OK
+Segment chart is clumsy: Fashion 11% shrunk to a thin sliver with its label squeezed inside, and the break mark and leader lines from the original are gone

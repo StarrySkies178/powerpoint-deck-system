@@ -1,0 +1,2 @@
+NOT OK
+Doubled bullet marks repeat across columns and sub-bullet hierarchy is lost; grey row-label panels dropped for small red text, leaving loose gaps.

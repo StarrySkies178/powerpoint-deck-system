@@ -1,0 +1,2 @@
+OK
+Complete, faithful mimic; both stacked charts keep dashed connectors, totals, legends and CAGR side panel

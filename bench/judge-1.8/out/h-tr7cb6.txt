@@ -1,0 +1,2 @@
+FAIL
+navy-header spreadsheet table looks AI-made, and the right panels are half empty

@@ -1,0 +1,543 @@
+[
+ {
+  "slide": 4,
+  "box": [
+   60,
+   240,
+   650,
+   632
+  ],
+  "scale": [
+   610,
+   412,
+   750
+  ],
+  "clear": [
+   [
+    60,
+    385,
+    652,
+    632
+   ],
+   [
+    215,
+    236,
+    652,
+    385
+   ]
+  ],
+  "names": [
+   "E-commerce",
+   "Hyper/supermarkets",
+   "Chain Stores",
+   "Traditional Grocery"
+  ],
+  "keep": [
+   "Historical",
+   "Forecast",
+   "^~"
+  ],
+  "keep_colors": [
+   "000000",
+   "0D0D0D",
+   "1A1A1A"
+  ],
+  "name": "fresh fruit retail market size and breakdown",
+  "note": "Native stacked columns: 2015, 2020 and 2023E from the original's labels (total x share); other years measured from the page against the ~750 scale (estimates).",
+  "palette": [
+   "78CAEB",
+   "867D80",
+   "11A6F3",
+   "48516D"
+  ],
+  "texts": [
+   [
+    "2%",
+    "",
+    "",
+    "",
+    "",
+    "7%",
+    "",
+    "",
+    "10%"
+   ],
+   [
+    "17%",
+    "",
+    "",
+    "",
+    "",
+    "15%",
+    "",
+    "",
+    "13%"
+   ],
+   [
+    "9%",
+    "",
+    "",
+    "",
+    "",
+    "13%",
+    "",
+    "",
+    "16%"
+   ],
+   [
+    "72%",
+    "",
+    "",
+    "",
+    "",
+    "65%",
+    "",
+    "",
+    "61%"
+   ]
+  ],
+  "values": [
+   [
+    15,
+    15.15,
+    22.73,
+    37.88,
+    49.24,
+    70,
+    79.55,
+    102.27,
+    130
+   ],
+   [
+    127.5,
+    125,
+    128.79,
+    147.73,
+    155.3,
+    150,
+    143.94,
+    147.73,
+    169
+   ],
+   [
+    67.5,
+    64.39,
+    79.55,
+    94.7,
+    113.64,
+    130,
+    140.15,
+    162.88,
+    208
+   ],
+   [
+    540,
+    571.97,
+    606.06,
+    640.15,
+    700.76,
+    650,
+    696.97,
+    742.42,
+    793
+   ]
+  ],
+  "label_color": "FFFFFF"
+ },
+ {
+  "slide": 4,
+  "box": [
+   945,
+   588,
+   1252,
+   762
+  ],
+  "cat_size": null,
+  "name": "branded drinks store location by tier",
+  "values": [
+   [
+    41,
+    29,
+    36
+   ],
+   [
+    24,
+    17,
+    23
+   ],
+   [
+    35,
+    54,
+    41
+   ]
+  ],
+  "fmt": "0\"%\""
+ },
+ {
+  "slide": 6,
+  "box": [
+   190,
+   208,
+   745,
+   490
+  ],
+  "kind": "rows100",
+  "cat_size": null,
+  "keep_colors": [
+   "FF0000",
+   "E00000",
+   "C00000",
+   "D00000"
+  ],
+  "name": "customer profile shares",
+  "values": [
+   [
+    11,
+    5,
+    56,
+    77
+   ],
+   [
+    20,
+    14,
+    18,
+    23
+   ],
+   [
+    38,
+    47,
+    27,
+    null
+   ],
+   [
+    23,
+    30,
+    null,
+    null
+   ],
+   [
+    7,
+    5,
+    null,
+    null
+   ]
+  ]
+ },
+ {
+  "slide": 10,
+  "box": [
+   1268,
+   212,
+   1562,
+   640
+  ],
+  "name": "store expansion forecast",
+  "keep": [
+   "Zone$",
+   "^22$"
+  ],
+  "values": [
+   [
+    209,
+    303,
+    421
+   ],
+   [
+    46,
+    62,
+    83
+   ],
+   [
+    22,
+    31,
+    42
+   ],
+   [
+    66,
+    82,
+    100
+   ]
+  ],
+  "total_vals": [
+   343,
+   478,
+   646
+  ],
+  "label_skip": {
+   "2": [
+    0
+   ]
+  }
+ },
+ {
+  "slide": 16,
+  "box": [
+   70,
+   205,
+   652,
+   560
+  ],
+  "name": "3-year revenue forecast by scenario",
+  "keep": [
+   "Case$"
+  ],
+  "keep_colors": [
+   "0D1E5C",
+   "808A99",
+   "7ACBEB",
+   "1A2A6C",
+   "7F8C9F",
+   "74C6EA"
+  ],
+  "keep_max": 1200
+ },
+ {
+  "slide": 16,
+  "box": [
+   700,
+   200,
+   1272,
+   590
+  ],
+  "kind": "waterfall",
+  "steps": [
+   18,
+   4,
+   1,
+   6,
+   21,
+   49
+  ],
+  "totals": [
+   0
+  ],
+  "name": "contribution of 4 zones"
+ },
+ {
+  "slide": 20,
+  "spec": {
+   "name": "prioritization of cities",
+   "type": "bubble",
+   "clear": [
+    [
+     432,
+     184,
+     538,
+     283
+    ],
+    [
+     572,
+     184,
+     682,
+     255
+    ],
+    [
+     387,
+     254,
+     479,
+     346
+    ],
+    [
+     1073,
+     184,
+     1183,
+     260
+    ],
+    [
+     1332,
+     184,
+     1396,
+     263
+    ],
+    [
+     1025,
+     243,
+     1131,
+     349
+    ],
+    [
+     1149,
+     242,
+     1265,
+     358
+    ],
+    [
+     1259,
+     237,
+     1385,
+     363
+    ],
+    [
+     458,
+     439,
+     510,
+     491
+    ],
+    [
+     592,
+     485,
+     662,
+     555
+    ],
+    [
+     1049,
+     532,
+     1131,
+     614
+    ],
+    [
+     1143,
+     485,
+     1245,
+     587
+    ],
+    [
+     1335,
+     465,
+     1396,
+     575
+    ]
+   ],
+   "frame": [
+    218,
+    182,
+    1398,
+    698
+   ],
+   "plot": [
+    228,
+    192,
+    1388,
+    688
+   ],
+   "x_axis": [
+    228,
+    1388
+   ],
+   "y_axis": [
+    0,
+    496
+   ],
+   "bubble_scale": 100,
+   "z": "back",
+   "keep": [
+    "^(?!(Tianjin|Shanghai|Nanjing|Hefei|Xi.an)$)"
+   ],
+   "series": [
+    {
+     "name": "Cities",
+     "values": [
+      [
+       485,
+       458,
+       2025
+      ],
+      [
+       627,
+       488,
+       2209
+      ],
+      [
+       433,
+       388,
+       1444
+      ],
+      [
+       1128,
+       483,
+       2209
+      ],
+      [
+       1385,
+       478,
+       2025
+      ],
+      [
+       1078,
+       392,
+       2025
+      ],
+      [
+       1207,
+       388,
+       2500
+      ],
+      [
+       1322,
+       388,
+       3025
+      ],
+      [
+       484,
+       223,
+       324
+      ],
+      [
+       627,
+       168,
+       729
+      ],
+      [
+       1090,
+       115,
+       1089
+      ],
+      [
+       1194,
+       152,
+       1849
+      ],
+      [
+       1390,
+       168,
+       2209
+      ],
+      [
+       5000,
+       100,
+       3800
+      ]
+     ],
+     "color": "0D1E5C",
+     "colors": [
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "C8C8C8",
+      "C8C8C8",
+      "0D1E5C",
+      "0D1E5C",
+      "0D1E5C",
+      "none"
+     ],
+     "texts": [
+      "",
+      "Tianjin",
+      "",
+      "Shanghai",
+      "",
+      "",
+      "Nanjing",
+      "Hefei",
+      "",
+      "",
+      "Xi'an",
+      "",
+      "",
+      ""
+     ],
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "FFFFFF",
+     "label_size": 12
+    }
+   ],
+   "note": "Native bubble chart: x = ability to win and y = market attractiveness as placed on the original (no scale), bubble area = number of stores as drawn; city names are separate text boxes."
+  }
+ }
+]

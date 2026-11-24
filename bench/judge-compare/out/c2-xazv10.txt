@@ -1,0 +1,2 @@
+NOT OK
+Doubled bullet marks and lost sub-point hierarchy throughout, row labels misplaced, Implementation implication left blank

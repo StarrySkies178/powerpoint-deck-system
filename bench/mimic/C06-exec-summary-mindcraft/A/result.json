@@ -1,0 +1,120 @@
+{
+ "id": "C06-exec-summary-mindcraft",
+ "passed": true,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.39 top 0.89; got left 0.39 top 0.89 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 26.0 pt, got 26.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref True, got True"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #FFFFFF, got #FFFFFF (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Verdana, got Verdana"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 14.0 / min 14.0 pt; got 13.0 / 13.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Verdana'], got ['Verdana']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.39 R 5.05; got L 0.39 R 5.05 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  }
+ ],
+ "layout": 0.96,
+ "visual": 0.88,
+ "n_std": 10,
+ "n_std_ok": 10,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Executive Summary",
+   "left_in": 0.39,
+   "top_in": 0.885,
+   "box": [
+    0.39,
+    0.233,
+    12.31,
+    0.927
+   ],
+   "above": 0,
+   "pt": 26.0,
+   "bold": true,
+   "font": "Verdana",
+   "colour": "FFFFFF"
+  },
+  "body": {
+   "median_pt": 13.0,
+   "min_pt": 13.0
+  },
+  "margins": {
+   "left_in": 0.387,
+   "right_in": 5.049
+  },
+  "fonts": {
+   "latin": [
+    "Verdana"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "theme_colours": [
+   "000000",
+   "006292",
+   "00A1DE",
+   "44536A",
+   "5C5C5C",
+   "72C7E7",
+   "808080",
+   "A6A6A6",
+   "C00000",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "846C6C",
+   "6C3C3C",
+   "6C2424",
+   "6C0C0C",
+   "848484",
+   "6C6C6C",
+   "540C0C",
+   "9C6C6C",
+   "843C3C"
+  ]
+ }
+}

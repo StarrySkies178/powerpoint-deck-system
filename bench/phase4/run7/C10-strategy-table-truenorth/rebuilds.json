@@ -1,0 +1,34 @@
+{
+ "case": "C10-strategy-table-truenorth",
+ "run": "run7",
+ "scored": "2026-11-24 08:36",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.33,
+   "std": "10/10",
+   "layout_raw": 0.7676,
+   "failed": [],
+   "detail": []
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.27,
+   "visual": 0.36,
+   "std": "11/11",
+   "layout_raw": 0.8433,
+   "failed": [],
+   "detail": []
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.37,
+   "std": "11/11",
+   "layout_raw": 0.7819,
+   "failed": [],
+   "detail": []
+  }
+ }
+}

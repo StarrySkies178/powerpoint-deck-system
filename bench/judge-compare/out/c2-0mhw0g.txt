@@ -1,0 +1,2 @@
+NOT OK
+Charts stripped: subtitles, y-axes, CAGR side panel and capex burden rows dropped, overlapping data labels, white gap under lines, clipped source line

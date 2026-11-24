@@ -1,0 +1,60 @@
+{
+ "case": "C07-scenario-lines-mindcraft",
+ "run": "run5",
+ "scored": "2026-11-24 07:49",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.36,
+   "visual": 0.43,
+   "std": "8/11",
+   "layout_raw": 0.6888,
+   "failed": [
+    "body text size",
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.31,
+   "visual": 0.42,
+   "std": "8/11",
+   "layout_raw": 0.6631,
+   "failed": [
+    "body text size",
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.33,
+   "visual": 0.48,
+   "std": "7/11",
+   "layout_raw": 0.6744,
+   "failed": [
+    "body text size",
+    "body margins",
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "body margins (ref L 0.37 R 0.28; got L 0.37 R 0.54 in)",
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  }
+ }
+}

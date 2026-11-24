@@ -1,0 +1,34 @@
+Type|Company|Beijing Shanghai Chongqing Tianjin Zhejiang Jiangsu Guangdong Shandong Sichuan Fujian Guangxi Hubei Hunan Henan Liaoning Jiangxi Anhui Yunnan Guizhou Shaanxi Ningxia Hainan
+Real Estate|Vanke|3 1 0 1 1 0 1 3 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Poly|1 0 0 0 2 0 2 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+|China Resources|3 0 0 0 1 1 2 0 0 0 1 1 1 0 1 0 0 0 0 0 0 0
+|Greentown|1 0 0 0 9 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0
+|Sino-Ocean|3 1 0 2 0 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Yuexiu|0 0 0 0 0 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Yincheng|0 0 0 0 0 12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|China Merchants|0 0 0 0 1 0 3 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+|Evergrande|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1
+|Landsea|0 1 0 0 2 9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Tianheng|2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|CIFI|2 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Longfor|1 1 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+|China Overseas|0 0 0 1 0 1 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|China Railway|1 1 0 0 0 1 3 1 4 0 0 0 0 0 0 0 0 0 0 1 0 0
+Insurance|Taikang|1 2 0 0 1 1 1 0 1 1 1 1 1 0 1 1 0 0 0 0 0 0
+|China Life|0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+|Cathay Life|0 2 0 0 1 1 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0
+|Taiping|0 1 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1
+|China Everbright|12 1 39 0 38 13 8 7 1 4 1 0 0 8 0 0 3 0 0 1 1 2
+|Sunshine|0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Fosun|1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Junheung|1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Dajia|2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Qianhai|0 0 0 0 0 0 2 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0
+Operating|Qinheyuan|0 2 0 0 5 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1
+|Yuecheng|3 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+|Regard Care|0 0 0 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Foreign Capital|Orpea|0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Brookdale|0 3 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+|Garden of Life|0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0
+|MeiDi|1 0 0 2 0 2 1 0 2 0 0 0 0 0 0 0 0 1 0 0 0 0
+Total||37 20 40 5 63 55 27 15 12 7 5 3 2 8 3 2 4 2 1 2 1 7

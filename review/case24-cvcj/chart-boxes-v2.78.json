@@ -1,0 +1,405 @@
+[
+ {
+  "slide": 4,
+  "spec": {
+   "name": "market size and forecast",
+   "type": "column",
+   "clear": [
+    30,
+    185,
+    280,
+    430
+   ],
+   "frame": [
+    30,
+    185,
+    282,
+    440
+   ],
+   "categories": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024E",
+    "2025E",
+    "2026E",
+    "2027E"
+   ],
+   "series": [
+    {
+     "name": "Market size (trillion, yuan)",
+     "values": [
+      6.7,
+      7.0,
+      7.2,
+      8.9,
+      10.4,
+      12.0,
+      13.9,
+      16.1,
+      18.6,
+      21.2
+     ],
+     "color": "B4203C"
+    },
+    {
+     "name": "rate of increase (%)",
+     "values": [
+      null,
+      5.5,
+      4.0,
+      22.5,
+      16.8,
+      16.8,
+      16.0,
+      16.5,
+      15.0,
+      14.0
+     ],
+     "color": "BFBFBF",
+     "as_line": true,
+     "width": 2.5
+    }
+   ],
+   "centers": [
+    56,
+    265
+   ],
+   "bar": 13,
+   "base": 378,
+   "k": 7.32,
+   "top": 195,
+   "cat_size": 11,
+   "val_size": 11,
+   "axis_line": "404040",
+   "major": 5,
+   "keep": [
+    "Chart 1",
+    "forecast",
+    "%$"
+   ],
+   "remove_pictures": true,
+   "note": "Native combo chart: no labels on the original; market size read off its 0-25 axis, rate of increase off its 0-25% axis (same scale, so drawn on one axis). Estimates.",
+   "punch": [
+    [
+     30,
+     185,
+     282,
+     432
+    ]
+   ],
+   "cat_rot": -35
+  }
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "pattern comparison",
+   "type": "column_stacked_100",
+   "clear": [
+    350,
+    588,
+    530,
+    752
+   ],
+   "categories": [
+    "Now",
+    "Aim"
+   ],
+   "series": [
+    {
+     "name": "Home care",
+     "values": [
+      96,
+      90
+     ],
+     "color": "A6A6A6",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "FFFFFF",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    },
+    {
+     "name": "Community",
+     "values": [
+      3,
+      7
+     ],
+     "color": "B4203C",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "FFFFFF",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    },
+    {
+     "name": "Institutional",
+     "values": [
+      1,
+      3
+     ],
+     "color": "A0505A",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "FFFFFF",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    }
+   ],
+   "centers": [
+    385,
+    477
+   ],
+   "bar": 48,
+   "base": 745,
+   "k": 1,
+   "top": 592,
+   "cat_size": null,
+   "axis_line": null,
+   "remove_pictures": true,
+   "note": "Native 100% columns: shares are the original's labels (the original breaks the Home care bars; not reproduced).",
+   "punch": [
+    [
+     350,
+     588,
+     530,
+     752
+    ]
+   ]
+  }
+ },
+ {
+  "slide": 5,
+  "spec": {
+   "name": "China population age distribution",
+   "type": "column",
+   "clear": [
+    65,
+    285,
+    460,
+    500
+   ],
+   "frame": [
+    65,
+    285,
+    460,
+    500
+   ],
+   "categories": [
+    "0-4",
+    "5-9",
+    "10-14",
+    "15-19",
+    "20-24",
+    "25-29",
+    "30-34",
+    "35-39",
+    "40-44",
+    "45-49",
+    "50-54",
+    "55-59",
+    "60-64",
+    "65-69",
+    "70-74",
+    "75-79",
+    "80+"
+   ],
+   "series": [
+    {
+     "name": "Population (100 million)",
+     "values": [
+      0.81,
+      0.76,
+      0.72,
+      0.75,
+      1.0,
+      1.3,
+      1.02,
+      0.98,
+      1.2,
+      1.24,
+      1.04,
+      0.78,
+      0.78,
+      0.55,
+      0.37,
+      0.26,
+      0.26
+     ],
+     "color": "9B9B9B",
+     "colors": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "A51C30",
+      "A51C30",
+      "A51C30",
+      "A51C30",
+      null,
+      null,
+      null,
+      null
+     ]
+    }
+   ],
+   "centers": [
+    80,
+    450
+   ],
+   "bar": 14,
+   "base": 455,
+   "k": 124.7,
+   "top": 268,
+   "cat_size": 9,
+   "axis_line": "404040",
+   "keep": [
+    "^1\\.24$",
+    "^1\\.04$",
+    "^1\\.55$",
+    "100 million"
+   ],
+   "note": "Native column chart: no labels on the original bars; values read off its 0-1.5 axis (estimates).",
+   "remove_pictures": true,
+   "cat_rot": -35
+  }
+ },
+ {
+  "slide": 5,
+  "spec": {
+   "name": "needs of senior care services",
+   "type": "column",
+   "clear": [
+    758,
+    300,
+    1112,
+    500
+   ],
+   "frame": [
+    758,
+    300,
+    1112,
+    482
+   ],
+   "categories": [
+    "60-69",
+    "70-79",
+    "80-89"
+   ],
+   "series": [
+    {
+     "name": "Meal assistance",
+     "values": [
+      8,
+      9,
+      12
+     ],
+     "color": "E8909A"
+    },
+    {
+     "name": "Bath assistance",
+     "values": [
+      4,
+      4,
+      7
+     ],
+     "color": "A01E3C"
+    },
+    {
+     "name": "Day care",
+     "values": [
+      8,
+      9,
+      15
+     ],
+     "color": "C85A96"
+    },
+    {
+     "name": "Home housework",
+     "values": [
+      10,
+      12,
+      14
+     ],
+     "color": "C8C8C8"
+    },
+    {
+     "name": "Home doctor visit",
+     "values": [
+      37,
+      41,
+      45
+     ],
+     "color": "A0646E"
+    },
+    {
+     "name": "Rehabilitation nursing",
+     "values": [
+      10,
+      11,
+      14
+     ],
+     "color": "D2506E"
+    },
+    {
+     "name": "Assistive supplies rental",
+     "values": [
+      3,
+      4,
+      6
+     ],
+     "color": "787878"
+    },
+    {
+     "name": "Health education",
+     "values": [
+      11,
+      11,
+      9
+     ],
+     "color": "6E1428"
+    },
+    {
+     "name": "Psychological counseling & chat",
+     "values": [
+      9,
+      12,
+      11
+     ],
+     "color": "DC3C6E"
+    },
+    {
+     "name": "other community services",
+     "values": [
+      2,
+      1,
+      2
+     ],
+     "color": "E65032"
+    }
+   ],
+   "centers": [
+    812,
+    1055
+   ],
+   "bar": 110,
+   "overlap": 0,
+   "base": 480,
+   "k": 3.75,
+   "top": 255,
+   "cat_size": 11,
+   "axis_line": "404040",
+   "note": "Native clustered columns: no labels on the original; values read off its 0-60% axis (estimates).",
+   "remove_pictures": true
+  }
+ }
+]

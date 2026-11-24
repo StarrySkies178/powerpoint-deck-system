@@ -1,0 +1,383 @@
+[
+ {
+  "slide": 3,
+  "box": [
+   50,
+   340,
+   545,
+   640
+  ],
+  "totals": [
+   950,
+   1050,
+   1000,
+   1110,
+   1232,
+   1368
+  ],
+  "names": [
+   "Offline Sales",
+   "Online Sales"
+  ],
+  "keep": [
+   "^\\+\\d.*%$",
+   "Online Sales",
+   "Offline Sales"
+  ],
+  "keep_colors": [
+   "000000",
+   "FFFFFF",
+   "0D0D0D"
+  ]
+ },
+ {
+  "slide": 3,
+  "box": [
+   590,
+   355,
+   1050,
+   535
+  ]
+ },
+ {
+  "slide": 3,
+  "box": [
+   1125,
+   340,
+   1545,
+   470
+  ]
+ },
+ {
+  "slide": 3,
+  "box": [
+   620,
+   660,
+   960,
+   775
+  ],
+  "keep": [
+   "3.3x"
+  ],
+  "keep_colors": [
+   "000000",
+   "0D0D0D"
+  ],
+  "categories": [
+   "China",
+   "World Avg",
+   "Recommended"
+  ]
+ },
+ {
+  "slide": 4,
+  "box": [
+   60,
+   245,
+   300,
+   535
+  ],
+  "kind": "bar",
+  "scale": [
+   63,
+   290,
+   15
+  ],
+  "categories": [
+   "T1&2",
+   "T3&4"
+  ],
+  "names": [
+   "New Retail",
+   "Online Vertical",
+   "Speciality Chain",
+   "Community Buy",
+   "Online Platform",
+   "Mom&Pop",
+   "Supermarket"
+  ],
+  "keep_colors": [
+   "000000",
+   "0D0D0D",
+   "1A1A1A",
+   "262626"
+  ],
+  "cat_size": null,
+  "name": "penetration in different tiers of cities"
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "online share of fresh fruit",
+   "type": "bar_stacked_100",
+   "clear": [
+    1065,
+    188,
+    1458,
+    314
+   ],
+   "categories": [
+    "2020",
+    "2023E"
+   ],
+   "series": [
+    {
+     "name": "Online",
+     "values": [
+      7,
+      17
+     ],
+     "color": "A51C24",
+     "labels": true,
+     "label_color": "FFFFFF",
+     "label_size": 12,
+     "label_bold": true,
+     "label_pos": "ctr",
+     "fmt": "0\"%\""
+    },
+    {
+     "name": "Offline",
+     "values": [
+      93,
+      83
+     ],
+     "color": "7F7F7F",
+     "pattern": "wdUpDiag",
+     "pattern_bg": "FFFFFF",
+     "outline": "BFBFBF",
+     "labels": true,
+     "label_color": "404040",
+     "label_size": 12,
+     "label_pos": "ctr",
+     "fmt": "0\"%\""
+    }
+   ],
+   "centers": [
+    213,
+    285
+   ],
+   "bar": 42,
+   "base": 1073,
+   "k": 3.79,
+   "top": 1452,
+   "cat_size": null,
+   "axis_line": "404040",
+   "keep": [
+    "\\+142"
+   ],
+   "keep_colors": [
+    "000000",
+    "0D0D0D",
+    "1A1A1A"
+   ],
+   "note": "Native 100% bar chart: values are the original's labels.",
+   "remove_pictures": true
+  }
+ },
+ {
+  "slide": 4,
+  "box": [
+   1035,
+   480,
+   1430,
+   612
+  ],
+  "name": "3rd party platform commission",
+  "values": [
+   [
+    5,
+    16,
+    24
+   ]
+  ]
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "major players in specialty chain segment",
+   "type": "doughnut",
+   "clear": [
+    600,
+    222,
+    895,
+    520
+   ],
+   "frame": [
+    603,
+    228,
+    889,
+    514
+   ],
+   "categories": [
+    "Fruit Co.",
+    "Xianfeng",
+    "GreatSunFoods",
+    "JoyTree",
+    "Other players"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      9.6,
+      4.2,
+      0.6,
+      0.6,
+      85.0
+     ],
+     "colors": [
+      "A51C24",
+      "DB5065",
+      "0A0A0A",
+      "3F3F3F",
+      "DCDCDC"
+     ],
+     "labels": true,
+     "label_color": "FFFFFF",
+     "label_size": 13,
+     "label_bold": true,
+     "fmt": "0.0\"%\"",
+     "label_skip": [
+      1,
+      2,
+      3
+     ],
+     "label_colors": {
+      "4": "404040"
+     },
+     "explode": {
+      "0": 8,
+      "1": 8,
+      "2": 8,
+      "3": 8
+     }
+    }
+   ],
+   "hole": 58,
+   "first_angle": 0,
+   "note": "Native doughnut: Fruit Co. 9.6% and other players 85.0% are the original's labels; Xianfeng, GreatSunFoods and JoyTree split the remaining 5.4% as measured from the slice angles (estimates)."
+  }
+ },
+ {
+  "slide": 5,
+  "box": [
+   760,
+   545,
+   1580,
+   720
+  ],
+  "name": "top KPCs: snack lover and health seeker",
+  "n": 6,
+  "values": [
+   [
+    67,
+    57,
+    42,
+    38,
+    33,
+    5
+   ]
+  ],
+  "categories": [
+   "Quality",
+   "Convenience",
+   "Variety",
+   "Price",
+   "After-Sale",
+   "Shopping environment"
+  ]
+ },
+ {
+  "slide": 5,
+  "box": [
+   760,
+   722,
+   1580,
+   868
+  ],
+  "name": "top KPCs: fruit-in-meal lover and family server",
+  "n": 6,
+  "values": [
+   [
+    45,
+    42,
+    29,
+    27,
+    9,
+    2
+   ]
+  ],
+  "categories": [
+   "Price",
+   "Variety",
+   "Quality",
+   "Convenience",
+   "After-Sale",
+   "Shopping environment"
+  ]
+ },
+ {
+  "slide": 15,
+  "box": [
+   115,
+   208,
+   700,
+   535
+  ],
+  "kind": "waterfall",
+  "name": "base case revenue bridge",
+  "steps": [
+   12,
+   3,
+   1,
+   1,
+   17
+  ]
+ },
+ {
+  "slide": 15,
+  "box": [
+   828,
+   240,
+   1238,
+   390
+  ],
+  "kind": "waterfall",
+  "name": "bear case revenue bridge",
+  "steps": [
+   12,
+   2.5,
+   0.5,
+   1,
+   16
+  ]
+ },
+ {
+  "slide": 15,
+  "box": [
+   828,
+   468,
+   1238,
+   628
+  ],
+  "kind": "waterfall",
+  "name": "bull case revenue bridge",
+  "steps": [
+   12,
+   4,
+   1.5,
+   1,
+   19.5
+  ]
+ },
+ {
+  "slide": 15,
+  "box": [
+   890,
+   695,
+   1505,
+   870
+  ],
+  "name": "annual capital expenditure"
+ }
+]

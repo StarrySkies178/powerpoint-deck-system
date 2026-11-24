@@ -1,0 +1,2 @@
+NOT OK
+title jammed against band edge, row and risk text much smaller, Potential Risks box dropped to plain bullets, stray broken header line

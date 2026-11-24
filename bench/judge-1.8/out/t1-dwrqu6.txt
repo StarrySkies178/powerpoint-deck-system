@@ -1,0 +1,2 @@
+PASS
+clean consulting layout with action title, icon panels and readable text, no AI table

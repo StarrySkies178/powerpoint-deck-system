@@ -1,0 +1,2 @@
+NOT OK
+Title is jammed against the left edge and clipped at the bottom of its bar, and chart labels (2, 8, 11%) sit on bar edges unreadably.

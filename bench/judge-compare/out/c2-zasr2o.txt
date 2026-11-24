@@ -1,0 +1,2 @@
+NOT OK
+Risk heat map dumbed down to a plain 2x2 grey grid with risks 5-8 and axis levels dropped, leaving large empty panels

@@ -1,0 +1,64 @@
+{
+ "case": "C06-exec-summary-mindcraft",
+ "run": "run7",
+ "scored": "2026-11-24 08:35",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.07,
+   "std": "6/10",
+   "layout_raw": 0.4008,
+   "failed": [
+    "title bold",
+    "title colour",
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.37 R 0.28 in)",
+    "colours (off-palette #E48484, #E49C9C)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.04,
+   "std": "6/10",
+   "layout_raw": 0.4127,
+   "failed": [
+    "title bold",
+    "title colour",
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.77 R 0.53 in)",
+    "colours (off-palette #E48484)"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.0,
+   "visual": 0.08,
+   "std": "6/10",
+   "layout_raw": 0.3819,
+   "failed": [
+    "title bold",
+    "title colour",
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "title bold (ref True, got False)",
+    "title colour (ref #FFFFFF, got #000000 (ΔE 100))",
+    "body margins (ref L 0.39 R 5.05; got L 0.39 R 0.28 in)",
+    "colours (off-palette #E48484)"
+   ]
+  }
+ }
+}

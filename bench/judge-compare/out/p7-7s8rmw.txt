@@ -1,0 +1,2 @@
+NOT OK
+Market-size chart drawn clumsily: bars float above the axis at uneven bottoms and the break marks are dropped, so the main exhibit looks broken beside the neat original

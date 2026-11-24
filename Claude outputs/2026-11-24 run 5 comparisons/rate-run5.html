@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run 5: original and rebuild</title>
+<style>
+/* Layout idea: one slide at a time, verdict controls right under it, a 60-cell map of progress below. */
+:root{
+  --bg:#f3f4f1; --panel:#ffffff; --ink:#1c2321; --muted:#5d6763; --line:#d5d9d4;
+  --accent:#1f4e79; --pass:#1d7a46; --fail:#b3261e; --stage:#e4e7e2;
+  --display:"Bitter",Georgia,serif; --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151a18; --panel:#1e2522; --ink:#e9ece8; --muted:#9ba6a1; --line:#34403b;
+    --accent:#8fbbe6; --pass:#5cc487; --fail:#f08a80; --stage:#0f1311; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151a18; --panel:#1e2522; --ink:#e9ece8; --muted:#9ba6a1; --line:#34403b;
+  --accent:#8fbbe6; --pass:#5cc487; --fail:#f08a80; --stage:#0f1311; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45}
+.wrap{max-width:1900px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:14px}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
+h1{font-family:var(--display);font-weight:600;font-size:1.35rem;margin:0;text-wrap:balance}
+.count{font-variant-numeric:tabular-nums;font-weight:700}
+.status{color:var(--muted);font-size:.92rem}
+.status.bad{color:var(--fail);font-weight:700}
+.how{margin:0;color:var(--muted);max-width:70ch}
+.stage{background:var(--stage);border:1px solid var(--line);border-radius:6px;padding:8px}
+.stage img{display:block;width:100%;height:auto;max-width:100%;border-radius:2px;background:#fff;}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.which{font-family:var(--display);font-size:1.15rem;font-variant-numeric:tabular-nums;min-width:7.5ch}
+button{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 16px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.verdict{font-weight:700;min-width:7.5rem;border-width:2px}
+button.verdict.pass{border-color:var(--pass);color:var(--pass)}
+button.verdict.fail{border-color:var(--fail);color:var(--fail)}
+button.verdict.pass[aria-pressed="true"]{background:var(--pass);color:var(--panel)}
+button.verdict.fail[aria-pressed="true"]{background:var(--fail);color:var(--panel)}
+.spacer{flex:1 1 auto}
+.reason{display:flex;flex-direction:column;gap:6px}
+.reason label{font-weight:700}
+.reason input{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:11px 12px;width:100%}
+.map{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.map button{padding:7px 0;font-variant-numeric:tabular-nums;font-size:.9rem;text-align:center;position:relative}
+.map button.pass{border-color:var(--pass);box-shadow:inset 0 -4px 0 var(--pass)}
+.map button.fail{border-color:var(--fail);box-shadow:inset 0 4px 0 var(--fail)}
+.map button.noreason::after{content:"";position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.map button.here{outline:3px solid var(--accent);outline-offset:1px}
+.legend{color:var(--muted);font-size:.88rem;margin:0}
+.done{border:2px solid var(--pass);border-radius:6px;padding:12px 14px;background:var(--panel);font-weight:700}
+.out{display:flex;flex-direction:column;gap:8px}
+.out textarea{width:100%;height:140px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px}
+[hidden]{display:none!important}
+@media (max-width:520px){ button.verdict{flex:1 1 40%} .which{min-width:0} }
+@media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Original (left) and rebuild (right)</h1>
+    <span class="count" id="count">0 of 10 rated</span>
+    <span class="status" id="status">Ratings are kept in this browser on this computer.</span>
+  </header>
+  <p class="how">Left is the original slide from your reference deck. Right is what the system built from a description of it, without seeing it. Is the right one an acceptable copy? Choose Ok or Not ok. A few words of why help most on a Not ok.</p>
+
+  <div class="stage"><img id="slide" alt="Slide to rate" src="../../bench/review-run5/C01-exec-summary-polaris.png"></div>
+
+  <div class="bar">
+    <span class="which" id="which">1 of 10</span>
+    <button type="button" class="verdict pass" id="btnPass" aria-pressed="false">Ok (P)</button>
+    <button type="button" class="verdict fail" id="btnFail" aria-pressed="false">Not ok (F)</button>
+    <span class="spacer"></span>
+    <button type="button" id="btnPrev">Previous</button>
+    <button type="button" id="btnNext">Next</button>
+    <button type="button" id="btnTodo">Next unrated</button>
+  </div>
+
+  <div class="reason">
+    <label for="reason">Why, in one line</label>
+    <input id="reason" type="text" maxlength="300" autocomplete="off" placeholder="For example: logo missing, chart looks different, too much empty space">
+  </div>
+
+  <div class="done" id="done" hidden>All 10 are rated. Press "Copy all ratings as text" below and paste the result into the chat with Claude.</div>
+
+  <div class="map" id="map" aria-label="All 10 slides"></div>
+  <p class="legend">Bar at the bottom of a number: ok. Bar at the top: not ok. Small dot: no reason written yet. Arrow keys move between slides.</p>
+
+  <div class="out">
+    <div class="bar"><button type="button" id="btnCopy">Copy all ratings as text</button><span class="status" id="copyMsg"></span></div>
+    <textarea id="dump" readonly hidden aria-label="All ratings as text"></textarea>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var IDS = ["C01","C02","C03","C04","C05","C06","C07","C08","C09","C10"];
+  var FILES = ["C01-exec-summary-polaris","C02-gantt-risks-polaris","C03-assumptions-table-polaris","C04-two-charts-ecluster","C05-timeline-ecluster","C06-exec-summary-mindcraft","C07-scenario-lines-mindcraft","C08-risk-matrix-mindcraft","C09-sensitivity-truenorth","C10-strategy-table-truenorth"];
+  var N = IDS.length, cur = 0, lsOk = true;
+  var ratings = {};            // id -> {verdict, reason}
+  var LS = "compare-run5";
+  var $ = function(id){ return document.getElementById(id); };
+  var img = $("slide"), reason = $("reason");
+  function id(i){ return "s" + IDS[i]; }
+  function file(i){ return "../../bench/review-run5/" + FILES[i] + ".png"; }
+  function rated(i){ var r = ratings[id(i)]; return !!(r && (r.verdict === "pass" || r.verdict === "fail")); }
+
+  function setStatus(text, bad){ var s = $("status"); s.textContent = text; s.className = bad ? "status bad" : "status"; }
+
+  function lsLoad(){ try { var t = localStorage.getItem(LS); if (t) { var o = JSON.parse(t); if (o && typeof o === "object") return o; } } catch (e) {} return {}; }
+  function lsSave(){ try { localStorage.setItem(LS, JSON.stringify(ratings)); lsOk = true; } catch (e) { lsOk = false; } }
+
+  function buildMap(){
+    var m = $("map");
+    for (var i = 0; i < N; i++) (function(i){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = IDS[i]; b.id = "cell" + i;
+      b.addEventListener("click", function(){ go(i); });
+      m.appendChild(b);
+    })(i);
+  }
+
+  function paintMap(){
+    var n = 0;
+    for (var i = 0; i < N; i++){
+      var r = ratings[id(i)] || {}, b = $("cell" + i), c = "";
+      if (r.verdict === "pass") c = "pass"; else if (r.verdict === "fail") c = "fail";
+      if (c) { n++; if (!(r.reason || "").trim()) c += " noreason"; }
+      if (i === cur) c += " here";
+      b.className = c.trim();
+      b.setAttribute("aria-label", "Slide " + (i + 1) + (r.verdict ? ", " + r.verdict : ", not rated"));
+    }
+    $("count").textContent = n + " of " + N + " rated";
+    $("done").hidden = n < N;
+  }
+
+  function paintCurrent(keepReason){
+    var r = ratings[id(cur)] || {};
+    $("which").textContent = (cur + 1) + " of " + N;
+    $("btnPass").setAttribute("aria-pressed", r.verdict === "pass" ? "true" : "false");
+    $("btnFail").setAttribute("aria-pressed", r.verdict === "fail" ? "true" : "false");
+    if (!keepReason) reason.value = r.reason || "";
+    paintMap();
+  }
+
+  function show(){
+    img.src = file(cur);
+    img.alt = "Slide " + (cur + 1) + " of " + N;
+    if (cur + 1 < N) { var p = new Image(); p.src = file(cur + 1); }
+    paintCurrent(false);
+  }
+
+  function write(key){
+    if (!ratings[key]) return;
+    lsSave();
+    setStatus(lsOk ? "Saved in this browser." : "This browser is not keeping the ratings. Copy them before closing the page.", !lsOk);
+  }
+
+  function commitReason(){
+    var key = id(cur), r = ratings[key] || {}, v = reason.value.trim();
+    if ((r.reason || "") === v) return;
+    if (!r.verdict && !v) return;
+    ratings[key] = { verdict: r.verdict || "", reason: v };
+    write(key); paintMap();
+  }
+
+  function setVerdict(v){
+    var key = id(cur), r = ratings[key] || {};
+    ratings[key] = { verdict: v, reason: reason.value.trim() };
+    if (r.verdict !== v || (r.reason || "") !== ratings[key].reason) write(key);
+    paintCurrent(true);
+    reason.focus();
+  }
+
+  function go(i){ commitReason(); cur = Math.max(0, Math.min(N - 1, i)); show(); }
+  function nextTodo(){
+    commitReason();
+    for (var k = 1; k <= N; k++){ var j = (cur + k) % N; if (!rated(j)) { cur = j; show(); return; } }
+    show();
+  }
+
+  function dumpText(){
+    var lines = ["Run 5 comparisons:"];
+    for (var i = 0; i < N; i++){ var r = ratings[id(i)] || {}; var v = r.verdict === "pass" ? "ok" : (r.verdict === "fail" ? "not ok" : "(not rated)"); lines.push(IDS[i] + " " + v + ((r.reason || "").trim() ? ": " + r.reason.trim() : "")); }
+    return lines.join("\n");
+  }
+
+  $("btnPass").addEventListener("click", function(){ setVerdict("pass"); });
+  $("btnFail").addEventListener("click", function(){ setVerdict("fail"); });
+  $("btnPrev").addEventListener("click", function(){ go(cur - 1); });
+  $("btnNext").addEventListener("click", function(){ go(cur + 1); });
+  $("btnTodo").addEventListener("click", nextTodo);
+  reason.addEventListener("blur", commitReason);
+  reason.addEventListener("keydown", function(e){ if (e.key === "Enter") { e.preventDefault(); commitReason(); if (rated(cur)) nextTodo(); } });
+  document.addEventListener("keydown", function(e){
+    if (e.target === reason || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === "ArrowRight") go(cur + 1);
+    else if (e.key === "ArrowLeft") go(cur - 1);
+    else if (e.key === "p" || e.key === "P") { e.preventDefault(); setVerdict("pass"); }
+    else if (e.key === "f" || e.key === "F") { e.preventDefault(); setVerdict("fail"); }
+  });
+  $("btnCopy").addEventListener("click", function(){
+    commitReason();
+    var t = dumpText(), box = $("dump"), msg = $("copyMsg");
+    box.value = t; box.hidden = false;
+    try { navigator.clipboard.writeText(t).then(function(){ msg.textContent = "Copied. Paste it into the chat with Claude."; }, function(){ box.select(); msg.textContent = "Select the text below and copy it."; }); }
+    catch (e) { box.select(); msg.textContent = "Select the text below and copy it."; }
+  });
+
+  // start from what this browser kept
+  ratings = lsLoad();
+  buildMap();
+  for (var i = 0; i < N; i++) { if (!rated(i)) { cur = i; break; } }
+  show();
+})();
+</script>
+</body>
+</html>

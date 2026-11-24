@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; Gantt keeps all rows, years, legend and section markers, challenge/mitigation panel restyled as neat numbered boxes

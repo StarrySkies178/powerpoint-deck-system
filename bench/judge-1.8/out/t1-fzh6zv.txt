@@ -1,0 +1,2 @@
+PASS
+bold red column panels with clear headers, dense but orderly and readable

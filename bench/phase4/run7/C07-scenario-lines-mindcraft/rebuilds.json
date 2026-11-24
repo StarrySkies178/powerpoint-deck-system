@@ -1,0 +1,54 @@
+{
+ "case": "C07-scenario-lines-mindcraft",
+ "run": "run7",
+ "scored": "2026-11-24 08:35",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.4,
+   "visual": 0.44,
+   "std": "8/11",
+   "layout_raw": 0.7064,
+   "failed": [
+    "body text size",
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "body text size (ref median 14.0 / min 12.0 pt; got 14.0 / 10.0 pt)",
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.36,
+   "visual": 0.4,
+   "std": "9/11",
+   "layout_raw": 0.6868,
+   "failed": [
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.41,
+   "visual": 0.42,
+   "std": "9/11",
+   "layout_raw": 0.7124,
+   "failed": [
+    "colours",
+    "source line"
+   ],
+   "detail": [
+    "colours (off-palette #E48484)",
+    "source line (ref 10.0 pt at 6.87 in; got 10.0 pt at 7.24 in)"
+   ]
+  }
+ }
+}

@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; axes swapped for data labels and series colours restyled, all parts and boxes kept

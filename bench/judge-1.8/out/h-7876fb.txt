@@ -1,0 +1,2 @@
+FAIL
+navy-header table with light-blue highlighted row looks AI-made, and waterfall labels are clipped

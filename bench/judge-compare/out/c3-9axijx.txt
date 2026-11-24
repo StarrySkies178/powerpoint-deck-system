@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; Gantt restyled with arrow bars and shaded grouped rows, every step kept, risks box restyled as an underlined header with bullets

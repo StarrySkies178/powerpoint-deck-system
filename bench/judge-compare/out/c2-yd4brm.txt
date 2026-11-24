@@ -1,0 +1,2 @@
+NOT OK
+Right column loses its shaded mitigation boxes and is half blank, timeline rows have mixed font sizes, and the legend is broken.

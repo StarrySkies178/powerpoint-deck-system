@@ -1,0 +1,2 @@
+NOT OK
+Risk heat map simplified to a plain 2x2 grid with risks 5-8 dropped, and the numbered section headers and risk descriptions are lost

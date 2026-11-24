@@ -1,0 +1,2 @@
+NOT OK
+Doubled bullet marks ("• –") and lost bold/sub-point hierarchy in the lists, plus the grey row-label blocks replaced by loose red text and an empty Implementation implication.

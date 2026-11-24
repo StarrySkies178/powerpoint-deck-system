@@ -1,0 +1,2 @@
+NOT OK
+header chevrons clipped with titles cut off, bullets flattened into tiny run-on text, mixed font sizes and empty cells

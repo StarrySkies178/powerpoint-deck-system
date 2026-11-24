@@ -1,0 +1,158 @@
+{
+ "case21-starlight:19": {
+  "27": "Variable Cost ( ¥ )",
+  "28": "Upfront Cost ( ¥ )",
+  "44": "Inventory Holding Cost",
+  "60": "Commodity advance payment",
+  "61": "<drop>",
+  "92": "Opex Total"
+ },
+ "case21-starlight:20": {
+  "26": "Variable Cost ( ¥ )",
+  "27": "Upfront Cost ( ¥ )",
+  "59": "Commodity advance payment",
+  "60": "<drop>",
+  "61": "Total Upfront Cost",
+  "93": "Opex Total"
+ },
+ "case21-whyconsulting:19": {
+  "58": "Offline Orders/ Day",
+  "71": "0.0%",
+  "177": "0.0%"
+ },
+ "case24-yess:18": {
+  "14": "Yincheng",
+  "23": "Evergrande"
+ },
+ "case24-yess:23": {
+  "52": "Profit forecast for elderly care (Mn RMB)"
+ },
+ "fill:case21-whyconsulting:19": {
+  "4,12": "-4.4%",
+  "18,10": "70.0%",
+  "22,4": "4.0%",
+  "32,14": "-0.7%",
+  "33,0": "<drop>"
+ },
+ "fill:case24-yess:21": {
+  "3,4": "¥2,035",
+  "3,7": "¥2,038",
+  "5,4": "¥2,026",
+  "8,6": "¥2,037",
+  "17,8": "<drop>",
+  "20,7": "<drop>",
+  "22,7": "<drop>"
+ },
+ "fill:case24-yess:23": {
+  "1,2": "278",
+  "1,4": "371"
+ },
+ "cell:case21-whyconsulting:19": {
+  "0,2": "<drop>",
+  "6,13": "-4.3%",
+  "8,13": "-8.6%",
+  "9,8": "57",
+  "9,9": "58",
+  "9,15": "54",
+  "11,15": "34",
+  "27,10": "7",
+  "4,13": "-4.4%",
+  "2,2": "<drop>",
+  "0,7": "<drop>",
+  "0,8": "Base Case Scenairo",
+  "0,9": "<drop>",
+  "0,10": "<drop>",
+  "0,11": "Optimistic Scenairo",
+  "0,12": "<drop>",
+  "0,13": "<drop>",
+  "0,14": "Pessimistic Scenairo",
+  "0,15": "<drop>",
+  "3,2": "Offline ASP (YUAN)",
+  "7,2": "Offline Revenue (Tho",
+  "9,2": "Online ASP (YUAN)"
+ },
+ "cell:case21-whyconsulting:20": {
+  "5,13": "306",
+  "11,8": "110.3",
+  "11,11": "181.5",
+  "11,14": "79.6",
+  "10,11": "5.0%",
+  "12,12": "<drop>",
+  "14,7": "8.1%",
+  "14,10": "15.5%",
+  "14,13": "4.0%",
+  "14,14": "4.0%",
+  "20,14": "90",
+  "27,9": "5.4%",
+  "33,8": "99",
+  "34,11": "23.0%",
+  "13,1": "Online Revenue (Thousand)",
+  "13,2": "<drop>",
+  "15,1": "Month Total Revenue (Thousand)",
+  "15,2": "<drop>",
+  "2,1": "Shopping Center Format",
+  "3,1": "Offline ASP (YUAN)",
+  "7,1": "Offline Revenue (Thousand)",
+  "9,1": "Online ASP (YUAN)",
+  "0,6": "<drop>",
+  "0,7": "Base Case Scenairo",
+  "0,8": "<drop>",
+  "0,10": "Optimistic Scenairo",
+  "0,11": "<drop>",
+  "0,13": "Pessimistic Scenairo",
+  "0,14": "<drop>"
+ },
+ "cell:case24-yess:23": {
+  "0,0": "Renvenue forecast for 3 brand lines (Mn RMB)",
+  "1,2": "248",
+  "1,3": "278",
+  "1,5": "371",
+  "1,7": "553",
+  "4,1": "<drop>",
+  "4,6": "Year 5",
+  "5,0": "YIYUAN",
+  "6,4": "4.95",
+  "16,6": "FY5",
+  "19,5": "24.72",
+  "20,2": "FY1",
+  "20,4": "FY3",
+  "20,5": "FY4",
+  "20,6": "FY5",
+  "23,4": "-5%"
+ },
+ "cell:case21-starlight:19": {
+  "24,1": "Turn in Profit",
+  "24,2": "-",
+  "10,7": "Franchise Fee",
+  "11,7": "Location Selection Fee",
+  "12,7": "Equipments",
+  "13,7": "Decoration",
+  "14,7": "Commodity advance payment"
+ },
+ "cell:case21-starlight:20": {
+  "2,1": "<drop>",
+  "3,2": "30-40m^2",
+  "3,3": "<drop>",
+  "12,5": "<drop>",
+  "17,5": "<drop>",
+  "10,6": "Franchise Fee",
+  "11,6": "Location Selection Fee",
+  "12,6": "Equipments",
+  "13,6": "Decoration",
+  "14,6": "Commodity advance payment",
+  "15,6": "Total Upfront Cost",
+  "10,7": "30,000",
+  "11,7": "15,000",
+  "12,7": "80,000",
+  "13,7": "150,000",
+  "14,7": "30,000",
+  "15,7": "305,000"
+ },
+ "cell:case24-yess:21": {
+  "4,9": "¥25,422,200",
+  "20,6": "¥76,685,900.00",
+  "20,7": "<drop>",
+  "22,6": "¥322,296,300.00",
+  "17,1": "Cash on Cash"
+ }
+}

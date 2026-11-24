@@ -1,0 +1,2 @@
+NOT OK
+Gantt chart is stripped: the Online and Omni-channel rows have no bars at all, leaving empty grid rows, and the theme-stores row has an odd doubled bar.

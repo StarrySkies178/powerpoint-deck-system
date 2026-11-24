@@ -1,0 +1,34 @@
+{
+ "case": "C02-gantt-risks-polaris",
+ "run": "run5",
+ "scored": "2026-11-24 07:49",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.33,
+   "visual": 0.3,
+   "std": "11/11",
+   "layout_raw": 0.7631,
+   "failed": [],
+   "detail": []
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.22,
+   "visual": 0.26,
+   "std": "11/11",
+   "layout_raw": 0.7246,
+   "failed": [],
+   "detail": []
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.16,
+   "visual": 0.24,
+   "std": "11/11",
+   "layout_raw": 0.7039,
+   "failed": [],
+   "detail": []
+  }
+ }
+}

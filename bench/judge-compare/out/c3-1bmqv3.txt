@@ -1,0 +1,2 @@
+NOT OK
+Header chevrons clipped at the top edge, bullets flattened into small run-on text with mixed font sizes, and empty cells leave white gaps.

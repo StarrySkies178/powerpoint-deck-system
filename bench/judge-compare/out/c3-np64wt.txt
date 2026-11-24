@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; line charts restyled with end labels and a data table in place of y-axes and legend, all panels, CAGR, capex burden and takeaway boxes kept

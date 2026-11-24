@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; red-filled summary row restyled as a red-outlined band and grey header bars turned red, but all columns, shaded phase panels and risk/mitigation text kept with no gaps

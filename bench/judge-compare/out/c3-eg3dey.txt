@@ -1,0 +1,2 @@
+NOT OK
+Dark red gradient background dropped, left as plain paragraphs on white with only a thin red rule under the title

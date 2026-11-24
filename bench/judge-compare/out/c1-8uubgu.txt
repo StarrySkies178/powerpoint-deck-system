@@ -1,0 +1,2 @@
+NOT OK
+Left chart data labels are cluttered and misplaced: 9.7 and 12.0 sit on top of the dark line, far from their own points, so the chart looks messy next to the clean original.

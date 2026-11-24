@@ -1,0 +1,46 @@
+{
+ "case": "C01-exec-summary-polaris",
+ "run": "run5",
+ "scored": "2026-11-24 07:49",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.43,
+   "visual": 0.26,
+   "std": "10/11",
+   "layout_raw": 0.7183,
+   "failed": [
+    "body text size"
+   ],
+   "detail": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 14.0 pt)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.5,
+   "visual": 0.21,
+   "std": "11/11",
+   "layout_raw": 0.7565,
+   "failed": [
+    "leave-one-out"
+   ],
+   "detail": [
+    "leave-one-out (build.js: words from the target's row in Style/slide-map.csv ('analysis dimensions implications converging arrows'))"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.54,
+   "visual": 0.4,
+   "std": "10/11",
+   "layout_raw": 0.7751,
+   "failed": [
+    "body text size"
+   ],
+   "detail": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 14.0 pt)"
+   ]
+  }
+ }
+}

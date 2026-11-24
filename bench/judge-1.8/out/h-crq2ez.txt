@@ -1,0 +1,2 @@
+PASS
+clean consulting slide with map and bubble matrix, small label nits only

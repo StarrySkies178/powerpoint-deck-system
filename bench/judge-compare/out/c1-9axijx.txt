@@ -1,0 +1,2 @@
+OK
+Clean, complete Gantt mimic with all rows and bars; risks box restyled as a headed list but looks as professional.

@@ -1,0 +1,2 @@
+FAIL
+waterfall chart is broken: the Vietnam, Indonesia and Range bars are slivers with their values cut off and unreadable

@@ -1,0 +1,23 @@
+{
+ "1": {
+  "lines": 18,
+  "measured": 18,
+  "recoloured": 36,
+  "bold_changed": 4,
+  "resized": 0,
+  "bullets": 4,
+  "remnants": 0,
+  "dashed_lines": 3
+ },
+ "2": {
+  "lines": 16,
+  "measured": 16,
+  "recoloured": 22,
+  "bold_changed": 7,
+  "resized": 1,
+  "bullets": 0,
+  "remnants": 0,
+  "dashed_lines": 2,
+  "dash_pieces_removed": 1
+ }
+}

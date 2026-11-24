@@ -1,0 +1,2 @@
+NOT OK
+Text overflows its boxes (Political Risks list spills past the bottom of its cell, left column jammed to the edges) and the bold red header band is weakened to a pale pink with plain text.

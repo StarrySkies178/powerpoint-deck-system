@@ -1,0 +1,2 @@
+NOT OK
+The implications row leaves an empty white cell under Implementation, where the original runs its second implication across both columns, and the sub-points are shrunk to small grey print.

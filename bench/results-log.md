@@ -49,3 +49,15 @@ The old columns continue (Pass and Standards counted with the old bar for every 
 | When | Run | Pass, old bar (all cases) | Standards OK | Mean layout | Mean visual | Regression | Named-slide capability | C cases: mean layout_raw (flagged) |
 |---|---|---|---|---|---|---|---|---|
 | 2026-11-24 06:45 | v2.62 Run 2c step 4: C cases reported by layout_raw, no pass mark (stored builds) (20 cases) | 8/20 (regression 7/7, capability 1/13) | 194/212 | 0.41 | 0.47 | 7/7 | 1/3 | 0.634 (0) |
+| 2026-11-24 07:32 | before Run 5 (v2.67) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 07:32 | before Run 5 (v2.67) (13 cases) | 1/13 (regression 0/0, capability 1/13) | 121/139 | 0.23 | 0.26 | 0/0 | 1/3 | 0.634 (0) |
+| 2026-11-24 07:34 | after Run 5 (no blank gaps, no blank cells) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 07:35 | after Run 5 (no blank gaps, no blank cells) (13 cases) | 1/13 (regression 0/0, capability 1/13) | 121/139 | 0.23 | 0.26 | 0/0 | 1/3 | 0.634 (0) |
+| 2026-11-24 07:51 | Run 5 restored (tried, not kept: C05 moved back) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 08:12 | before Run 7 (v2.69) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 08:12 | before Run 7 (v2.69) (13 cases) | 1/13 (regression 0/0, capability 1/13) | 121/139 | 0.23 | 0.26 | 0/0 | 1/3 | 0.634 (0) |
+| 2026-11-24 08:13 | after Run 7 (exhibits in the reference deck's own form) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 08:13 | after Run 7 (exhibits in the reference deck's own form) (13 cases) | 1/13 (regression 0/0, capability 1/13) | 121/139 | 0.23 | 0.26 | 0/0 | 1/3 | 0.634 (0) |
+| 2026-11-24 08:36 | Run 7 restored (tried, not kept: C05 and C10 moved back) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 10:57 | Run 7 kept in part under rule 3 of v2.73 (S.shareColumn, S.lineEnds) (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |
+| 2026-11-24 11:34 | Store fix 1 (set_texts keeps formats, reaches cells): regression after (7 cases) | 7/7 (regression 7/7, capability 0/0) | 73/73 | 0.74 | 0.80 | 7/7 | 0/0 | – |

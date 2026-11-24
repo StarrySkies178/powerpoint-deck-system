@@ -1,0 +1,212 @@
+[
+ {
+  "test": "ChillChili market size chart: new numbers (2016-2023E)",
+  "object": "case21-chillchili-003c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili per-capita chart: 3 regions instead of 2",
+  "object": "case21-chillchili-003c2",
+  "ok": true
+ },
+ {
+  "test": "ChillChili import chart: 5 years",
+  "object": "case21-chillchili-003c3",
+  "ok": true
+ },
+ {
+  "test": "ChillChili bubble chart (kept as is, resized small)",
+  "object": "case21-chillchili-004c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili share bridge: other shares",
+  "object": "case21-chillchili-004c2",
+  "ok": true
+ },
+ {
+  "test": "ChillChili KPC chart: 4 criteria",
+  "object": "case21-chillchili-006c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili EBIT bridge: 4 steps",
+  "object": "case21-chillchili-007c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili revenue forecast chart: 5 years",
+  "object": "case21-chillchili-014c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili EBIT line chart: recoloured to accent2",
+  "object": "case21-chillchili-014c2",
+  "ok": true
+ },
+ {
+  "test": "Starlight revenue bridge (waterfall): new steps",
+  "object": "case21-starlight-015c1",
+  "ok": true
+ },
+ {
+  "test": "Starlight doughnut: 4 players",
+  "object": "case21-starlight-004c4",
+  "ok": true
+ },
+ {
+  "test": "TrueNorth stacked market chart: 3 years",
+  "object": "case21-truenorth-004c1",
+  "ok": true
+ },
+ {
+  "test": "TrueNorth bubble chart: resized",
+  "object": "case21-truenorth-020c1",
+  "ok": true
+ },
+ {
+  "test": "WhyConsulting combo (columns + lines): new years",
+  "object": "case21-whyconsulting-014c2",
+  "ok": true
+ },
+ {
+  "test": "BeAnInnovator pie: new split",
+  "object": "case22-beaninnovator-013c1",
+  "ok": true
+ },
+ {
+  "test": "Fusion line chart: recoloured",
+  "object": "case22-fusion-014c1",
+  "ok": true
+ },
+ {
+  "test": "IIVA scatter: resized",
+  "object": "case22-iiva-015c1",
+  "ok": true
+ },
+ {
+  "test": "Shibaco bar chart: 4 channels",
+  "object": "case22-shibaco-006c1",
+  "ok": true
+ },
+ {
+  "test": "WXYZ combo with lines: new values",
+  "object": "case22-wxyz-005c2",
+  "ok": true
+ },
+ {
+  "test": "BASIL stacked + 2 lines: 5 years",
+  "object": "case24-basil-014c1",
+  "ok": true
+ },
+ {
+  "test": "BSTORM line chart: 4 years",
+  "object": "case24-bstorm-014c1",
+  "ok": true
+ },
+ {
+  "test": "CVCJ 100% columns: 3 years",
+  "object": "case24-cvcj-004c2",
+  "ok": true
+ },
+ {
+  "test": "YESS clustered columns: 2 brands",
+  "object": "case24-yess-014c1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili rating table: +2 rows",
+  "object": "case21-chillchili-004t1",
+  "ok": true
+ },
+ {
+  "test": "ChillChili rating table: -1 column",
+  "object": "case21-chillchili-004t1",
+  "ok": true
+ },
+ {
+  "test": "case21-starlight slide 19 table: +2 rows",
+  "object": "case21-starlight-019t1",
+  "ok": true
+ },
+ {
+  "test": "case21-starlight slide 20 table: +2 rows",
+  "object": "case21-starlight-020t1",
+  "ok": true
+ },
+ {
+  "test": "case21-whyconsulting slide 19 table: +2 rows",
+  "object": "case21-whyconsulting-019t1",
+  "ok": true
+ },
+ {
+  "test": "case21-whyconsulting slide 20 table: +2 rows",
+  "object": "case21-whyconsulting-020t1",
+  "ok": true
+ },
+ {
+  "test": "case24-yess slide 18 table: +2 rows",
+  "object": "case24-yess-018t1",
+  "ok": true
+ },
+ {
+  "test": "case24-yess slide 21 table: +2 rows",
+  "object": "case24-yess-021t1",
+  "ok": true
+ },
+ {
+  "test": "case24-yess slide 23 table: +2 rows",
+  "object": "case24-yess-023t1",
+  "ok": true
+ },
+ {
+  "test": "Equation: 3 panels -> 4 (extend)",
+  "object": "layouts-2021-2024-001",
+  "ok": true
+ },
+ {
+  "test": "Equation: new texts",
+  "object": "layouts-2021-2024-001",
+  "ok": true
+ },
+ {
+  "test": "Formula row: 4 drivers -> 5 (extend)",
+  "object": "layouts-2021-2024-002",
+  "ok": true
+ },
+ {
+  "test": "L1R3 numbered sections: 3 -> 4 (extend)",
+  "object": "layouts-2021-2024-008",
+  "ok": true
+ },
+ {
+  "test": "Tab bar: 4 tabs -> 5 (extend)",
+  "object": "layouts-2021-2024-004",
+  "ok": true
+ },
+ {
+  "test": "Tab bar: recoloured (accent -> accent2)",
+  "object": "layouts-2021-2024-004",
+  "ok": true
+ },
+ {
+  "test": "Acronym banner: 3 -> 4 (extend)",
+  "object": "layouts-2021-2024-005",
+  "ok": true
+ },
+ {
+  "test": "Mekko: 3 columns -> 4 (extend; widths differ, expected to need the mekko builder)",
+  "object": "layouts-2021-2024-006",
+  "ok": true
+ },
+ {
+  "test": "Mekko: resized to half width",
+  "object": "layouts-2021-2024-006",
+  "ok": true
+ },
+ {
+  "test": "Waterfall layout: new numbers",
+  "object": "layouts-2021-2024-007",
+  "ok": true
+ }
+]

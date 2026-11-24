@@ -1,0 +1,2 @@
+FAIL
+navy-header table with light blue highlight row looks AI-made

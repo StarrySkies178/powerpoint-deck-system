@@ -1,0 +1,2 @@
+OK
+Complete, tidy mimic of the three scenario tables; text a bit smaller but rule lines fill the slide evenly, no gaps

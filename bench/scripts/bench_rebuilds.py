@@ -1,7 +1,8 @@
 """bench_rebuilds.py: the fresh-rebuild half of change control (roadmap 4.2; maintenance/working-together.md).
 
   python3 bench/scripts/bench_rebuilds.py <run> [case prefixes...]   build and score bench/phase4/<run>/<case>/r1..r3
-  python3 bench/scripts/bench_rebuilds.py <run> --report [<baseline run>]   write bench/phase4/<run>/results.md
+  python3 bench/scripts/bench_rebuilds.py <run> --report [<earlier run>]   write bench/phase4/<run>/results.md
+                                         (always against bench/phase4/baseline.md; an earlier run is shown for information)
 
 Each r<k> folder holds a build written by its own fresh, blind builder from brief/brief.md (rebuild_briefs.py). Here,
 in the official environment, the reference files the scorer needs (case.json, original.json, original.png) are copied
@@ -10,8 +11,14 @@ in, the build is run, and it is scored with the unchanged scorer (bench_score.sc
 
 Since v2.62 (Run 2c step 4, decided with the user 2026-11-24 14:40) the C cases carry no pass mark. What decides a run
 against the one before is the mean overlap before the floor (layout_raw) of each case's fresh builds: a case whose mean
-falls by more than NOISE_RAW is flagged (change control: restore unless the fall is explained). Pass/fail with the old bar,
-layout and visual after the floor are still reported beside it, for comparison only."""
+falls by more than NOISE_RAW is flagged. Pass/fail with the old bar, layout and visual after the floor are still reported
+beside it, for comparison only.
+
+Since v2.75 (rule 3 of maintenance/working-together.md as rewritten in v2.73, the user's yes of 2026-11-24 17:15) the
+overlap is an ALARM, not a verdict: each case's mean is compared with its baseline in bench/phase4/baseline.md (the mean
+over every fresh build made with kept code), and a fall of more than NOISE_RAW is printed as an alarm for the planner to
+look at. It is not a restore instruction: a change to C01-C10 is kept or dropped by the look (the user's ok / not ok on the
+ten comparisons, the judge first), and an alarm on a case the change does not touch is first rebuilt 3 more times."""
 import json, os, sys, shutil, subprocess, datetime, statistics, time
 from collections import Counter
 sys.path.insert(0, os.path.dirname(__file__))
@@ -21,7 +28,17 @@ B = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CASES = [c["id"] for c in json.load(open(os.path.join(B, "cases.json"))) if c["id"].startswith("C")]
 RUNS = ("r1", "r2", "r3")
 NOISE = 0.14       # old band on the floored layout/visual (v2.25); reported for comparison only
-NOISE_RAW = 0.05   # band on the per-case mean layout_raw of 3 fresh builds (README, "Deck-as-reference cases")
+NOISE_RAW = 0.05   # alarm band on the per-case mean layout_raw of 3 fresh builds against the baseline (rule 3c)
+BASELINE = os.path.join(B, "phase4", "baseline.md")
+
+def baseline():
+    """{case: (mean, sd, builds)} from the 'Baseline per case' table of bench/phase4/baseline.md (written by baseline.py)."""
+    out, on = {}, False
+    for line in open(BASELINE):
+        if line.startswith("## "): on = line.startswith("## Baseline per case"); continue
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        if on and len(c) >= 5 and c[0] in CASES: out[c[0]] = (float(c[3]), float(c[4]), int(c[1]))
+    return out
 
 def build(run):
     cand = os.path.join(run, "candidate.pptx"); t0 = time.time() - 1
@@ -86,7 +103,7 @@ def report(name, base=None):
     L = [f"# Fresh blind rebuilds: {name}", "",
          f"Written by `bench/scripts/bench_rebuilds.py` ({datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}); official environment; unchanged scorer. "
          "Three builds per C case, each by its own fresh blind builder. A build that did not run counts 0. Since v2.62 the C cases carry no pass mark: the "
-         f"measure is the overlap with the original before the floor (layout_raw); a case whose mean falls by more than {NOISE_RAW} against the run before is flagged. "
+         f"measure is the overlap with the original before the floor (layout_raw); a case whose mean falls by more than {NOISE_RAW} below its baseline (`phase4/baseline.md`) raises an alarm for the planner, not a restore (rule 3c of `maintenance/working-together.md`, v2.73). "
          f"The old bar (all standards, layout ≥ {PASS['layout']}, visual ≥ {PASS['visual']}) is shown for comparison only.", "",
          "| Case | r1 | r2 | r3 | Mean layout_raw | Old: mean layout / visual |", "|---|---|---|---|---|---|"]
     cell = lambda b: "build failed" if "error" in b else f"{b.get('layout_raw', 0):.3f} (old: {'pass' if b['passed'] else 'fail'} {b['std']} · {b['layout']:.2f} / " + ("–" if b["visual"] is None else f"{b['visual']:.2f}") + ")"
@@ -94,21 +111,34 @@ def report(name, base=None):
     L += ["", f"**Builds that ran:** {tot['built']} of {tot['builds']}. **Mean over the cases of the per-case mean layout_raw:** {tot['raw']:.3f}. "
           f"Old bar: {tot['passing_builds']} passing builds, mean layout {tot['layout']:.3f}, visual {tot['visual']:.3f}.", "",
           "**Failed standards (number of builds, for information):** " + (", ".join(f"{k} {v}" for k, v in tot["failed"].most_common()) or "none"), ""]
+    bl = baseline(); alarms = []
+    L += ["## Against the baseline (an alarm, not a verdict)", "",
+          "Baseline: `bench/phase4/baseline.md`, each case's mean layout_raw over every fresh build made with kept code. A fall of more than "
+          f"{NOISE_RAW} is an **alarm**: the planner looks at the case and names it in the changelog row. It blocks only if the user (or the judge, once it "
+          "answers alone) rejects that case's picture; an alarm on a case the change does not touch is first rebuilt 3 more times. Whether a change "
+          "is kept is decided by the look (rule 3b), not here.", "",
+          "| Case | Baseline (builds, SD) | This run | Difference | Alarm |", "|---|---|---|---|---|"]
+    for cid in rows:
+        if cid not in bl: L.append(f"| {cid} | none | {per[cid]['raw']:.3f} | | |"); continue
+        m, sd, n = bl[cid]; d = per[cid]["raw"] - m
+        if d < -NOISE_RAW: alarms.append(cid)
+        L.append(f"| {cid} | {m:.3f} ({n}, {sd:.3f}) | {per[cid]['raw']:.3f} | {d:+.3f} | {'**alarm**' if d < -NOISE_RAW else ''} |")
+    L += ["", f"**Alarms (fall of more than {NOISE_RAW} below the baseline): {', '.join(alarms) or 'none'}.** These are for the planner to look at; they do not restore anything.", ""]
     if base:
         bper, btot = summary(load(base))
-        L += [f"## Against {base}", "", "| Case | Mean layout_raw {0} → {1} | Flag | Old: layout {0} → {1} | Old: visual {0} → {1} |".format(base, name), "|---|---|---|---|---|"]
+        L += [f"## Against {base} (for information)", "", "| Case | Mean layout_raw {0} → {1} | Fall > 0.05 | Old: layout {0} → {1} | Old: visual {0} → {1} |".format(base, name), "|---|---|---|---|---|"]
         back, worse_old = [], []
         for cid in rows:
             if cid not in bper: continue
             dr = per[cid]["raw"] - bper[cid]["raw"]; dl = per[cid]["layout"] - bper[cid]["layout"]; dv = per[cid]["visual"] - bper[cid]["visual"]
             if dr < -NOISE_RAW: back.append(cid)
             if dl <= -NOISE or dv <= -NOISE: worse_old.append(cid)
-            L.append(f"| {cid} | {bper[cid]['raw']:.3f} → {per[cid]['raw']:.3f} ({dr:+.3f}) | {'**moved back**' if dr < -NOISE_RAW else ''} | "
+            L.append(f"| {cid} | {bper[cid]['raw']:.3f} → {per[cid]['raw']:.3f} ({dr:+.3f}) | {'yes' if dr < -NOISE_RAW else ''} | "
                      f"{bper[cid]['layout']:.2f} → {per[cid]['layout']:.2f} ({dl:+.2f}) | {bper[cid]['visual']:.2f} → {per[cid]['visual']:.2f} ({dv:+.2f}) |")
         common = [c for c in rows if c in bper]
         m0 = statistics.mean(bper[c]["raw"] for c in common) if common else 0; m1 = statistics.mean(per[c]["raw"] for c in common) if common else 0
         L += ["", f"Mean layout_raw over the {len(common)} cases in both runs: {m0:.3f} → {m1:.3f}. "
-              f"**Cases that moved back by more than {NOISE_RAW} in layout_raw: {', '.join(back) or 'none'}.** "
+              f"Cases more than {NOISE_RAW} below {base} (information only; the alarm is against the baseline above): {', '.join(back) or 'none'}. "
               f"Old rule, for comparison: cases worse by {NOISE} or more on layout or visual: {', '.join(worse_old) or 'none'}.", ""]
     open(os.path.join(B, "phase4", name, "results.md"), "w").write("\n".join(L)); print("\n".join(L))
 

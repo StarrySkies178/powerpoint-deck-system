@@ -1,0 +1,2 @@
+FAIL
+waterfall chart looks broken: squashed bars cut through the 16 and 12 labels

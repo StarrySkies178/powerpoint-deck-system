@@ -1,0 +1,38 @@
+{
+ "case": "C04-two-charts-ecluster",
+ "run": "run5",
+ "scored": "2026-11-24 07:49",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.35,
+   "visual": 0.44,
+   "std": "11/11",
+   "layout_raw": 0.7925,
+   "failed": [],
+   "detail": []
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.36,
+   "visual": 0.49,
+   "std": "11/11",
+   "layout_raw": 0.7935,
+   "failed": [
+    "leave-one-out"
+   ],
+   "detail": [
+    "leave-one-out (build.js: words from the target's row in Style/slide-map.csv ('1 stacked column w cagr'))"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.17,
+   "visual": 0.4,
+   "std": "11/11",
+   "layout_raw": 0.735,
+   "failed": [],
+   "detail": []
+  }
+ }
+}

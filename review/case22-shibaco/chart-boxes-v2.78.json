@@ -1,0 +1,119 @@
+[
+ {
+  "slide": 3,
+  "box": [
+   95,
+   531,
+   721,
+   797
+  ],
+  "name": "China sugar-free soft drink market",
+  "values": [
+   [
+    18,
+    31,
+    49
+   ],
+   [
+    12,
+    35,
+    67
+   ]
+  ],
+  "names": [
+   "Sugar-free Tea",
+   "Sugar-free Carbonates"
+  ],
+  "force_values": true,
+  "stacked": true,
+  "categories": [
+   "2016",
+   "2018",
+   "2020"
+  ],
+  "texts": [
+   [
+    "~18",
+    "~31",
+    "~49"
+   ],
+   [
+    "~12",
+    "~35",
+    "~67"
+   ]
+  ],
+  "keep": [
+   "^~4,",
+   "Genki",
+   "established"
+  ],
+  "keep_colors": [
+   "F4C8C8",
+   "F2C4C4",
+   "EFBFBF"
+  ],
+  "keep_max": 20000,
+  "remove_pictures": false,
+  "label_size": 15
+ },
+ {
+  "slide": 6,
+  "box": [
+   430,
+   368,
+   651,
+   1104
+  ],
+  "kind": "bar",
+  "name": "carbonate sales by channel",
+  "values": [
+   [
+    8,
+    14,
+    15,
+    44,
+    14,
+    5
+   ]
+  ],
+  "categories": [
+   "CVS",
+   "Hyper/ Supermkt.",
+   "Grocery Store",
+   "M&P",
+   "On-trade",
+   "Others"
+  ],
+  "cat_size": null,
+  "force_values": true,
+  "fmt": "0\"%\"",
+  "remove_pictures": true,
+  "label_size": 15
+ },
+ {
+  "slide": 11,
+  "box": [
+   784,
+   340,
+   1440,
+   482
+  ],
+  "name": "Genki vending machines",
+  "totals": [
+   36710,
+   110131,
+   194717
+  ],
+  "names": [
+   "CBDs",
+   "Schools"
+  ],
+  "keep": [
+   "Schools",
+   "CBDs"
+  ],
+  "remove_pictures": true,
+  "label_size": 14
+ }
+]

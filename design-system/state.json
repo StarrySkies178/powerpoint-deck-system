@@ -1,8 +1,11 @@
 {
- "checked_at": "2026-11-24T03:37",
- "folder_version_checked": "2.45",
+ "checked_at": "2026-11-24T06:19",
+ "folder_version_checked": "2.58",
  "needs_publish": true,
- "new_generators": [],
+ "new_generators": [
+  "table",
+  "tableForm"
+ ],
  "published_hash": "1619fb46f32028dd057ce05e23649a246e982a8a828249571caaed8db4a35f79",
  "published_files": {
   "README.md": "6991896f92e1b0078f1850e1711a1b58edd383be9b93dd4a705771c1be848afc",

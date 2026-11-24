@@ -1,0 +1,129 @@
+{
+ "id": "C10-strategy-table-truenorth",
+ "passed": true,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [10.0, 7.5] in, got [10.0, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.35 top 0.53; got left 0.37 top 0.52 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 26.0 pt, got 26.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref False, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #FFFFFF, got #FFFFFF (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Calibri, got Calibri"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 12.0 / min 12.0 pt; got 12.0 / 12.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Calibri', 'Tahoma'], got ['Calibri']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.10 R 0.16; got L 0.10 R 0.16 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  },
+  {
+   "check": "source line",
+   "ok": true,
+   "detail": "ref 10.0 pt at 7.24 in; got 10.0 pt at 7.24 in"
+  }
+ ],
+ "layout": 0.99,
+ "visual": 0.94,
+ "n_std": 11,
+ "n_std_ok": 11,
+ "candidate": {
+  "size_in": [
+   10.0,
+   7.5
+  ],
+  "title": {
+   "text": "The five-year strategies could effectively fix issues and facilitate strong growth for Pola on an one-to-one basis",
+   "left_in": 0.37,
+   "top_in": 0.516,
+   "box": [
+    0.37,
+    0.313,
+    9.65,
+    0.927
+   ],
+   "above": 0.345,
+   "pt": 26.0,
+   "bold": false,
+   "font": "Calibri",
+   "colour": "FFFFFF"
+  },
+  "body": {
+   "median_pt": 12.0,
+   "min_pt": 12.0
+  },
+  "margins": {
+   "left_in": 0.097,
+   "right_in": 0.163
+  },
+  "fonts": {
+   "latin": [
+    "Calibri"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "source": {
+   "pt": 10.0,
+   "top_in": 7.24
+  },
+  "theme_colours": [
+   "000000",
+   "00A1DE",
+   "3A3838",
+   "72C7E7",
+   "777777",
+   "A2A2A2",
+   "CC0000",
+   "E06E6E",
+   "EBC6C5",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "CC0C0C",
+   "CCCCCC",
+   "FCFCFC",
+   "848484",
+   "9C9C9C",
+   "6C6C6C",
+   "B4B4B4",
+   "CC240C",
+   "E45454"
+  ]
+ }
+}

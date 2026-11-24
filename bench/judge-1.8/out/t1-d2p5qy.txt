@@ -1,0 +1,2 @@
+PASS
+clean two-panel slide, clear labelled charts with takeaway boxes and an action title

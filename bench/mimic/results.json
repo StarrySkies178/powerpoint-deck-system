@@ -1,0 +1,161 @@
+{
+ "C01-exec-summary-polaris": {
+  "A_exists": true,
+  "A_pictures": [
+   0.002,
+   0.004
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.004
+  ],
+  "layout_raw": 0.9772,
+  "layout": 0.95,
+  "visual": 0.95,
+  "std": "11/11",
+  "failed": []
+ },
+ "C02-gantt-risks-polaris": {
+  "A_exists": true,
+  "A_pictures": [],
+  "B_exists": true,
+  "B_pictures": [],
+  "layout_raw": 0.9127,
+  "layout": 0.75,
+  "visual": 0.91,
+  "std": "11/11",
+  "failed": []
+ },
+ "C03-assumptions-table-polaris": {
+  "A_exists": true,
+  "A_pictures": [],
+  "B_exists": true,
+  "B_pictures": [],
+  "layout_raw": 0.976,
+  "layout": 0.96,
+  "visual": 0.94,
+  "std": "10/10",
+  "failed": []
+ },
+ "C04-two-charts-ecluster": {
+  "A_exists": true,
+  "A_pictures": [
+   0.0,
+   0.0,
+   0.003,
+   0.001
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.0,
+   0.0,
+   0.003,
+   0.001
+  ],
+  "layout_raw": 0.9904,
+  "layout": 0.97,
+  "visual": 0.93,
+  "std": "10/11",
+  "failed": [
+   "title position"
+  ]
+ },
+ "C05-timeline-ecluster": {
+  "A_exists": true,
+  "A_pictures": [],
+  "B_exists": true,
+  "B_pictures": [],
+  "layout_raw": 0.9801,
+  "layout": 0.92,
+  "visual": 0.85,
+  "std": "7/10",
+  "failed": [
+   "title position",
+   "fonts",
+   "body margins"
+  ]
+ },
+ "C06-exec-summary-mindcraft": {
+  "A_exists": true,
+  "A_pictures": [
+   0.001,
+   1.0,
+   1.0
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.001,
+   1.0,
+   1.0
+  ],
+  "layout_raw": 0.9811,
+  "layout": 0.96,
+  "visual": 0.89,
+  "std": "10/10",
+  "failed": []
+ },
+ "C07-scenario-lines-mindcraft": {
+  "A_exists": true,
+  "A_pictures": [],
+  "B_exists": true,
+  "B_pictures": [],
+  "layout_raw": 0.9478,
+  "layout": 0.89,
+  "visual": 0.9,
+  "std": "9/12",
+  "failed": [
+   "body text size",
+   "colours",
+   "source line"
+  ]
+ },
+ "C08-risk-matrix-mindcraft": {
+  "A_exists": true,
+  "A_pictures": [
+   0.004,
+   0.003
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.004,
+   0.003
+  ],
+  "layout_raw": 0.9385,
+  "layout": 0.86,
+  "visual": 0.92,
+  "std": "11/11",
+  "failed": []
+ },
+ "C09-sensitivity-truenorth": {
+  "A_exists": true,
+  "A_pictures": [
+   0.008
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.008
+  ],
+  "layout_raw": 0.9879,
+  "layout": 0.97,
+  "visual": 0.92,
+  "std": "9/10",
+  "failed": [
+   "body text size"
+  ]
+ },
+ "C10-strategy-table-truenorth": {
+  "A_exists": true,
+  "A_pictures": [
+   0.008
+  ],
+  "B_exists": true,
+  "B_pictures": [
+   0.008
+  ],
+  "layout_raw": 0.9964,
+  "layout": 0.98,
+  "visual": 0.94,
+  "std": "11/11",
+  "failed": []
+ }
+}

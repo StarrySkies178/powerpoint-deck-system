@@ -1,0 +1,2 @@
+OK
+complete, polished mimic; Gantt keeps all rows with designed arrows, risks box restyled as underlined heading is minor

@@ -827,3 +827,108 @@ function valueTree(slide, spec, box = BODY) {
 }
 Object.assign(module.exports, { harvey, vlabel, riskMatrix, gantt, scoringTable, initiativeMatrix, explodedBar, heatGrid, agendaTracker, valueTree });
 G.tagForms(module.exports, ["scoringTable", "riskMatrix", "positioningMap", "valueTree", "personaCards", "heatGrid", "initiativeMatrix", "decisionFramework", "stackedCagr", "growthPairs", "growthBars", "donutKpis", "letteredSummary", "storyDiagram", "pyramidSummary", "agendaTracker", "iconPoints", "explodedBar", "chartTakeaway", "keyQuestions", "photoCover", "photoAgenda"]);
+
+// ---------- Roadmap 4.2 Run 7: exhibits drawn the way the case-competition reference decks draw them ----------
+// The four reference decks of the C cases hold no native charts: every chart and map is drawn with shapes, labelled
+// directly (no value axis, no gridlines, no legend box when a label can sit on the mark). These keep that form (Run 7 kept in part, v2.75: shareColumn and lineEnds; riskHeatMap was not kept).
+const _mix = (a, b, t) => { const p = (h) => [0, 2, 4].map((i) => parseInt(h.substr(i, 2), 16)); const A = p(a), B = p(b);
+  return A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join("").toUpperCase(); };
+const _lum = (hex) => { const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.substr(i, 2), 16) / 255); return 0.299 * r + 0.587 * g + 0.114 * b; };
+const _hue = (hex) => { const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.substr(i, 2), 16) / 255), mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+  if (!d) return [null, 0]; let h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; return [(h * 60 + 360) % 360, d / (1 - Math.abs(mx + mn - 1) || 1)]; };
+function _lightOf(main) {                                                    // a light colour of the main hue that the reference deck itself uses
+  const S = require("./house.js").STYLE, [h0] = _hue(main);
+  const pool = S ? [].concat(S.colours_ranked || [], Object.values(S.roles || {})).map((c) => String(c).toUpperCase()) : [];
+  const ok = pool.filter((c) => { const [h, sat] = _hue(c), l = _lum(c); return h != null && h0 != null && sat > 0.25 && l > 0.45 && l < 0.88 && Math.min(Math.abs(h - h0), 360 - Math.abs(h - h0)) < 40; });
+  return ok[0] || _mix(main, "FFFFFF", 0.6);
+}
+const _it = (t, o = {}) => [{ text: t, options: { italic: true, ...o } }];
+const _pt = () => { const S = G.chartStyle(); return S.dataLabelFontSize || 12; };
+function _seg(slide, x1, y1, x2, y2, line) {                          // a straight line between two points
+  slide.addShape("line", { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.max(Math.abs(x2 - x1), 0.001), h: Math.max(Math.abs(y2 - y1), 0.001),
+    flipV: (y2 < y1) !== (x2 < x1), line });
+}
+function _spread(ys, gap, lo, hi) {                                     // keep labels at least `gap` apart, inside [lo, hi]
+  const o = ys.map((y, i) => [y, i]).sort((a, b) => a[0] - b[0]), out = new Array(ys.length);
+  let last = -1e9; o.forEach(([y, i]) => { const v = Math.max(y, last + gap); out[i] = v; last = v; });
+  const over = Math.max(0, last - hi); if (over) o.forEach(([, i]) => { out[i] -= over; });
+  o.forEach(([, i]) => { out[i] = Math.max(out[i], lo); });
+  return out;
+}
+
+// Part of a whole: ONE 100% column, light share at the foot and dark on top, each share labelled beside its segment with a
+// leader line, an optional break mark at the foot. (C04's "2018 revenue by segment"; never a pie with a legend box.)
+// spec.parts:[{label, value, hi}] bottom→top; spec.caption under the column; spec.colors bottom→top; spec.breakMark;
+// spec.format(v); spec.side "right" (labels right of the column, default) | "left"; spec.colW (in)
+function shareColumn(slide, spec, box = BODY) {
+  const parts = spec.parts, n = parts.length, tot = parts.reduce((a, p) => a + p.value, 0) || 1, pt = spec.fontSize || _pt();
+  const capH = spec.caption ? 0.34 : 0, colW = Math.min(spec.colW || 0.85, box.w * 0.4), right = spec.side !== "left";
+  const cx = right ? box.x + 0.05 : box.x + box.w - colW - 0.05, top = box.y + 0.05, hh = box.h - capH - 0.1;
+  const base = _lightOf(C.navy);                                            // the deck's own light shade of its main hue at the foot, the main colour on top
+  const cols = spec.colors || parts.map((_, i) => (n === 1 ? C.navy : _mix(base, C.navy, i / (n - 1))));
+  const fmt = spec.format || ((v) => Math.round((v / tot) * 100) + "%");
+  let y = top + hh; const mids = [];
+  parts.forEach((p, i) => {
+    const h = Math.max(0.12, (p.value / tot) * hh); y -= h;
+    slide.addShape("rect", { x: cx, y, w: colW, h, fill: { color: cols[i] }, line: { color: "FFFFFF", width: 0.75 } });
+    mids.push(y + h / 2);
+  });
+  if (spec.breakMark) [0, 0.07].forEach((d) => _seg(slide, cx - 0.08, top + hh - 0.22 - d, cx + colW + 0.08, top + hh - 0.32 - d, { color: "FFFFFF", width: 3 }));
+  const lw = box.w - colW - 0.55, lx = right ? cx + colW + 0.45 : box.x, ly = _spread(mids, (pt / 72) * 2.5, top, top + hh);
+  parts.forEach((p, i) => {
+    const ex = right ? cx + colW : cx, tx = right ? lx - 0.05 : lx + lw + 0.05;
+    _seg(slide, ex, mids[i], (ex + tx) / 2, mids[i], { color: C.g5, width: 0.75 }); _seg(slide, (ex + tx) / 2, mids[i], (ex + tx) / 2, ly[i], { color: C.g5, width: 0.75 });
+    _seg(slide, (ex + tx) / 2, ly[i], tx, ly[i], { color: C.g5, width: 0.75 });
+    txt(slide, [{ text: fmt(p.value) + " ", options: { bold: true, color: p.hi ? C.accent : C.text } }, { text: p.label, options: { color: C.text } }],
+      lx, ly[i] - (pt / 72) * 1.25, Math.max(0.8, lw), (pt / 72) * 2.5, { fontSize: pt, align: right ? "left" : "right", valign: "middle", margin: 0, onDark: true });
+  });
+  if (spec.caption) txt(slide, spec.caption, cx - 0.3, top + hh + 0.05, colW + 0.6, capH, { fontSize: pt, color: C.text, align: "center", margin: 0 });
+}
+
+// Lines labelled at their ends, as the references draw them: no axis box, no legend box; each line's first and last
+// values written at its ends and its name beside the last value; an optional column beside the chart (e.g. CAGR) whose
+// values sit level with each line's end. Drawn with shapes, as the reference decks draw their charts.
+// spec.labels [..periods]; spec.series [{name, values, hi}]; spec.min, spec.max (value range; default from data);
+// spec.format(v); spec.side {header, values:[per series], circle: index}; spec.markers (default true)
+function lineEnds(slide, spec, box = BODY) {
+  const pt = spec.fontSize || _pt(), lh = (pt / 72) * 1.3, S = spec.series, all = S.flatMap((s) => s.values.filter((v) => v != null));
+  const dmin = Math.min(...all), dmax = Math.max(...all), pad = (dmax - dmin || 1) * 0.08;
+  const lo = spec.min ?? dmin - pad, hi = spec.max ?? dmax + pad, fmt = spec.format || ((v) => String(v));
+  const em = (t) => (String(t).length * pt * 0.62) / 72;
+  const sideW = spec.side ? Math.min(1.6, Math.max(0.9, em(spec.side.header || "") / 2 + 0.2, ...(spec.side.values || []).map((v) => em(v) + 0.3))) : 0;
+  const nameW = Math.min(box.w * 0.3, Math.max(...S.map((s, k) => em(fmt(s.values.filter((v) => v != null).slice(-1)[0]) + "  " + s.name) + 0.15)));
+  const startW = Math.max(0.45, ...S.map((s) => em(fmt(s.values.find((v) => v != null))) + 0.12)), headH = spec.side ? 2 * lh + 0.08 : lh * 0.6;
+  const px0 = box.x + startW, px1 = box.x + box.w - sideW - nameW - 0.12, py0 = box.y + headH, py1 = box.y + box.h - lh * 1.5;
+  const n = spec.labels.length, X = (i) => px0 + (n === 1 ? 0 : (i / (n - 1)) * (px1 - px0)), Y = (v) => py1 - ((v - lo) / (hi - lo || 1)) * (py1 - py0);
+  const greys = [C.g5, C.g4, C.g3, _mix(C.g5, C.text, 0.4)];
+  const col = (s, k) => s.color || (s.hi ? C.chartHi : greys[k % greys.length]);
+  _seg(slide, px0 - 0.1, py1 + 0.1, px1 + 0.1, py1 + 0.1, { color: C.g4, width: 0.75 });
+  spec.labels.forEach((t, i) => txt(slide, t, X(i) - 0.55, py1 + 0.13, 1.1, lh, { fontSize: pt, color: C.text, align: "center", margin: 0 }));
+  const ends = [], starts = [];
+  S.forEach((s, k) => {
+    const pts = s.values.map((v, i) => (v == null ? null : [X(i), Y(v)])).filter(Boolean);
+    for (let i = 1; i < pts.length; i++) _seg(slide, pts[i - 1][0], pts[i - 1][1], pts[i][0], pts[i][1], { color: col(s, k), width: s.hi ? 2.5 : 1.75 });
+    if (spec.markers !== false) pts.forEach(([x, y]) => slide.addShape("ellipse", { x: x - 0.045, y: y - 0.045, w: 0.09, h: 0.09, fill: { color: col(s, k) }, line: { type: "none" } }));
+    starts.push(pts[0][1]); ends.push(pts[pts.length - 1][1]);
+  });
+  const ey = _spread(ends, lh * 1.05, py0 - lh / 2, py1);
+  const firsts = S.map((s) => fmt(s.values.find((v) => v != null))), sameStart = firsts.every((f) => f === firsts[0]) && Math.max(...starts) - Math.min(...starts) < lh;
+  const sy = sameStart ? [Math.min(...starts)] : _spread(starts, lh * 1.05, py0 - lh / 2, py1 - lh * 0.6);
+  (sameStart ? [0] : S.map((_, k) => k)).forEach((k) => txt(slide, firsts[k], box.x, sy[sameStart ? 0 : k] - lh / 2, startW - 0.08, lh, { fontSize: pt, color: C.text, align: "right", valign: "middle", margin: 0 }));
+  S.forEach((s, k) => {
+    const vs = s.values.filter((v) => v != null), c = s.hi ? C.chartHi : C.text;
+    txt(slide, [{ text: fmt(vs[vs.length - 1]) + "  ", options: { bold: true, color: c } }, { text: s.name, options: { color: c, bold: !!s.hi } }],
+      px1 + 0.12, ey[k] - lh / 2, nameW, lh, { fontSize: pt, valign: "middle", margin: 0, onDark: true });
+  });
+  if (spec.side) {
+    const sx = box.x + box.w - sideW;
+    txt(slide, spec.side.header || "", sx, box.y, sideW, 2 * lh, { fontSize: pt, bold: true, color: C.text, align: "center", valign: "bottom", margin: 0 });
+    _seg(slide, sx + 0.05, box.y + 2 * lh + 0.04, sx + sideW - 0.05, box.y + 2 * lh + 0.04, { color: C.text, width: 0.75 });
+    (spec.side.values || []).forEach((v, k) => {
+      txt(slide, v, sx, ey[k] - lh / 2, sideW, lh, { fontSize: pt, bold: !!S[k].hi, color: S[k].hi ? C.chartHi : C.text, align: "center", valign: "middle", margin: 0, onDark: true });
+      if (spec.side.circle === k) slide.addShape("ellipse", { x: sx + sideW * 0.12, y: ey[k] - lh * 0.75, w: sideW * 0.76, h: lh * 1.5, fill: { type: "none" }, line: { color: C.accent, width: 1.75 } });
+    });
+  }
+}
+Object.assign(module.exports, { shareColumn, lineEnds });
+G.tagForms(module.exports, ["shareColumn", "lineEnds"]);

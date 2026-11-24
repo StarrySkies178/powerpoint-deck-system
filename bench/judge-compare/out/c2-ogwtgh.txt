@@ -1,0 +1,2 @@
+NOT OK
+Title jammed against the band edge with no padding, risks panel dropped to a plain list, and text much smaller with mixed header sizes.

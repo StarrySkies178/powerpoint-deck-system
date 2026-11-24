@@ -1,0 +1,499 @@
+[
+ {
+  "slide": 4,
+  "box": [
+   60,
+   268,
+   656,
+   662
+  ],
+  "name": "market size of fresh fruit market",
+  "not_clustered": true,
+  "values": [
+   [
+    735,
+    889,
+    967,
+    879,
+    1102,
+    1192,
+    1293
+   ],
+   [
+    15,
+    61,
+    83,
+    121,
+    168,
+    206,
+    244
+   ]
+  ],
+  "names": [
+   "Offline",
+   "Online"
+  ],
+  "total_vals": [
+   750,
+   950,
+   1050,
+   1000,
+   1271,
+   1398,
+   1537
+  ],
+  "texts": [
+   [
+    "735\n(98%)",
+    "889\n(94%)",
+    "967\n(92%)",
+    "879\n(88%)",
+    "1,102\n(87%)",
+    "1,192\n(85%)",
+    "1,293\n(84%)"
+   ],
+   [
+    "15",
+    "61",
+    "83",
+    "121",
+    "168",
+    "206",
+    "244"
+   ]
+  ],
+  "keep": [
+   "decline",
+   "pandemic",
+   "^Online$",
+   "^Offline$",
+   "//"
+  ],
+  "keep_colors": [
+   "E00000",
+   "FF0000",
+   "C00000",
+   "D00000",
+   "404040",
+   "000000"
+  ],
+  "keep_max": 1500,
+  "centers": [
+   98,
+   611
+  ],
+  "categories": [
+   "2015",
+   "2018",
+   "2019",
+   "2020",
+   "2021E",
+   "2022E",
+   "2023E"
+  ],
+  "n": 7,
+  "overlays": [
+   {
+    "type": "rect",
+    "box": [
+     234,
+     358,
+     300,
+     657
+    ],
+    "line": "E0141E",
+    "w": 1.5
+   },
+   {
+    "type": "rect",
+    "box": [
+     65,
+     276,
+     92,
+     296
+    ],
+    "fill": "D9D9DE"
+   },
+   {
+    "type": "rect",
+    "box": [
+     65,
+     307,
+     92,
+     327
+    ],
+    "fill": "7F7F7F"
+   }
+  ]
+ },
+ {
+  "slide": 6,
+  "spec": {
+   "name": "city tier distribution",
+   "type": "bar_stacked_100",
+   "clear": [
+    903,
+    300,
+    1232,
+    422
+   ],
+   "categories": [
+    "Pagoda",
+    "Xianfeng",
+    "Greenery"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      88,
+      96,
+      65
+     ],
+     "color": "C00000",
+     "colors": [
+      null,
+      "8C8C8C",
+      "8C8C8C"
+     ]
+    },
+    {
+     "name": "Rest",
+     "values": [
+      12,
+      4,
+      35
+     ],
+     "color": "DCD7DB"
+    }
+   ],
+   "centers": [
+    307.5,
+    415.5
+   ],
+   "bar": 9.5,
+   "base": 908,
+   "k": 3.2,
+   "top": 1228,
+   "cat_size": null,
+   "axis_line": null,
+   "keep": [
+    "."
+   ],
+   "note": "Native 100% bars: shares are the original's labels (text boxes above the bars).",
+   "z": "back",
+   "frame": [
+    903,
+    275,
+    1232,
+    445
+   ]
+  }
+ },
+ {
+  "slide": 6,
+  "spec": {
+   "name": "function area distribution",
+   "type": "bar_stacked_100",
+   "clear": [
+    1240,
+    300,
+    1568,
+    422
+   ],
+   "categories": [
+    "Pagoda",
+    "Xianfeng",
+    "Greenery"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      83,
+      91,
+      95
+     ],
+     "color": "C00000",
+     "colors": [
+      null,
+      "8C8C8C",
+      "8C8C8C"
+     ]
+    },
+    {
+     "name": "Rest",
+     "values": [
+      17,
+      9,
+      5
+     ],
+     "color": "DCD7DB"
+    }
+   ],
+   "centers": [
+    307.5,
+    415.5
+   ],
+   "bar": 9.5,
+   "base": 1244,
+   "k": 3.2,
+   "top": 1565,
+   "cat_size": null,
+   "axis_line": null,
+   "keep": [
+    "."
+   ],
+   "note": "Native 100% bars: shares are the original's labels (text boxes above the bars).",
+   "z": "back",
+   "frame": [
+    1240,
+    275,
+    1568,
+    445
+   ]
+  }
+ },
+ {
+  "slide": 6,
+  "spec": {
+   "name": "disposable income T3-5 vs T1-2",
+   "type": "column",
+   "clear": [
+    925,
+    575,
+    1200,
+    708
+   ],
+   "categories": [
+    "2016",
+    "2019"
+   ],
+   "series": [
+    {
+     "name": "T3-5",
+     "values": [
+      29,
+      36
+     ],
+     "color": "C00000",
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "262626",
+     "label_size": 12
+    },
+    {
+     "name": "T1-2",
+     "values": [
+      41,
+      52
+     ],
+     "color": "D9D9D9",
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "262626",
+     "label_size": 12
+    }
+   ],
+   "centers": [
+    999,
+    1128
+   ],
+   "bar": 55,
+   "overlap": 0,
+   "base": 680,
+   "k": 2.12,
+   "top": 575,
+   "cat_size": 12,
+   "axis_line": "404040",
+   "keep": [
+    "//",
+    "T3-5",
+    "T1-2"
+   ],
+   "keep_colors": [
+    "C00000",
+    "D9D9D9",
+    "E0E0E0"
+   ],
+   "keep_max": 300,
+   "note": "Native clustered columns: values are the original's labels.",
+   "remove_pictures": true
+  }
+ },
+ {
+  "slide": 7,
+  "box": [
+   930,
+   525,
+   1137,
+   640
+  ],
+  "name": "Chinese people living alone",
+  "categories": [
+   "2015",
+   "2018",
+   "2019",
+   "2020"
+  ],
+  "keep": [
+   "//"
+  ]
+ },
+ {
+  "slide": 7,
+  "box": [
+   930,
+   730,
+   1137,
+   848
+  ],
+  "name": "per capita disposable income"
+ },
+ {
+  "slide": 10,
+  "box": [
+   35,
+   238,
+   815,
+   465
+  ],
+  "kind": "waterfall",
+  "steps": [
+   4800,
+   400,
+   3801,
+   9001
+  ],
+  "totals": [
+   0,
+   3
+  ],
+  "texts": [
+   "4,800",
+   "400",
+   "3,801",
+   "9,001"
+  ],
+  "name": "potential incremental stores",
+  "categories": [
+   "2020(POD)",
+   "T1-2",
+   "T3-5",
+   "2023(POA)"
+  ]
+ },
+ {
+  "slide": 14,
+  "box": [
+   660,
+   318,
+   1100,
+   815
+  ],
+  "kind": "waterfall",
+  "steps": [
+   15.0,
+   11.3,
+   4.1,
+   30.4
+  ],
+  "totals": [
+   0,
+   3
+  ],
+  "texts": [
+   "15.0",
+   "11.3",
+   "4.1",
+   "30.4"
+  ],
+  "name": "strategy contribution forecast"
+ },
+ {
+  "slide": 14,
+  "box": [
+   1140,
+   330,
+   1530,
+   815
+  ],
+  "name": "Pagoda revenue forecast",
+  "n": 4,
+  "values": [
+   [
+    15.0,
+    18.5,
+    24.1,
+    30.4
+   ]
+  ],
+  "names": [
+   "Base Case Scenario"
+  ],
+  "keep": [
+   "^42.0$",
+   "^23.0$",
+   "%$",
+   "Scenario"
+  ],
+  "keep_colors": [
+   "C00000",
+   "F08C96",
+   "E00000",
+   "F4A0A8",
+   "D9D9D9",
+   "BFBFBF"
+  ],
+  "keep_max": 3000,
+  "add_series": [
+   {
+    "name": "Optimistic Scenario",
+    "values": [
+     15.0,
+     18.8,
+     30.8,
+     42.0
+    ],
+    "color": "C00000",
+    "as_line": true,
+    "width": 1.5
+   },
+   {
+    "name": "Pessimistic Scenario",
+    "values": [
+     15.0,
+     16.4,
+     19.8,
+     23.0
+    ],
+    "color": "F08C96",
+    "as_line": true,
+    "width": 1.5
+   }
+  ],
+  "fmt": "0.0",
+  "overlays": [
+   {
+    "type": "line",
+    "from": [
+     1138,
+     624
+    ],
+    "to": [
+     1525,
+     624
+    ],
+    "color": "000000",
+    "w": 1.5,
+    "dash": "dash"
+   }
+  ],
+  "frame": [
+   1140,
+   440,
+   1530,
+   815
+  ]
+ }
+]

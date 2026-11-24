@@ -1,0 +1,2 @@
+PASS
+clean persona card with photo, story box and ranked demand columns, full body at readable size

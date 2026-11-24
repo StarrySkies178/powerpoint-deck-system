@@ -1,0 +1,54 @@
+{
+ "case": "C08-risk-matrix-mindcraft",
+ "run": "run5",
+ "scored": "2026-11-24 07:49",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.42,
+   "visual": 0.34,
+   "std": "9/11",
+   "layout_raw": 0.7443,
+   "failed": [
+    "body margins",
+    "colours",
+    "leave-one-out"
+   ],
+   "detail": [
+    "body margins (ref L 0.29 R 0.55; got L 0.36 R 0.28 in)",
+    "colours (off-palette #E48484)",
+    "leave-one-out (build.js: words from the target's row in Style/slide-map.csv ('heat map likelihood x severity' and more))"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.48,
+   "visual": 0.43,
+   "std": "9/11",
+   "layout_raw": 0.772,
+   "failed": [
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "body margins (ref L 0.29 R 0.55; got L 0.37 R 0.28 in)",
+    "colours (off-palette #E48484)"
+   ]
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.36,
+   "visual": 0.33,
+   "std": "9/11",
+   "layout_raw": 0.7189,
+   "failed": [
+    "body margins",
+    "colours"
+   ],
+   "detail": [
+    "body margins (ref L 0.29 R 0.55; got L 0.37 R 0.28 in)",
+    "colours (off-palette #E48484)"
+   ]
+  }
+ }
+}

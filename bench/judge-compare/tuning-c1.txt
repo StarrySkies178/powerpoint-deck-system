@@ -1,0 +1,21 @@
+XX 19b5rp run2-C01 mike OK judge NOT OK | The implications row leaves an empty white cell under Implementation, where the original runs its second implication acr
+XX aapchr run2-C02 mike OK judge NOT OK | Gantt chart is stripped: the Online and Omni-channel rows have no bars at all, leaving empty grid rows, and the theme-st
+   yuxxh4 run2-C03 mike OK judge OK | Clean, complete mimic of the three scenario tables; red headers and row lines differ in style but it fills the slide and
+   wxt50i run2-C04 mike OK judge OK | clean, complete mimic; pie replaces the stacked bar and chart 1 numbers differ, but it fills the slide and looks as prof
+   9axijx run2-C05 mike OK judge OK | Clean, complete Gantt mimic with all rows and bars; risks box restyled as a headed list but looks as professional.
+   g3xb6o run2-C06 mike OK judge OK | clean, complete mimic; numbered cards with red emphasis restyle the same four paragraphs and fill the slide as well as t
+XX 8uubgu run2-C07 mike OK judge NOT OK | Left chart data labels are cluttered and misplaced: 9.7 and 12.0 sit on top of the dark line, far from their own points,
+   t9zo2p run2-C08 mike NOT OK judge NOT OK | Heat map simplified to a plain 3x3 grid with few shades, risks 5-8 moved to a legend instead of labelled in place, and t
+   4l8yyo run2-C09 mike OK judge OK | clean, complete mimic; both charts, connector lines, totals, legends and CAGR panels match the original and look as prof
+XX mcztig run2-C10 mike OK judge NOT OK | Text overflows its boxes (Political Risks list spills past the bottom of its cell, left column jammed to the edges) and 
+   xazv10 s13-C01 mike NOT OK judge NOT OK | Doubled bullet marks ("• –") and lost bold/sub-point hierarchy in the lists, plus the grey row-label blocks replaced by 
+   yd4brm s13-C02 mike NOT OK judge NOT OK | Right column leaves a large blank gap in its bottom half and drops the shaded mitigation boxes; timeline labels mix font
+XX 0kkmhh s13-C03 mike NOT OK judge OK | clean, complete mimic of the three tables; text slightly smaller and added row lines but fills the slide and looks as pr
+   ftfoqf s13-C04 mike NOT OK judge NOT OK | Title is jammed against the left edge and clipped at the bottom of its bar, and chart labels (2, 8, 11%) sit on bar edge
+   ogwtgh s13-C05 mike NOT OK judge NOT OK | Title jammed against the left edge of its bar, stray misaligned lines around the year header, mixed and tiny row-label f
+XX eg3dey s13-C06 mike NOT OK judge OK | same four paragraphs, readable and tidy, filling the slide about as fully; only the gradient background was dropped for 
+   0mhw0g s13-C07 mike NOT OK judge NOT OK | Data labels overlap (10.1/9.6/9.2, 233/255/268), axes, chart subtitles, CAGR panel and capex burden row dropped, source 
+   zasr2o s13-C08 mike NOT OK judge NOT OK | Risk heat map simplified to a plain 2x2 grid with risks 5-8 dropped, and the numbered section headers and risk descripti
+   dgb0y7 s13-C09 mike NOT OK judge NOT OK | Charts stripped: y-axis, dashed connector lines and total labels dropped, 0.1 labels spill over bar edges, and the top C
+   1bmqv3 s13-C10 mike NOT OK judge NOT OK | bullet lists flattened into semicolon run-ons in tiny text, chevron header labels clipped off the top, and empty grid ce
+c1: agree 14/20; his OK judged NOT OK 4; his NOT OK judged OK 2

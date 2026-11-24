@@ -1,0 +1,2 @@
+NOT OK
+Charts stripped: y-axis, dashed connector lines and total labels dropped, small grey labels clash with the axis

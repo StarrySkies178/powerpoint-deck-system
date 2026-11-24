@@ -1,0 +1,2 @@
+OK
+Complete, faithful mimic: both stacked bar charts keep dashed connectors, total labels, legends, axes and CAGR side figures

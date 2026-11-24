@@ -1,0 +1,121 @@
+{
+ "id": "C06-exec-summary-mindcraft",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.39 top 0.89; got left 0.39 top 0.89 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 26.0 pt, got 26.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": false,
+   "detail": "ref True, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": false,
+   "detail": "ref #FFFFFF, got #000000 (ΔE 100)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Verdana, got Verdana"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 14.0 / min 14.0 pt; got 14.0 / 14.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Verdana'], got ['Verdana']"
+  },
+  {
+   "check": "body margins",
+   "ok": false,
+   "detail": "ref L 0.39 R 5.05; got L 0.37 R 0.38 in"
+  },
+  {
+   "check": "colours",
+   "ok": false,
+   "detail": "off-palette #E48484"
+  }
+ ],
+ "layout": 0.0,
+ "visual": 0.06,
+ "n_std": 10,
+ "n_std_ok": 6,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Executive Summary",
+   "left_in": 0.39,
+   "top_in": 0.885,
+   "box": [
+    0.39,
+    0.233,
+    12.31,
+    0.927
+   ],
+   "above": 0,
+   "pt": 26.0,
+   "bold": false,
+   "font": "Verdana",
+   "colour": "000000"
+  },
+  "body": {
+   "median_pt": 14.0,
+   "min_pt": 14.0
+  },
+  "margins": {
+   "left_in": 0.37,
+   "right_in": 0.38
+  },
+  "fonts": {
+   "latin": [
+    "Verdana"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "theme_colours": [
+   "000000",
+   "006292",
+   "00A1DE",
+   "44536A",
+   "5C5C5C",
+   "72C7E7",
+   "808080",
+   "A6A6A6",
+   "C00000",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "E4E4E4",
+   "9C9C9C",
+   "B4B4B4",
+   "CCCCCC",
+   "848484",
+   "E48484",
+   "545454",
+   "FCE4E4",
+   "6C6C6C",
+   "E4CCCC"
+  ]
+ }
+}

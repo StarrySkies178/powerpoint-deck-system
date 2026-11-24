@@ -1,0 +1,2 @@
+OK
+Complete, faithful mimic of both stacked bar charts with connectors, labels, legends and CAGR columns; only minor axis and spacing differences.

@@ -1,0 +1,2 @@
+PASS
+clean ruled table with status marks, clear chart and takeaway boxes

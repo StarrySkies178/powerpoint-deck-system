@@ -1,0 +1,2 @@
+NOT OK
+Heat map simplified to a plain 3x3 grid with few shades, risks 5-8 moved to a legend instead of labelled in place, and the arrow linking the two halves is gone

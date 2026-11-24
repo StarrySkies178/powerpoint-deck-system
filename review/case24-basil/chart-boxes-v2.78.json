@@ -1,0 +1,392 @@
+[
+ {
+  "slide": 4,
+  "box": [
+   85,
+   248,
+   495,
+   440
+  ],
+  "name": "elderly population",
+  "values": [
+   [
+    103,
+    138,
+    169,
+    209
+   ],
+   [
+    41,
+    53,
+    73,
+    100
+   ]
+  ],
+  "names": [
+   "Elderly",
+   "Disabled Elderly"
+  ],
+  "force_values": true,
+  "stacked": true,
+  "colors": [
+   "E6E6E6",
+   "C8282D"
+  ],
+  "total_vals": [
+   144,
+   191,
+   242,
+   309
+  ],
+  "categories": [
+   "2015",
+   "2020",
+   "2025E",
+   "2030E"
+  ],
+  "keep": [
+   "Disabled",
+   "\\+5%"
+  ],
+  "keep_colors": [
+   "000000",
+   "0D0D0D",
+   "1A1A1A",
+   "262626",
+   "333333",
+   "404040",
+   "595959"
+  ],
+  "keep_max": 40000,
+  "remove_pictures": true,
+  "extra_clear": [
+   [
+    85,
+    440,
+    495,
+    470
+   ]
+  ],
+  "overlays": [
+   {
+    "type": "line",
+    "from": [
+     140,
+     330
+    ],
+    "to": [
+     440,
+     243
+    ],
+    "color": "000000",
+    "w": 2,
+    "head": "triangle"
+   },
+   {
+    "type": "ellipse",
+    "box": [
+     272,
+     278,
+     306,
+     296
+    ],
+    "fill": "FFFFFF",
+    "line": "404040",
+    "w": 1
+   },
+   {
+    "type": "text",
+    "xy": [
+     277,
+     280
+    ],
+    "w": 28,
+    "h": 14,
+    "lines": [
+     "+5%"
+    ],
+    "size": 7,
+    "color": "262626"
+   }
+  ]
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "challenges for eldercare facilities",
+   "type": "bar",
+   "clear": [
+    1070,
+    255,
+    1400,
+    425
+   ],
+   "categories": [
+    "Inadequate Skill Training",
+    "Low Level of Professionalism",
+    "Insufficient Caregivers"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      46.5,
+      64.2,
+      74.9
+     ],
+     "color": "BFBFBF",
+     "colors": [
+      null,
+      "C8282D",
+      "E3E3E3"
+     ],
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "404040",
+     "label_size": 8,
+     "fmt": "0.0\"%\""
+    }
+   ],
+   "centers": [
+    278,
+    405
+   ],
+   "bar": 34,
+   "base": 1073,
+   "k": 3.86,
+   "top": 1400,
+   "cat_size": null,
+   "axis_line": "404040",
+   "remove_pictures": true,
+   "note": "Native bar chart: values are the original's labels."
+  }
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "elderly residential pattern",
+   "type": "doughnut",
+   "clear": [
+    85,
+    528,
+    276,
+    720
+   ],
+   "frame": [
+    88,
+    532,
+    272,
+    716
+   ],
+   "categories": [
+    "Family",
+    "Institution",
+    "Alone",
+    "Others"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      77,
+      8,
+      7,
+      8
+     ],
+     "colors": [
+      "C8282D",
+      "6E1414",
+      "BFBFBF",
+      "E6E6E6"
+     ],
+     "labels": true,
+     "label_color": "FFFFFF",
+     "label_size": 9,
+     "label_bold": true,
+     "fmt": "0\"%\"",
+     "label_colors": {
+      "2": "262626",
+      "3": "404040"
+     }
+    }
+   ],
+   "hole": 68,
+   "first_angle": 0,
+   "keep": [
+    "Family",
+    "Institution",
+    "Alone",
+    "Others"
+   ],
+   "remove_pictures": false,
+   "note": "Native doughnut: shares are the original's labels (kept as text boxes).",
+   "keep_colors": [
+    "C8282D",
+    "6E1414",
+    "BFBFBF",
+    "E6E6E6",
+    "C00000",
+    "7F1F1F",
+    "B4B4B4",
+    "DCDCDC"
+   ],
+   "keep_max": 400
+  }
+ },
+ {
+  "slide": 14,
+  "box": [
+   790,
+   240,
+   1365,
+   485
+  ],
+  "name": "incremental revenue forecast",
+  "names": [
+   "Taikang Home",
+   "Nursing centers",
+   "Introduction of HK senior citizens"
+  ],
+  "categories": [
+   "2024",
+   "2025",
+   "2026",
+   "2027",
+   "2028",
+   "2029",
+   "2030",
+   "2031",
+   "2032",
+   "2033",
+   "2034"
+  ],
+  "base_px": 482,
+  "add_series": [
+   {
+    "name": "Bear Case",
+    "values": [
+     0,
+     70,
+     225,
+     547,
+     800,
+     1109,
+     1305,
+     1558,
+     1881,
+     2218,
+     2568
+    ],
+    "color": "9DB3D6",
+    "as_line": true,
+    "marker": true,
+    "width": 1.5
+   },
+   {
+    "name": "Bull Case",
+    "values": [
+     0,
+     112,
+     379,
+     758,
+     1109,
+     1446,
+     1825,
+     2498,
+     2947,
+     3382,
+     3818
+    ],
+    "color": "2F4A6B",
+    "as_line": true,
+    "marker": true,
+    "width": 1.5
+   }
+  ],
+  "keep": [
+   "Introduction",
+   "Nursing",
+   "Taikang Home",
+   "Bear",
+   "Bull"
+  ],
+  "keep_colors": [
+   "C8282D",
+   "D9D9D9",
+   "A6A6A6",
+   "9DB3D6",
+   "2F4A6B"
+  ],
+  "keep_max": 600,
+  "remove_pictures": false,
+  "force_values": true,
+  "stacked": true,
+  "values": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    50,
+    140
+   ],
+   [
+    13,
+    83,
+    272,
+    522,
+    817,
+    1057,
+    1319,
+    1624,
+    2002,
+    2377,
+    2722
+   ],
+   [
+    0,
+    30,
+    56,
+    154,
+    140,
+    182,
+    239,
+    267,
+    281,
+    267,
+    267
+   ]
+  ],
+  "colors": [
+   "A6A6A6",
+   "E3E3E3",
+   "C8282D"
+  ],
+  "total_vals": [
+   13,
+   113,
+   328,
+   676,
+   957,
+   1239,
+   1558,
+   1891,
+   2283,
+   2694,
+   3129
+  ],
+  "no_labels": true,
+  "kscale": [
+   482,
+   197,
+   4000
+  ],
+  "val_size": 9,
+  "top": 197
+ }
+]

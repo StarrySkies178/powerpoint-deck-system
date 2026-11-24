@@ -1,0 +1,2 @@
+NOT OK
+Data labels overlap (10.1/9.6/9.2, 233/255/268), axes, chart subtitles, CAGR panel and capex burden row dropped, source line cut off at bottom

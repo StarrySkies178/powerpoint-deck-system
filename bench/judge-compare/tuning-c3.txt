@@ -1,0 +1,31 @@
+   e3k5nw r5-C01 mike OK judge OK | Complete, polished mimic; chevron headers, row labels, implications and bottom takeaway ba
+   rw47xk r5-C02 mike OK judge OK | Complete, polished mimic; Gantt restyled with grey strategy blocks and arrow bars, challen
+   wvxkhi r5-C03 mike OK judge OK | Complete, polished mimic of the three assumption tables; restyled with red headers and row
+   lcs81y r5-C04 mike NOT OK judge NOT OK | Segment chart is clumsy: Fashion 11% shrunk to a thin sliver with its label squeezed insid
+   fleekc r5-C05 mike OK judge OK | Complete, polished mimic; Gantt redrawn with chevron bars, every workstream and step kept 
+   c0osgq r5-C06 mike OK judge OK | Dark gradient dropped but replaced by an equally designed treatment of numbered grey cards
+   np64wt r5-C07 mike OK judge OK | Complete, polished mimic; line charts restyled with end labels and a data table in place o
+   gij3mr r5-C08 mike OK judge OK | Complete, polished mimic; risk map plainer (3x3 grid, item names moved to a legend) but ax
+   miipzg r5-C09 mike OK judge OK | Complete, polished mimic; red title band, both stacked bar charts with totals, dashed conn
+   klug03 r5-C10 mike OK judge OK | Complete, polished mimic; all four columns and phase rows kept, red-filled summary row res
+   19b5rp run2-C01 mike OK judge OK | Complete, polished mimic; red chevron headers, shaded panels and boxed implications with c
+   aapchr run2-C02 mike OK judge OK | Complete, polished mimic with a cleaner designed Gantt and numbered challenge/mitigation b
+   yuxxh4 run2-C03 mike OK judge OK | Complete, polished mimic; all three case tables kept with rules and full rows, restyled wi
+XX wxt50i run2-C04 mike OK judge NOT OK | Chart 1 drawn clumsily: fashion segments shrunk to thin slivers, totals and break marks dr
+   9axijx run2-C05 mike OK judge OK | Complete, polished mimic; Gantt restyled with arrow bars and shaded grouped rows, every st
+   g3xb6o run2-C06 mike OK judge OK | Dark gradient background replaced by an equally designed treatment (numbered grey cards wi
+   8uubgu run2-C07 mike OK judge OK | Complete, polished mimic; both line charts swap y-axes and legend for neat direct data lab
+   t9zo2p run2-C08 mike NOT OK judge NOT OK | Risk map redrawn as a plain 3x3 grid with no axis lines or arrows, so it stands as loose g
+   4l8yyo run2-C09 mike OK judge OK | Complete, faithful mimic: both stacked bar charts keep dashed connectors, total labels, le
+   mcztig run2-C10 mike OK judge OK | Complete, professional mimic; header band restyled from solid red to pale pink with arrows
+   xazv10 s13-C01 mike NOT OK judge NOT OK | Doubled bullet marks repeat across columns and sub-bullet hierarchy is lost; grey row-labe
+   yd4brm s13-C02 mike NOT OK judge NOT OK | Timeline labels jump between font sizes and the legend breaks awkwardly; the right column 
+XX 0kkmhh s13-C03 mike NOT OK judge OK | Complete, tidy mimic of the three scenario tables; text a bit smaller but rule lines fill 
+   ftfoqf s13-C04 mike NOT OK judge NOT OK | Title clipped and jammed against the band edge, and charts drawn clumsily (labels squeezed
+   ogwtgh s13-C05 mike NOT OK judge NOT OK | title jammed against band edge, row and risk text much smaller, Potential Risks box droppe
+   eg3dey s13-C06 mike NOT OK judge NOT OK | Dark red gradient background dropped, left as plain paragraphs on white with only a thin r
+   0mhw0g s13-C07 mike NOT OK judge NOT OK | Charts stripped: overlapping data labels (10.1/9.6/9.2, 209/231, 253/255), no y-axis, CAGR
+   zasr2o s13-C08 mike NOT OK judge NOT OK | Risk map reduced: items 5-8 dropped, Low/Medium/High labels and section headers lost, grid
+   dgb0y7 s13-C09 mike NOT OK judge NOT OK | Charts stripped: dashed connector lines, bar total labels and y-axis dropped, and 0.1 labe
+   1bmqv3 s13-C10 mike NOT OK judge NOT OK | Header chevrons clipped at the top edge, bullets flattened into small run-on text with mix
+c3: agree 28/30; his OK judged NOT OK 1; his NOT OK judged OK 1

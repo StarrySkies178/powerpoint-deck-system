@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; all four columns and phase rows kept, red-filled summary row restyled as a red-outlined band, with chevrons added

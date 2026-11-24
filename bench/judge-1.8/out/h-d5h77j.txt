@@ -1,0 +1,2 @@
+PASS
+clean consulting layout with bubble matrix and bar chart; only small label clipping

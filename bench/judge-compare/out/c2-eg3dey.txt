@@ -1,0 +1,2 @@
+NOT OK
+design dropped: dark red gradient background removed, left as plain paragraphs on white

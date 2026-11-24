@@ -1,0 +1,121 @@
+{
+ "id": "C05-timeline-ecluster",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.00 top 0.76; got left 0.00 top 0.77 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 24.0 pt, got 24.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref True, got True"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #FFFFFF, got #FFFFFF (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Arial, got Arial"
+  },
+  {
+   "check": "body text size",
+   "ok": true,
+   "detail": "ref median 14.0 / min 14.0 pt; got 15.0 / 15.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Arial', 'Arial MT'], got ['Arial']"
+  },
+  {
+   "check": "body margins",
+   "ok": false,
+   "detail": "ref L 0.84 R 1.10; got L 0.27 R 0.23 in"
+  },
+  {
+   "check": "colours",
+   "ok": true,
+   "detail": "all colours in the reference palette"
+  }
+ ],
+ "layout": 0.11,
+ "visual": 0.07,
+ "n_std": 10,
+ "n_std_ok": 9,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Implementation Timeline",
+   "left_in": 0.0,
+   "top_in": 0.771,
+   "box": [
+    0.0,
+    0.43,
+    13.32,
+    0.89
+   ],
+   "above": 0.39,
+   "pt": 24.0,
+   "bold": true,
+   "font": "Arial",
+   "colour": "FFFFFF"
+  },
+  "body": {
+   "median_pt": 15.0,
+   "min_pt": 15.0
+  },
+  "margins": {
+   "left_in": 0.27,
+   "right_in": 0.23
+  },
+  "fonts": {
+   "latin": [
+    "Arial"
+   ],
+   "ea": [],
+   "cjk": false
+  },
+  "theme_colours": [
+   "000000",
+   "00A1DE",
+   "08163B",
+   "253449",
+   "354B70",
+   "72C7E7",
+   "7E7E7E",
+   "A1C8DF",
+   "C3C6CA",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "E4E4FC",
+   "0C0C3C",
+   "243C54",
+   "E4E4E4",
+   "24243C",
+   "0C243C",
+   "9C9C9C",
+   "6C6C84",
+   "B4B4B4",
+   "CCCCCC"
+  ]
+ }
+}

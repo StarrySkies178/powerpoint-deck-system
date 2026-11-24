@@ -1,0 +1,2 @@
+NOT OK
+Charts stripped: overlapping data labels (10.1/9.6/9.2, 209/231, 253/255), no y-axis, CAGR panel and capex burden row dropped, white gaps under the lines

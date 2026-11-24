@@ -1,0 +1,2 @@
+NOT OK
+Risk map reduced: items 5-8 dropped, Low/Medium/High labels and section headers lost, grid left as plain grey blocks

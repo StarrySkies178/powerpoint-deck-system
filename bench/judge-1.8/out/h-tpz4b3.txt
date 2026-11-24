@@ -1,0 +1,2 @@
+PASS
+clean Gantt exhibit with action title and takeaway box, phase bars slightly misaligned but fine

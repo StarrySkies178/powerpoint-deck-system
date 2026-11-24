@@ -1,0 +1,2 @@
+NOT OK
+Risk map redrawn as a plain 3x3 grid with no axis lines or arrows, so it stands as loose grey blocks; items bunched in pairs per cell

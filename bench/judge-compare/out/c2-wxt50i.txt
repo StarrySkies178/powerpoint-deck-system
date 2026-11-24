@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; wrong bar values and a pie instead of the stacked bar are minor

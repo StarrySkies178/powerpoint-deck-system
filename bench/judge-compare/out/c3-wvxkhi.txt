@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic of the three assumption tables; restyled with red headers and row rules, fills the slide, text slightly smaller but readable

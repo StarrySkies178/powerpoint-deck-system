@@ -1,0 +1,137 @@
+{
+ "id": "C07-scenario-lines-mindcraft",
+ "passed": false,
+ "standards": [
+  {
+   "check": "slide size",
+   "ok": true,
+   "detail": "ref [13.333, 7.5] in, got [13.333, 7.5] in"
+  },
+  {
+   "check": "title position",
+   "ok": true,
+   "detail": "ref left 0.39 top 0.38; got left 0.39 top 0.38 in"
+  },
+  {
+   "check": "title size",
+   "ok": true,
+   "detail": "ref 26.0 pt, got 26.0 pt"
+  },
+  {
+   "check": "title bold",
+   "ok": true,
+   "detail": "ref False, got False"
+  },
+  {
+   "check": "title colour",
+   "ok": true,
+   "detail": "ref #000000, got #000000 (ΔE 0)"
+  },
+  {
+   "check": "title font",
+   "ok": true,
+   "detail": "ref Verdana, got Verdana"
+  },
+  {
+   "check": "body text size",
+   "ok": false,
+   "detail": "ref median 14.0 / min 12.0 pt; got 13.8 / 10.0 pt"
+  },
+  {
+   "check": "fonts",
+   "ok": true,
+   "detail": "ref ['Microsoft YaHei', 'Verdana'], got ['Verdana']"
+  },
+  {
+   "check": "Chinese font",
+   "ok": true,
+   "detail": "want ['Microsoft YaHei'], got ['Microsoft YaHei']"
+  },
+  {
+   "check": "body margins",
+   "ok": true,
+   "detail": "ref L 0.37 R 0.28; got L 0.37 R 0.11 in"
+  },
+  {
+   "check": "colours",
+   "ok": false,
+   "detail": "off-palette #E48484"
+  },
+  {
+   "check": "source line",
+   "ok": false,
+   "detail": "ref 10.0 pt at 6.87 in; got 10.0 pt at 7.18 in"
+  }
+ ],
+ "layout": 0.88,
+ "visual": 0.9,
+ "n_std": 12,
+ "n_std_ok": 9,
+ "candidate": {
+  "size_in": [
+   13.333,
+   7.5
+  ],
+  "title": {
+   "text": "Resilient growth performance is expected under scenario analysis, affordable capex indicates a good financial feasibilit",
+   "left_in": 0.39,
+   "top_in": 0.375,
+   "box": [
+    0.39,
+    0.233,
+    12.31,
+    0.927
+   ],
+   "above": 0,
+   "pt": 26.0,
+   "bold": false,
+   "font": "Verdana",
+   "colour": "000000"
+  },
+  "body": {
+   "median_pt": 13.8,
+   "min_pt": 10.0
+  },
+  "margins": {
+   "left_in": 0.367,
+   "right_in": 0.113
+  },
+  "fonts": {
+   "latin": [
+    "Verdana"
+   ],
+   "ea": [
+    "Microsoft YaHei"
+   ],
+   "cjk": true
+  },
+  "source": {
+   "pt": 10.0,
+   "top_in": 7.18
+  },
+  "theme_colours": [
+   "000000",
+   "006292",
+   "00A1DE",
+   "44536A",
+   "5C5C5C",
+   "72C7E7",
+   "808080",
+   "A6A6A6",
+   "C00000",
+   "FFFFFF"
+  ],
+  "render_colours": [
+   "E4E4E4",
+   "CCCCCC",
+   "B4B4B4",
+   "9C9C9C",
+   "848484",
+   "6C6C6C",
+   "545454",
+   "E48484",
+   "FCCCCC",
+   "3C3C3C"
+  ]
+ }
+}

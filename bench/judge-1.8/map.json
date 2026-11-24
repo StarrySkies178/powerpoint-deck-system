@@ -1,0 +1,406 @@
+{
+ "map": {
+  "69qeaw": {
+   "group": "tuning",
+   "file": "002.png"
+  },
+  "ppmjft": {
+   "group": "tuning",
+   "file": "005.png"
+  },
+  "sa5sfe": {
+   "group": "tuning",
+   "file": "006.png"
+  },
+  "v3ysda": {
+   "group": "tuning",
+   "file": "008.png"
+  },
+  "etefmd": {
+   "group": "tuning",
+   "file": "009.png"
+  },
+  "fzh6zv": {
+   "group": "tuning",
+   "file": "011.png"
+  },
+  "yxh8rb": {
+   "group": "tuning",
+   "file": "012.png"
+  },
+  "8jmam7": {
+   "group": "tuning",
+   "file": "018.png"
+  },
+  "ftmynw": {
+   "group": "tuning",
+   "file": "019.png"
+  },
+  "ppm2k4": {
+   "group": "tuning",
+   "file": "020.png"
+  },
+  "fnwusj": {
+   "group": "tuning",
+   "file": "022.png"
+  },
+  "rc4726": {
+   "group": "tuning",
+   "file": "028.png"
+  },
+  "sjfwf8": {
+   "group": "tuning",
+   "file": "029.png"
+  },
+  "ksj8c7": {
+   "group": "tuning",
+   "file": "030.png"
+  },
+  "d2p5qy": {
+   "group": "tuning",
+   "file": "032.png"
+  },
+  "9rshsh": {
+   "group": "tuning",
+   "file": "035.png"
+  },
+  "dwrqu6": {
+   "group": "tuning",
+   "file": "040.png"
+  },
+  "qh6hnz": {
+   "group": "tuning",
+   "file": "048.png"
+  },
+  "gtpc8k": {
+   "group": "tuning",
+   "file": "049.png"
+  },
+  "74bugd": {
+   "group": "tuning",
+   "file": "056.png"
+  },
+  "qa2a2u": {
+   "group": "held_out",
+   "file": "001.png"
+  },
+  "qwyvg4": {
+   "group": "held_out",
+   "file": "003.png"
+  },
+  "9jz5qs": {
+   "group": "held_out",
+   "file": "004.png"
+  },
+  "g8qnhf": {
+   "group": "held_out",
+   "file": "007.png"
+  },
+  "455q4t": {
+   "group": "held_out",
+   "file": "010.png"
+  },
+  "at8pxd": {
+   "group": "held_out",
+   "file": "013.png"
+  },
+  "6s49wh": {
+   "group": "held_out",
+   "file": "014.png"
+  },
+  "rnykdu": {
+   "group": "held_out",
+   "file": "015.png"
+  },
+  "uze6aa": {
+   "group": "held_out",
+   "file": "016.png"
+  },
+  "7876fb": {
+   "group": "held_out",
+   "file": "017.png"
+  },
+  "treghm": {
+   "group": "held_out",
+   "file": "021.png"
+  },
+  "n4emdg": {
+   "group": "held_out",
+   "file": "024.png"
+  },
+  "rr78wa": {
+   "group": "held_out",
+   "file": "025.png"
+  },
+  "7kjhz9": {
+   "group": "held_out",
+   "file": "026.png"
+  },
+  "nd5yfy": {
+   "group": "held_out",
+   "file": "027.png"
+  },
+  "yveeyc": {
+   "group": "held_out",
+   "file": "031.png"
+  },
+  "ecvn5d": {
+   "group": "held_out",
+   "file": "033.png"
+  },
+  "a2r6fj": {
+   "group": "held_out",
+   "file": "034.png"
+  },
+  "qgzu6f": {
+   "group": "held_out",
+   "file": "036.png"
+  },
+  "g57uvr": {
+   "group": "held_out",
+   "file": "037.png"
+  },
+  "pe6sd6": {
+   "group": "held_out",
+   "file": "039.png"
+  },
+  "d5h77j": {
+   "group": "held_out",
+   "file": "041.png"
+  },
+  "tpz4b3": {
+   "group": "held_out",
+   "file": "045.png"
+  },
+  "k7pw97": {
+   "group": "held_out",
+   "file": "046.png"
+  },
+  "qf6333": {
+   "group": "held_out",
+   "file": "050.png"
+  },
+  "j3ea48": {
+   "group": "held_out",
+   "file": "051.png"
+  },
+  "xsbm8r": {
+   "group": "held_out",
+   "file": "052.png"
+  },
+  "upf6e9": {
+   "group": "held_out",
+   "file": "054.png"
+  },
+  "em8qyh": {
+   "group": "held_out",
+   "file": "055.png"
+  },
+  "yhnsdk": {
+   "group": "held_out",
+   "file": "058.png"
+  },
+  "t9y54h": {
+   "group": "repeat",
+   "file": "023.png"
+  },
+  "37g2jy": {
+   "group": "repeat",
+   "file": "038.png"
+  },
+  "kb2fr5": {
+   "group": "repeat",
+   "file": "042.png"
+  },
+  "crq2ez": {
+   "group": "repeat",
+   "file": "043.png"
+  },
+  "mc8cex": {
+   "group": "repeat",
+   "file": "044.png"
+  },
+  "dhhew7": {
+   "group": "repeat",
+   "file": "047.png"
+  },
+  "am9v3v": {
+   "group": "repeat",
+   "file": "053.png"
+  },
+  "saqpey": {
+   "group": "repeat",
+   "file": "057.png"
+  },
+  "57xu76": {
+   "group": "repeat",
+   "file": "059.png"
+  },
+  "jtbvry": {
+   "group": "repeat",
+   "file": "060.png"
+  },
+  "tr7cb6": {
+   "group": "table-old",
+   "file": "013.png"
+  },
+  "ergk9j": {
+   "group": "table-new",
+   "file": "013.png"
+  },
+  "jgyqqk": {
+   "group": "table-old",
+   "file": "015.png"
+  },
+  "tahjqx": {
+   "group": "table-new",
+   "file": "015.png"
+  },
+  "dvsy35": {
+   "group": "table-old",
+   "file": "017.png"
+  },
+  "ramayj": {
+   "group": "table-new",
+   "file": "017.png"
+  },
+  "jhnrrb": {
+   "group": "table-old",
+   "file": "021.png"
+  },
+  "msnsm6": {
+   "group": "table-new",
+   "file": "021.png"
+  },
+  "ef7yc7": {
+   "group": "table-old",
+   "file": "022.png"
+  },
+  "xyjv5k": {
+   "group": "table-new",
+   "file": "022.png"
+  },
+  "ra68aj": {
+   "group": "table-old",
+   "file": "025.png"
+  },
+  "vc52pd": {
+   "group": "table-new",
+   "file": "025.png"
+  },
+  "fj8tev": {
+   "group": "table-old",
+   "file": "026.png"
+  },
+  "yfc6df": {
+   "group": "table-new",
+   "file": "026.png"
+  },
+  "jtkxaz": {
+   "group": "table-old",
+   "file": "030.png"
+  },
+  "5ct7ss": {
+   "group": "table-new",
+   "file": "030.png"
+  },
+  "d57zub": {
+   "group": "table-old",
+   "file": "034.png"
+  },
+  "hhrh6u": {
+   "group": "table-new",
+   "file": "034.png"
+  },
+  "r85jpk": {
+   "group": "table-old",
+   "file": "048.png"
+  },
+  "xctgu5": {
+   "group": "table-new",
+   "file": "048.png"
+  }
+ },
+ "order": [
+  "em8qyh",
+  "qh6hnz",
+  "etefmd",
+  "jgyqqk",
+  "37g2jy",
+  "v3ysda",
+  "hhrh6u",
+  "rc4726",
+  "rr78wa",
+  "vc52pd",
+  "g57uvr",
+  "gtpc8k",
+  "yhnsdk",
+  "sjfwf8",
+  "ef7yc7",
+  "xyjv5k",
+  "at8pxd",
+  "r85jpk",
+  "kb2fr5",
+  "pe6sd6",
+  "ppm2k4",
+  "sa5sfe",
+  "ecvn5d",
+  "xctgu5",
+  "jtbvry",
+  "msnsm6",
+  "fnwusj",
+  "6s49wh",
+  "ramayj",
+  "treghm",
+  "9rshsh",
+  "qf6333",
+  "5ct7ss",
+  "ftmynw",
+  "t9y54h",
+  "tahjqx",
+  "d5h77j",
+  "fj8tev",
+  "dwrqu6",
+  "jtkxaz",
+  "qwyvg4",
+  "jhnrrb",
+  "7876fb",
+  "ppmjft",
+  "yveeyc",
+  "upf6e9",
+  "yfc6df",
+  "dvsy35",
+  "qgzu6f",
+  "tr7cb6",
+  "8jmam7",
+  "crq2ez",
+  "fzh6zv",
+  "uze6aa",
+  "ra68aj",
+  "nd5yfy",
+  "d2p5qy",
+  "dhhew7",
+  "yxh8rb",
+  "qa2a2u",
+  "mc8cex",
+  "a2r6fj",
+  "saqpey",
+  "tpz4b3",
+  "9jz5qs",
+  "ergk9j",
+  "am9v3v",
+  "g8qnhf",
+  "d57zub",
+  "7kjhz9",
+  "69qeaw",
+  "k7pw97",
+  "xsbm8r",
+  "rnykdu",
+  "j3ea48",
+  "74bugd",
+  "455q4t",
+  "57xu76",
+  "n4emdg",
+  "ksj8c7"
+ ]
+}

@@ -1,0 +1,2 @@
+NOT OK
+Title jammed against the left edge of its bar, stray misaligned lines around the year header, mixed and tiny row-label fonts, and the boxed Potential Risks callout reduced to small plain bullets.

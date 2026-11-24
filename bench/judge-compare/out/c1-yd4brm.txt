@@ -1,0 +1,2 @@
+NOT OK
+Right column leaves a large blank gap in its bottom half and drops the shaded mitigation boxes; timeline labels mix font sizes and the legend is broken.

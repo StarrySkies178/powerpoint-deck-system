@@ -1,0 +1,2 @@
+NOT OK
+Timeline labels jump between font sizes and the legend breaks awkwardly; the right column drops the shaded mitigation boxes for plain bullets and leaves its bottom third blank

@@ -1,0 +1,2 @@
+PASS
+clean slide, capability diagram and column-panel comparison with green pick read as designed

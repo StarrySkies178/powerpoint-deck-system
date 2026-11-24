@@ -1,0 +1,2 @@
+NOT OK
+Risk heat map dumbed down: graded dark shading reduced to a pale 3x3 grid, item labels moved to a legend below

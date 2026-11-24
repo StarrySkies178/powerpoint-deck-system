@@ -1,0 +1,2 @@
+NOT OK
+Chart 1 drawn clumsily: fashion segments shrunk to thin slivers, totals and break marks dropped, bars no longer read like the original

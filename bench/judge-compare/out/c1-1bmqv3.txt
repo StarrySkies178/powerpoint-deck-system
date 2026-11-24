@@ -1,0 +1,2 @@
+NOT OK
+bullet lists flattened into semicolon run-ons in tiny text, chevron header labels clipped off the top, and empty grid cells leave white gaps

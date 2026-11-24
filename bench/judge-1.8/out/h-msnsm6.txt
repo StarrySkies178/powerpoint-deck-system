@@ -1,0 +1,2 @@
+PASS
+clean map plus ruled table with bars and outlined highlight row, no AI header band

@@ -1,0 +1,230 @@
+[
+ {
+  "slide": 3,
+  "box": [
+   192,
+   457,
+   558,
+   1102
+  ],
+  "name": "carbonated beverage market",
+  "values": [
+   [
+    430,
+    530,
+    700
+   ],
+   [
+    360,
+    380,
+    400
+   ],
+   [
+    20,
+    70,
+    350
+   ]
+  ],
+  "names": [
+   "Cola",
+   "Non-cola with sugar",
+   "Non-cola without sugar"
+  ],
+  "force_values": true,
+  "stacked": true,
+  "total_vals": [
+   810,
+   980,
+   1450
+  ],
+  "categories": [
+   "2018",
+   "2020",
+   "2025E"
+  ],
+  "kscale": [
+   1102,
+   471,
+   1500
+  ],
+  "keep": [
+   "\\+9%"
+  ],
+  "keep_colors": [
+   "808080",
+   "7F7F7F",
+   "8C8C8C",
+   "000000"
+  ],
+  "keep_max": 3000,
+  "remove_pictures": true,
+  "label_size": 13,
+  "colors": [
+   "C8C8CC",
+   "E03C2C",
+   "B01E1E"
+  ]
+ },
+ {
+  "slide": 5,
+  "box": [
+   752,
+   388,
+   1399,
+   1106
+  ],
+  "kind": "waterfall",
+  "steps": [
+   8,
+   6.1,
+   39.3,
+   30.6,
+   84
+  ],
+  "totals": [
+   0,
+   4
+  ],
+  "texts": [
+   "8",
+   "7",
+   "43",
+   "34",
+   "84"
+  ],
+  "categories": [
+   "2021",
+   "Qingqing",
+   "Soda",
+   "Qicha",
+   "2026E"
+  ],
+  "name": "product revenue forecast",
+  "remove_pictures": true
+ },
+ {
+  "slide": 5,
+  "spec": {
+   "name": "NF revenue forecast",
+   "type": "column",
+   "clear": [
+    1469,
+    394,
+    2125,
+    1106
+   ],
+   "frame": [
+    1469,
+    394,
+    2125,
+    1106
+   ],
+   "categories": [
+    "2021",
+    "2022E",
+    "2023E",
+    "2024E",
+    "2025E",
+    "2026E"
+   ],
+   "series": [
+    {
+     "name": "base case",
+     "values": [
+      8,
+      29,
+      36,
+      46,
+      61,
+      84
+     ],
+     "color": "C8C8CC",
+     "colors": [
+      "D6322C",
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "C8282D",
+     "label_size": 12,
+     "label_bold": true,
+     "texts": [
+      "",
+      "29",
+      "36",
+      "46",
+      "61",
+      "84"
+     ]
+    },
+    {
+     "name": "high case",
+     "values": [
+      8,
+      32.3,
+      39.6,
+      53,
+      70.6,
+      97
+     ],
+     "color": "666666",
+     "as_line": true,
+     "marker": true,
+     "width": 1.5,
+     "labels": true,
+     "label_pos": "t",
+     "label_color": "262626",
+     "label_size": 11,
+     "texts": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "97"
+     ]
+    },
+    {
+     "name": "low case",
+     "values": [
+      8,
+      28.3,
+      34.4,
+      41.7,
+      55.6,
+      76.4
+     ],
+     "color": "666666",
+     "as_line": true,
+     "marker": true,
+     "width": 1.5
+    }
+   ],
+   "centers": [
+    1569,
+    2073
+   ],
+   "bar": 61,
+   "base": 1099,
+   "k": 6.6637,
+   "top": 394,
+   "cat_size": 11,
+   "axis_line": "404040",
+   "keep": [
+    "case$",
+    "^8$"
+   ],
+   "keep_colors": [
+    "C8C8CC",
+    "BFBFBF"
+   ],
+   "keep_max": 400,
+   "remove_pictures": true,
+   "note": "Native combo chart: base-case columns are the original's labels; high and low case lines labelled only at 2026E (97, 76); other points read off the page (estimates)."
+  }
+ }
+]

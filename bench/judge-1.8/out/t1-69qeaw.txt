@@ -1,0 +1,2 @@
+PASS
+clear bar-chart matrix with coloured row labels, reads as a designed exhibit

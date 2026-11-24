@@ -1,0 +1,2 @@
+NOT OK
+Charts stripped: y-axis, dashed connector lines and total labels dropped, 0.1 labels spill over bar edges, and the top CAGR header is missing.

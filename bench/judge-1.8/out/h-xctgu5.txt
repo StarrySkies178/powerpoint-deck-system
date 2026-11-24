@@ -1,0 +1,2 @@
+PASS
+clear action title, column-panel table with gaps plus chart and takeaway boxes

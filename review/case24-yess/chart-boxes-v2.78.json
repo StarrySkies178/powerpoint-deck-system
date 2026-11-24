@@ -1,0 +1,434 @@
+[
+ {
+  "slide": 4,
+  "box": [
+   50,
+   255,
+   450,
+   560
+  ],
+  "name": "China elderly care market size",
+  "values": [
+   [
+    6,
+    15,
+    17,
+    19
+   ],
+   [
+    1,
+    8,
+    10,
+    26
+   ],
+   [
+    null,
+    null,
+    1,
+    1
+   ]
+  ],
+  "names": [
+   "Home Care",
+   "Institution Care",
+   "Others"
+  ],
+  "force_values": true,
+  "stacked": true,
+  "colors": [
+   "A51C24",
+   "D04A5A",
+   "F2C4CC"
+  ],
+  "total_vals": [
+   7,
+   23,
+   29,
+   45
+  ],
+  "categories": [
+   "2020",
+   "2025E",
+   "2030E",
+   "2035E"
+  ],
+  "texts": [
+   [
+    "6",
+    "15",
+    "17",
+    "19"
+   ],
+   [
+    "1",
+    "8",
+    "10",
+    "26"
+   ],
+   [
+    "",
+    "",
+    "",
+    ""
+   ]
+  ],
+  "label_size": 13,
+  "keep": [
+   "CAGR",
+   "Total",
+   "Institution 22"
+  ],
+  "remove_pictures": true,
+  "extra_clear": [
+   [
+    30,
+    500,
+    140,
+    580
+   ]
+  ]
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "elderly population in China",
+   "type": "column",
+   "clear": [
+    545,
+    255,
+    915,
+    600
+   ],
+   "frame": [
+    545,
+    260,
+    915,
+    560
+   ],
+   "categories": [
+    "2020",
+    "2025E",
+    "2030E",
+    "2035E"
+   ],
+   "series": [
+    {
+     "name": "Age 60+ population",
+     "values": [
+      264,
+      367,
+      406,
+      429
+     ],
+     "color": "A51C24",
+     "labels": true,
+     "label_pos": "inEnd",
+     "label_color": "FFFFFF",
+     "label_size": 14
+    }
+   ],
+   "centers": [
+    589,
+    870
+   ],
+   "bar": 55,
+   "base": 560,
+   "k": 0.4569,
+   "top": 260,
+   "cat_size": 13,
+   "axis_line": null,
+   "keep": [
+    "Age 60"
+   ],
+   "keep_colors": [
+    "A6A6A6",
+    "B0B0B0",
+    "9C9C9C"
+   ],
+   "keep_max": 20000,
+   "remove_pictures": true,
+   "note": "Native columns: values are the original's labels; the life-expectancy line stays as drawn.",
+   "overlays": [
+    {
+     "type": "line",
+     "from": [
+      590,
+      375
+     ],
+     "to": [
+      870,
+      347
+     ],
+     "color": "A6A6A6",
+     "w": 3
+    },
+    {
+     "type": "line",
+     "from": [
+      618,
+      304
+     ],
+     "to": [
+      648,
+      304
+     ],
+     "color": "A6A6A6",
+     "w": 3
+    },
+    {
+     "type": "text",
+     "xy": [
+      650,
+      294
+     ],
+     "w": 200,
+     "h": 20,
+     "lines": [
+      "Average Life Expectancy"
+     ],
+     "size": 13,
+     "color": "262626"
+    },
+    {
+     "type": "text",
+     "xy": [
+      566,
+      342
+     ],
+     "w": 45,
+     "h": 22,
+     "lines": [
+      "77.9"
+     ],
+     "size": 14,
+     "color": "404040"
+    },
+    {
+     "type": "text",
+     "xy": [
+      662,
+      334
+     ],
+     "w": 45,
+     "h": 22,
+     "lines": [
+      "78.8"
+     ],
+     "size": 14,
+     "color": "404040"
+    },
+    {
+     "type": "text",
+     "xy": [
+      756,
+      324
+     ],
+     "w": 45,
+     "h": 22,
+     "lines": [
+      "80.1"
+     ],
+     "size": 14,
+     "color": "404040"
+    },
+    {
+     "type": "text",
+     "xy": [
+      850,
+      315
+     ],
+     "w": 45,
+     "h": 22,
+     "lines": [
+      "81.3"
+     ],
+     "size": 14,
+     "color": "404040"
+    }
+   ]
+  }
+ },
+ {
+  "slide": 4,
+  "spec": {
+   "name": "age structure in China",
+   "type": "column_stacked_100",
+   "clear": [
+    1070,
+    260,
+    1375,
+    480
+   ],
+   "categories": [
+    "2020",
+    "2025E",
+    "2030E",
+    "2035E"
+   ],
+   "series": [
+    {
+     "name": "0-14",
+     "values": [
+      18,
+      17,
+      16,
+      15
+     ],
+     "color": "FBE8EC",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "595959",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    },
+    {
+     "name": "15-59",
+     "values": [
+      63,
+      57,
+      55,
+      54
+     ],
+     "color": "E3E3E3",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "595959",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    },
+    {
+     "name": "60+",
+     "values": [
+      19,
+      26,
+      29,
+      31
+     ],
+     "color": "A51C24",
+     "labels": true,
+     "label_pos": "ctr",
+     "label_color": "FFFFFF",
+     "label_size": 12,
+     "fmt": "0\"%\""
+    }
+   ],
+   "centers": [
+    1109,
+    1346
+   ],
+   "bar": 68,
+   "base": 472,
+   "k": 1,
+   "top": 265,
+   "cat_size": null,
+   "axis_line": null,
+   "remove_pictures": true,
+   "note": "Native 100% columns: shares are the original's labels (each year rounds to 100%)."
+  }
+ },
+ {
+  "slide": 14,
+  "spec": {
+   "name": "revenue forecast for 3 brand lines",
+   "type": "column",
+   "clear": [
+    45,
+    235,
+    670,
+    465
+   ],
+   "frame": [
+    50,
+    205,
+    670,
+    460
+   ],
+   "categories": [
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028"
+   ],
+   "series": [
+    {
+     "name": "Yiyuan",
+     "values": [
+      248,
+      278,
+      309,
+      371,
+      463
+     ],
+     "color": "D2374B",
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "404040",
+     "label_size": 12
+    },
+    {
+     "name": "Suiyuan",
+     "values": [
+      163,
+      162,
+      170,
+      240,
+      241
+     ],
+     "color": "E895A0",
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "404040",
+     "label_size": 12
+    },
+    {
+     "name": "Heyu",
+     "values": [
+      0,
+      0,
+      64,
+      245,
+      352
+     ],
+     "color": "F5C8D0",
+     "labels": true,
+     "label_pos": "outEnd",
+     "label_color": "404040",
+     "label_size": 12
+    }
+   ],
+   "centers": [
+    159,
+    616
+   ],
+   "bar": 92,
+   "overlap": 0,
+   "base": 432,
+   "k": 0.43,
+   "top": 217,
+   "cat_size": 12,
+   "val_size": 12,
+   "axis_line": "404040",
+   "major": 100,
+   "keep": [
+    "^Yiyuan$",
+    "^Suiyuan$",
+    "^Heyu$",
+    "Revenue Forecast"
+   ],
+   "keep_colors": [
+    "D2374B",
+    "E895A0",
+    "F5C8D0",
+    "C83246",
+    "E68C9B",
+    "D23C50",
+    "EB96A5",
+    "F0C3CD"
+   ],
+   "keep_max": 1200,
+   "remove_pictures": true,
+   "note": "Native clustered columns: values are the original's labels."
+  }
+ }
+]

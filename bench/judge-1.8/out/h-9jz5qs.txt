@@ -1,0 +1,2 @@
+PASS
+Designed comparison matrix with logos, tinted cells, bars and KSF boxes, not a plain grid

@@ -1,0 +1,21 @@
+   19b5rp run2-C01 mike OK judge OK | Complete, polished mimic with all parts and its own red-and-grey design; empty Implementation implication spot and small
+   aapchr run2-C02 mike OK judge OK | Complete, polished mimic with its own designed treatment; four timeline rows missing bars and dropped Brand/Design tags 
+   yuxxh4 run2-C03 mike OK judge OK | Complete, polished mimic of the three tables; red headers, row rules and slightly smaller text are minor restyling.
+   wxt50i run2-C04 mike OK judge OK | Complete, polished mimic; wrong bar values and a pie instead of the stacked bar are minor
+   9axijx run2-C05 mike OK judge OK | complete, polished mimic; Gantt keeps all rows with designed arrows, risks box restyled as underlined heading is minor
+   g3xb6o run2-C06 mike OK judge OK | Dark gradient background replaced by its own designed treatment (numbered cards, shaded boxes, red emphasis); complete a
+   8uubgu run2-C07 mike OK judge OK | Complete, polished mimic; axes swapped for data labels and series colours restyled, all parts and boxes kept
+   t9zo2p run2-C08 mike NOT OK judge NOT OK | risk heat map dumbed down to a plain 3x3 grid with fewer shades, risks snapped into cells and labels moved to a legend
+   4l8yyo run2-C09 mike OK judge OK | Complete, faithful mimic of both stacked bar charts with connectors, labels, legends and CAGR columns; only minor axis a
+   mcztig run2-C10 mike OK judge OK | Complete, polished mimic; paler pink header band and one column running slightly past its box are minor.
+   xazv10 s13-C01 mike NOT OK judge NOT OK | Doubled bullet marks and lost sub-point hierarchy throughout, row labels misplaced, Implementation implication left blan
+   yd4brm s13-C02 mike NOT OK judge NOT OK | Right column loses its shaded mitigation boxes and is half blank, timeline rows have mixed font sizes, and the legend is
+XX 0kkmhh s13-C03 mike NOT OK judge OK | complete, polished mimic of the three case tables; slightly smaller text and added row lines are minor
+   ftfoqf s13-C04 mike NOT OK judge NOT OK | Title band clipped at the bottom and jammed against the left edge, plus cramped overlapping labels in the charts.
+   ogwtgh s13-C05 mike NOT OK judge NOT OK | Title jammed against the band edge with no padding, risks panel dropped to a plain list, and text much smaller with mixe
+   eg3dey s13-C06 mike NOT OK judge NOT OK | design dropped: dark red gradient background removed, left as plain paragraphs on white
+   0mhw0g s13-C07 mike NOT OK judge NOT OK | Charts stripped: subtitles, y-axes, CAGR side panel and capex burden rows dropped, overlapping data labels, white gap un
+   zasr2o s13-C08 mike NOT OK judge NOT OK | Risk heat map dumbed down to a plain 2x2 grey grid with risks 5-8 and axis levels dropped, leaving large empty panels
+   dgb0y7 s13-C09 mike NOT OK judge NOT OK | Charts stripped: y-axis, dashed connector lines and total labels dropped, small grey labels clash with the axis
+   1bmqv3 s13-C10 mike NOT OK judge NOT OK | header chevrons clipped with titles cut off, bullets flattened into tiny run-on text, mixed font sizes and empty cells
+c2: agree 19/20; his OK judged NOT OK 0; his NOT OK judged OK 1

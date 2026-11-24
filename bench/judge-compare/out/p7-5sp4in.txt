@@ -1,0 +1,2 @@
+OK
+Complete, polished mimic; both line charts restyled with direct end labels instead of y-axes and legend, but all series, CAGR, capex row and takeaway boxes kept neatly

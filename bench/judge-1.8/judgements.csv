@@ -1,0 +1,81 @@
+anon,group,file,judge,reason
+em8qyh,held_out,055.png,pass,"bold red consulting layout with stacked chart, flow and icons, no spreadsheet table"
+qh6hnz,tuning,048.png,fail,full-width navy-header table with a light-blue highlighted row looks AI-made
+etefmd,tuning,009.png,pass,"clean red slide, two clear labelled bar charts with CAGR callouts"
+jgyqqk,table-old,015.png,fail,navy-header table with light blue highlighted row looks AI-made
+37g2jy,repeat,038.png,pass,"dense but orderly, bold red exhibits with charts, circled table values and implication box"
+v3ysda,tuning,008.png,pass,"clean consulting layout with action title, red process flow, icons and a clear career-track diagram"
+hhrh6u,table-new,034.png,pass,"ruled risk table with Harvey balls, no header band, clear action title and takeaways"
+rc4726,tuning,028.png,pass,"clean persona card with photo, story box and ranked demand columns, full body at readable size"
+rr78wa,held_out,025.png,fail,full-width navy-header table with bold first column and light-blue highlight row looks AI-made
+vc52pd,table-new,025.png,pass,"clean ruled table with status marks, clear chart and takeaway boxes"
+g57uvr,held_out,037.png,pass,"clean consulting framework with chevrons, photos, bold red accents and a full body"
+gtpc8k,tuning,049.png,pass,"clean consulting slide, clear labelled charts, action title and icon takeaway boxes"
+yhnsdk,held_out,058.png,pass,"clean consulting slide, clear bar and line charts with takeaway boxes"
+sjfwf8,tuning,029.png,pass,"clean consulting slide with an action title, labelled map and bubble matrix, and takeaway boxes; only small label overlaps"
+ef7yc7,table-old,022.png,fail,"navy-header tables with a light blue bold row look AI-made, and the waterfall labels are broken"
+xyjv5k,table-new,022.png,fail,"profit bridge chart is squashed, its value labels overlap and cannot be read"
+at8pxd,held_out,013.png,fail,"navy-header spreadsheet table looks AI-made, and the right panels are mostly empty"
+r85jpk,table-old,048.png,fail,full-width navy-header table with a light-blue highlighted row looks AI-made
+kb2fr5,repeat,042.png,fail,navy-header table with light blue highlight row looks AI-made
+pe6sd6,held_out,039.png,pass,"consulting-style slide with clear labelled charts and waterfalls, full body"
+ppm2k4,tuning,020.png,pass,"dense but orderly, journey table with tinted stage blocks plus a clear CRM loop diagram"
+sa5sfe,tuning,006.png,pass,"rich treemap with icons and persona cards, bold red theme, action title"
+ecvn5d,held_out,033.png,pass,"Dense but orderly consulting-style slide with real product images, flows and bold blue panels"
+xctgu5,table-new,048.png,pass,"clear action title, column-panel table with gaps plus chart and takeaway boxes"
+jtbvry,repeat,060.png,fail,"navy-header key-facts table looks AI-made, and the right panels are half empty"
+msnsm6,table-new,021.png,pass,"clean map plus ruled table with bars and outlined highlight row, no AI header band"
+fnwusj,tuning,022.png,fail,"navy-header tables with light blue highlight row look AI-made, and the waterfall labels are broken"
+6s49wh,held_out,014.png,pass,"clean consulting slide, two clear labelled charts with takeaway boxes"
+ramayj,table-new,017.png,fail,"waterfall chart is broken: the Vietnam, Indonesia and Range bars are slivers with their values cut off and unreadable"
+treghm,held_out,021.png,fail,navy-header table with light-blue highlighted row looks AI-made
+9rshsh,tuning,035.png,pass,"clean consulting layout with clear labelled charts, takeaways and an action title; only a small clipped ""9"" label"
+qf6333,held_out,050.png,pass,"clean risk matrix tied to numbered risk list with tinted labels, action title and takeaway box"
+5ct7ss,table-new,030.png,pass,"clean ruled terms table with no header band, clear action title and takeaway box"
+ftmynw,tuning,019.png,pass,"plain ruled financial projection table, dense but orderly and fine for an appendix"
+t9y54h,repeat,023.png,pass,"clear revenue-driver framework with bold red accents; only one small overlap near the ""# Stores"" box"
+tahjqx,table-new,015.png,pass,"ruled table with coloured row-group blocks, not a navy-header grid; clear action title and takeaway box"
+d5h77j,held_out,041.png,pass,clean consulting layout with bubble matrix and bar chart; only small label clipping
+fj8tev,table-old,026.png,fail,navy-header table with blue highlight row looks AI-made
+dwrqu6,tuning,040.png,pass,"clean consulting layout with action title, icon panels and readable text, no AI table"
+jtkxaz,table-old,030.png,fail,navy-header grid table with blue highlight row looks AI-made
+qwyvg4,held_out,003.png,pass,"consulting-style two-panel slide with a clear scatter chart, red accents and source line; small cramped bullets are minor"
+jhnrrb,table-old,021.png,fail,navy-header table with light blue highlighted row looks AI-made
+7876fb,held_out,017.png,fail,"navy-header table with light-blue highlighted row looks AI-made, and waterfall labels are clipped"
+ppmjft,tuning,005.png,pass,"consulting-style slide, clear labelled charts with bold red accents and takeaway box"
+yveeyc,held_out,031.png,pass,"full, colourful consulting slide with product pictures, flow and clear takeaway bar"
+upf6e9,held_out,054.png,fail,targets table runs off the right edge and into the logo at the bottom
+yfc6df,table-new,026.png,pass,"clean slide, capability diagram and column-panel comparison with green pick read as designed"
+dvsy35,table-old,017.png,fail,"navy-header table with light-blue highlight row looks AI-made, and waterfall labels are clipped"
+qgzu6f,held_out,036.png,fail,waterfall chart looks broken: squashed bars cut through the 16 and 12 labels
+tr7cb6,table-old,013.png,fail,"navy-header spreadsheet table looks AI-made, and the right panels are half empty"
+8jmam7,tuning,018.png,pass,"clean risk matrix with red numbered markers and a well-designed ruled solutions table, consulting style"
+crq2ez,repeat,043.png,pass,"clean consulting slide with map and bubble matrix, small label nits only"
+fzh6zv,tuning,011.png,pass,"bold red column panels with clear headers, dense but orderly and readable"
+uze6aa,held_out,016.png,pass,"clean three-panel exhibit with clear charts, action title and takeaway boxes"
+ra68aj,table-old,025.png,fail,navy-header table with light-blue highlight row looks AI-made
+nd5yfy,held_out,027.png,pass,"dense but orderly, store diagram, photos and red headers with clear action title"
+d2p5qy,tuning,032.png,pass,"clean two-panel slide, clear labelled charts with takeaway boxes and an action title"
+dhhew7,repeat,047.png,pass,"consulting-style framework with chevrons, icons, track diagram and clear takeaway boxes"
+yxh8rb,tuning,012.png,pass,"designed framework with icons, logos and clear column headers, full and readable"
+qa2a2u,held_out,001.png,pass,"full, colourful slide with clear bar charts, circled-value table and implication box"
+mc8cex,repeat,044.png,pass,"plain ruled financial projection, dense but orderly appendix statement"
+a2r6fj,held_out,034.png,fail,navy-header grid table with a light blue highlighted row looks AI-made
+saqpey,repeat,057.png,pass,"Orderly consulting slide with clear charts and waterfalls, bold red accents, readable text"
+tpz4b3,held_out,045.png,pass,"clean Gantt exhibit with action title and takeaway box, phase bars slightly misaligned but fine"
+9jz5qs,held_out,004.png,pass,"Designed comparison matrix with logos, tinted cells, bars and KSF boxes, not a plain grid"
+ergk9j,table-new,013.png,fail,right diligence panel is mostly empty grey space under three short notes
+am9v3v,repeat,053.png,pass,"clean consulting slide, two clear labelled charts with takeaway boxes"
+g8qnhf,held_out,007.png,pass,"orderly fit/not-fit framework with numbered red headers, readable and full body"
+d57zub,table-old,034.png,fail,navy-header table with light-blue highlighted row looks AI-made
+7kjhz9,held_out,026.png,fail,navy-header table with a light-blue highlight row looks AI-made
+69qeaw,tuning,002.png,pass,"clear bar-chart matrix with coloured row labels, reads as a designed exhibit"
+k7pw97,held_out,046.png,pass,"clean consulting slide, Harvey-ball matrix and bar charts with clear takeaways"
+xsbm8r,held_out,052.png,pass,"consulting-style slide, clear positioning chart and comparison panels with logos and red highlights"
+rnykdu,held_out,015.png,fail,navy-header text grid with a light-blue highlighted row looks AI-made
+j3ea48,held_out,051.png,pass,"Dense but orderly consulting slide with maps, coloured chips and mall cards"
+74bugd,tuning,056.png,pass,"consulting-style slide with action title, funnel, cost chart and photo; full and readable"
+455q4t,held_out,010.png,pass,"clear consulting-style driver tree with numbered actions and value column, only a small overlap glitch on marker 1"
+57xu76,repeat,059.png,pass,"clean Gantt exhibit with clear phases, milestones and takeaway box"
+n4emdg,held_out,024.png,pass,"designed exhibit with persona icons, product photos and bold red, full body at readable size"
+ksj8c7,tuning,030.png,fail,navy-header grid table with a light blue highlighted row looks AI-made

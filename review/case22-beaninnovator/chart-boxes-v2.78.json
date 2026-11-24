@@ -1,0 +1,539 @@
+[
+ {
+  "slide": 5,
+  "box": [
+   63,
+   562,
+   703,
+   935
+  ],
+  "name": "carbonates market size and breakdown",
+  "values": [
+   [
+    424.0,
+    529.2,
+    572.4,
+    615.6,
+    646.6,
+    673.2,
+    696.0
+   ],
+   [
+    352.0,
+    382.2,
+    392.2,
+    399.0,
+    390.4,
+    396.0,
+    406.0
+   ],
+   [
+    16.0,
+    68.6,
+    95.4,
+    125.4,
+    170.8,
+    250.8,
+    348.0
+   ]
+  ],
+  "names": [
+   "Cola",
+   "Non-cola with sugar",
+   "Non-cola without sugar"
+  ],
+  "texts": [
+   [
+    "53%",
+    "54%",
+    "54%",
+    "54%",
+    "53%",
+    "51%",
+    "48%"
+   ],
+   [
+    "44%",
+    "39%",
+    "37%",
+    "35%",
+    "32%",
+    "30%",
+    "28%"
+   ],
+   [
+    "2%",
+    "7%",
+    "9%",
+    "11%",
+    "14%",
+    "19%",
+    "24%"
+   ]
+  ],
+  "total_vals": [
+   800,
+   980,
+   1060,
+   1140,
+   1220,
+   1320,
+   1450
+  ],
+  "keep": [
+   "Historical",
+   "Forecast",
+   "^Cola$",
+   "Non-cola"
+  ],
+  "keep_colors": [
+   "000000",
+   "1A1A1A",
+   "0D0D0D",
+   "404040"
+  ],
+  "keep_max": 400,
+  "note": "Native stacked columns: totals (~800 ... ~1,450) and shares are the original's labels; segment values = total x share.",
+  "categories": [
+   "2018",
+   "2020",
+   "2021",
+   "2022E",
+   "2023E",
+   "2024E",
+   "2025E"
+  ],
+  "n": 7,
+  "kscale": [
+   931,
+   577,
+   1450
+  ],
+  "total_texts": [
+   "~800",
+   "~980",
+   "~1,060",
+   "~1,140",
+   "~1,220",
+   "~1,320",
+   "~1,450"
+  ],
+  "centers": [
+   105,
+   662
+  ],
+  "force_values": true,
+  "stacked": true,
+  "remove_pictures": true,
+  "extra_clear": [
+   [
+    600,
+    525,
+    710,
+    566
+   ]
+  ]
+ },
+ {
+  "slide": 13,
+  "spec": {
+   "name": "price sensitivity when buying",
+   "type": "pie",
+   "clear": [
+    1323,
+    324,
+    1633,
+    633
+   ],
+   "frame": [
+    1327,
+    328,
+    1628,
+    629
+   ],
+   "categories": [
+    "Give up for price",
+    "Others"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      14,
+      86
+     ],
+     "colors": [
+      "C8282D",
+      "DCDCDC"
+     ],
+     "labels": true,
+     "label_color": "FFFFFF",
+     "label_size": 14,
+     "label_bold": true,
+     "fmt": "0\"%\"",
+     "label_skip": [
+      1
+     ],
+     "explode": {
+      "0": 10
+     }
+    }
+   ],
+   "first_angle": 0,
+   "note": "Native pie: 14% is the original's label."
+  }
+ },
+ {
+  "slide": 13,
+  "spec": {
+   "name": "price sensitivity when repurchasing",
+   "type": "pie",
+   "clear": [
+    1776,
+    324,
+    2086,
+    633
+   ],
+   "frame": [
+    1780,
+    328,
+    2082,
+    629
+   ],
+   "categories": [
+    "Care about price",
+    "Others"
+   ],
+   "series": [
+    {
+     "name": "Share",
+     "values": [
+      20,
+      80
+     ],
+     "colors": [
+      "C8282D",
+      "DCDCDC"
+     ],
+     "labels": true,
+     "label_color": "FFFFFF",
+     "label_size": 14,
+     "label_bold": true,
+     "fmt": "0\"%\"",
+     "label_skip": [
+      1
+     ],
+     "explode": {
+      "0": 10
+     }
+    }
+   ],
+   "first_angle": 0,
+   "note": "Native pie: 20% is the original's label."
+  }
+ },
+ {
+  "slide": 14,
+  "spec": {
+   "name": "sparkling milk market sizing",
+   "type": "column_stacked",
+   "clear": [
+    253,
+    400,
+    1101,
+    833
+   ],
+   "frame": [
+    253,
+    300,
+    1101,
+    833
+   ],
+   "categories": [
+    "2022E",
+    "2023E",
+    "2024E",
+    "2025E",
+    "2026E"
+   ],
+   "series": [
+    {
+     "name": "Sizing of Genki Forest (Bn CNY)",
+     "values": [
+      0.6,
+      1.7,
+      5.6,
+      7.8,
+      11.2
+     ],
+     "color": "5A5A5A",
+     "colors": [
+      null,
+      null,
+      null,
+      null,
+      "C8282D"
+     ]
+    },
+    {
+     "name": "Sizing of Other Brands (Bn CNY)",
+     "values": [
+      0.3,
+      0.9,
+      4.5,
+      11.8,
+      16.8
+     ],
+     "color": "C8C8CC",
+     "colors": [
+      null,
+      null,
+      null,
+      null,
+      "F5C8C8"
+     ]
+    }
+   ],
+   "total": {
+    "values": [
+     0.9,
+     2.6,
+     10.1,
+     19.6,
+     28.0
+    ],
+    "color": "262626",
+    "size": 12,
+    "fmt": "0.0"
+   },
+   "centers": [
+    341,
+    1018
+   ],
+   "bar": 96,
+   "base": 828,
+   "k": 13.25,
+   "top": 300,
+   "cat_size": 12,
+   "axis_line": "404040",
+   "keep": [
+    "^(?!13%$).*%$",
+    "Growth Rate",
+    "Sizing",
+    "Bn CNY"
+   ],
+   "keep_colors": [],
+   "keep_max": 60000,
+   "z": "back",
+   "note": "Native stacked columns: totals 0.9, 2.6, 10.1, 19.6, 28.0 are the original's labels; the Genki part is the market share row (70%, 65%, 55%, 40%, 40%) times the total. The growth-rate line stays as drawn.",
+   "overlays": [
+    {
+     "type": "line",
+     "from": [
+      535,
+      704
+     ],
+     "to": [
+      680,
+      418
+     ],
+     "color": "2D3C3C",
+     "w": 4
+    },
+    {
+     "type": "line",
+     "from": [
+      680,
+      418
+     ],
+     "to": [
+      814,
+      500
+     ],
+     "color": "2D3C3C",
+     "w": 4
+    },
+    {
+     "type": "line",
+     "from": [
+      814,
+      500
+     ],
+     "to": [
+      1018,
+      664
+     ],
+     "color": "2D3C3C",
+     "w": 4
+    },
+    {
+     "type": "text",
+     "xy": [
+      1008,
+      621
+     ],
+     "w": 50,
+     "h": 27,
+     "lines": [
+      "43%"
+     ],
+     "size": 12,
+     "color": "262626"
+    }
+   ]
+  }
+ },
+ {
+  "slide": 14,
+  "box": [
+   1196,
+   422,
+   2196,
+   660
+  ],
+  "name": "preference: Great Voyage Institute",
+  "categories": [
+   "Dairy Drink",
+   "Tea Drink",
+   "Functional Drink",
+   "Juice",
+   "Others"
+  ]
+ },
+ {
+  "slide": 14,
+  "box": [
+   1196,
+   704,
+   2196,
+   965
+  ],
+  "name": "preference: consumer survey",
+  "categories": [
+   "Dairy Drink",
+   "Tea Drink",
+   "Functional Drink",
+   "Mineral Water",
+   "Fruit Wine",
+   "Juice",
+   "Electrolyte Water",
+   "Others"
+  ],
+  "values": [
+   [
+    55.3,
+    40.9,
+    23.9,
+    49.8,
+    25.9,
+    35.5,
+    18,
+    3
+   ]
+  ],
+  "texts": [
+   [
+    "55.3%",
+    "40.9%",
+    "23.9%",
+    "49.8%",
+    "25.9%",
+    "35.5%",
+    "18%",
+    "3%"
+   ]
+  ]
+ },
+ {
+  "slide": 17,
+  "box": [
+   971,
+   314,
+   2117,
+   678
+  ],
+  "name": "revenue forecast by scenarios",
+  "values": [
+   [
+    10.5,
+    12.4,
+    14.8,
+    16.3,
+    17.5
+   ],
+   [
+    10.6,
+    13.4,
+    16.9,
+    20.6,
+    25.3
+   ],
+   [
+    10.7,
+    13.9,
+    18.4,
+    23.1,
+    29.4
+   ]
+  ],
+  "names": [
+   "Bearish",
+   "Base",
+   "Bullish"
+  ],
+  "categories": [
+   "2022E",
+   "2023E",
+   "2024E",
+   "2025E",
+   "2026E"
+  ],
+  "keep": [
+   "Bearish",
+   "^Base$",
+   "Bullish",
+   "CAGR",
+   "29.3"
+  ],
+  "keep_colors": [
+   "8C8C8C",
+   "C8282D",
+   "2D4A46"
+  ],
+  "keep_max": 1500,
+  "stacked": false,
+  "force_values": true
+ },
+ {
+  "slide": 17,
+  "box": [
+   964,
+   804,
+   1719,
+   1215
+  ],
+  "kind": "waterfall",
+  "steps": [
+   7.0,
+   6.0,
+   1.9,
+   10.4
+  ],
+  "totals": [
+   0
+  ],
+  "texts": [
+   "7.0",
+   "6.0",
+   "1.9",
+   "10.4"
+  ],
+  "name": "revenue breakdown 2026",
+  "categories": [
+   "Revnue in 2021",
+   "Channel Expansion",
+   "Pricing",
+   "New product Launch -External Growth"
+  ]
+ }
+]

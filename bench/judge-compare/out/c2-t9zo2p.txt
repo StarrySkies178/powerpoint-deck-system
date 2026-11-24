@@ -1,0 +1,2 @@
+NOT OK
+risk heat map dumbed down to a plain 3x3 grid with fewer shades, risks snapped into cells and labels moved to a legend
