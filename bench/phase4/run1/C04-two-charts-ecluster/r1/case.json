@@ -1,0 +1,51 @@
+{
+ "id": "C04-two-charts-ecluster",
+ "deck": "Case-2019-E-Cluster",
+ "slide": 4,
+ "kind": "chart+text",
+ "suite": "capability",
+ "palette": "deck",
+ "floor": {
+  "layout": 0.679,
+  "visual": 0.7,
+  "others": [
+   12,
+   14,
+   8,
+   17,
+   20,
+   7,
+   6,
+   18
+  ],
+  "deck_colours": [
+   "0C243C",
+   "242454",
+   "243C54",
+   "3C5454",
+   "3C546C",
+   "546C84",
+   "6C6C6C",
+   "6C9CCC",
+   "848484",
+   "9C9C9C",
+   "9C9CB4",
+   "9CCCE4",
+   "B4B4B4",
+   "CCB49C",
+   "CCCCCC",
+   "CCCCE4",
+   "CCE4E4",
+   "E4CCB4",
+   "E4CCCC",
+   "E4E4CC",
+   "E4E4E4",
+   "E4E4FC",
+   "E4FCFC",
+   "FCE4CC",
+   "FCE4E4",
+   "FCFCFC"
+  ]
+ },
+ "skip_checks": []
+}

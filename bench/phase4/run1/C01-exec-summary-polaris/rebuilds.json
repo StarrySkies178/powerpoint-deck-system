@@ -1,0 +1,41 @@
+{
+ "case": "C01-exec-summary-polaris",
+ "run": "run1",
+ "scored": "2026-11-24 04:01",
+ "builds": {
+  "r1": {
+   "passed": false,
+   "layout": 0.52,
+   "visual": 0.29,
+   "std": "10/11",
+   "failed": [
+    "body text size"
+   ],
+   "detail": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 14.0 pt)"
+   ]
+  },
+  "r2": {
+   "passed": false,
+   "layout": 0.4,
+   "visual": 0.19,
+   "std": "11/11",
+   "failed": [],
+   "detail": []
+  },
+  "r3": {
+   "passed": false,
+   "layout": 0.34,
+   "visual": 0.23,
+   "std": "10/11",
+   "failed": [
+    "body text size",
+    "leave-one-out"
+   ],
+   "detail": [
+    "body text size (ref median 16.0 / min 14.0 pt; got 14.0 / 12.0 pt)",
+    "leave-one-out (build.js: target slide number ('slide 2'))"
+   ]
+  }
+ }
+}

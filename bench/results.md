@@ -1,4 +1,4 @@
-# Benchmark results: v2.46 Run 0: originals and floors from the PowerPoint PDFs; D02 moved to capability (new baseline) (2026-11-24 03:21)
+# Benchmark results: v2.47 Run 1 (body text size rule and lint check), stored builds (2026-11-24 03:47)
 
 **Regression 7 / 7** (must stay all-pass) · **Capability 1 / 13** · **Total 8 / 20 pass**
 

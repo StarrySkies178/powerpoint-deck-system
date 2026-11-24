@@ -14,6 +14,10 @@ ERRORS must be fixed before delivery; WARNINGS are looked at and either fixed or
   E title          content slide without a title, or title over 2 lines, or wrong size / colour / weight / font / position
   E covered        most of a text sits under a shape drawn on top of it (a pin over a map label, a box over a caption)
   E contrast       text and the fill behind it are nearly the same colour (under 2 : 1)
+  E body size      (with --profile) body text smaller than the reference's: median under the profile's body.pt - 1,
+                   (W) any body text (tables and chart text included) under its label_pt - 1. Measured as the benchmark
+                   measures it (bench_score.measure). Never shrink type to fit: cut, drop the weakest item or split the
+                   slide (roadmap 4.2 Run 1, v2.47: body text size failed in 14 of 30 fresh blind rebuilds)
   W margins        a shape outside the left or right margin
   W small text     text under 9 pt
   W accent         the accent colour fills more than two shapes (it should mark only the key point)
@@ -43,7 +47,7 @@ Exit code 1 when any error is found. This does not replace looking at the render
 import os, re, sys, json, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "bench", "scripts")); sys.path.insert(0, HERE)
-from bench_score import Ctx, walk, run_props, count_lines, insets, inherited_anchor, de, EMU, SRC, CJK, _font
+from bench_score import Ctx, walk, run_props, count_lines, insets, inherited_anchor, de, EMU, SRC, CJK, _font, measure
 WORDS = re.compile(r"[A-Za-z0-9%$€£¥'’\-]+")
 from make_style_profile import fill_hex, line_hex
 from pptx import Presentation
@@ -65,8 +69,9 @@ def profile_style(p):
     T = P["title"]
     for extra in (T.get("band"), T.get("rule"), T.get("sub")):
         if extra and extra.get("colour"): pal.add(extra["colour"].upper())
+    body = (P.get("body") or {})
     return dict(name=P.get("source", "reference"), W=P["size"][0], H=P["size"][1], font=P["fonts"]["latin"], ea=[P["fonts"].get("ea") or "Microsoft YaHei"], palette=pal,
-                accent=r["accent"].upper(), title=dict(pt=T["pt"], colour=T["colour"].upper(), bold=bool(T["bold"]), left=T["x"]), margin=(P["margins"]["left"], P["margins"]["right"]))
+                body=(body.get("pt"), body.get("label_pt") or body.get("pt")) if body.get("pt") else None, accent=r["accent"].upper(), title=dict(pt=T["pt"], colour=T["colour"].upper(), bold=bool(T["bold"]), left=T["x"]), margin=(P["margins"]["left"], P["margins"]["right"]))
 
 _TINTS = {}
 def near(c, pal, tol=12):
@@ -307,7 +312,17 @@ def lint(path, profile=None):
     prs = Presentation(path); W, H = prs.slide_width / EMU, prs.slide_height / EMU
     out = []; deck_errors = []
     if abs(W - st["W"]) > 0.05 or abs(H - st["H"]) > 0.05: deck_errors.append(f"slide size {W:.2f} × {H:.2f} in, style is {st['W']:.2f} × {st['H']:.2f} in")
-    for i, s in enumerate(prs.slides, 1): out.append(lint_slide(prs, s, i, st))
+    for i, s in enumerate(prs.slides, 1):
+        r = lint_slide(prs, s, i, st); out.append(r)
+        # body text size of a reference (roadmap 4.2 Run 1): the same measure the benchmark's "body text size" check uses
+        if st.get("body") and r.get("fill") is not None:
+            try: b = measure(path, i).get("body")
+            except Exception: b = None
+            pt, lab = st["body"]
+            if b and b["median_pt"] < pt - 1:
+                r["errors"].append(f"body size: body text {b['median_pt']:g} pt (median), the reference's body is {pt:g} pt. Never shrink type to fit: cut words, drop the weakest item or split the slide")
+            elif b and b["min_pt"] < lab - 1:
+                r["warnings"].append(f"body size: smallest body text {b['min_pt']:g} pt, the reference's labels, table cells and chart text are at least {lab:g} pt. Cut or split instead of shrinking; notes and footnotes may stay smaller if the reference's are")
     fills = sorted(s["fill"][0] for s in out if s.get("fill")); deck_warnings = []
     if len(fills) >= 4 and fills[len(fills) // 2] < 0.85:
         deck_warnings.append(f"empty: the median content slide fills {fills[len(fills) // 2]:.0%} of its body (reference decks: 93-98%). Most slides need more proof on the page: 2-4 exhibits per analysis slide (Style/storytelling.md §8 rule 11)")
