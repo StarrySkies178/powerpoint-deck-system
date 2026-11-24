@@ -1,4 +1,4 @@
-# Benchmark results: v2.51 Run 2 not kept: restored v2.49 files, stored builds (2026-11-24 04:25)
+# Benchmark results: v2.53 Run 2b: C04 prompt corrected to the original slide (measuring tool), stored builds (2026-11-24 04:42)
 
 **Regression 7 / 7** (must stay all-pass) · **Capability 1 / 13** · **Total 8 / 20 pass**
 

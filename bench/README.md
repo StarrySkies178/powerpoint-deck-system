@@ -128,6 +128,7 @@ Every case's `original.png` and its floors are now drawn from the reference deck
 
 - Run 1 (v2.49, body text size from the reference, kept): stored builds unchanged; rebuilds 0 of 30 pass, layout 0.262 to 0.281, visual 0.285 to 0.316.
 - Run 2 (v2.51, a check that every number comes from the prompt, not kept): stored builds unchanged and none failed the check; rebuilds 0 of 30 pass, layout 0.281 to 0.271, visual 0.316 to 0.319, none failed the check; C05 fell 0.17 to 0.00 layout, beyond the 0.14 band, so the v2.49 files were restored. The tried code is in `archive/*_tried-not-kept-run2_2026-11-24.*`. Comparison images: `review-run2/`.
+- Run 2b (v2.53, measuring tool only): `cases/C04-two-charts-ecluster/prompt.md` corrected to the original slide (column totals 532, 722, 998; CAGR fashion 9% / 13%, fine 4% / 5%, total 4% / 7%; fine 4% circled). It had 53, 72, 99 and 23% / 18%, which no build could match. Old prompt in `archive/C04-prompt_before-run2b_v2.53_2026-11-24.md`. Scores do not read the prompt, so the re-score is unchanged. **Baseline from v2.53:** regression 7 of 7 (mean layout 0.743, visual 0.797), capability 1 of 13 (mean layout 0.234, visual 0.263), total 8 of 20. The stored C04 build (`cases/C04-two-charts-ecluster/build.js`) and its noise rebuilds were made from the old prompt and still show its numbers; fresh rebuilds from now on use the corrected one.
 
 ## Official environment (since 2026-11-24, roadmap step 1.3)
 
